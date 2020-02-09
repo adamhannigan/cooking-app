@@ -1,0 +1,10 @@
+{
+	"auth": {
+		"cookingaca957bc": {
+			"service": "Cognito",
+			"providerPlugin": "awscloudformation",
+			"dependsOn": [],
+			"customAuth": false
+		}
+	}
+}

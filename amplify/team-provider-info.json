@@ -1,0 +1,20 @@
+{
+    "dev": {
+        "awscloudformation": {
+            "AuthRoleName": "amplify-cooking-dev-150719-authRole",
+            "UnauthRoleArn": "arn:aws:iam::113168382663:role/amplify-cooking-dev-150719-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::113168382663:role/amplify-cooking-dev-150719-authRole",
+            "Region": "ap-southeast-2",
+            "DeploymentBucketName": "amplify-cooking-dev-150719-deployment",
+            "UnauthRoleName": "amplify-cooking-dev-150719-unauthRole",
+            "StackName": "amplify-cooking-dev-150719",
+            "StackId": "arn:aws:cloudformation:ap-southeast-2:113168382663:stack/amplify-cooking-dev-150719/ac5b4da0-4af1-11ea-a145-0aad5876c98a",
+            "AmplifyAppId": "d28er8f2xlqm5x"
+        },
+        "categories": {
+            "auth": {
+                "cookingaca957bc": {}
+            }
+        }
+    }
+}
