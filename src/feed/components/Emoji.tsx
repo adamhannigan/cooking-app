@@ -8,6 +8,8 @@ import {
   Block, Button, theme,
 } from 'galio-framework';
 
+import { Text, Avatar, Button as KittenButton } from '@ui-kitten/components'
+
 
 export interface Props {
   emojis: {
@@ -18,7 +20,7 @@ export interface Props {
 
 const Emojis = ({ emojis }: Props) => {
   const [counts, setCounts] = React.useState(emojis.map(emoji => emoji.count))
-
+  
   return (
     <Block row middle style={{ marginHorizontal: theme.SIZES.BASE }}>
     {
@@ -26,21 +28,23 @@ const Emojis = ({ emojis }: Props) => {
             const text = `${emoji.icon} ${counts[index]}`
 
             return (
-                <Button
-                    key={index}
+              <KittenButton
+                  appearance='outline'
+                  status='warning'
+                  style={styles.iconButton}
+                  size='small'
+                  textStyle={styles.text}
+                  activeOpacity={0.3}
+                  key={index}
                     onPress={() => { 
                         setCounts(prev => 
                         prev.map((count, i) => i === index ? count + 1 : count))
                         }
                     }
-                    style={styles.iconButton}
-                    round
-                    color='warning'
-                    shadowColor='grey'
                 >
                 {text}
-                
-                </Button>
+
+                </KittenButton>
             )
         })
     }
@@ -50,10 +54,15 @@ const Emojis = ({ emojis }: Props) => {
 
 const styles = StyleSheet.create({
   iconButton: {
-    width: 60,
     color: theme.COLORS.MUTED,
     marginRight: theme.SIZES.BASE / 2,
     paddingLeft: 3,
+    backgroundColor: 'white',
+  },
+  text: {
+    fontSize: 16,
+    position: 'relative',
+    paddingTop: 2,
   },
 });
 

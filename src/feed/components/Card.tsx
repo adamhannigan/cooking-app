@@ -8,7 +8,11 @@ import {
   Dimensions,
   TouchableOpacity,
 } from 'react-native';
-import { Text, Avatar, Button as KittenButton } from '@ui-kitten/components'
+
+import { useNavigation } from '@react-navigation/native'
+
+
+import { Text, Avatar, Button as KittenButton, Icon } from '@ui-kitten/components'
 
 import Emoji from 'react-native-emoji'
 
@@ -18,7 +22,7 @@ import Emojis from './Emoji'
 
 // galio components
 import {
-  Block, Card as GalioCard, theme,
+  Block, Card as GalioCard, theme, 
 } from 'galio-framework';
 
 const { width } = Dimensions.get('screen');
@@ -29,6 +33,7 @@ export interface Props {
   description: string
   link: string
   userName: string
+  userTitle: string
   emojis: {
     icon: string
     count: number
@@ -36,7 +41,9 @@ export interface Props {
   navigation: any
 }
 
-const Card = ({ emojis, image, title, description, userName, navigation }: Props) => {
+const Card = ({ emojis, image, title, description, userName, userTitle }: Props) => {
+  const navigation = useNavigation()
+
   return (
     <GalioCard
         flex
@@ -53,7 +60,7 @@ const Card = ({ emojis, image, title, description, userName, navigation }: Props
                 <Text category='h3' style={styles.title}>
                   {title}
                 </Text>
-                <Text category='p1' appearance='hint'>
+                <Text category='p1' appearance='hint' style={styles.title}>
                   {description}
                 </Text>
               </Block>
@@ -68,15 +75,15 @@ const Card = ({ emojis, image, title, description, userName, navigation }: Props
                     <Text category='s1'>
                       {userName}
                     </Text>
-                    <Text category='c2' appearance='hint'>
-                      Cooked 5 times before
+                    <Text category='c2' appearance='hint' style={styles.cookTime}>
+                      { userTitle }
                     </Text>
                   </Block>
                 </Block>
                 <KittenButton
+                  onPress={() => navigation.navigate('Cook')}
                   appearance='outline'
                   status='warning'
-                  onPress={() => navigation.navigate('Cook')}
                 >
                   Cook
                 </KittenButton>
@@ -99,13 +106,14 @@ const styles = StyleSheet.create({
     // Offset where the icon was
     marginLeft: theme.SIZES.BASE * -1.5,
     paddingRight: theme.SIZES.BASE * 3,
+    marginTop: theme.SIZES.BASE * -0.5,
     position: 'relative',
   },
   user: {
     width,
     marginLeft: theme.SIZES.BASE * -1.5,
     paddingRight: theme.SIZES.BASE * 3.8,
-    marginTop: theme.SIZES.BASE,
+    marginTop: theme.SIZES.BASE / 2,
   },
   userText: {
     marginLeft: theme.SIZES.BASE * 0.5,
@@ -113,23 +121,20 @@ const styles = StyleSheet.create({
   title: {
   },
   icons: {
-    position: 'absolute',
     display: 'flex',
-    left: theme.SIZES.BASE * -2.5,
-    top: theme.SIZES.BASE * -3,
-  },
-  iconButton: {
-    width: 60,
-    color: theme.COLORS.MUTED,
-    backgroundColor: 'white',
-    marginRight: theme.SIZES.BASE / 2,
-    paddingLeft: 3,
+    // Offset where the icon was
+    marginLeft: theme.SIZES.BASE * -2.5,
+    position: 'relative',
+    bottom: theme.SIZES.BASE,
   },
   textIcon: {
     borderColor: theme.COLORS.MUTED,
     borderWidth: 1,
     color: theme.COLORS.MUTED,
     padding: 10,
+  },
+  cookTime: {
+    marginTop: -2,
   },
 });
 
