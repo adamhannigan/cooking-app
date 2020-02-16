@@ -33,9 +33,10 @@ export interface Props {
     icon: string
     count: number
   }[]
+  navigation: any
 }
 
-const Card = ({ emojis, image, title, description, userName }: Props) => {
+const Card = ({ emojis, image, title, description, userName, navigation }: Props) => {
   return (
     <GalioCard
         flex
@@ -75,6 +76,7 @@ const Card = ({ emojis, image, title, description, userName }: Props) => {
                 <KittenButton
                   appearance='outline'
                   status='warning'
+                  onPress={() => navigation.navigate('Cook')}
                 >
                   Cook
                 </KittenButton>

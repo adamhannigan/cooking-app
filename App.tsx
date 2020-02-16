@@ -15,6 +15,7 @@ import { StyleSheet } from 'react-native'
 import Login from './src/login/Login'
 import Register from './src/register/Register'
 import Home from './src/home/Home'
+import Cook from './src/cook/Cook'
 
 Amplify.configure(amplify);
 
@@ -32,6 +33,7 @@ function App() {
               component={Login}
             />
             <Stack.Screen name="Register" component={Register} />
+            <Stack.Screen name="Cook" component={Cook} />
           </Stack.Navigator>
         </NavigationContainer>
       </ApplicationProvider>
