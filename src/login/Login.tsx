@@ -48,14 +48,8 @@ const Login = ({ navigation }: any) => {
             </Text>
           </Block>
 
-          <Block flex center >
-            <Text muted center>
-              { error }
-            </Text>
-          </Block>
-
-          <Block flex={2} center space="evenly">
-            <Block flex={2}>
+          <Block flex={2}>
+            <Block>
               <Input
                 rounded
                 type="email-address"
@@ -96,6 +90,12 @@ const Login = ({ navigation }: any) => {
                 </Text>
               </Button>
             </Block>
+          </Block>
+
+          <Block flex center >
+            <Text muted center>
+              { error }
+            </Text>
           </Block>
         </KeyboardAvoidingView>
       </Block>

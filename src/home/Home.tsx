@@ -6,20 +6,19 @@ import {
 } from 'galio-framework';
 
 import Feed from '../feed/Feed'
-
-const AlbumsRoute = () => <Text>Albums</Text>;
+import Chefs from '../chefs/Chefs'
 
 const RecentsRoute = () => <Text>Recents</Text>;
 
 const routes = [
     { key: 'feed', title: 'Feed', icon: 'queue-music' },
-    { key: 'albums', title: 'Login', icon: 'album' },
+    { key: 'chefs', title: 'Chefs', icon: 'album' },
     { key: 'recents', title: 'Register', icon: 'history' },
 ]
 
 const scene = BottomNavigation.SceneMap({
     feed: Feed,
-    albums: AlbumsRoute,
+    chefs: Chefs,
     recents: RecentsRoute,
 });
 
@@ -31,6 +30,10 @@ const Home = () => {
             navigationState={{ index, routes }}
             onIndexChange={index => setIndex(index)}
             renderScene={scene}
+            labeled
+            barStyle={{ backgroundColor: 'orange' }}
+            activeColor='white'
+            inactiveColor='#f4f4f4'
         />
     )
 }
