@@ -22,7 +22,7 @@ import Emojis from './Emoji'
 
 // galio components
 import {
-  Block, Card as GalioCard, theme, 
+  Block, Card as GalioCard, theme, Button as GalioButton,
 } from 'galio-framework';
 
 const { width } = Dimensions.get('screen');
@@ -45,93 +45,87 @@ const Card = ({ emojis, image, title, description, userName, userTitle }: Props)
   const navigation = useNavigation()
 
   return (
-    <GalioCard
-        flex
-        style={styles.stats}
-        borderless
-        image={image}
-        location={(
-          <Block style={styles.content}>
-            <Block row style={styles.icons}>
-              <Emojis emojis={emojis} />
-            </Block>
+    <Block style={styles.container}>
+      <Block>
+        <Block>
+          <Block row space='between'>
             <Block row>
-              <Block style={styles.content}>
-                <Text category='h3' style={styles.title}>
-                  {title}
+              <Avatar source={{
+                uri: 'http://i.pravatar.cc/100?id=skater',
+              }}/>
+              <Block style={styles.userText}>
+                <Text category='s1'>
+                  {userName}
                 </Text>
-                <Text category='p1' appearance='hint' style={styles.title}>
-                  {description}
-                </Text>
-              </Block>
-            </Block>
-            <Block>
-              <Block style={styles.user} row space='between'>
-                <Block row>
-                  <Avatar source={{
-                    uri: 'http://i.pravatar.cc/100?id=skater',
-                  }}/>
-                  <Block style={styles.userText}>
-                    <Text category='s1'>
-                      {userName}
-                    </Text>
-                    <Text category='c2' appearance='hint' style={styles.cookTime}>
-                      { userTitle }
-                    </Text>
-                  </Block>
-                </Block>
-                <KittenButton
-                  onPress={() => navigation.navigate('Cook')}
-                  appearance='outline'
-                  status='warning'
-                >
-                  Cook
-                </KittenButton>
               </Block>
             </Block>
           </Block>
-        )}
-    />
+        </Block>
+
+        <Block row>
+          <Block>
+            <Text category='h6' style={styles.hungryFor}>
+              I'm hungry for...
+            </Text>
+            <Text category='h3'>
+              {title}
+            </Text>
+          </Block>
+        </Block>
+      </Block>
+      <Image source={{ uri: image }} style={styles.image}/>
+      <Block style={styles.content}>
+          <Block row style={styles.icons}>
+            <Emojis emojis={emojis} />
+          </Block>
+          <GalioButton round style={styles.button}  color="warning">
+            🇧🇷7
+          </GalioButton>
+      </Block>
+    </Block>
   )
 };
 
 const styles = StyleSheet.create({
-  stats: {
-    width: width - theme.SIZES.BASE * 2,
+  container: {
     marginVertical: theme.SIZES.BASE * 0.875,
+    width: width - theme.SIZES.BASE * 2,
+  },
+  stats: {
     backgroundColor: '#fff',
+  },
+  image: {
+    width: width - theme.SIZES.BASE * 2,
+    height: theme.SIZES.BASE * 10,
+    borderRadius: 5,
+    marginTop: theme.SIZES.BASE * 0.5,
+  },
+  hungryFor: {
+    paddingTop: theme.SIZES.BASE * 0.5,
+    marginBottom: theme.SIZES.BASE * -0.5,
+    fontWeight: 'bold',
+  },
+  button: {
+    backgroundColor: 'white',
+    width: theme.SIZES.BASE * 3,
+    color: 'black',
   },
   content: {
     width,
     // Offset where the icon was
     marginLeft: theme.SIZES.BASE * -1.5,
     paddingRight: theme.SIZES.BASE * 3,
-    marginTop: theme.SIZES.BASE * -0.5,
+    marginTop: theme.SIZES.BASE * 2,
     position: 'relative',
-  },
-  user: {
-    width,
-    marginLeft: theme.SIZES.BASE * -1.5,
-    paddingRight: theme.SIZES.BASE * 3.8,
-    marginTop: theme.SIZES.BASE / 2,
   },
   userText: {
     marginLeft: theme.SIZES.BASE * 0.5,
   },
-  title: {
-  },
   icons: {
     display: 'flex',
     // Offset where the icon was
-    marginLeft: theme.SIZES.BASE * -2.5,
     position: 'relative',
     bottom: theme.SIZES.BASE,
-  },
-  textIcon: {
-    borderColor: theme.COLORS.MUTED,
-    borderWidth: 1,
-    color: theme.COLORS.MUTED,
-    padding: 10,
   },
   cookTime: {
     marginTop: -2,

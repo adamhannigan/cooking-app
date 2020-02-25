@@ -100,7 +100,7 @@ const Article = props => {
   return (
     <View style={{ flex: 1 }}>
       <ScrollView style={{ flex: 1 }}>
-        <Block center style={{ marginTop: -theme.SIZES.BASE * 2 }}>
+        <Block center style={{ marginTop: - theme.SIZES.BASE * 2 }}>
           <Block flex style={styles.header}>
             <Text category='h3' style={styles.title}>
               What's cooking tonight?

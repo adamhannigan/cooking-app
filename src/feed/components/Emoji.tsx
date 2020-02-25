@@ -22,7 +22,7 @@ const Emojis = ({ emojis }: Props) => {
   const [counts, setCounts] = React.useState(emojis.map(emoji => emoji.count))
   
   return (
-    <Block row middle style={{ marginHorizontal: theme.SIZES.BASE }}>
+    <Block row middle style={{ marginHorizontal: theme.SIZES.BASE * 1.5 }}>
     {
         emojis.map((emoji, index) => {
             const text = `${emoji.icon} ${counts[index]}`
