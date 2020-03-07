@@ -78,7 +78,7 @@ const Preferences = ({ navigation }) => {
                                 backgroundColor: isSelected ? '#fe9b0040' : 'white'
                               }}
                               appearance={'outline' }
-                              status='warning'
+                              status='primary'
                               onPress={() => onSelect(item)}
                             >
                                 {item}
@@ -96,14 +96,14 @@ const Preferences = ({ navigation }) => {
           <Button
             size='medium'
             appearance='ghost'
-            status='warning'
+            status='primary'
             onPress={() => navigation.navigate('Follow')}
           >
             Skip for now
           </Button>
           <Button
             size='medium'
-            status='warning'
+            status='primary'
             onPress={() => navigation.navigate('Follow')}
             disabled={selected.length === 0}
           >

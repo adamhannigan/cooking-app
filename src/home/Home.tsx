@@ -32,7 +32,7 @@ const Home = () => {
             onIndexChange={index => setIndex(index)}
             renderScene={scene}
             labeled
-            barStyle={{ backgroundColor: 'orange' }}
+            barStyle={{ backgroundColor: theme.COLORS.primary }}
             activeColor='white'
             inactiveColor='#f4f4f4'
         />

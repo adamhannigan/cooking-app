@@ -90,7 +90,7 @@ const Menu = ({ navigation }) => {
                             <Block center>
                                 <Button
                                     appearance='outline'
-                                    status='warning'
+                                    status='primary'
                                     onPress={() => onSelect(meal.title)}
                                     style={{
                                         backgroundColor: isSelected ? '#fe9b0040' : 'white'
@@ -114,14 +114,14 @@ const Menu = ({ navigation }) => {
           <Button
             size='medium'
             appearance='ghost'
-            status='warning'
+            status='primary'
             onPress={() => navigation.navigate('Home')}
           >
             Skip for now
           </Button>
           <Button
             size='medium'
-            status='warning'
+            status='primary'
             onPress={() => navigation.navigate('Home')}
             disabled={selected.length === 0}
           >

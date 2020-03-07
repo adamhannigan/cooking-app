@@ -30,7 +30,7 @@ const Emojis = ({ emojis }: Props) => {
             return (
               <KittenButton
                   appearance='outline'
-                  status='warning'
+                  status='primary'
                   style={styles.iconButton}
                   size='small'
                   textStyle={styles.text}

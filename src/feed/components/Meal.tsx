@@ -41,6 +41,8 @@ const Meal = (meal: Card) => {
     const onClick = () => {
         setCount(count + 1)
     }
+
+    const isFavourited = (count - meal.likes) > 5
     
   return (
         <Block style={styles.container}>
@@ -66,63 +68,72 @@ const Meal = (meal: Card) => {
                 source={{ uri: meal.image }}
                 style={styles.image}
             />
-            <Block flex row style={styles.buttons}>
-              <Button
-                appearance='outline'
-                style={styles.likeButton}
-                status='warning'
-                onPress={onClick}
-                size='small'
-                disabled={count >= 5}
-              >
-                {`${count} ♥️`}
-              </Button>
-              {
-                count > 5 && (
-                  <Block start row>
-                    <Button
-                      appearance='outline'
-                      status='warning'
-                      size='small'
-                      style={styles.button}
-                    >
-                      Menu +
-                    </Button>
-                    <Button
-                      appearance='outline'
-                      status='basic'
-                      size='small'
-                      style={styles.button}
-                    >
-                      Bookmark +
-                    </Button>
+            <Block row style={styles.content}>
+              <Block style={styles.left} space='between'>
+                <Block>
+                  <Block row>
+                    <Text category='h4' numberOfLines={2}>
+                        {meal.title}
+                    </Text>
+                  </Block>
+
+                  <Block row>
+                    <Text category='s1'>
+                        {meal.preferences && meal.preferences.join(' • ')}
+                    </Text>
+                  </Block>
                 </Block>
-              )}
-            </Block>
-            <Block row>
-              <Text category='h5'>
-                  {meal.title}
-              </Text>
-            </Block>
-            <Block row>
-              <Text category='label'>
-                  {meal.preferences}
-              </Text>
-            </Block>
-            <Block row space='between' middle style={styles.metadata}>
-              <Text category='label' appearance='hint'>
-                    5 hrs ago
-              </Text>
-              <Button
-                  appearance='ghost'
-                  status='warning'
-                  size='small'
-                  style={styles.button}
-                >
-                  Recipe >
+                <Block row style={styles.metadata}>
+                  <Text category='label' appearance='hint'>
+                        5 hrs ago
+                  </Text>
+                </Block>
+              </Block>
+            <Block style={styles.right} space='between'>
+              <Block>
+                  <Button
+                    appearance='outline'
+                    style={styles.likeButton}
+                    status='basic'
+                    onPress={onClick}
+                    size='small'
+                    disabled={isFavourited}
+                  >
+                    {`${count} ♥️`}
+                  </Button>
+                  {
+                  isFavourited && (
+                    <Block start>
+                      <Button
+                        appearance='outline'
+                        style={styles.likeButton}
+                        status='success'
+                        size='small'
+                      >
+                        Menu +
+                      </Button>
+                      <Button
+                        appearance='outline'
+                        status='primary'
+                        size='small'
+                        style={styles.likeButton}
+                      >
+                        Save 
+                      </Button>
+                  </Block>
+                )}
+                </Block>
+                <Button
+                    appearance='ghost'
+                    status='primary'
+                    size='small'
+                    style={styles.button}
+                  >
+                    Recipe >
                 </Button>
+              </Block>
             </Block>
-        </Block>
+          </Block>
   )
 }
 
@@ -145,6 +156,10 @@ const styles = StyleSheet.create({
   avatar: {
       marginRight: 5,
   },
+  content: {
+    marginTop: theme.SIZES.BASE / 2,
+    paddingBottom: theme.SIZES.BASE / 2,
+  },
   buttons: {
     marginTop: theme.SIZES.BASE,
     marginBottom: theme.SIZES.BASE,
@@ -157,11 +172,10 @@ const styles = StyleSheet.create({
     marginRight: theme.SIZES.BASE,
     paddingRight: 0,
     paddingLeft: 0,
+    marginBottom: 10,
   },
   button: {
-    marginRight: theme.SIZES.BASE,
     backgroundColor: 'white',
-    alignSelf: 'flex-end',
   },
   image: {
     width: width,
@@ -170,7 +184,12 @@ const styles = StyleSheet.create({
     marginTop: theme.SIZES.BASE * 0.5,
   },
   metadata: {
-    marginTop: -10,
+  },
+  right: {
+    width: 120,
+  },
+  left: {
+    width: width - 100,
   },
 });
 

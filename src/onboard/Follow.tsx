@@ -100,7 +100,7 @@ const Follow = ({ navigation }) => {
                                         </Block>
                                         <Button
                                             appearance='outline'
-                                            status='warning'
+                                            status='primary'
                                             onPress={() => onFollow(person.name)}
                                             style={{
                                                 backgroundColor: isFollowing ? '#fe9b0040' : 'white'
@@ -125,14 +125,14 @@ const Follow = ({ navigation }) => {
           <Button
             size='medium'
             appearance='ghost'
-            status='warning'
+            status='primary'
             onPress={() => navigation.navigate('Menu')}
           >
             Skip for now
           </Button>
           <Button
             size='medium'
-            status='warning'
+            status='primary'
             disabled={followed.length === 0}
             onPress={() => navigation.navigate('Menu')}
           >

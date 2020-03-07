@@ -78,7 +78,7 @@ const Card = ({ emojis, image, title, description, userName, userTitle }: Props)
           <Block row style={styles.icons}>
             <Emojis emojis={emojis} />
           </Block>
-          <GalioButton round style={styles.button}  color="warning">
+          <GalioButton round style={styles.button}  color="primary">
             🇧🇷7
           </GalioButton>
       </Block>

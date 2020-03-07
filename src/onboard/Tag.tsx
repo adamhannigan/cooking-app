@@ -17,7 +17,7 @@ const Tag = ({ text, onClick, isSelected }) => (
             backgroundColor: isSelected ? '#fe9b0040' : 'white'
         }}
         appearance={'outline' }
-        status='warning'
+        status='primary'
         onPress={onClick}
     >
         {text}
