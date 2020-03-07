@@ -16,5 +16,23 @@
                 "cookingaca957bc": {}
             }
         }
+    },
+    "develop": {
+        "awscloudformation": {
+            "AuthRoleName": "amplify-cooking-develop-125831-authRole",
+            "UnauthRoleArn": "arn:aws:iam::113168382663:role/amplify-cooking-develop-125831-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::113168382663:role/amplify-cooking-develop-125831-authRole",
+            "Region": "ap-southeast-2",
+            "DeploymentBucketName": "amplify-cooking-develop-125831-deployment",
+            "UnauthRoleName": "amplify-cooking-develop-125831-unauthRole",
+            "StackName": "amplify-cooking-develop-125831",
+            "StackId": "arn:aws:cloudformation:ap-southeast-2:113168382663:stack/amplify-cooking-develop-125831/27566870-6017-11ea-ba28-0620fb4f1fdc",
+            "AmplifyAppId": "d28er8f2xlqm5x"
+        },
+        "categories": {
+            "auth": {
+                "cookingaca957bc": {}
+            }
+        }
     }
 }

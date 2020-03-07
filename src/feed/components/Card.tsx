@@ -65,7 +65,7 @@ const Card = ({ emojis, image, title, description, userName, userTitle }: Props)
         <Block row>
           <Block>
             <Text category='h6' style={styles.hungryFor}>
-              I'm hungry for...
+              I'm hungry for..
             </Text>
             <Text category='h3'>
               {title}
@@ -90,9 +90,7 @@ const styles = StyleSheet.create({
   container: {
     marginVertical: theme.SIZES.BASE * 0.875,
     width: width - theme.SIZES.BASE * 2,
-  },
-  stats: {
-    backgroundColor: '#fff',
+    backgroundColor: 'white',
   },
   image: {
     width: width - theme.SIZES.BASE * 2,

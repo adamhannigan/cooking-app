@@ -11,15 +11,16 @@ import Chefs from '../chefs/Chefs'
 const RecentsRoute = () => <Text>Recents</Text>;
 
 const routes = [
-    { key: 'feed', title: 'Feed', icon: 'queue-music' },
-    { key: 'chefs', title: 'Chefs', icon: 'album' },
-    { key: 'recents', title: 'Register', icon: 'history' },
+    { key: 'meals', title: 'Meals', icon: 'silverware-fork-knife' },
+    { key: 'search', title: 'Search', icon: 'feature-search-outline' },
+    { key: 'activity', title: 'Activity', icon: 'heart-outline' },
+    { key: 'menu', title: 'Menu', icon: 'book-open' },
 ]
 
 const scene = BottomNavigation.SceneMap({
-    feed: Feed,
-    chefs: Chefs,
-    recents: RecentsRoute,
+    meals: Feed,
+    activity: Chefs,
+    menu: RecentsRoute,
 });
 
 const Home = () => {

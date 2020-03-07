@@ -14,6 +14,9 @@ import { StyleSheet } from 'react-native'
 
 import Login from './src/login/Login'
 import Register from './src/register/Register'
+import Preferences from './src/onboard/Preferences'
+import Follow from './src/onboard/Follow'
+import Menu from './src/onboard/Menu'
 import Home from './src/home/Home'
 import Cook from './src/cook/Cook'
 
@@ -28,6 +31,9 @@ function App() {
         <NavigationContainer>
           <Stack.Navigator>
             <Stack.Screen name="Home" component={Home} />
+            <Stack.Screen name="Preferences" component={Preferences} />
+            <Stack.Screen name="Follow" component={Follow} />
+            <Stack.Screen name="Menu" component={Menu} />
             <Stack.Screen
               name="Login"
               component={Login}
