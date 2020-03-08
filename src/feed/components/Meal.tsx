@@ -1,41 +1,29 @@
 import React from 'react';
 import {
   Image,
-  StatusBar,
   StyleSheet,
-  ScrollView,
-  View,
   Dimensions,
-  TouchableOpacity
 } from 'react-native';
 
-import { Text, Avatar, Button } from '@ui-kitten/components'
+import { Text, Button } from '@ui-kitten/components'
 
 import Constants from 'expo-constants';
 
-import Tag from '../../onboard/Tag'
-
-const { statusBarHeight } = Constants;
-
-console.disableYellowBox = true
 // galio components
 import {
-  Block, Icon, NavBar, theme
+  Block, theme, Icon
 } from 'galio-framework';
 
 const { width, height } = Dimensions.get('screen');
 
-interface Card {
+interface Meal {
   title: string
   image: string
   action: string
-  user: {
-    name: string
-  },
   preferences: string[]
   likes: number,
 }
-const Meal = (meal: Card) => {
+const Meal = (meal: Meal) => {
     const [count, setCount] = React.useState(meal.likes)
 
     const onClick = () => {
@@ -45,25 +33,7 @@ const Meal = (meal: Card) => {
     const isFavourited = (count - meal.likes) > 5
     
   return (
-        <Block style={styles.container}>
-            <Block row space='between' style={styles.person}>
-                <Block row>
-                    <Avatar
-                        style={styles.avatar}
-                        source={{
-                            uri: 'http://i.pravatar.cc/100?id=skater',
-                        }}
-                    />
-                    <Block>
-                        <Text category='label'>
-                            {meal.user.name}
-                        </Text>
-                        <Text category='s1'>
-                            {meal.action}
-                        </Text>
-                    </Block>
-                </Block>
-            </Block>
+        <Block>
             <Image
                 source={{ uri: meal.image }}
                 style={styles.image}
@@ -82,6 +52,11 @@ const Meal = (meal: Card) => {
                         {meal.preferences && meal.preferences.join(' • ')}
                     </Text>
                   </Block>
+                  <Block row end style={styles.description}>
+                    <Text category='s1' appearance='hint'>
+                        Easy peasy lemon squeezy!
+                    </Text>
+                  </Block>
                 </Block>
                 <Block row style={styles.metadata}>
                   <Text category='label' appearance='hint'>
@@ -94,7 +69,7 @@ const Meal = (meal: Card) => {
                   <Button
                     appearance='outline'
                     style={styles.likeButton}
-                    status='basic'
+                    status='primary'
                     onPress={onClick}
                     size='small'
                     disabled={isFavourited}
@@ -129,7 +104,7 @@ const Meal = (meal: Card) => {
                     size='small'
                     style={styles.button}
                   >
-                    Recipe >
+                    Recipe
                 </Button>
               </Block>
             </Block>
@@ -143,18 +118,14 @@ const styles = StyleSheet.create({
     paddingLeft: theme.SIZES.BASE,
 
     backgroundColor: 'white',
-    width,
+    width: width - (theme.SIZES.BASE * 2),
     borderTopWidth: 1,
     borderTopColor: '#e3e3e3',
     borderBottomWidth: 1,
     borderBottomColor: '#e3e3e3',
   },
-  person: {
-    paddingTop: theme.SIZES.BASE,
-    paddingBottom: theme.SIZES.BASE / 2,
-  },
-  avatar: {
-      marginRight: 5,
+  description: {
+    paddingVertical: theme.SIZES.BASE / 3,
   },
   content: {
     marginTop: theme.SIZES.BASE / 2,
@@ -170,6 +141,7 @@ const styles = StyleSheet.create({
     borderRadius: 50,
     width: 70,
     marginRight: theme.SIZES.BASE,
+    backgroundColor: 'white',
     paddingRight: 0,
     paddingLeft: 0,
     marginBottom: 10,
@@ -181,15 +153,15 @@ const styles = StyleSheet.create({
     width: width,
     height: theme.SIZES.BASE * 10,
     marginLeft: -theme.SIZES.BASE,
-    marginTop: theme.SIZES.BASE * 0.5,
   },
   metadata: {
   },
   right: {
-    width: 120,
+    width: 80,
   },
   left: {
-    width: width - 100,
+    flex: 1,
+
   },
 });
 

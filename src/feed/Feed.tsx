@@ -9,23 +9,30 @@ import {
   TouchableOpacity
 } from 'react-native';
 
+import { useNavigation } from '@react-navigation/native'
 
-import { Text, Avatar } from '@ui-kitten/components'
+
+import FAB from 'react-native-fab'
 
 import Constants from 'expo-constants';
 
-const { statusBarHeight } = Constants;
-
 // galio components
 import {
-  Block, Icon, NavBar, theme
+  Block, Icon, NavBar, theme, Text,
 } from 'galio-framework';
 
-import Meal from './components/Meal'
+import { useRoute, useIsFocused } from '@react-navigation/native'
+
+
+import MealCard from './components/MealCard'
 
 const { width, height } = Dimensions.get('screen');
 
 const Feed = props => {
+  const isFocused = useIsFocused()
+  const navigation = useNavigation()
+  console.log('Is focused', isFocused)
+
   const cards = [{
     title: 'Sweet Potato Gnocci',
     action: '🤤 Is hungry for...',
@@ -34,7 +41,7 @@ const Feed = props => {
       name: 'Adam Hannigan'
     },
     likes: 22,
-    preferences: ['🍆 Vegetarian'],
+    preferences: ['🍆 Vegetarian', '🍠 Sweet Potato'],
   }, {
     title: 'Brazillian Carrot Cake',
     action: '👨‍🍳 Just cooked...',
@@ -43,6 +50,7 @@ const Feed = props => {
     user: {
       name: 'Jess Lobster',
     },
+    preferences: ['🇧🇷 Brazil', '🍰 Cake'],
     likes: 62,
   }, {
     title: 'Creamy Cajun Pasta',
@@ -67,16 +75,22 @@ const Feed = props => {
   return (
     <View style={{ flex: 1 }}>
       <ScrollView style={{ flex: 1 }}>
+        <Text>{isFocused ? 'focused' : 'not'}</Text>
         <Block center style={{ marginTop: - theme.SIZES.BASE * 2 }}>
           <Block flex style={styles.header}>
             <Block center>
               {
-                cards.map(card => <Meal {...card}/>)
+                cards.map(card => <MealCard {...card}/>)
               }
             </Block>
           </Block>
         </Block>
       </ScrollView>
+      <FAB buttonColor="red"  iconTextColor="#FFFFFF" onClickAction={() => navigation.navigate('Cook')} visible={isFocused} iconTextComponent={
+          (
+            <Icon name='plus' color={theme.COLORS.MUTED} family='AntDesign' size={30} />
+          )
+        } />
     </View>
   )
 }
@@ -93,6 +107,9 @@ const styles = StyleSheet.create({
   title: {
     paddingTop: theme.SIZES.BASE,
     paddingBottom: theme.SIZES.BASE,
+  },
+  fab: {
+    position: 'absolute',
   },
 });
 

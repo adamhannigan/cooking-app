@@ -5171,7 +5171,7 @@ promise@^7.1.1:
   dependencies:
     asap "~2.0.3"
 
-prop-types@^15.5.8, prop-types@^15.6.0, prop-types@^15.6.1, prop-types@^15.6.2, prop-types@^15.7.2:
+prop-types@^15.5.10, prop-types@^15.5.8, prop-types@^15.6.0, prop-types@^15.6.1, prop-types@^15.6.2, prop-types@^15.7.2:
   version "15.7.2"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.7.2.tgz#52c41e75b8c87e72b9d9360e0206b99dcbffa6c5"
   integrity sha512-8QQikdH7//R2vurIJSutZ1smHYTcLpRWEOlHnzcWHmBYrOGUysKwSsrC89BCiFj3CbrfJ/nXFdJepOVrY1GCHQ==
@@ -5264,6 +5264,13 @@ react-native-eva-icons@1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/react-native-eva-icons/-/react-native-eva-icons-1.1.0.tgz#323e55d759187edc216d049e7c0012a27383e0ed"
   integrity sha512-0k6sbiKoHxmmbCgAZTHj6llcdcwtbyZJ1E2AK0my7QU0WRaWwqWMep5AUlMbrIiuYE9mkMZiabEXYcfn3ir2PA==
+
+react-native-fab@^1.0.9:
+  version "1.0.9"
+  resolved "https://registry.yarnpkg.com/react-native-fab/-/react-native-fab-1.0.9.tgz#6f8c8982c55c4aa8e4d5b7fe55e08dc7ca4deb31"
+  integrity sha512-/wIFBPbkc3toZre4H4G4XMAAjIJ639k7S8EVQ7+8RHwVk7qc2H5Go4PaU5Z6o9D2vsmDs+Q7kWaqRAk9Ryh4ew==
+  dependencies:
+    prop-types "^15.5.10"
 
 react-native-floating-hearts@^0.0.9:
   version "0.0.9"

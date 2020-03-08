@@ -6,9 +6,9 @@ import {
 } from 'galio-framework';
 
 import Feed from '../feed/Feed'
-import Chefs from '../chefs/Chefs'
-
-const RecentsRoute = () => <Text>Recents</Text>;
+import Activity from '../activity/Activity'
+import MyMenu from '../myMenu/MyMenu'
+import Search from '../search/Search'
 
 const routes = [
     { key: 'meals', title: 'Meals', icon: 'silverware-fork-knife' },
@@ -19,8 +19,9 @@ const routes = [
 
 const scene = BottomNavigation.SceneMap({
     meals: Feed,
-    activity: Chefs,
-    menu: RecentsRoute,
+    search: Search,
+    activity: Activity,
+    menu: MyMenu,
 });
 
 const Home = () => {
