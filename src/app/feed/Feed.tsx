@@ -12,10 +12,7 @@ import {
 import { useNavigation } from '@react-navigation/native'
 import { useTheme } from '@ui-kitten/components'
 
-
 import FAB from 'react-native-fab'
-
-import Constants from 'expo-constants';
 
 // galio components
 import {
