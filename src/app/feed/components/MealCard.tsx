@@ -15,6 +15,8 @@ import { Text, Avatar, Button } from '@ui-kitten/components'
 
 import Constants from 'expo-constants';
 
+import { Meal as IMeal } from '../../../constants/dummyData'
+
 import Meal from './Meal'
 
 const { statusBarHeight } = Constants;
@@ -27,17 +29,7 @@ import {
 
 const { width, height } = Dimensions.get('screen');
 
-interface Card {
-  title: string
-  image: string
-  action: string
-  user?: {
-    name: string
-  },
-  preferences: string[]
-  likes: number,
-}
-const MealCard = (meal: Card) => {
+const MealCard = (meal: IMeal) => {
   const navigation = useNavigation()
     const [count, setCount] = React.useState(meal.likes)
 
@@ -47,7 +39,7 @@ const MealCard = (meal: Card) => {
 
     const isFavourited = (count - meal.likes) > 5
     
-  return (
+    return (
         <Block style={styles.container}>
             {
               meal.user && (

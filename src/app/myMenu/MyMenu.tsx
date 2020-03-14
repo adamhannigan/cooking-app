@@ -83,6 +83,9 @@ const Menu = () => {
             <Text category='h4'>
               Adam Hannigan
             </Text>
+            <Text category='h4' >
+              🐔🍖🍅
+            </Text>
             <Text category='p' >
               Lets go, cook some meat!
             </Text>

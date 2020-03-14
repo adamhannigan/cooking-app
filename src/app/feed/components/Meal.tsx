@@ -93,7 +93,7 @@ const Meal = (meal: Meal) => {
                         size='small'
                         style={styles.likeButton}
                       >
-                        Save 
+                        Save
                       </Button>
                   </Block>
                 )}

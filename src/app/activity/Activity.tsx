@@ -9,7 +9,7 @@ import {
   TouchableOpacity
 } from 'react-native';
 
-import { Text, Avatar, Button } from '@ui-kitten/components'
+import { Text, Avatar, useTheme, withStyles, ThemedComponentProps } from '@ui-kitten/components'
 
 import Constants from 'expo-constants';
 
@@ -27,7 +27,7 @@ const activity = [{
   name: 'Adam Hannigan',
   meal: 'Prawn Rissoto',
   action: 'Is craving your',
-  icon: 'heart',
+  icon: 'hearto',
 }, {
     name: 'Joe Rogan',
     meal: 'Chicken Teriyaki & rice',
@@ -43,7 +43,7 @@ const activity = [{
     name: 'Victoria Mota',
     meal: 'Chicken Teriyaki & rice',
     action: 'Is hungry for your',
-    icon: 'heart',
+    icon: 'hearto',
 }, {
     name: 'Adam Hannigan',
     meal: 'Chicken Teriyaki & rice',
@@ -51,69 +51,8 @@ const activity = [{
     icon: 'book',
 }]
 
-const Follow = ({ navigation }) => {
-  const [followed, setFollowed] = React.useState([])
 
-  const onFollow = (name: string) => {
-    const alreadyExists = followed.includes(name)
-
-    if (alreadyExists) {
-        setFollowed(followed.filter(item => item !== name))
-    } else {
-        setFollowed([...followed, name])
-    }
-  }
-
-  return (
-    <View style={{ flex: 1 }}>
-      <ScrollView style={{ flex: 1 }}>
-        <Block center style={{ marginTop: - theme.SIZES.BASE * 2 }}>
-          <Block flex style={styles.header}>
-            <Text category='h4' style={styles.title}>
-              What's been happening?
-            </Text>
-          </Block>
-          <Block style={styles.group}>
-            {
-                activity.map(person => (
-                    <Block row space='between' style={styles.person}>
-                        <Block row center space='between'>
-                            <Block row>
-                                <Avatar
-                                    style={styles.avatar}
-                                    source={{
-                                        uri: 'http://i.pravatar.cc/100?id=skater',
-                                    }}
-                                />
-
-                                <Block>
-                                    <Text category='s1' numberOfLines={1}>
-                                        {person.name}
-                                    </Text>
-                                    <Block flex row style={styles.preferences}>
-                                        <Text category='s1' appearance='hint' numberOfLines={2}>
-                                            {`${person.action} `}
-                                            <Text category='s1' style={styles.mealText} numberOfLines={1}>
-                                                {person.meal}
-                                            </Text>
-                                        </Text>
-
-                                    </Block>
-                                </Block>
-                            </Block>
-                        </Block>
-                        <Icon name={person.icon} color={theme.COLORS.MUTED} family={person.family || "AntDesign"} size={30} />
-                    </Block>
-                ))
-            }
-            </Block>
-        </Block>
-      </ScrollView>
-    </View>
-  )
-}
-
-const styles = StyleSheet.create({
+const styles = (kittenTheme) => StyleSheet.create({
   header: {
     paddingTop: theme.SIZES.BASE * 2,
     paddingHorizontal: theme.SIZES.BASE,
@@ -152,10 +91,67 @@ const styles = StyleSheet.create({
     paddingBottom: theme.SIZES.BASE / 2,
   },
   mealText: {
-      color: theme.COLORS.PRIMARY,
+      color: kittenTheme['color-primary-default'],
       paddingLeft: 3,
       fontWeight: 'bold',
   },
 });
 
-export default Follow;
+type ThemeStyles = ThemedComponentProps<ReturnType<typeof styles>>
+
+const Activity = ({ navigation, themedStyle }: ThemeStyles) => {
+  const [followed, setFollowed] = React.useState([])
+
+  const kittenTheme = useTheme()
+
+  return (
+    <View style={{ flex: 1 }}>
+      <ScrollView style={{ flex: 1 }}>
+        <Block center style={{ marginTop: - theme.SIZES.BASE * 2 }}>
+          <Block flex style={themedStyle.header}>
+            <Text category='h4' style={themedStyle.title}>
+              What's been happening?
+            </Text>
+          </Block>
+          <Block style={themedStyle.group}>
+            {
+                activity.map(person => (
+                    <Block row space='between' style={themedStyle.person}>
+                        <Block row center space='between'>
+                            <Block row>
+                                <Avatar
+                                    style={themedStyle.avatar}
+                                    source={{
+                                        uri: 'http://i.pravatar.cc/100?id=skater',
+                                    }}
+                                />
+
+                                <Block>
+                                    <Text category='s1' numberOfLines={1}>
+                                        {person.name}
+                                    </Text>
+                                    <Block flex row style={themedStyle.preferences}>
+                                        <Text category='s1' appearance='hint' numberOfLines={2}>
+                                            {`${person.action} `}
+                                            <Text category='s1' style={themedStyle.mealText} numberOfLines={1}>
+                                                {person.meal}
+                                            </Text>
+                                        </Text>
+
+                                    </Block>
+                                </Block>
+                            </Block>
+                        </Block>
+                        <Icon name={person.icon} color={kittenTheme['color-primary-default']} family={person.family || "AntDesign"} size={30} />
+                    </Block>
+                ))
+            }
+            </Block>
+        </Block>
+      </ScrollView>
+    </View>
+  )
+}
+
+export default withStyles(Activity, styles);
+

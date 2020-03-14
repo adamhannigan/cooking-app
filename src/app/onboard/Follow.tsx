@@ -9,7 +9,7 @@ import {
   TouchableOpacity
 } from 'react-native';
 
-import { Text, Avatar, Button } from '@ui-kitten/components'
+import { Text, Avatar, Button, List, ListItem } from '@ui-kitten/components'
 
 import Constants from 'expo-constants';
 
@@ -52,6 +52,45 @@ const Follow = ({ navigation }) => {
     }
   }
 
+
+  const renderItemAccessory = (style) => (
+    <Button style={style}>FOLLOW</Button>
+  );
+
+  const renderItemIcon = (style) => (
+    <Icon {...style} name='person'/>
+  );
+
+  const renderItem = ({ item, index }) => (
+    <ListItem
+      title={item.title}
+      description={item.description}
+      icon={() => (
+        <Avatar
+          source={{
+              uri: 'http://i.pravatar.cc/100?id=skater',
+          }}
+      />)
+    }
+      accessory={() => (
+        <Button
+            appearance='outline'
+            status='primary'
+            onPress={() => onFollow(item.title)}
+            style={{
+                backgroundColor: item.isFollowing ? '#fe9b0040' : 'white'
+            }}
+        >
+            {
+                item.isFollowing
+                    ? 'Following'
+                    : 'Follow'
+            }
+        </Button>
+      )}
+    />
+  );
+
   return (
     <View style={{ flex: 1 }}>
       <ScrollView style={{ flex: 1 }}>
@@ -64,9 +103,31 @@ const Follow = ({ navigation }) => {
               When you follow someone you will see their favourite recipes and what they are cooking tonight!
             </Text>
           </Block>
+          
             {
-                groups.map(group => (
-                    <Block style={styles.group}>
+                groups.map(group => {
+
+                const data = group.people.map(person => ({
+                  title: person.name,
+                  description: person.preferences,
+                  isFollowing: followed.includes(person.name)
+                }))
+
+                return (
+                  <Block>
+                      <Text category='h4' style={styles.title}>
+                          {group.title}
+                      </Text>
+                      <List
+                        data={data}
+                        renderItem={renderItem}
+                        style={styles.group}
+                      />
+                  </Block>
+                )
+
+                  return (
+                    <Block>
                         <Text category='h4' style={styles.title}>
                             {group.title}
                         </Text>
@@ -117,7 +178,8 @@ const Follow = ({ navigation }) => {
                             })
                         }
                     </Block>
-                ))
+                )}
+              )
             }
         </Block>
       </ScrollView>
@@ -154,8 +216,6 @@ const styles = StyleSheet.create({
   },
   group: {
     marginVertical: theme.SIZES.BASE * 1,
-    paddingLeft: theme.SIZES.BASE,
-    paddingRight: theme.SIZES.BASE,
 
     backgroundColor: 'white',
     width,
@@ -179,15 +239,13 @@ const styles = StyleSheet.create({
     borderBottomColor: '#e3e3e3',
     borderBottomWidth: 1,
   },
-  avatar: {
-      marginRight: 5,
-  },
   preferences: {
       marginTop: -3,
   },
   title: {
     paddingTop: theme.SIZES.BASE,
     paddingBottom: theme.SIZES.BASE / 2,
+    paddingLeft: theme.SIZES.BASE,
   },
 });
 

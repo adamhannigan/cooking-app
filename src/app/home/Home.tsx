@@ -5,6 +5,9 @@ import {
     Block, Text, Icon, NavBar, theme
 } from 'galio-framework';
 
+import { useTheme } from '@ui-kitten/components'
+
+
 import Feed from '../feed/Feed'
 import Activity from '../activity/Activity'
 import MyMenu from '../myMenu/MyMenu'
@@ -25,7 +28,8 @@ const scene = BottomNavigation.SceneMap({
 });
 
 const Home = () => {
-  const [index, setIndex] = React.useState<number>(0)
+    const [index, setIndex] = React.useState<number>(0)
+    const theme = useTheme()
 
     return (
         <BottomNavigation
@@ -33,7 +37,7 @@ const Home = () => {
             onIndexChange={index => setIndex(index)}
             renderScene={scene}
             labeled
-            barStyle={{ backgroundColor: theme.COLORS.primary }}
+            barStyle={{ backgroundColor: theme['color-primary-default'] }}
             activeColor='white'
             inactiveColor='#f4f4f4'
         />
