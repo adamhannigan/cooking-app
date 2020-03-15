@@ -46,7 +46,7 @@ const cards = [{
   action: '🤤 Is hungry for...',
   image: 'https://img.buzzfeed.com/thumbnailer-prod-us-east-1/video-api/assets/125259.jpg?output-quality=100&resize=900:*',
   likes: 22,
-  preferences: ['🍆 Vegetarian'],
+  preferences: ['🍆'],
 }, {
   title: 'Brazillian Carrot Cake',
   action: '👨‍🍳 Just cooked...',

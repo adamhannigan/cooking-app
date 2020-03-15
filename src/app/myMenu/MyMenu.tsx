@@ -25,33 +25,8 @@ import {
   Block, Icon, NavBar, theme, Input,
 } from 'galio-framework';
 
+import { meals } from 'constants/dummyData'
 const { width, height } = Dimensions.get('screen');
-
-const cards = [{
-  title: 'Sweet Potato Gnocci',
-  action: '🤤 Is hungry for...',
-  image: 'https://img.buzzfeed.com/thumbnailer-prod-us-east-1/video-api/assets/125259.jpg?output-quality=100&resize=900:*',
-  likes: 22,
-  preferences: ['🍆 Vegetarian'],
-}, {
-  title: 'Brazillian Carrot Cake',
-  action: '👨‍🍳 Just cooked...',
-  image: 'https://img.buzzfeed.com/thumbnailer-prod-us-east-1/0b3bf188572f406aa09f32890d9749f5/BFV43049_HowToMakeMesmerizingBrazilianDesserts_FINAL.jpg?output-quality=100&resize=900:*',
-  preferences: [],
-  likes: 62,
-}, {
-  title: 'Creamy Cajun Pasta',
-  action: '👨‍🍳 Just cooked...',
-  image: 'https://img.buzzfeed.com/video-api-prod/assets/ec15137f921a40f49317cd75d38a961d/BFV14804_Meal-PrepGarlicChickenAndVeggiePasta-TextlessThumb.jpg?output-quality=100&resize=900:*',
-  preferences: ['💪 Fitness',  '🇲🇷 Italian'],
-  likes: 12,
-}, {
-  title: 'Chicken and Brocoslli Stir Fry',
-  action: '📖 Added a meal to his menu ',
-  image: 'https://img.buzzfeed.com/thumbnailer-prod-us-east-1/c6630a4d04074d11ab60bfa0cb4b03d1/BFV16130_Stir-Fry_4_Ways_FB.jpg?output-quality=100&resize=900:*',
-  preferences: ['🍚 Stir Fry',  '🐔 Chicken'],
-  likes: 10,
-}]
 
 const Menu = () => {
   const [selected, setSelected] = React.useState([])
@@ -98,7 +73,7 @@ const Menu = () => {
           </Text>
           <Block center>
             {
-              cards.map(card => <Meal {...card}/>)
+              meals.map(card => <Meal {...card}/>)
             }
           </Block>
           <Block right>
@@ -112,7 +87,7 @@ const Menu = () => {
             </Text>
             <Block center>
               {
-                cards.map(card => <Meal {...card}/>)
+                meals.map(card => <Meal {...card}/>)
               }
             </Block>
           </Block>

@@ -33,6 +33,7 @@ const preferences = [{
   group: 'Countries',
   items: ['Indian 🇮🇳', 'Thai 🇹🇭', 'Japan 🇯🇵 ']
 }]
+
 const Preferences = ({ navigation }) => {
   const [selected, setSelected] = React.useState([])
 

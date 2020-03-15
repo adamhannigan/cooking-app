@@ -5,107 +5,126 @@ import {
   Dimensions,
 } from 'react-native';
 
-import { Text, Button } from '@ui-kitten/components'
+import { Text, Button, useTheme } from '@ui-kitten/components'
 
 import Constants from 'expo-constants';
+
+import { BookmarkModel } from 'domain/bookmarks/model'
+import { Meal as IMeal } from 'constants/dummyData'
+
+import Person from './Person'
 
 // galio components
 import {
   Block, theme, Icon
 } from 'galio-framework';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 
 const { width, height } = Dimensions.get('screen');
 
-interface Meal {
-  title: string
-  image: string
-  action: string
-  preferences: string[]
-  likes: number,
-}
-const Meal = (meal: Meal) => {
-    const [count, setCount] = React.useState(meal.likes)
+const Meal = (meal: IMeal) => {
+    const [likes, setLikes] = React.useState(meal.likes)
+    const [isSaved, setIsSaved] = React.useState(false)
 
-    const onClick = () => {
-        setCount(count + 1)
+    const kittenTheme = useTheme()
+
+    const onLike = () => {
+        setLikes(likes + 1)
     }
 
-    const isFavourited = (count - meal.likes) > 5
+    const onFavourite = () => {
+      setIsSaved(true)
+
+      BookmarkModel.addMeal(meal)
+    }
+
+    const onAddToMenu = () => {
+      setLikes(likes + 1)
+    }
+
+    const userLikes = (likes - meal.likes)
+    const isFavourited = userLikes >= 3
     
-  return (
+    return (
         <Block>
+            <Block row style={styles.title}>
+              <Text category='h4' numberOfLines={2}>
+                  {meal.title}
+              </Text>
+            </Block>
             <Image
                 source={{ uri: meal.image }}
                 style={styles.image}
             />
+            <Block style={styles.inset}>
+              <Text category='h4'>
+                {meal.preferences}
+              </Text>
+            </Block>
             <Block row style={styles.content}>
               <Block style={styles.left} space='between'>
                 <Block>
-                  <Block row>
-                    <Text category='h4' numberOfLines={2}>
-                        {meal.title}
-                    </Text>
-                  </Block>
+                  {
+                    meal.user && (
+                      <Person {...meal} />
+                    )
+                  }
 
-                  <Block row>
-                    <Text category='s1'>
-                        {meal.preferences && meal.preferences.join(' • ')}
-                    </Text>
-                  </Block>
                   <Block row end style={styles.description}>
+                    <Icon
+                      name='clockcircleo'
+                      color={kittenTheme['text-hint-color']}
+                      family={"AntDesign"} size={20}
+                      style={{ marginRight: 5 }}
+                    />
                     <Text category='s1' appearance='hint'>
-                        Easy peasy lemon squeezy!
+                        Under 30 min.
                     </Text>
                   </Block>
-                </Block>
-                <Block row style={styles.metadata}>
-                  <Text category='label' appearance='hint'>
-                        5 hrs ago
-                  </Text>
                 </Block>
               </Block>
-            <Block style={styles.right} space='between'>
-              <Block>
-                  <Button
-                    appearance='outline'
-                    style={styles.likeButton}
-                    status='primary'
-                    onPress={onClick}
-                    size='small'
-                    disabled={isFavourited}
-                  >
-                    {`${count} ♥️`}
-                  </Button>
+            <Block style={styles.actions}>
+                  <TouchableOpacity onPress={onLike} disabled={isFavourited}>
+                    <Block row>
+                      <Text status='primary' style={styles.likeCount}>
+                        {`${likes}`}
+                      </Text>
+                      <Block>
+                        <Icon
+                            //name={isFavourited ? 'heart' : 'hearto'}
+                            name='hearto'
+                            color={kittenTheme['color-info-default']}
+                            family={"AntDesign"} size={25}
+                        />
+                        <Icon
+                            name='heart'
+                            color={kittenTheme['color-info-default']}
+                            family={"AntDesign"} size={25}
+                            style={{
+                              ...styles.heart,
+                              height: userLikes * 8,
+                            }}
+                        />
+                      </Block>
+                    </Block>
+                  </TouchableOpacity>
                   {
-                  isFavourited && (
-                    <Block start>
-                      <Button
-                        appearance='outline'
-                        style={styles.likeButton}
-                        status='success'
-                        size='small'
-                      >
-                        Menu +
-                      </Button>
-                      <Button
-                        appearance='outline'
-                        status='primary'
-                        size='small'
-                        style={styles.likeButton}
-                      >
-                        Save
-                      </Button>
-                  </Block>
-                )}
-                </Block>
-                <Button
-                    appearance='ghost'
-                    status='primary'
-                    size='small'
-                    style={styles.button}
-                  >
-                    Recipe
-                </Button>
+                  isFavourited && [
+                      <TouchableOpacity onPress={onFavourite}>
+                        <Icon
+                            name={isSaved ? 'star' : 'staro'}
+                            color={kittenTheme['color-primary-default']}
+                            family={"AntDesign"} size={25}
+                          />
+                      </TouchableOpacity>,
+                      <TouchableOpacity>
+                        <Icon
+                            name='filetext1'
+                            color={kittenTheme['color-primary-default']}
+                            family={"AntDesign"} size={25}
+                          />
+                      </TouchableOpacity>
+                  ]}
               </Block>
             </Block>
           </Block>
@@ -113,20 +132,30 @@ const Meal = (meal: Meal) => {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    marginVertical: theme.SIZES.BASE * 1,
-    paddingLeft: theme.SIZES.BASE,
-
-    backgroundColor: 'white',
-    width: width - (theme.SIZES.BASE * 2),
-    borderTopWidth: 1,
-    borderTopColor: '#e3e3e3',
-    borderBottomWidth: 1,
-    borderBottomColor: '#e3e3e3',
-  },
   description: {
     paddingVertical: theme.SIZES.BASE / 3,
   },
+  title: {
+    marginTop: theme.SIZES.BASE / 2,
+    marginBottom: theme.SIZES.BASE / 4,
+  },
+  inset: {
+    backgroundColor: 'white',
+    position: 'absolute',
+    right: 0,
+    top: 44, 
+    borderBottomLeftRadius: 20,
+  },
+
+  heart: {
+    position: 'absolute',
+  },
+  likeCount: {
+    fontSize: 20,
+    lineHeight: 25,
+    marginRight: 5,
+  },
+
   content: {
     marginTop: theme.SIZES.BASE / 2,
     paddingBottom: theme.SIZES.BASE / 2,
@@ -150,14 +179,14 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
   },
   image: {
-    width: width,
     height: theme.SIZES.BASE * 10,
-    marginLeft: -theme.SIZES.BASE,
+    borderRadius: 10,
   },
-  metadata: {
-  },
-  right: {
-    width: 80,
+  actions: {
+    display: 'flex',
+    alignItems: 'flex-end',
+    height: 100,
+    justifyContent: 'space-between'
   },
   left: {
     flex: 1,

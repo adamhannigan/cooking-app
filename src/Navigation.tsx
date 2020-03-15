@@ -3,12 +3,6 @@ import {NavigationContainer} from '@react-navigation/native'
 import {createStackNavigator} from '@react-navigation/stack'
 
 import React from 'react';
-import { StyleSheet } from 'react-native'
-import { useTheme } from '@ui-kitten/components'
-
-import {
-  Icon,
-} from 'galio-framework';
 
 import Login from './app/login/Login'
 import Register from './app/register/Register'
@@ -20,25 +14,27 @@ import Home from './app/home/Home'
 import ChooseMeal from './app/cook/ChooseMeal'
 import Cook from './app/cook/Cook'
 import Tags from './app/cook/Tags'
+import BookmarkButton from 'app/home/BookmarkButton';
 
 const Stack = createStackNavigator()
 
 function Navigation() {
-  const theme = useTheme()
-
   return (
     <NavigationContainer>
         <Stack.Navigator>
+
             <Stack.Screen
-            name="Home"
-            component={Home}
-            options={{
-                headerRight: () => (
-                <Icon name={'staro'} color={theme['color-primary-default']}  family={"AntDesign"} size={30} style={styles.favouriteButton} />
-                )
-            }}
+              name="Home"
+              component={Home}
+              options={{
+                  headerRight: () => (
+                    <BookmarkButton />
+                  )
+              }}
             />
+
             <Stack.Screen name="Preferences" component={Preferences} />
+
             <Stack.Screen name="Menu" component={Menu} />
             <Stack.Screen
                 name="Login"
@@ -55,11 +51,5 @@ function Navigation() {
     </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  favouriteButton: {
-    marginRight: 10,
-  },
-});
 
 export default Navigation

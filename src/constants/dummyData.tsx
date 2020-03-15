@@ -19,7 +19,7 @@ export const meals: Meal[] = [{
       name: 'Adam Hannigan'
     },
     likes: 22,
-    preferences: ['🍆 Vegetarian', '🍠 Sweet Potato'],
+    preferences: ['🍆', '🍠'],
   }, {
     id: 2,
     title: 'Brazillian Carrot Cake',
@@ -28,7 +28,7 @@ export const meals: Meal[] = [{
     user: {
       name: 'Jess Lobster',
     },
-    preferences: ['🇧🇷 Brazil', '🍰 Cake'],
+    preferences: ['🇧🇷', '🍰'],
     likes: 62,
   }, {
     id: 3,
@@ -38,7 +38,7 @@ export const meals: Meal[] = [{
     user: {
       name: 'Joe Rogan',
     },
-    preferences: ['💪 Fitness',  '🇲🇷 Italian'],
+    preferences: ['💪',  '🇲🇷'],
     likes: 12,
   }, {
     id: 4,
@@ -48,7 +48,7 @@ export const meals: Meal[] = [{
     user: {
       name: 'Mitchell Hannigan',
     },
-    preferences: ['🍚 Stir Fry',  '🐔 Chicken'],
+    preferences: ['🍚',  '🐔'],
     likes: 10,
   }]
 

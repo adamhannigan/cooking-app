@@ -33,6 +33,9 @@ const ChooseMeal = props => {
             <Text category='h3' style={styles.title}>
               What did you cook?
             </Text>
+            <Text category='p' style={styles.title}>
+              Pick a meal from your menu, one of your saved items or search for a new meal.
+            </Text>
             <Input
               placeholder="Input with Icon on right"
               right
@@ -102,6 +105,7 @@ const styles = StyleSheet.create({
     paddingTop: theme.SIZES.BASE * 2,
     paddingHorizontal: theme.SIZES.BASE * 1.5,
     width,
+    backgroundColor: 'white',
   },
   content: {
     width,

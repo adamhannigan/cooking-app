@@ -26,6 +26,7 @@ console.disableYellowBox = true
 import {
   Block, Icon, NavBar, theme
 } from 'galio-framework';
+import Person from './Person';
 
 const { width, height } = Dimensions.get('screen');
 
@@ -41,40 +42,15 @@ const MealCard = (meal: IMeal) => {
     
     return (
         <Block style={styles.container}>
-            {
-              meal.user && (
-                <TouchableOpacity onPress={() => navigation.navigate('MyMenu')}>
-                  <Block row middle space='between' style={styles.person}>
-                    <Block row>
-                        <Avatar
-                            style={styles.avatar}
-                            source={{
-                                uri: 'http://i.pravatar.cc/100?id=skater',
-                            }}
-                        />
-                        <Block>
-                            <Text category='label'>
-                                {meal.user.name}
-                            </Text>
-                            <Text category='s1'>
-                                {meal.action}
-                            </Text>
-                        </Block>
-                    </Block>
-                    <Icon name='right' color={theme.COLORS.MUTED} family='AntDesign' size={15} />
-                </Block>
-              </TouchableOpacity>
-              )
-            }
             <Meal {...meal} />
-          </Block>
+        </Block>
   )
 }
 
 const styles = StyleSheet.create({
   container: {
     marginVertical: theme.SIZES.BASE * 1,
-    paddingLeft: theme.SIZES.BASE,
+    paddingHorizontal: theme.SIZES.BASE / 2,
 
     backgroundColor: 'white',
     width: width,
