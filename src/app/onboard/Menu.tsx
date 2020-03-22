@@ -16,7 +16,7 @@ import Constants from 'expo-constants';
 
 const { statusBarHeight } = Constants;
 
-console.disableYellowBox = true
+
 // galio components
 import {
   Block, Icon, NavBar, theme, Input,

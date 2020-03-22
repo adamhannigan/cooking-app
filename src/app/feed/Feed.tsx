@@ -45,7 +45,6 @@ const Feed = props => {
   return (
     <View style={{ flex: 1 }}>
       <ScrollView style={{ flex: 1 }}>
-        <Text>{isFocused ? 'focused' : 'not'}</Text>
         <Block center style={{ marginTop: - theme.SIZES.BASE * 2 }}>
           <Block flex style={styles.header}>
             <Block center>

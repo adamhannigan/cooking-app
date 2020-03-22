@@ -1,7 +1,7 @@
 import 'react-native-gesture-handler'
 
 import React from 'react';
-import { StyleSheet } from 'react-native'
+import { StyleSheet, Animated, Easing } from 'react-native'
 import { useTheme } from '@ui-kitten/components'
 
 import { bookmarkEventHandler } from 'domain/bookmarks/events'
@@ -12,15 +12,37 @@ import {
 import { useNavigation } from '@react-navigation/native'
 import { TouchableOpacity } from 'react-native-gesture-handler';
 
+const AnimatedIcon = Animated.createAnimatedComponent(Icon)
 
 function BookmarkButton() {
   const theme = useTheme()
   const navigation = useNavigation()
 
-  const [isSaved, setIsSaved] = React.useState(false)
+  const [scale] = React.useState(new Animated.Value(1))
+
+  const onTwirl = () => {
+    scale.setValue(1)
+
+    Animated.sequence([
+      Animated.timing(
+        scale,
+        {
+          toValue: 1.2,
+          duration: 200,
+        }
+      ),
+      Animated.timing(
+        scale,
+        {
+          toValue: 1,
+          duration: 100,
+        }
+      ),
+    ]).start()
+  }
 
   const onSave = () => {
-    setIsSaved(true)
+    onTwirl()
   }
 
   React.useEffect(() => {
@@ -31,20 +53,22 @@ function BookmarkButton() {
   }, [])
 
   const onClick = () => {
-      navigation.navigate('Bookmarks')
+    onTwirl()
   }
-
-  // Todo - on destroy stop listening
 
   return (
     <TouchableOpacity onPress={onClick}>
-        <Icon
-            name={isSaved ? 'star' : 'staro'}
-            color={theme['color-primary-default']}
+        <AnimatedIcon
+            name='staro'
+            color={theme['color-warning-default']}
             family={"AntDesign"}
             size={30}
-            style={styles.favouriteButton}
-            
+            style={{
+              ...styles.favouriteButton,
+              transform: [{
+                scale,
+              }],
+            }}
         />
       </TouchableOpacity>
     

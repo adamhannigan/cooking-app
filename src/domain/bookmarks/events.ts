@@ -17,6 +17,7 @@ class BookmarkEvents {
     }
 
     public onMealAdded() {
+        console.log('Added')
         this.listeners.forEach(listener => listener.handler())
     }
 }

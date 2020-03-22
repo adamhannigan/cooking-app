@@ -59,3 +59,27 @@ export const people = [{
     name: 'Joe Rogan',
     preferences: ['💪Fitness', '🍖BBQ']
 }]
+
+export const activity = [{
+  name: 'Adam Hannigan',
+  action: 'Is craving your Prawn Rissoto',
+  icon: 'hearto',
+}, {
+    name: 'Joe Rogan',
+    action: 'Is cooking your Chicken Teriyaki & rice',
+    icon: 'rocket1',
+}, {
+    name: 'Victoria Mota',
+    action: 'Is planning to cook your Chicken Teriyaki & rice',
+    icon: 'book',
+
+},{
+    name: 'Victoria Mota',
+    action: 'Is hungry for your Chicken Teriyaki & rice',
+    icon: 'hearto',
+}, {
+    name: 'Adam Hannigan',
+    meal: 'Chicken Teriyaki & rice',
+    action: 'Added to their menu: Chicken Teriyaki & rice',
+    icon: 'book',
+}]

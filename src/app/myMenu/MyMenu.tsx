@@ -19,7 +19,7 @@ const { statusBarHeight } = Constants;
 
 import Meal from '../feed/components/MealCard'
 
-console.disableYellowBox = true
+
 // galio components
 import {
   Block, Icon, NavBar, theme, Input,

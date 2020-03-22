@@ -11,7 +11,7 @@ import { Text, Avatar, Button } from '@ui-kitten/components'
 import { Meal as IMeal } from '../../../constants/dummyData'
 
 
-console.disableYellowBox = true
+
 // galio components
 import {
   Block, theme
@@ -22,8 +22,9 @@ const Person = (meal: IMeal) => {
   const navigation = useNavigation()
     
     return (
+      <React.Fragment>
         <TouchableOpacity onPress={() => navigation.navigate('Menu')}>
-            <Block row middle space='between' style={styles.person}>
+            <Block style={styles.person}>
                 <Block row>
                     <Avatar
                         style={styles.avatar}
@@ -33,9 +34,8 @@ const Person = (meal: IMeal) => {
                     />
                     <Block>
                       <Text
-                        category='s1'
+                        category='h6'
                         style={styles.name}
-                        status='disabled'
                       >
                         {meal.user.name}
                       </Text>
@@ -43,26 +43,29 @@ const Person = (meal: IMeal) => {
                 </Block>
             </Block>
         </TouchableOpacity>
+      </React.Fragment>
   )
 }
 
 const styles = StyleSheet.create({
   person: {
     paddingTop: theme.SIZES.BASE,
-    paddingBottom: theme.SIZES.BASE / 2,
     paddingRight: theme.SIZES.BASE / 2,
     position: 'relative',
     top: -40,
+    height: 40,
   },
   name: {
-    marginTop: 15,
-    fontWeight: 'bold',
+    marginTop: 22,
+    fontSize: 14,
   },
   avatar: {
-      marginRight: 5,
-
+    marginRight: 5,
+    width: 50,
+    height: 50,
 
     borderWidth: 3,
+    backgroundColor: 'white',
     borderColor: 'white',
   },
 });
