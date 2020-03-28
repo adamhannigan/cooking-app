@@ -6,17 +6,19 @@ import {
   Dimensions,
 } from 'react-native';
 
-import { Text, Tab, TabView, useTheme } from '@ui-kitten/components'
+import { Text, Input, Icon, useTheme } from '@ui-kitten/components'
 import { useNavigation } from '@react-navigation/native'
 
 // galio components
 import {
-  Block, Input, theme, Icon
+  Block, theme
 } from 'galio-framework';
 
 import { meals } from '../../constants/dummyData'
 
 import { MealBox } from './MealBox'
+import { Recommendations } from './Recommendations'
+import { Search } from './Search'
 
 const { width } = Dimensions.get('screen');
 
@@ -25,73 +27,36 @@ const ChooseMeal = props => {
   const kittenTheme = useTheme()
   const navigation = useNavigation()
 
+  const [search, setSearch] = React.useState('')
+  const [isSearching, setIsSearching] = React.useState(false)
+
   return (
     <View style={{ flex: 1 }}>
       <ScrollView style={{ flex: 1 }}>
         <Block center style={{ marginTop: -theme.SIZES.BASE * 2 }}>
           <Block flex style={styles.header}>
-            <Text category='h3' style={styles.title}>
+            <Text category='h3'>
               What did you cook?
             </Text>
-            <Text category='p' style={styles.title}>
+            <Text category='p'>
               Pick a meal from your menu, one of your saved items or search for a new meal.
             </Text>
             <Input
-              placeholder="Input with Icon on right"
-              right
-              rounded
-              icon="heart"
-              family="antdesign"
-              iconSize={14}
-              iconColor="red"
+              placeholder="Search for recipes"
+              style={styles.search}
+              value={search}
+              onChange={e => setSearch(e.target)}
+              onFocus={() => setIsSearching(true)}
+              onBlur={() => setIsSearching(false)}
             />
           </Block>
-          <Block style={styles.content}>
-            <TabView
-              selectedIndex={selectedIndex}
-              onSelect={setSelectedIndex}
-              tabBarStyle={styles.tabs}
-            >
-              <Tab title='Your menu' icon={() => (
-                <Icon
-                  name='book'
-                  family='AntDesign'
-                  size={25}
-                  color={selectedIndex === 0 ? kittenTheme['color-primary-default'] : kittenTheme['text-hint-color']}
-                />
-              )}>
-                <Block style={styles.meals}>
-                  {
-                    meals.map(meal => (
-                      <MealBox
-                        {...meal}
-                        onClick={() => navigation.navigate('Cook')}
-                      />
-                    ))
-                  }
-                </Block>
-              </Tab>
-              <Tab title='Saved' icon={() => (
-                <Icon
-                  name='staro'
-                  family='AntDesign'
-                  size={25}
-                  color={selectedIndex === 1 ? kittenTheme['color-primary-default'] : kittenTheme['text-hint-color']}
-                />
-              )}>
-                <Block style={styles.meals}>
-                  {
-                    meals.map(meal => (
-                      <MealBox
-                        {...meal}
-                        onClick={() => navigation.navigate('Cook')}
-                      />
-                    ))
-                  }
-                </Block>
-              </Tab>
-            </TabView>
-          </Block>
+          {
+            !isSearching && <Recommendations />
+          }
+          {
+            isSearching && <Search />
+          }
+
         </Block>
       </ScrollView>
     </View>
@@ -103,24 +68,27 @@ const styles = StyleSheet.create({
     borderTopLeftRadius: theme.SIZES.BASE * 2,
     borderTopRightRadius: theme.SIZES.BASE * 2,
     paddingTop: theme.SIZES.BASE * 2,
-    paddingHorizontal: theme.SIZES.BASE * 1.5,
+    paddingHorizontal: theme.SIZES.BASE * 1,
     width,
     backgroundColor: 'white',
   },
   content: {
     width,
+    marginBottom: theme.SIZES.BASE * 2,
   },
-  title: {
-    paddingTop: theme.SIZES.BASE,
+  search: {
+    marginTop: theme.SIZES.BASE,
+    marginBottom: theme.SIZES.BASE / 2,
   },
-  tabs: {
-    backgroundColor: '#f0f0f0',
+  heading: {
+    paddingHorizontal: theme.SIZES.BASE / 2,
+    paddingTop: theme.SIZES.BASE / 2,
   },
   meals: {
     display: 'flex',
     flexDirection: 'row',
-    flexWrap: 'wrap',
     width,
+    overflow: 'scroll',
   },
 });
 

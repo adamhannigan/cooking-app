@@ -10,13 +10,13 @@ import {
 } from 'react-native';
 
 import { useNavigation } from '@react-navigation/native'
-import { useTheme } from '@ui-kitten/components'
+import { useTheme, Text } from '@ui-kitten/components'
 
 import FAB from 'react-native-fab'
 
 // galio components
 import {
-  Block, Icon, NavBar, theme, Text,
+  Block, Icon, NavBar, theme,
 } from 'galio-framework';
 
 import { useRoute, useIsFocused } from '@react-navigation/native'
@@ -43,10 +43,13 @@ const Feed = props => {
   }, [])
 
   return (
-    <View style={{ flex: 1 }}>
+    <View style={{ flex: 1, ...styles.container }}>
       <ScrollView style={{ flex: 1 }}>
         <Block center style={{ marginTop: - theme.SIZES.BASE * 2 }}>
           <Block flex style={styles.header}>
+            <Text category='h3'>
+              Eating Vegan
+            </Text>
             <Block center>
               {
                 meals.map(meal => <MealCard {...meal}/>)
@@ -66,11 +69,14 @@ const Feed = props => {
 }
 
 const styles = StyleSheet.create({
+  container: {
+    backgroundColor: 'white',
+  },
   header: {
     borderTopLeftRadius: theme.SIZES.BASE * 2,
     borderTopRightRadius: theme.SIZES.BASE * 2,
     paddingVertical: theme.SIZES.BASE * 2,
-    paddingHorizontal: theme.SIZES.BASE * 1.5,
+    paddingHorizontal: theme.SIZES.BASE * 0.5,
     width,
     paddingBottom: theme.SIZES.BASE * 3,
   },

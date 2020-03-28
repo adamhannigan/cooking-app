@@ -31,7 +31,7 @@ export const MealBox = (meal: Meal) => {
                 source={{ uri: meal.image }}
                 style={styles.image}
             />
-            <Text category='s1' numberOfLines={2}>
+            <Text category='s1' style={styles.text}>
                 {meal.title}
             </Text>
         </Block>
@@ -39,13 +39,21 @@ export const MealBox = (meal: Meal) => {
   )
 }
 
+// Want the meal to intersect with screen edge so they know to scroll
+const mealWidth = width / 2.5
 const styles = StyleSheet.create({
   container: {
     display: 'flex',
     padding: 10,
-    width: width / 3,
+    width: mealWidth,
   },
   image: {
-    height: width / 3 - 10,
+    height: mealWidth,
+    borderRadius: 5,
   },
+  text: {
+    fontWeight: 'bold',
+    lineHeight: 17,
+    paddingTop: 2,
+  }
 });

@@ -13,12 +13,27 @@ import {
   Block, theme
 } from 'galio-framework';
 
-const { width, height } = Dimensions.get('screen');
+import { Text, useTheme } from '@ui-kitten/components'
+
+const { width } = Dimensions.get('screen');
 
 const MealCard = (meal: IMeal) => {
     return (
         <Block style={styles.container}>
-            <Meal {...meal} />
+          <Block row middle space='between'>
+            {
+              meal.user && (
+                <Text category='s1' style={styles.text} status='info'>
+                  {meal.user.name}
+                </Text>
+              )
+            }
+
+            <Text category='s1'>
+              {meal.preferences}
+            </Text>
+          </Block>
+          <Meal {...meal} />
         </Block>
   )
 }
@@ -26,15 +41,15 @@ const MealCard = (meal: IMeal) => {
 const styles = StyleSheet.create({
   container: {
     marginVertical: theme.SIZES.BASE * 1,
+    paddingHorizontal: theme.SIZES.BASE / 2,
 
     width: width,
-    padding: theme.SIZES.BASE / 2,
-
-
-    shadowOffset:{  width: 5,  height: 3,  },
-    shadowColor: '#777',
-    shadowOpacity: 0.1,
   },
+  
+  text: {
+    fontWeight: 'bold',
+    padding: theme.SIZES.BASE / 2,
+  }
 });
 
 export default MealCard;

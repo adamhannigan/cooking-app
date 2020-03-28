@@ -4,7 +4,7 @@ import {
   StyleSheet,
 } from 'react-native';
 
-import { Text, useTheme } from '@ui-kitten/components'
+import { Text, useTheme, Avatar } from '@ui-kitten/components'
 
 import { Meal as IMeal } from 'constants/dummyData'
 
@@ -22,37 +22,44 @@ const Meal = (meal: IMeal) => {
 
     return (
         <Block>
-            <Image
-                source={{ uri: meal.image }}
-                style={styles.image}
-            />
+            <Block style={styles.imageContainer}>
+              <Image
+                  source={{ uri: meal.image }}
+                  style={styles.image}
+              />
+              <Block style={styles.avatars}>
+                <Avatar
+                  style={styles.avatar}
+                  source={{
+                        uri: 'http://i.pravatar.cc/100?id=skater',
+                  }}
+                />
+                <Avatar
+                  style={styles.avatar}
+                  source={{
+                        uri: 'http://i.pravatar.cc/100?id=skater',
+                  }}
+                />
+              </Block>
+            </Block>
             <Block row style={styles.content}>
-              <Block space='between'>
-                <Block>
-                  {
-                    meal.user && (
-                      <Person {...meal} />
-                    )
-                  }
-
+              <Block>
                   <Block>
-                    <Text category='h4'>
-                        {meal.title}
-                      </Text>
-                  </Block>
-
-                  <Block row end>
-                    <Icon
-                      name='clockcircleo'
-                      color={kittenTheme['text-hint-color']}
-                      family={"AntDesign"} size={20}
-                      style={{ marginRight: 5 }}
-                    />
-                    <Text category='s1' appearance='hint'>
-                        Under 30 min.
+                    <Text category='h5'>
+                      {meal.title}
                     </Text>
                   </Block>
-                </Block>
+                  <Block row start>
+                    <Icon
+                      name='heart'
+                      color={kittenTheme['color-danger-default']}
+                      family={"AntDesign"} size={15}
+                      style={{ marginRight: 5 }}
+                    />
+                    <Text category='s1'>
+                        44 people are now hungry
+                    </Text>
+                  </Block>
               </Block>
               <Actions {...meal} />
             </Block>
@@ -66,13 +73,30 @@ const styles = StyleSheet.create({
     paddingHorizontal: theme.SIZES.BASE / 2,
     backgroundColor: 'white',
 
-    borderBottomLeftRadius: 10,
-    borderBottomRightRadius: 10,
+    borderRadius: 5,
   },
   image: {
-    height: theme.SIZES.BASE * 10,
-    borderTopLeftRadius: 20,
-    borderTopRightRadius: 20,
+    height: theme.SIZES.BASE * 12,
+    borderRadius: 5,
+  },
+  imageContainer: {
+    position: 'relative',
+  },
+  avatars: {
+    position: 'absolute',
+    width: '100%',
+    height: '100%',
+    display: 'flex',
+    flexWrap: 'wrap',
+  },
+  avatar: {
+    margin: 5,
+    width: 50,
+    height: 50,
+
+    borderWidth: 3,
+    backgroundColor: 'white',
+    borderColor: 'white',
   },
 });
 

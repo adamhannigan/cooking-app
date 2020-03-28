@@ -76,7 +76,7 @@ const Meal = (meal: IMeal) => {
                         />
                     </Block>
                 </TouchableOpacity>,
-                <TouchableOpacity onPress={onAddToMenu}>
+                /*<TouchableOpacity onPress={onAddToMenu}>
                     <Block style={styles.icon}>
                         <Icon
                             name='filetext1'
@@ -84,7 +84,7 @@ const Meal = (meal: IMeal) => {
                             family={"AntDesign"} size={25}
                         />
                     </Block>
-                </TouchableOpacity>
+                </TouchableOpacity>*/
             ]}
         </Block>
     )

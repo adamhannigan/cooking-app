@@ -10,8 +10,6 @@ import { Text, Avatar, Button } from '@ui-kitten/components'
 
 import { Meal as IMeal } from '../../../constants/dummyData'
 
-
-
 // galio components
 import {
   Block, theme
@@ -53,7 +51,7 @@ const styles = StyleSheet.create({
     paddingRight: theme.SIZES.BASE / 2,
     position: 'relative',
     top: -40,
-    height: 40,
+    height: 22,
   },
   name: {
     marginTop: 22,
