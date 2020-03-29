@@ -18,28 +18,16 @@ import {
   Block, Icon, NavBar, theme
 } from 'galio-framework';
 
+import PersonItem, { Person } from 'components/PersonItem'
+
 const { width, height } = Dimensions.get('screen');
 
-const data = activity.map(item => ({
-  title: item.name,
-  description: item.action,
+const data: Person[] = activity.map(item => ({
+  primary: item.name,
+  secondary: item.action,
 }))
 
 const Activity = ({ navigation }) => {
-  const renderItem = ({ item, index }) => (
-    <ListItem
-      title={item.title}
-      description={item.description}
-      icon={() => (
-        <Avatar
-          source={{
-              uri: 'http://i.pravatar.cc/30?id=skater',
-          }}
-      />)
-    }
-    />
-  );
-
   return (
     <View style={{ flex: 1 }}>
       <ScrollView style={{ flex: 1 }}>
@@ -52,7 +40,7 @@ const Activity = ({ navigation }) => {
           <Block>
             <List
               data={data}
-              renderItem={renderItem}
+              renderItem={PersonItem}
             />
           </Block>
         </Block>

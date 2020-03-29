@@ -9,7 +9,7 @@ import {
   TouchableOpacity
 } from 'react-native';
 
-import { Text, Avatar, Button, List, ListItem } from '@ui-kitten/components'
+import { Text, Button, List } from '@ui-kitten/components'
 
 import Constants from 'expo-constants';
 
@@ -21,23 +21,10 @@ import {
   Block, Icon, NavBar, theme
 } from 'galio-framework';
 
+import PersonItem, { Person } from 'components/PersonItem'
+import { groups } from 'constants/dummyData'
+
 const { width, height } = Dimensions.get('screen');
-
-const people = [{
-  name: 'Adam Hannigan',
-  preferences: ['💪Fitness', '🍖BBQ']
-}, {
-    name: 'Joe Rogan',
-    preferences: ['💪Fitness', '🍖BBQ']
-}]
-
-const groups = [{
-    title: '💪 Fitness Lovers',
-    people,
-}, {
-    title: '🍆 Vegans',
-    people,
-}]
 
 const Follow = ({ navigation }) => {
   const [followed, setFollowed] = React.useState([])
@@ -52,44 +39,6 @@ const Follow = ({ navigation }) => {
     }
   }
 
-
-  const renderItemAccessory = (style) => (
-    <Button style={style}>FOLLOW</Button>
-  );
-
-  const renderItemIcon = (style) => (
-    <Icon {...style} name='person'/>
-  );
-
-  const renderItem = ({ item, index }) => (
-    <ListItem
-      title={item.title}
-      description={item.description}
-      icon={() => (
-        <Avatar
-          source={{
-              uri: 'http://i.pravatar.cc/100?id=skater',
-          }}
-      />)
-    }
-      accessory={() => (
-        <Button
-            appearance='outline'
-            status='primary'
-            onPress={() => onFollow(item.title)}
-            style={{
-                backgroundColor: item.isFollowing ? '#fe9b0040' : 'white'
-            }}
-        >
-            {
-                item.isFollowing
-                    ? 'Following'
-                    : 'Follow'
-            }
-        </Button>
-      )}
-    />
-  );
 
   return (
     <View style={{ flex: 1 }}>
@@ -108,9 +57,13 @@ const Follow = ({ navigation }) => {
                 groups.map(group => {
 
                 const data = group.people.map(person => ({
-                  title: person.name,
-                  description: person.preferences,
-                  isFollowing: followed.includes(person.name)
+                  primary: person.name,
+                  secondary: person.preferences.join(''),
+                  action: {
+                    primary: followed.includes(person.name) ? 'Following' : 'Follow',
+                    onClick: () => onFollow(person.name),
+                  },
+                  isSelected: followed.includes(person.name)
                 }))
 
                 return (
@@ -120,66 +73,12 @@ const Follow = ({ navigation }) => {
                       </Text>
                       <List
                         data={data}
-                        renderItem={renderItem}
+                        renderItem={PersonItem}
                         style={styles.group}
                       />
                   </Block>
                 )
-
-                  return (
-                    <Block>
-                        <Text category='h4' style={styles.title}>
-                            {group.title}
-                        </Text>
-                        {
-                            group.people.map(person => {
-                                const isFollowing = followed.includes(person.name)
-
-                                return (
-                                    <Block row space='between' style={styles.person}>
-                                        <Block row>
-                                            <Avatar
-                                                style={styles.avatar}
-                                                source={{
-                                                    uri: 'http://i.pravatar.cc/100?id=skater',
-                                                }}
-                                            />
-                                            <Block>
-                                                <Text category='s1'>
-                                                    {person.name}
-                                                </Text>
-                                                <Block flex row style={styles.preferences}>
-                                                    {
-                                                        person.preferences.map(preference => (
-                                                            <Text category='s1' appearance='hint'>
-                                                                {preference}
-                                                            </Text>
-                                                        ))
-                                                    }
-                                                </Block>
-                                            </Block>
-                                        </Block>
-                                        <Button
-                                            appearance='outline'
-                                            status='primary'
-                                            onPress={() => onFollow(person.name)}
-                                            style={{
-                                                backgroundColor: isFollowing ? '#fe9b0040' : 'white'
-                                            }}
-                                        >
-                                            {
-                                                isFollowing
-                                                    ? 'Following'
-                                                    : 'Follow'
-                                            }
-                                        </Button>
-                                    </Block>
-                                )
-                            })
-                        }
-                    </Block>
-                )}
-              )
+              })
             }
         </Block>
       </ScrollView>
@@ -232,15 +131,6 @@ const styles = StyleSheet.create({
       display: 'flex',
       flexDirection: 'row',
       justifyContent: 'space-between'
-  },
-  person: {
-    paddingTop: theme.SIZES.BASE,
-    paddingBottom: theme.SIZES.BASE,
-    borderBottomColor: '#e3e3e3',
-    borderBottomWidth: 1,
-  },
-  preferences: {
-      marginTop: -3,
   },
   title: {
     paddingTop: theme.SIZES.BASE,

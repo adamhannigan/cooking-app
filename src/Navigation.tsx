@@ -14,14 +14,22 @@ import Home from './app/home/Home'
 import ChooseMeal from './app/cook/ChooseMeal'
 import Cook from './app/cook/Cook'
 import Tags from './app/cook/Tags'
+import { CameraView } from './app/cook/Camera'
+
 import BookmarkButton from 'app/home/BookmarkButton';
 
 const Stack = createStackNavigator()
+
+console.disableYellowBox = true
 
 function Navigation() {
   return (
     <NavigationContainer>
         <Stack.Navigator>
+
+          <Stack.Screen name="Cook" component={Cook} />
+
+            <Stack.Screen name="Follow" component={Follow} />
 
             <Stack.Screen
               name="Home"
@@ -41,10 +49,9 @@ function Navigation() {
                 component={Login}
             />
             <Stack.Screen name="Register" component={Register} />
-            <Stack.Screen name="Follow" component={Follow} />
 
             <Stack.Screen name="ChooseMeal" component={ChooseMeal} />
-            <Stack.Screen name="Cook" component={Cook} />
+            <Stack.Screen name="Camera" component={CameraView} />
             <Stack.Screen name="Tags" component={Tags} />
 
         </Stack.Navigator>

@@ -47,9 +47,6 @@ const Feed = props => {
       <ScrollView style={{ flex: 1 }}>
         <Block center style={{ marginTop: - theme.SIZES.BASE * 2 }}>
           <Block flex style={styles.header}>
-            <Text category='h3'>
-              Eating Vegan
-            </Text>
             <Block center>
               {
                 meals.map(meal => <MealCard {...meal}/>)

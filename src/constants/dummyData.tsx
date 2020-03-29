@@ -60,6 +60,14 @@ export const people = [{
     preferences: ['💪Fitness', '🍖BBQ']
 }]
 
+export const groups = [{
+    title: '💪 Fitness Lovers',
+    people,
+}, {
+    title: '🍆 Vegans',
+    people,
+}]
+
 export const activity = [{
   name: 'Adam Hannigan',
   action: 'Is craving your Prawn Rissoto',
