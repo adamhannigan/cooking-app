@@ -34,12 +34,18 @@ const Meal = (meal: IMeal) => {
                         uri: 'http://i.pravatar.cc/100?id=skater',
                   }}
                 />
-                <Avatar
-                  style={styles.avatar}
-                  source={{
-                        uri: 'http://i.pravatar.cc/100?id=skater',
-                  }}
-                />
+                {
+                  /**
+                   * TODO- secondary cooks
+                   * <Avatar
+                      style={styles.avatar}
+                      source={{
+                            uri: 'http://i.pravatar.cc/100?id=skater',
+                      }}
+                    />
+                   */
+                }
+                
               </Block>
             </Block>
             <Block row style={styles.content}>
@@ -76,7 +82,7 @@ const styles = StyleSheet.create({
     borderRadius: 5,
   },
   image: {
-    height: theme.SIZES.BASE * 12,
+    height: 250,
     borderRadius: 5,
   },
   imageContainer: {

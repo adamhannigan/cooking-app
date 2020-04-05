@@ -9,56 +9,24 @@ import {
   TouchableOpacity
 } from 'react-native';
 
-import { Text, Avatar, Button } from '@ui-kitten/components'
+import { Text, List, Avatar, Button } from '@ui-kitten/components'
 
 import Constants from 'expo-constants';
 
 const { statusBarHeight } = Constants;
 
+import PersonItem, { Person } from 'components/PersonItem'
 
 // galio components
 import {
   Block, Icon, NavBar, theme, Input
 } from 'galio-framework';
 
-import Meal from '../feed/components/MealCard'
+import MealSummary from 'app/myMenu/components/MealSummary'
+
+import { groups, meals } from 'constants/dummyData'
 
 const { width, height } = Dimensions.get('screen');
-
-const people = [{
-  name: 'Adam Hannigan',
-  preferences: ['💪Fitness', '🍖BBQ']
-}, {
-    name: 'Joe Rogan',
-    preferences: ['💪Fitness', '🍖BBQ']
-}]
-
-const groups = [{
-    title: '💪 Fitness Lovers',
-    people,
-}, {
-    title: '🍆 Vegans',
-    people,
-}]
-
-const cards = [{
-  title: 'Sweet Potato Gnocci',
-  action: '🤤 Is hungry for...',
-  image: 'https://img.buzzfeed.com/thumbnailer-prod-us-east-1/video-api/assets/125259.jpg?output-quality=100&resize=900:*',
-  likes: 22,
-  preferences: ['🍆'],
-}, {
-  title: 'Brazillian Carrot Cake',
-  action: '👨‍🍳 Just cooked...',
-  image: 'https://img.buzzfeed.com/thumbnailer-prod-us-east-1/0b3bf188572f406aa09f32890d9749f5/BFV43049_HowToMakeMesmerizingBrazilianDesserts_FINAL.jpg?output-quality=100&resize=900:*',
-  likes: 62,
-}, {
-  title: 'Creamy Cajun Pasta',
-  action: '👨‍🍳 Just cooked...',
-  image: 'https://img.buzzfeed.com/video-api-prod/assets/ec15137f921a40f49317cd75d38a961d/BFV14804_Meal-PrepGarlicChickenAndVeggiePasta-TextlessThumb.jpg?output-quality=100&resize=900:*',
-  preferences: ['💪 Fitness',  '🇲🇷 Italian'],
-  likes: 12,
-}]
 
 const Search = ({ navigation }) => {
   const [followed, setFollowed] = React.useState([])
@@ -91,65 +59,36 @@ const Search = ({ navigation }) => {
       </Block>
         <Block>
             {
-                groups.map(group => (
-                    <Block style={styles.group}>
-                        <Text category='h4' style={styles.title}>
-                            {group.title}
-                        </Text>
-                        {
-                            group.people.map(person => {
-                                const isFollowing = followed.includes(person.name)
+                groups.map(group => {
+                  console.log('Got group', group)
+                    const list: Person = group.people.map(person => ({
+                      primary: person.name,
+                      secondary: person.preferences.map(p => p.name),
+                      action: {
+                          primary: followed.includes(person.name) ? 'Following' : 'Follow',
+                          onClick: () => onFollow(person.name),
+                      },
+                      isSelected: followed.includes(person.name)
+                    }))
 
-                                return (
-                                    <Block row space='between' style={styles.person}>
-                                        <Block row>
-                                            <Avatar
-                                                style={styles.avatar}
-                                                source={{
-                                                    uri: 'http://i.pravatar.cc/100?id=skater',
-                                                }}
-                                            />
-                                            <Block>
-                                                <Text category='s1'>
-                                                    {person.name}
-                                                </Text>
-                                                <Block flex row style={styles.preferences}>
-                                                    {
-                                                        person.preferences.map(preference => (
-                                                            <Text category='s1' appearance='hint'>
-                                                                {preference}
-                                                            </Text>
-                                                        ))
-                                                    }
-                                                </Block>
-                                            </Block>
-                                        </Block>
-                                        <Button
-                                            appearance='outline'
-                                            status='primary'
-                                            onPress={() => onFollow(person.name)}
-                                            style={{
-                                                backgroundColor: isFollowing ? '#fe9b0040' : 'white'
-                                            }}
-                                        >
-                                            {
-                                                isFollowing
-                                                    ? 'Following'
-                                                    : 'Follow'
-                                            }
-                                        </Button>
-                                    </Block>
-                                )
-                            })
-                        }
-                    </Block>
-                ))
+                    return (
+                      <Block style={styles.group}>
+                          <Text category='h4' style={styles.title}>
+                              {group.preference.name}
+                          </Text>
+                          <List
+                            data={list}
+                            renderItem={PersonItem}
+                          />
+                      </Block>
+                    )
+                  })
             }
         </Block>
         <Block>
             <Block center>
               {
-                cards.map(card => <Meal {...card}/>)
+                meals.map(meal => <MealSummary {...meal}/>)
               }
             </Block>
         </Block>
@@ -173,8 +112,8 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     width,
     borderTopWidth: 1,
-    borderTopColor: '#e3e3e3',
     borderBottomWidth: 1,
+    borderTopColor: '#e3e3e3',
     borderBottomColor: '#e3e3e3',
   },
   bottomBar: {

@@ -30,7 +30,7 @@ const MealCard = (meal: IMeal) => {
             }
 
             <Text category='s1'>
-              {meal.preferences}
+              {meal.preferences.map(p => p.emoji)}
             </Text>
           </Block>
           <Meal {...meal} />

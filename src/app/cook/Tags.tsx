@@ -10,8 +10,11 @@ import {
 } from 'react-native';
 
 import { Text, Avatar, Button } from '@ui-kitten/components'
-
+import { useNavigation } from '@react-navigation/native'
 import Constants from 'expo-constants';
+
+
+import { getMeal, Preparation } from './NewMeal'
 
 const { statusBarHeight } = Constants;
 
@@ -21,48 +24,66 @@ import {
   Block, Icon, NavBar, theme
 } from 'galio-framework';
 
+import { tagGroups } from 'constants/dummyData'
+
 const { width, height } = Dimensions.get('screen');
 
-const preferences = [{
-  group: 'Lifestyle',
-  items: ['Vegetarian 🥒', 'Vegan 🍆', 'Fitness 💪']
-}, {
-  group: 'Meals',
-  items: ['Stir Fries 🍚', 'BBQ 🍖', 'Pasta 🥘']
-}, {
-  group: 'Countries',
-  items: ['Indian 🇮🇳', 'Thai 🇹🇭', 'Japan 🇯🇵 ']
-}]
+const Preferences = () => {
+  const [selected, setSelected] = React.useState<string[]>([])
+  const { navigate, addListener } = useNavigation()
+  const meal = React.useRef<Preparation>()
 
-const Preferences = ({ navigation }) => {
-  const [selected, setSelected] = React.useState([])
+  React.useEffect(() => {
+    addListener('focus', () => {
+      console.log('Focus')
+      meal.current = getMeal()
+      setSelected(meal.current.getTags())
+    })
+  }, [])
 
   const onSelect = (name: string) => {
     const alreadyExists = selected.includes(name)
 
+    let newTags = []
     if (alreadyExists) {
-      setSelected(selected.filter(item => item !== name))
+      newTags = selected.filter(item => item !== name)
     } else {
-      setSelected([...selected, name])
+      newTags = [...selected, name]
     }
+
+    setSelected(newTags)
+  }
+
+  const onDone = () => {
+    meal.current.setTags(selected)
+    navigate('Cook')
   }
 
   return (
     <View style={{ flex: 1 }}>
       <ScrollView style={{ flex: 1 }}>
         <Block center style={{ marginTop: - theme.SIZES.BASE * 2 }}>
+          <Block flex style={styles.header}>
+            <Text category='h4' style={styles.title}>
+              Select up to 3 tags.
+            </Text>
+            <Text category='p'>
+              These tags will appear on your meal and help your friends find your meals.
+            </Text>
+          </Block>
+
           {
-            preferences.map(preference => (
+            tagGroups.map(group => (
               <Block style={styles.group}>
                   <Block>
                       <Text category='h5' style={styles.title}>
-                        {preference.group}
+                        {group.name}
                       </Text>
                   </Block>
                   <Block style={styles.tags}>
                       {
-                        preference.items.map(item => {
-                          const isSelected = selected.includes(item)
+                        group.items.map(item => {
+                          const isSelected = selected.includes(item.name)
 
                           return (
                             <Button
@@ -72,9 +93,10 @@ const Preferences = ({ navigation }) => {
                               }}
                               appearance={'outline' }
                               status='primary'
-                              onPress={() => onSelect(item)}
+                              onPress={() => onSelect(item.name)}
+                              disabled={!isSelected && selected.length >= 3}
                             >
-                                {item}
+                                {`${item.name}${item.emoji || ''}`}
                               </Button>
                           )
                         })
@@ -88,9 +110,10 @@ const Preferences = ({ navigation }) => {
       <Block style={styles.bottomBar}>
           <Button
             status='primary'
-            onPress={() => navigation.navigate('Home')}
+            onPress={onDone}
+            disabled={selected.length === 0}
           >
-            Next
+            Add {selected.length} / 3
           </Button>
       </Block>
     </View>
@@ -98,6 +121,15 @@ const Preferences = ({ navigation }) => {
 }
 
 const styles = StyleSheet.create({
+  header: {
+    paddingTop: theme.SIZES.BASE * 2,
+    paddingBottom: theme.SIZES.BASE,
+    paddingHorizontal: theme.SIZES.BASE,
+    backgroundColor: 'white',
+    width,
+    borderBottomWidth: 1,
+    borderBottomColor: '#e3e3e3',
+  },
   group: {
     marginVertical: theme.SIZES.BASE * 1,
     paddingHorizontal: theme.SIZES.BASE,

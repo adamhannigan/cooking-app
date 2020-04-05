@@ -67,7 +67,6 @@ const Feed = props => {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: 'white',
   },
   header: {
     borderTopLeftRadius: theme.SIZES.BASE * 2,

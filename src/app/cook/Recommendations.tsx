@@ -20,22 +20,24 @@ import { MealBox } from './MealBox'
 
 const { width } = Dimensions.get('screen');
 
-export const Recommendations = props => {
-  const navigation = useNavigation()
+interface Props {
+  onSelect: (name: string) => void
+}
 
+export const Recommendations = ({ onSelect }: Props)  => {
   return (
     <Block>
         <Block style={styles.content}>
             <Text category='h6' style={styles.heading}>
-              Your Favourites
+              Saved
             </Text>
             <Block style={styles.meals}>
             <ScrollView horizontal>
                 {
                 meals.map(meal => (
                     <MealBox
-                    {...meal}
-                    onClick={() => navigation.navigate('Cook')}
+                      {...meal}
+                      onClick={() => onSelect(meal.title)}
                     />
                 ))
                 }
@@ -45,7 +47,7 @@ export const Recommendations = props => {
             
         <Block style={styles.content}>
             <Text category='h6' style={styles.heading}>
-                Recently Cooked
+                Your menu
             </Text>
             <Block style={styles.meals}>
                 <ScrollView horizontal>

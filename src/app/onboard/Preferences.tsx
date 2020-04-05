@@ -23,16 +23,8 @@ import {
 
 const { width, height } = Dimensions.get('screen');
 
-const preferences = [{
-  group: 'Lifestyle',
-  items: ['Vegetarian 🥒', 'Vegan 🍆', 'Fitness 💪']
-}, {
-  group: 'Meals',
-  items: ['Stir Fries 🍚', 'BBQ 🍖', 'Pasta 🥘']
-}, {
-  group: 'Countries',
-  items: ['Indian 🇮🇳', 'Thai 🇹🇭', 'Japan 🇯🇵 ']
-}]
+import { tagGroups } from 'constants/dummyData'
+
 const Preferences = ({ navigation }) => {
   const [selected, setSelected] = React.useState([])
 
@@ -59,16 +51,16 @@ const Preferences = ({ navigation }) => {
             </Text>
           </Block>
           {
-            preferences.map(preference => (
+            tagGroups.map(group => (
               <Block style={styles.group}>
                   <Block>
                       <Text category='h5' style={styles.title}>
-                        {preference.group}
+                        {group.name}
                       </Text>
                   </Block>
                   <Block style={styles.tags}>
                       {
-                        preference.items.map(item => {
+                        group.items.map(item => {
                           const isSelected = selected.includes(item)
 
                           return (

@@ -19,6 +19,7 @@ import { meals } from '../../constants/dummyData'
 import { MealBox } from './MealBox'
 import { Recommendations } from './Recommendations'
 import { Search } from './Search'
+import { prepareMeal } from './NewMeal'
 
 const { width } = Dimensions.get('screen');
 
@@ -29,6 +30,12 @@ const ChooseMeal = props => {
 
   const [search, setSearch] = React.useState('')
   const [isSearching, setIsSearching] = React.useState(false)
+
+  const onSelect = (name: string) => {
+    prepareMeal(name)
+
+    navigation.navigate('Cook')
+  }
 
   return (
     <View style={{ flex: 1 }}>
@@ -51,7 +58,7 @@ const ChooseMeal = props => {
             />
           </Block>
           {
-            !isSearching && <Recommendations />
+            !isSearching && <Recommendations onSelect={onSelect} />
           }
           {
             isSearching && <Search />

@@ -60,7 +60,7 @@ function BookmarkButton() {
     <TouchableOpacity onPress={onClick}>
         <AnimatedIcon
             name='staro'
-            color={theme['color-warning-default']}
+            color='white'
             family={"AntDesign"}
             size={30}
             style={{

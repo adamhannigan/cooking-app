@@ -70,7 +70,7 @@ const Meal = (meal: IMeal) => {
                     <Block style={styles.icon}>
                         <Icon
                             name={isSaved ? 'star' : 'staro'}
-                            color={kittenTheme['color-warning-default']}
+                            color={kittenTheme['color-primary-default']}
                             family={"AntDesign"} size={25}
                             
                         />

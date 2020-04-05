@@ -17,7 +17,7 @@ import Constants from 'expo-constants';
 
 const { statusBarHeight } = Constants;
 
-import Meal from '../feed/components/MealCard'
+import MealSummary from './components/MealSummary'
 
 
 // galio components
@@ -69,27 +69,27 @@ const Menu = () => {
           
         <Block>
           <Text category='h4' style={styles.menuTitle}>
-            Adam's Menu
+            On the menu
           </Text>
           <Block center>
             {
-              meals.map(card => <Meal {...card}/>)
+              meals.map(card => <MealSummary {...card}/>)
             }
-          </Block>
-          <Block right>
-            <Button appearance='ghost'>See more ></Button>
           </Block>
         </Block>
 
         <Block>
             <Text category='h4' style={styles.menuTitle}>
-              Recent Activity
+              Recents
             </Text>
             <Block center>
               {
-                meals.map(card => <Meal {...card}/>)
+                meals.map(card => <MealSummary {...card}/>)
               }
             </Block>
+          </Block>
+          <Block right>
+            <Button appearance='ghost'>See more ></Button>
           </Block>
       </ScrollView>
     </View>
