@@ -233,7 +233,7 @@ const Cook = props => {
           <Button
             size='medium'
             status='primary'
-            onPress={() => navigate('Home')}
+            onPress={() => navigate('/')}
           >
             Done
           </Button>

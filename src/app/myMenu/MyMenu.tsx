@@ -13,6 +13,8 @@ import {
 import { Text, Avatar, Button } from '@ui-kitten/components'
 import { useNavigation } from '@react-navigation/native'
 
+import { NavProp } from 'Navigation'
+
 import Constants from 'expo-constants';
 
 const { statusBarHeight } = Constants;
@@ -30,16 +32,12 @@ const { width, height } = Dimensions.get('screen');
 
 const Menu = () => {
   const [selected, setSelected] = React.useState([])
-  const navigation = useNavigation()
+  const navigation = useNavigation<NavProp>()
   
-  const onSelect = (name: string) => {
-    const alreadyExists = selected.includes(name)
-
-    if (alreadyExists) {
-      setSelected(selected.filter(item => item !== name))
-    } else {
-      setSelected([...selected, name])
-    }
+  const onClick = (id: number) => {
+    navigation.navigate('/meal/:id', {
+      id,
+    })
   }
 
   return (
@@ -73,7 +71,11 @@ const Menu = () => {
           </Text>
           <Block center>
             {
-              meals.map(card => <MealSummary {...card}/>)
+              meals.map(card => (
+                <TouchableOpacity onPress={() => onClick(card.id)}>
+                  <MealSummary {...card}/>
+                </TouchableOpacity>
+              ))
             }
           </Block>
         </Block>
@@ -84,7 +86,11 @@ const Menu = () => {
             </Text>
             <Block center>
               {
-                meals.map(card => <MealSummary {...card}/>)
+                meals.map(card => (
+                  <TouchableOpacity onPress={() => onClick(card.id)}>
+                    <MealSummary {...card}/>
+                  </TouchableOpacity>
+                ))
               }
             </Block>
           </Block>

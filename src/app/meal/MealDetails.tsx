@@ -30,7 +30,7 @@ import {
 } from 'galio-framework';
 
 import { meals } from 'constants/dummyData'
-import Meal from 'app/feed/components/Actions';
+import Meal from 'app/feed/components/Meal';
 const { width, height } = Dimensions.get('screen');
 
 const MealDetails = () => {
@@ -39,12 +39,18 @@ const MealDetails = () => {
 
   const meal = meals.find(meal => meal.id === route.params.id)
 
+  React.useEffect(() => {
+    navigation.setOptions({
+      title: meal.title,
+    })
+  }, [])
   console.log('Go meal', meal)
   
   return (
     <View style={{ flex: 1 }}>
       <ScrollView style={{ flex: 1 }}>
-        <Block style={{ marginTop: - theme.SIZES.BASE * 2 }}>
+        <Block style={{ marginTop: statusBarHeight }}>
+          <Text>hello</Text>
             <Meal {...meal} />
         </Block>
       </ScrollView>

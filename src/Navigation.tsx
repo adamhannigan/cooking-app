@@ -2,8 +2,8 @@ import 'react-native-gesture-handler'
 import {
   NavigationContainer,
   RouteProp,
-  ParamListBase,
   RouteConfig,
+  NavigationProp,
 } from '@react-navigation/native'
 import {createStackNavigator} from '@react-navigation/stack'
 
@@ -31,12 +31,14 @@ const Stack = createStackNavigator()
 console.disableYellowBox = true
 
 export type Routes = {
+  '/',
   '/meal/:id': {
     id: number
   }
 }
 
 export type Route<T extends keyof Routes> = RouteProp<Routes, T>
+export type NavProp = NavigationProp<Routes>
 
 function Navigation() {
   const kittenTheme = useTheme()
@@ -54,32 +56,29 @@ function Navigation() {
   const routes: RouteConfig<Routes, keyof Routes, object>[] = [{
     name: '/meal/:id',
     component: MealDetails,
-    options: headerOptions,
+    options: {
+      ...headerOptions,
+    },
     initialParams: {
       id: 1,
     },
+  }, {
+    name: '/',
+    component: Home,
+    options: {
+        ...headerOptions,
+        headerRight: () => (
+          <BookmarkButton />
+        ),
+        headerLeft: null,
+        title: 'Home',
+    }
   }]
 
   return (
     <NavigationContainer>
         <Stack.Navigator>
-            {
-              routes.map(route => (<Stack.Screen {...route} />))
-            }
-
-            <Stack.Screen
-              name="Cook"
-              component={Cook}
-              options={headerOptions}
-            />
-
-            <Stack.Screen
-              name="Follow"
-              component={Follow}
-              options={headerOptions}
-            />
-
-            <Stack.Screen
+          <Stack.Screen
               name="Home"
               component={Home}
               options={{
@@ -90,6 +89,24 @@ function Navigation() {
                   headerLeft: null,
               }}
             />
+
+            <Stack.Screen
+              name="Cook"
+              component={Cook}
+              options={headerOptions}
+            />
+
+            {
+              routes.map(route => (<Stack.Screen {...route} />))
+            }
+
+            <Stack.Screen
+              name="Follow"
+              component={Follow}
+              options={headerOptions}
+            />
+
+            
 
             <Stack.Screen
               name="Preferences"
