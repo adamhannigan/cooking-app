@@ -62,6 +62,32 @@ const Menu = () => {
             <Text category='p' >
               Lets go, cook some meat!
             </Text>
+            <Block style={styles.stats}>
+              <Block center>
+                <Text category='h5' >
+                222
+                </Text>
+                <Text category='s2' >
+                  Followers
+                </Text>
+              </Block>
+              <Block center>
+                <Text category='h5' >
+                  34
+                </Text>
+                <Text category='s2' >
+                  Meals
+                </Text>
+              </Block>
+              <Block center>
+                <Text category='h5' >
+                800
+                </Text>
+                <Text category='s2' >
+                  Drools
+                </Text>
+              </Block>
+            </Block>
           </Block>
         </Block>
           
@@ -120,6 +146,13 @@ const styles = StyleSheet.create({
   title: {
     paddingTop: theme.SIZES.BASE,
     paddingBottom: theme.SIZES.BASE,
+  },
+  stats: {
+    paddingTop: theme.SIZES.BASE * 2,
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-evenly',
+    width,
   },
   meal: {
       backgroundColor: 'white',

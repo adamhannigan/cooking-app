@@ -8,7 +8,6 @@ import { Text, useTheme, Avatar } from '@ui-kitten/components'
 
 import { Meal as IMeal } from 'constants/dummyData'
 
-import Person from './Person'
 import Actions from './Actions'
 
 // galio components
@@ -27,6 +26,8 @@ const Meal = (meal: IMeal) => {
                   source={{ uri: meal.image }}
                   style={styles.image}
               />
+              {
+                  /**
               <Block style={styles.avatars}>
                 <Avatar
                   style={styles.avatar}
@@ -34,8 +35,7 @@ const Meal = (meal: IMeal) => {
                         uri: 'http://i.pravatar.cc/100?id=skater',
                   }}
                 />
-                {
-                  /**
+
                    * TODO- secondary cooks
                    * <Avatar
                       style={styles.avatar}
@@ -43,11 +43,14 @@ const Meal = (meal: IMeal) => {
                             uri: 'http://i.pravatar.cc/100?id=skater',
                       }}
                     />
-                   */
-                }
+                   
                 
               </Block>
+              */
+            }
+
             </Block>
+
             <Block row style={styles.content}>
               <Block>
                   <Block>
@@ -75,15 +78,12 @@ const Meal = (meal: IMeal) => {
 
 const styles = StyleSheet.create({
   content: {
-    paddingBottom: theme.SIZES.BASE / 2,
-    paddingHorizontal: theme.SIZES.BASE / 2,
-    backgroundColor: 'white',
+    padding: theme.SIZES.BASE / 2,
 
     borderRadius: 5,
   },
   image: {
     height: 250,
-    borderRadius: 5,
   },
   imageContainer: {
     position: 'relative',

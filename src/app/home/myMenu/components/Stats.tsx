@@ -51,7 +51,7 @@ const Stats = (stats: Props) => {
                     category='s1'
                     appearance='hint'
                 >
-                    {`${stats.likeCount.toString()} chefs tried this`}
+                    {`Cooked ${stats.likeCount.toString()} times`}
                 </Text>
             </Block>
         </Block>

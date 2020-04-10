@@ -87,6 +87,7 @@ const Cook = props => {
   const [isTakingPhoto, setIsTakingPhoto] = React.useState(false)
   const [photo, setPhoto] = React.useState<string>(null)
   const [recipe, setRecipe] = React.useState<string>(null)
+  const [tip, setTip] = React.useState<string>(null)
 
   const [meal, setMeal] = React.useState<Preparation>(null)
 
@@ -121,7 +122,7 @@ const Cook = props => {
     setPhoto(uri)
   }
 
-  const onBack = () => {
+  const onCameraClose = () => {
     setIsTakingPhoto(false)
   }
 
@@ -133,12 +134,19 @@ const Cook = props => {
     navigate('Tags')
   }
 
+  const onRecipeChange = text => setRecipe(text)
+  const onTipChange = text => setRecipe(text)
+
+  const onDone = () => {
+    // Add meal to list
+    navigate('/')
+  }
 
   if (isTakingPhoto) {
     return (
       <CameraView
         onPhotoTaken={onPhoto}
-        onBack={onBack}
+        onBack={onCameraClose}
       />
     )
   }
@@ -155,7 +163,6 @@ const Cook = props => {
                     <Block style={styles.takePhotoContainer}>
                       <Button
                         status='primary'
-                        style={styles.cameraButton}
                         onPress={onTakePhoto}
                       >
                         TAKE A PHOTO
@@ -191,11 +198,26 @@ const Cook = props => {
                     autoCapitalize='none'
                     placeholder={`www.${meal.getTitle().toLowerCase().substr(0, 10)}...`}
                     value={recipe}
-                    onChangeText={text => setRecipe(text)}
+                    onChangeText={onRecipeChange}
 
                     icon={() => 
                       <Icon
                           name='link'
+                          size='small'
+                          family={"AntDesign"}
+                      />
+                    }
+                  />
+                  <Input
+                    label='Tip'
+                    autoCapitalize='none'
+                    placeholder='What is your tip for this recipe?'
+                    value={recipe}
+                    onChangeText={onTipChange}
+
+                    icon={() => 
+                      <Icon
+                          name='bulb1'
                           size='small'
                           family={"AntDesign"}
                       />
@@ -233,7 +255,7 @@ const Cook = props => {
           <Button
             size='medium'
             status='primary'
-            onPress={() => navigate('/')}
+            onPress={onDone}
           >
             Done
           </Button>

@@ -1,4 +1,4 @@
-import Meal from "app/feed/components/Actions"
+import Meal from "app/home/feed/components/Actions"
 
 export class Preparation {
     private title: string

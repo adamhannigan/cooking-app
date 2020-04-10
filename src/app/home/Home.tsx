@@ -1,22 +1,18 @@
 import * as React from 'react';
 import { BottomNavigation } from 'react-native-paper';
 
-import {
-    Block, Text, Icon, NavBar, theme
-} from 'galio-framework';
-
 import { useTheme } from '@ui-kitten/components'
 
 
-import Feed from '../feed/Feed'
-import Activity from '../activity/Activity'
-import MyMenu from '../myMenu/MyMenu'
-import Search from '../search/Search'
+import Feed from './feed/Feed'
+import Activity from './activity/Activity'
+import MyMenu from './myMenu/MyMenu'
+import Search from './search/Search'
 
 const routes = [
     { key: 'meals', title: 'Meals', icon: 'silverware-fork-knife' },
     { key: 'search', title: 'Search', icon: 'feature-search-outline' },
-    { key: 'activity', title: 'Activity', icon: 'heart-outline' },
+    { key: 'activity', title: 'Activity', icon: 'heart-outline', badge: true },
     { key: 'menu', title: 'Menu', icon: 'book-open' },
 ]
 

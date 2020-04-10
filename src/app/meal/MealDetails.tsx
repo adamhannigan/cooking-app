@@ -5,12 +5,13 @@ import {
   StyleSheet,
   ScrollView,
   View,
+  Linking,
   Dimensions,
   TouchableOpacity,
   ImageBackground,
 } from 'react-native';
 
-import { Text, Avatar, Button } from '@ui-kitten/components'
+import { Text, useTheme } from '@ui-kitten/components'
 import {
     useNavigation,
     useRoute,
@@ -30,7 +31,10 @@ import {
 } from 'galio-framework';
 
 import { meals } from 'constants/dummyData'
-import Meal from 'app/feed/components/Meal';
+import Meal from 'app/home/feed/components/Meal';
+
+import InfoBlock from './components/InfoBlock'
+
 const { width, height } = Dimensions.get('screen');
 
 const MealDetails = () => {
@@ -39,19 +43,48 @@ const MealDetails = () => {
 
   const meal = meals.find(meal => meal.id === route.params.id)
 
+  const kittenTheme = useTheme()
+
   React.useEffect(() => {
     navigation.setOptions({
       title: meal.title,
     })
   }, [])
-  console.log('Go meal', meal)
+  
+  const onOpenRecipe = () => {
+    Linking.openURL(meal.recipe)
+  }
   
   return (
     <View style={{ flex: 1 }}>
       <ScrollView style={{ flex: 1 }}>
-        <Block style={{ marginTop: statusBarHeight }}>
-          <Text>hello</Text>
+        <Block>
             <Meal {...meal} />
+
+
+            {
+              meal.recipe && (
+                <TouchableOpacity onPress={onOpenRecipe}>
+                  <InfoBlock
+                    title='Recipe'
+                    icon='link'
+                    text={meal.recipe}
+                    status='info'
+                  />
+                </TouchableOpacity>
+              )
+            }
+
+            {
+              meal.tip && (
+                <InfoBlock
+                  title='Tip'
+                  icon='bulb1'
+                  text={meal.tip}
+                />
+              )
+            }
+            
         </Block>
       </ScrollView>
     </View>
@@ -59,16 +92,6 @@ const MealDetails = () => {
 }
 
 const styles = StyleSheet.create({
-  header: {
-    paddingTop: theme.SIZES.BASE * 4,
-    paddingBottom: theme.SIZES.BASE * 1,
-    paddingHorizontal: theme.SIZES.BASE,
-
-    backgroundColor: 'white',
-    width,
-    borderBottomWidth: 1,
-    borderBottomColor: '#e3e3e3',
-  },
 });
 
 export default MealDetails;

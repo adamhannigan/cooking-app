@@ -8,7 +8,7 @@ import { useNavigation } from '@react-navigation/native'
 
 import { Text, Avatar, Button } from '@ui-kitten/components'
 
-import { Meal as IMeal } from '../../../constants/dummyData'
+import { Meal as IMeal } from '../../../../constants/dummyData'
 
 // galio components
 import {

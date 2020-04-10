@@ -24,7 +24,7 @@ import Cook from './app/cook/Cook'
 import Tags from './app/cook/Tags'
 import { CameraView } from './app/cook/Camera'
 
-import BookmarkButton from 'app/home/BookmarkButton';
+import BookmarkButton from 'app/home/components/BookmarkButton';
 
 const Stack = createStackNavigator()
 
@@ -58,8 +58,11 @@ function Navigation() {
     component: MealDetails,
     options: {
       ...headerOptions,
+      headerBackTitle: 'Back',
+
     },
     initialParams: {
+      // Hot reload testing
       id: 1,
     },
   }, {

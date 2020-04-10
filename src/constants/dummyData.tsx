@@ -155,8 +155,9 @@ export interface Meal {
       name: string
     },
     preferences: Preference[]
-    likes: number,
-    recipe: string,
+    likes: number
+    recipe?: string
+    tip?: string
   }
 
 export const meals: Meal[] = [{
@@ -165,6 +166,7 @@ export const meals: Meal[] = [{
     action: '🤤 Is hungry for...',
     image: 'https://img.buzzfeed.com/thumbnailer-prod-us-east-1/video-api/assets/125259.jpg?output-quality=100&resize=900:*',
     recipe: 'https://img.buzzfeed.com/thumbnailer-prod-us-east-1/video-api/assets/125259.jpg?output-quality=100&resize=900:*',
+    tip: 'Make sure you have a clean surface to roll the gnocci!',
     user: {
       name: 'Adam Hannigan'
     },
@@ -176,6 +178,7 @@ export const meals: Meal[] = [{
     action: '👨‍🍳 Just cooked...',
     image: 'https://img.buzzfeed.com/thumbnailer-prod-us-east-1/0b3bf188572f406aa09f32890d9749f5/BFV43049_HowToMakeMesmerizingBrazilianDesserts_FINAL.jpg?output-quality=100&resize=900:*',
     recipe: 'https://img.buzzfeed.com/thumbnailer-prod-us-east-1/video-api/assets/125259.jpg?output-quality=100&resize=900:*',
+    tip: 'Use a tall cake tin for crispy edges',
     user: {
       name: 'Jess Lobster',
     },
@@ -187,6 +190,7 @@ export const meals: Meal[] = [{
     action: '👨‍🍳 Just cooked...',
     image: 'https://img.buzzfeed.com/video-api-prod/assets/ec15137f921a40f49317cd75d38a961d/BFV14804_Meal-PrepGarlicChickenAndVeggiePasta-TextlessThumb.jpg?output-quality=100&resize=900:*',
     recipe: 'https://img.buzzfeed.com/thumbnailer-prod-us-east-1/video-api/assets/125259.jpg?output-quality=100&resize=900:*',
+    tip: 'Keep stirring so the pasta does not stick to the bottom',
     user: {
       name: 'Joe Rogan',
     },
@@ -198,6 +202,7 @@ export const meals: Meal[] = [{
     action: '📖 Added a meal to his menu ',
     image: 'https://img.buzzfeed.com/thumbnailer-prod-us-east-1/c6630a4d04074d11ab60bfa0cb4b03d1/BFV16130_Stir-Fry_4_Ways_FB.jpg?output-quality=100&resize=900:*',
     recipe: 'https://img.buzzfeed.com/thumbnailer-prod-us-east-1/video-api/assets/125259.jpg?output-quality=100&resize=900:*',
+    tip: 'Add salt while boiling the brocolli',
     user: {
       name: 'Mitchell Hannigan',
     },

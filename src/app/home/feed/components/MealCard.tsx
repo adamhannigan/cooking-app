@@ -4,7 +4,7 @@ import {
   Dimensions,
 } from 'react-native';
 
-import { Meal as IMeal } from '../../../constants/dummyData'
+import { Meal as IMeal } from '../../../../constants/dummyData'
 
 import Meal from './Meal'
 
@@ -20,19 +20,6 @@ const { width } = Dimensions.get('screen');
 const MealCard = (meal: IMeal) => {
     return (
         <Block style={styles.container}>
-          <Block row middle space='between'>
-            {
-              meal.user && (
-                <Text category='s1' style={styles.text} status='info'>
-                  {meal.user.name}
-                </Text>
-              )
-            }
-
-            <Text category='s1'>
-              {meal.preferences.map(p => p.emoji)}
-            </Text>
-          </Block>
           <Meal {...meal} />
         </Block>
   )
@@ -40,8 +27,10 @@ const MealCard = (meal: IMeal) => {
 
 const styles = StyleSheet.create({
   container: {
-    marginVertical: theme.SIZES.BASE * 1,
-    paddingHorizontal: theme.SIZES.BASE / 2,
+    marginBottom: theme.SIZES.BASE,
+    paddingBottom: theme.SIZES.BASE,
+    borderBottomWidth: 1,
+    borderBottomColor: '#e3e3e3',
 
     width: width,
   },
