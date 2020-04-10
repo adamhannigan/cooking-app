@@ -64,6 +64,15 @@ const Meal = (meal: IMeal) => {
                     </Block>
                 </Block>
             </TouchableOpacity>
+            <Block style={styles.bar}>
+                <Block
+                    style={{
+                        ...styles.barColor,
+                        height: userLikes * 70,
+                    }}
+                />
+            </Block>
+
             {
                 isFavourited && [
                 <TouchableOpacity onPress={onFavourite}>
@@ -113,6 +122,30 @@ icon: {
     display: 'flex',
     flexDirection: 'row-reverse',
     justifyContent: 'space-between',
+  },
+  bar: {
+    width: 30,
+    backgroundColor: 'white',
+    position: 'absolute',
+    height: 220,
+    right: 58,
+    borderRadius: 50,
+    bottom: 15,
+
+    borderWidth: 5,
+    borderColor: 'orange',
+
+    shadowOffset:{  width: 5,  height: 3,  },
+    shadowColor: '#777',
+    shadowOpacity: 0.4,
+    zIndex: -1,
+  },
+  barColor: {
+      backgroundColor: 'orange',
+      position: 'absolute',
+      width: '100%',
+      bottom: 0,
+      zIndex: 2,
   },
 });
 
