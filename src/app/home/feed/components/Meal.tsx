@@ -26,6 +26,15 @@ const Meal = (meal: IMeal) => {
                   source={{ uri: meal.image }}
                   style={styles.image}
               />
+              <Block style={styles.playButtonContainer}>
+                <Icon
+                  name='play'
+                  color={kittenTheme['color-info-default']}
+                  family={"AntDesign"}
+                  style={styles.playButton}
+                />
+              </Block>
+              
               {
                   /**
               <Block style={styles.avatars}>
@@ -94,6 +103,18 @@ const styles = StyleSheet.create({
     height: '100%',
     display: 'flex',
     flexWrap: 'wrap',
+  },
+  playButtonContainer: {
+    position: 'absolute',
+    right: 5,
+    top: 5,
+    backgroundColor: 'white',
+    width: 50,
+    height: 50,
+    borderRadius: 50,
+  },
+  playButton: {
+    fontSize: 50,
   },
   avatar: {
     margin: 5,

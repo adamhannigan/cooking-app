@@ -27,11 +27,6 @@ const MealCard = (meal: IMeal) => {
 
 const styles = StyleSheet.create({
   container: {
-    marginBottom: theme.SIZES.BASE,
-    paddingBottom: theme.SIZES.BASE,
-    borderBottomWidth: 1,
-    borderBottomColor: '#e3e3e3',
-
     width: width,
   },
   

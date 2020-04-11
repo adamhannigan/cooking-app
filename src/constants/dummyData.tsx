@@ -160,7 +160,11 @@ export interface Meal {
     tip?: string
   }
 
-export const meals: Meal[] = [{
+const recipeBook = {
+  // Tacos
+
+  // Pasta
+  sweetPotatoGnocci: {
     id: 1,
     title: 'Sweet Potato Gnocci',
     action: '🤤 Is hungry for...',
@@ -171,20 +175,9 @@ export const meals: Meal[] = [{
       name: 'Adam Hannigan'
     },
     likes: 22,
-    preferences: [preferences.vegetarian, preferences.lowCarb],
-  }, {
-    id: 2,
-    title: 'Brazillian Carrot Cake',
-    action: '👨‍🍳 Just cooked...',
-    image: 'https://img.buzzfeed.com/thumbnailer-prod-us-east-1/0b3bf188572f406aa09f32890d9749f5/BFV43049_HowToMakeMesmerizingBrazilianDesserts_FINAL.jpg?output-quality=100&resize=900:*',
-    recipe: 'https://img.buzzfeed.com/thumbnailer-prod-us-east-1/video-api/assets/125259.jpg?output-quality=100&resize=900:*',
-    tip: 'Use a tall cake tin for crispy edges',
-    user: {
-      name: 'Jess Lobster',
-    },
-    preferences: [preferences.brazil],
-    likes: 62,
-  }, {
+    preferences: [preferences.vegetarian, preferences.pasta],
+  },
+  creamyCajunPasta: {
     id: 3,
     title: 'Creamy Cajun Pasta',
     action: '👨‍🍳 Just cooked...',
@@ -194,9 +187,25 @@ export const meals: Meal[] = [{
     user: {
       name: 'Joe Rogan',
     },
-    preferences: [preferences.fitness, preferences.turkey],
+    preferences: [preferences.pasta, preferences.chicken],
     likes: 12,
-  }, {
+  },
+  easySausagePasta: {
+    id: 3,
+    title: 'Easy sausage pasta',
+    action: '👨‍🍳 Just cooked...',
+    image: 'https://img.buzzfeed.com/tasty-app-user-assets-prod-us-east-1/recipes/44481df056c343438402051b7aec4c7c.jpeg',
+    recipe: 'https://img.buzzfeed.com/tasty-app-user-assets-prod-us-east-1/recipes/44481df056c343438402051b7aec4c7c.jpeg',
+    tip: 'Keep stirring so the pasta does not stick to the bottom',
+    user: {
+      name: 'Joe Rogan',
+    },
+    preferences: [preferences.pasta, preferences.italy],
+    likes: 12,
+  },
+
+  // Stir Fry
+  chickenBrocolliStirFry: {
     id: 4,
     title: 'Chicken and Brocoslli Stir Fry',
     action: '📖 Added a meal to his menu ',
@@ -204,12 +213,46 @@ export const meals: Meal[] = [{
     recipe: 'https://img.buzzfeed.com/thumbnailer-prod-us-east-1/video-api/assets/125259.jpg?output-quality=100&resize=900:*',
     tip: 'Add salt while boiling the brocolli',
     user: {
-      name: 'Mitchell Hannigan',
+      name: 'Douglas Hannigan',
     },
     preferences: [preferences.stirFry,  preferences.chicken],
     likes: 10,
-  }]
+  }
+}
 
+interface TaggedMeals {
+  tag: Preference
+  meals: Meal[]
+}
+
+type PreferenceType = keyof typeof preferences
+
+export const meals = Object.values(recipeBook) as Meal[]
+
+export const sortedMeals: TaggedMeals[] =
+  Object.keys(preferences)
+    .reduce((sorted, key: PreferenceType) => {
+      const preference = preferences[key]
+
+      const matchedMeals = meals.filter(meal => 
+          !!meal.preferences.find(mealPref =>
+            mealPref.name === preference.name
+          )
+      )
+
+      if (matchedMeals.length === 0) {
+        return sorted
+      }
+
+      return [
+        ...sorted,
+        {
+          tag: preference,
+          meals: matchedMeals,
+        }
+      ]
+    }, [] as TaggedMeals[])
+  
 export const people = [{
   name: 'Adam Hannigan',
   preferences: [preferences.fitness, preferences.bbq]

@@ -95,7 +95,7 @@ const Menu = () => {
           <Text category='h4' style={styles.menuTitle}>
             On the menu
           </Text>
-          <Block center>
+          <Block>
             {
               meals.map(card => (
                 <TouchableOpacity onPress={() => onClick(card.id)}>
@@ -110,7 +110,7 @@ const Menu = () => {
             <Text category='h4' style={styles.menuTitle}>
               Recents
             </Text>
-            <Block center>
+            <Block>
               {
                 meals.map(card => (
                   <TouchableOpacity onPress={() => onClick(card.id)}>
@@ -132,7 +132,6 @@ const styles = StyleSheet.create({
   header: {
     paddingTop: theme.SIZES.BASE * 4,
     paddingBottom: theme.SIZES.BASE * 1,
-    paddingHorizontal: theme.SIZES.BASE,
 
     backgroundColor: 'white',
     width,
@@ -165,9 +164,6 @@ const styles = StyleSheet.create({
   },
   menuTitle: {
     margin: theme.SIZES.BASE,
-  },
-  mealContent: {
-      padding: theme.SIZES.BASE / 2,
   },
   image: {
     width: theme.SIZES.BASE * 5,

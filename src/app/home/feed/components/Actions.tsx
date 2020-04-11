@@ -36,7 +36,7 @@ const Meal = (meal: IMeal) => {
     }
 
     const userLikes = (likes - meal.likes)
-    const isFavourited = userLikes >= 3
+    const isFavourited = userLikes >= 1
 
     const onLike = () => {
       setLikes(likes + 1)
@@ -48,10 +48,16 @@ const Meal = (meal: IMeal) => {
                 <Block row>
                     <Block style={styles.icon}>
                         <Icon
-                            name='hearto'
+                            name={
+                                isFavourited
+                                    ? 'heart'
+                                    : 'hearto'
+                            }
                             color={kittenTheme['color-danger-default']}
                             family={"AntDesign"} size={25}
                         />
+                        {
+                            /*
                         <Icon
                             name='heart'
                             color={kittenTheme['color-danger-default']}
@@ -61,9 +67,13 @@ const Meal = (meal: IMeal) => {
                                 height: userLikes * 8,
                             }}
                         />
+                        */
+                        }
                     </Block>
                 </Block>
             </TouchableOpacity>
+            {
+                /*
             <Block style={styles.bar}>
                 <Block
                     style={{
@@ -72,6 +82,9 @@ const Meal = (meal: IMeal) => {
                     }}
                 />
             </Block>
+            */
+            }
+
 
             {
                 isFavourited && [

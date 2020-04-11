@@ -7,6 +7,8 @@ import {
   Image,
 } from 'react-native';
 
+import CookingSVG from './assets/cooking.svg'
+console.log('Cooking is', CookingSVG)
 import { useNavigation } from '@react-navigation/native'
 
 import { Text, List, useTheme, Input, Button, ButtonGroup } from '@ui-kitten/components'
@@ -33,30 +35,34 @@ const styles = StyleSheet.create({
     paddingTop: theme.SIZES.BASE,
   },
   content: {
-    height: 250,
     width: width,
     padding: theme.SIZES.BASE,
     display: 'flex',
     justifyContent: 'center',
   },
   imageContainer: {
-    height: '100%',
     width: '100%',
+    height: 255, 
     borderRadius: 10,
   },
   takePhotoContainer: {
-    height: '100%',
     width: '100%',
     borderWidth: 2,
     borderRadius: 5,
     borderStyle: 'dashed',
     borderColor: 'grey',
-
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-
-    backgroundColor: 'white',
+    paddingHorizontal: theme.SIZES.BASE,
+    marginBottom: 20,
+  },
+  captureButton: {
+    height: 85,
+    width: 85,
+    borderRadius: 50,
+    position: 'absolute',
+    left: '50%',
+    top: '50%',
+    marginLeft: -25,
+    marginTop: -38,
   },
   testButton: {
     position: 'absolute',
@@ -66,7 +72,21 @@ const styles = StyleSheet.create({
     width: 50,
     borderRadius: 50,     
   },
+  removeButton: {
+    position: 'absolute',
+    bottom: 25,
+    right: 85,
+    height: 50,
+    width: 50,
+    borderRadius: 50,  
+  },
   buttonIcon: {
+    width: 50,
+    height: 50,
+    padding: 10,
+    fontSize: 30,
+  },
+  removeIcon: {
     width: 50,
     height: 50,
     padding: 10,
@@ -122,6 +142,10 @@ const Cook = props => {
     setPhoto(uri)
   }
 
+  const onRemovePhoto = () => {
+    setPhoto(null)
+  }
+
   const onCameraClose = () => {
     setIsTakingPhoto(false)
   }
@@ -161,12 +185,22 @@ const Cook = props => {
                 {
                   !photo && (
                     <Block style={styles.takePhotoContainer}>
+                      <CookingSVG
+                        width={width - theme.SIZES.BASE * 4 }
+                        height={250}
+                      />
                       <Button
-                        status='primary'
                         onPress={onTakePhoto}
-                      >
-                        TAKE A PHOTO
-                      </Button>
+                        style={styles.captureButton}
+                        icon={() => 
+                          <Icon
+                              name='camera'
+                              color='white'
+                              family={"AntDesign"}
+                              style={styles.buttonIcon}
+                          />
+                        }
+                      />
                     </Block>
                   )
                 }
@@ -175,6 +209,21 @@ const Cook = props => {
                     <Image
                         source={{ uri: photo }}
                         style={styles.imageContainer}
+                    />,
+                    <Button
+                      style={{
+                        ...styles.removeButton,
+                      }}
+                      status='danger'
+                      onPress={onRemovePhoto}
+                      icon={() => 
+                        <Icon
+                            name='delete'
+                            color='white'
+                            family={"AntDesign"}
+                            style={styles.buttonIcon}
+                        />
+                      }
                     />,
                     <Button
                       style={styles.testButton}
@@ -191,10 +240,10 @@ const Cook = props => {
                   ]
                 }
               </Block>
-              <Block flex style={styles.header}>
+              <Block style={styles.header}>
                 <Block>
                   <Input
-                    label='Recipe link'
+                    label='Recipe URL'
                     autoCapitalize='none'
                     placeholder={`www.${meal.getTitle().toLowerCase().substr(0, 10)}...`}
                     value={recipe}

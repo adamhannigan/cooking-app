@@ -49,25 +49,32 @@ const MealSummary = (meal: IMeal) => {
 const styles = StyleSheet.create({
   container: {
     paddingVertical: theme.SIZES.BASE * 1,
-    marginLeft: theme.SIZES.BASE,
     width: width - theme.SIZES.BASE * 2,
 
     display: 'flex',
     flexDirection: 'row',
-
-    borderBottomWidth: 1,
-    borderBottomColor: '#e3e3e3',
   },
   image: {
     fontWeight: 'bold',
     height: 100,
     width: 100,
-    borderRadius: 10,
+    borderTopRightRadius: 10,
+    borderBottomRightRadius: 10,
+
   },
   imageContainer: {
-    shadowOffset:{  width: 5,  height: 10 },
+    borderTopRightRadius: 10,
+    borderBottomRightRadius: 10,
+
+    borderWidth: 1,
+    borderColor: '#ddd',
+
+    // Offset the border
+    marginLeft: -1,
+
+    shadowOffset:{  width: 5,  height: 5 },
     shadowColor: '#202020',
-    shadowOpacity: 0.3,
+    shadowOpacity: 0.2,
     shadowRadius: 10,
   },
   content: {
