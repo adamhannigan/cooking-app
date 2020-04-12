@@ -92,13 +92,18 @@ const Menu = () => {
         </Block>
           
         <Block>
-          <Text category='h4' style={styles.menuTitle}>
-            On the menu
-          </Text>
+          <Block row middle space='between'  style={styles.menuTitle}>
+            <Text category='h4'>
+              Menu
+            </Text>
+            <Text appearance='hint' >
+              4 items
+            </Text>
+          </Block>
           <Block>
             {
               meals.map(card => (
-                <TouchableOpacity onPress={() => onClick(card.id)}>
+                <TouchableOpacity onPress={() => onClick(card.id)} style={styles.item}>
                   <MealSummary {...card}/>
                 </TouchableOpacity>
               ))
@@ -107,21 +112,23 @@ const Menu = () => {
         </Block>
 
         <Block>
-            <Text category='h4' style={styles.menuTitle}>
-              Recents
+        <Block row middle space='between'  style={styles.menuTitle}>
+            <Text category='h4'>
+              All meals
             </Text>
+            <Text appearance='hint' >
+              43 items
+            </Text>
+          </Block>
             <Block>
               {
                 meals.map(card => (
-                  <TouchableOpacity onPress={() => onClick(card.id)}>
+                  <TouchableOpacity onPress={() => onClick(card.id)} style={styles.item}>
                     <MealSummary {...card}/>
                   </TouchableOpacity>
                 ))
               }
             </Block>
-          </Block>
-          <Block right>
-            <Button appearance='ghost'>See more ></Button>
           </Block>
       </ScrollView>
     </View>
@@ -169,6 +176,14 @@ const styles = StyleSheet.create({
     width: theme.SIZES.BASE * 5,
     height: theme.SIZES.BASE * 5,
   },
+  item: {
+    backgroundColor: 'white',
+    marginBottom: theme.SIZES.BASE,
+
+    borderBottomWidth: 1,
+    borderTopWidth: 1,
+    borderColor: '#e3e3e3',
+  }
 });
 
 export default Menu;

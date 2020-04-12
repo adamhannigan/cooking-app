@@ -65,7 +65,7 @@ const Feed = props => {
                       <Button
                             appearance='ghost'
                           >
-                          See more >
+                          Not interested
                       </Button>
                     </Block>
                     {
@@ -156,8 +156,10 @@ const styles = StyleSheet.create({
     paddingBottom: theme.SIZES.BASE,
   },
   item: {
-    paddingBottom: theme.SIZES.BASE * 2,
+    marginBottom: theme.SIZES.BASE * 2,
     marginTop: theme.SIZES.BASE,
+
+    backgroundColor: 'white',
 
     borderBottomWidth: 1,
     borderBottomColor: '#e3e3e3',

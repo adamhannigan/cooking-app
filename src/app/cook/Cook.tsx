@@ -160,16 +160,12 @@ const Cook = props => {
 
   }
 
-  const onAddTags = () => {
-    navigate('Tags')
-  }
-
   const onRecipeChange = text => setRecipe(text)
   const onTipChange = text => setRecipe(text)
 
   const onDone = () => {
     // Add meal to list
-    navigate('/')
+    navigate('Tags')
   }
 
   if (isTakingPhoto) {
@@ -188,7 +184,7 @@ const Cook = props => {
           meal && (
             <Block>
               <Block style={styles.content}>
-                <Text category='s1'>Take a photo of your meal.</Text>
+                <Text category='s1'>1. Take a photo of your meal.</Text>
                 {
                   !photo && (
                     <Block style={styles.takePhotoContainer}>
@@ -215,7 +211,9 @@ const Cook = props => {
                   photo && [
                     <Image
                         source={{ uri: photo }}
-                        style={styles.imageContainer}
+                        style={{
+                          ...styles.imageContainer,
+                        }}
                     />,
                     <Button
                       style={{
@@ -288,10 +286,13 @@ const Cook = props => {
                   )
                 }
                 {
-                  photo && [
+                  ingredientPhoto && [
                     <Image
                         source={{ uri: photo }}
-                        style={styles.imageContainer}
+                        style={{
+                          ...styles.imageContainer,
+                          width: '50%',
+                        }}
                     />,
                   ]
                 }
@@ -334,7 +335,7 @@ const Cook = props => {
                   )
                 }
                 {
-                  photo && [
+                  ingredientPhoto && [
                     <Image
                         source={{ uri: photo }}
                         style={styles.imageContainer}
@@ -396,8 +397,9 @@ const Cook = props => {
             size='medium'
             status='primary'
             onPress={onDone}
+            disabled={!photo}
           >
-            Done
+            Next
           </Button>
         </Block>
     </View>

@@ -23,6 +23,8 @@ import Constants from 'expo-constants';
 
 import { Route } from 'Navigation'
 
+import Others from './Others'
+
 const { statusBarHeight } = Constants;
 
 // galio components
@@ -84,6 +86,8 @@ const MealDetails = () => {
                 />
               )
             }
+
+            <Others />
             
         </Block>
       </ScrollView>

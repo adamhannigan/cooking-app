@@ -59,7 +59,7 @@ const styles = StyleSheet.create({
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'space-between',
-    width,
+    width: '100%',
   },
   avatar: {
     marginRight: theme.SIZES.BASE / 2,

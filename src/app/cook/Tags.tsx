@@ -56,7 +56,7 @@ const Preferences = () => {
 
   const onDone = () => {
     meal.current.setTags(selected)
-    navigate('Cook')
+    navigate('/')
   }
 
   return (
@@ -65,7 +65,7 @@ const Preferences = () => {
         <Block center style={{ marginTop: - theme.SIZES.BASE * 2 }}>
           <Block flex style={styles.header}>
             <Text category='h4' style={styles.title}>
-              Select up to 3 tags.
+              Select 2 tags.
             </Text>
             <Text category='p'>
               These tags will appear on your meal and help your friends find your meals.
@@ -94,7 +94,7 @@ const Preferences = () => {
                               appearance={'outline' }
                               status='primary'
                               onPress={() => onSelect(item.name)}
-                              disabled={!isSelected && selected.length >= 3}
+                              disabled={!isSelected && selected.length >= 2}
                             >
                                 {`${item.name}${item.emoji || ''}`}
                               </Button>
@@ -111,9 +111,9 @@ const Preferences = () => {
           <Button
             status='primary'
             onPress={onDone}
-            disabled={selected.length === 0}
+            disabled={selected.length < 2}
           >
-            Add {selected.length} / 3
+            Done {selected.length < 2 && `${selected.length} / 2`}
           </Button>
       </Block>
     </View>
