@@ -8,7 +8,9 @@ import {
 } from 'react-native';
 
 import CookingSVG from './assets/cooking.svg'
-console.log('Cooking is', CookingSVG)
+import IngredientSVG from './assets/HealthyFood_02.svg'
+import DirtySVG from './assets/dirty.svg'
+
 import { useNavigation } from '@react-navigation/native'
 
 import { Text, List, useTheme, Input, Button, ButtonGroup } from '@ui-kitten/components'
@@ -52,7 +54,6 @@ const styles = StyleSheet.create({
     borderStyle: 'dashed',
     borderColor: 'grey',
     paddingHorizontal: theme.SIZES.BASE,
-    marginBottom: 20,
   },
   captureButton: {
     height: 85,
@@ -63,6 +64,10 @@ const styles = StyleSheet.create({
     top: '50%',
     marginLeft: -25,
     marginTop: -38,
+
+    shadowOffset:{  width: 3,  height: 5,  },
+    shadowColor: '#777',
+    shadowOpacity: 0.3,
   },
   testButton: {
     position: 'absolute',
@@ -106,6 +111,7 @@ const Cook = props => {
   const { navigate, isFocused, addListener, setOptions } = useNavigation()
   const [isTakingPhoto, setIsTakingPhoto] = React.useState(false)
   const [photo, setPhoto] = React.useState<string>(null)
+  const [ingredientPhoto, setIngredientPhoto] = React.useState<string>(null)
   const [recipe, setRecipe] = React.useState<string>(null)
   const [tip, setTip] = React.useState<string>(null)
 
@@ -180,8 +186,9 @@ const Cook = props => {
       <ScrollView style={{ flex: 1 }}>
         {
           meal && (
-            <Block style={{ marginTop: theme.SIZES.BASE * 1 }}>
+            <Block>
               <Block style={styles.content}>
+                <Text category='s1'>Take a photo of your meal.</Text>
                 {
                   !photo && (
                     <Block style={styles.takePhotoContainer}>
@@ -240,15 +247,114 @@ const Cook = props => {
                   ]
                 }
               </Block>
+
+              <Block row style={styles.content}>
+                {
+                  !ingredientPhoto && (
+                    <Block style={{
+                      width: width/2 - theme.SIZES.BASE * 2,
+                      marginRight: theme.SIZES.BASE,
+                    }}>
+                      <Text category='s1'>Photo of ingredients.</Text>
+                      <Block style={styles.takePhotoContainer}>
+                        <IngredientSVG
+                          width={width / 2 - theme.SIZES.BASE * 4 }
+                          height={125}
+                        />
+                        <Button
+                          onPress={onTakePhoto}
+                          style={{
+                            ...styles.captureButton,
+                            width: 45,
+                            height: 45,
+                            marginLeft: 3,
+                            marginTop: -20,
+                          }}
+                          icon={() => 
+                            <Icon
+                                name='camera'
+                                color='white'
+                                family={"AntDesign"}
+                                style={{
+                                  ...styles.buttonIcon,
+                                  fontSize: 25,
+                                  padding: 13,
+                                }}
+                            />
+                          }
+                        />
+                      </Block>
+                    </Block>
+                  )
+                }
+                {
+                  photo && [
+                    <Image
+                        source={{ uri: photo }}
+                        style={styles.imageContainer}
+                    />,
+                  ]
+                }
+                {
+                  !ingredientPhoto && (
+                    <Block style={{
+                      width: width/2 - theme.SIZES.BASE * 2,
+                      marginLeft: theme.SIZES.BASE,
+                    }}>
+                      <Text category='s1'>Photo of dirty dishes.</Text>
+                      <Block style={styles.takePhotoContainer}>
+                        <DirtySVG
+                          width={width / 2 - theme.SIZES.BASE * 3 }
+                          height={125}
+                        />
+                        <Button
+                          onPress={onTakePhoto}
+                          style={{
+                            ...styles.captureButton,
+                            width: 45,
+                            height: 45,
+                            marginLeft: 3,
+                            marginTop: -20,
+                          }}
+                          icon={() => 
+                            <Icon
+                                name='camera'
+                                color='white'
+                                family={"AntDesign"}
+                                style={{
+                                  ...styles.buttonIcon,
+                                  fontSize: 25,
+                                  padding: 13,
+                                }}
+                            />
+                          }
+                        />
+                        </Block>
+                    </Block>
+                  )
+                }
+                {
+                  photo && [
+                    <Image
+                        source={{ uri: photo }}
+                        style={styles.imageContainer}
+                    />,
+                  ]
+                }
+              </Block>
               <Block style={styles.header}>
                 <Block>
                   <Input
                     label='Recipe URL'
                     autoCapitalize='none'
+                    labelStyle={{
+                      color: 'black',
+                      fontSize: 14,
+                      fontWeight: 'normal'
+                    }}
                     placeholder={`www.${meal.getTitle().toLowerCase().substr(0, 10)}...`}
                     value={recipe}
                     onChangeText={onRecipeChange}
-
                     icon={() => 
                       <Icon
                           name='link'
@@ -259,11 +365,18 @@ const Cook = props => {
                   />
                   <Input
                     label='Tip'
+                    labelStyle={{
+                      color: 'black',
+                      marginTop: theme.SIZES.BASE,
+                      fontSize: 14,
+                      fontWeight: 'normal'
+                    }}
+                    multiline={true}
+                    textStyle={{ minHeight: 64 }}
                     autoCapitalize='none'
                     placeholder='What is your tip for this recipe?'
                     value={recipe}
                     onChangeText={onTipChange}
-
                     icon={() => 
                       <Icon
                           name='bulb1'
@@ -272,28 +385,6 @@ const Cook = props => {
                       />
                     }
                   />
-                  <Block row space='between' style={styles.tagHeading}>
-                    <Text category='h6'>Tags</Text>
-                    <Button
-                      status='info'
-                      appearance='outline'
-                      onPress={onAddTags}
-                      size='small'
-                      icon={() => 
-                        <Icon
-                            name='edit'
-                            family={"AntDesign"}
-                        />
-                      }
-                    >
-                      EDIT
-                    </Button>
-                  </Block>
-                  <List
-                      data={meal.getTags().map(tag => ({ name: tag }))}
-                      renderItem={TagItem}
-                    />
-                  
                 </Block>
               </Block>
             </Block>
