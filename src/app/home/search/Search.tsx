@@ -22,7 +22,7 @@ import {
   Block, Icon, NavBar, theme, Input
 } from 'galio-framework';
 
-import MealSummary from 'app/home/myMenu/components/MealSummary'
+import MealSummary from 'app/profile/components/MealSummary'
 
 import { groups, meals } from 'constants/dummyData'
 

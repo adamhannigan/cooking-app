@@ -21,7 +21,7 @@ const Person = (meal: IMeal) => {
     
     return (
       <React.Fragment>
-        <TouchableOpacity onPress={() => navigation.navigate('Menu')}>
+        <TouchableOpacity>
             <Block style={styles.person}>
                 <Block row>
                     <Avatar

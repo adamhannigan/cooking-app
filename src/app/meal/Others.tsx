@@ -35,7 +35,7 @@ import Meal from 'app/home/feed/components/Meal';
 
 import InfoBlock from './components/InfoBlock'
 import AvatarHeader from 'app/home/feed/components/AvatarHeader';
-import MealSummary from 'app/home/myMenu/components/MealSummary';
+import MealSummary from 'app/profile/components/MealSummary'
 
 const { width, height } = Dimensions.get('screen');
 
@@ -80,7 +80,8 @@ const styles = StyleSheet.create({
     item: {
         marginBottom: theme.SIZES.BASE,
         borderBottomWidth: 1,
-        borderBottomColor: '#e3e3e3',
+        borderTopWidth: 1,
+        borderColor: '#e3e3e3',
         backgroundColor: 'white',
     }
 });

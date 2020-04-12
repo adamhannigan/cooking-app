@@ -1,15 +1,12 @@
 import React from 'react';
 import {
-  Image,
-  StatusBar,
   StyleSheet,
   ScrollView,
   View,
   Dimensions,
-  TouchableOpacity
 } from 'react-native';
 
-import { useNavigation } from '@react-navigation/native'
+
 import { useTheme, Text, Button } from '@ui-kitten/components'
 
 import FAB from 'react-native-fab'
@@ -27,12 +24,11 @@ import { sortedMeals } from '../../../constants/dummyData'
 
 import MealCard from './components/MealCard'
 import AvatarHeader from './components/AvatarHeader'
-import MealSummary from '../myMenu/components/MealSummary';
+import MealSummary from 'app/profile/components/MealSummary'
 
 const { width, height } = Dimensions.get('screen');
 
 const Feed = props => {
-  const navigation = useNavigation<NavProp>()
   const [isFocused, setIsFocused ] = React.useState<boolean>(false)
   const kittenTheme = useTheme()
 
@@ -45,12 +41,6 @@ const Feed = props => {
 
     focus()
   }, [])
-
-  const onMealClick = (id: number) => {
-    navigation.navigate('/meal/:id', {
-      id,
-    })
-  }
 
   return (
     <View style={{ flex: 1, ...styles.container }}>
@@ -70,21 +60,17 @@ const Feed = props => {
                     </Block>
                     {
                       group.meals.map((meal, idx) => (
-                        <TouchableOpacity onPress={() => onMealClick(meal.id)}>
-                          {
-                            idx % 2 === 0 && (
-                              <Block style={styles.item}>
-                                <AvatarHeader
-                                  avatarUrl=''
-                                  name={meal.user.name}
-                                  time='10 hrs ago'
-                                />
-                                <MealCard {...meal}/>
-                              </Block>
-                            )
-                          }
-                          {
-                            idx % 2 === 1 && (
+                          idx % 2 === 0 ? (
+                            <Block style={styles.item}>
+                              <AvatarHeader
+                                avatarUrl=''
+                                name={meal.user.name}
+                                time='10 hrs ago'
+                              />
+                              <MealCard {...meal}/>
+                            </Block>
+                          )
+                          : idx % 2 === 1 && (
                               <Block style={styles.item}>
                                 <Block center>
                                   <Text
@@ -105,9 +91,7 @@ const Feed = props => {
                                 />
                                 <MealSummary {...meal}/>
                               </Block>
-                            )
-                          }
-                        </TouchableOpacity>
+                          )
                       ))
                     }
                   </Block>
@@ -162,7 +146,8 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
 
     borderBottomWidth: 1,
-    borderBottomColor: '#e3e3e3',
+    borderTopWidth: 1,
+    borderColor: '#e3e3e3',
   },
   fab: {
     position: 'absolute',

@@ -4,9 +4,15 @@ import {
   StyleSheet,
 } from 'react-native';
 
-import { Text, useTheme, Avatar } from '@ui-kitten/components'
+import { useNavigation } from '@react-navigation/native'
+
+import { Text, useTheme, ViewPager } from '@ui-kitten/components'
+
+import { SliderBox } from "react-native-image-slider-box";
 
 import { Meal as IMeal } from 'constants/dummyData'
+
+import { NavProp } from 'Navigation'
 
 import Actions from './Actions'
 
@@ -18,23 +24,29 @@ import {
 
 const Meal = (meal: IMeal) => {
     const kittenTheme = useTheme()
+    const navigation = useNavigation<NavProp>()
+
+    const [selectedIndex, setSelectedIndex] = React.useState(0);
+
+    const onClick = () => {
+      navigation.navigate('/meal/:id', {
+        id: meal.id,
+      })
+    }
 
     return (
         <Block>
-            <Block style={styles.imageContainer}>
-              <Image
-                  source={{ uri: meal.image }}
+            <Block>
+                <SliderBox
+                  images={[
+                    meal.image,
+                    meal.image
+                  ]}
                   style={styles.image}
-              />
-              <Block style={styles.playButtonContainer}>
-                <Icon
-                  name='play'
-                  color={kittenTheme['color-info-default']}
-                  family={"AntDesign"}
-                  style={styles.playButton}
+                  onCurrentImagePressed={onClick}
+                  dotColor={kittenTheme['color-info-default']}
+                  imageLoadingColor={kittenTheme['color-primary-default']}
                 />
-              </Block>
-              
               {
                   /**
               <Block style={styles.avatars}>
@@ -93,9 +105,6 @@ const styles = StyleSheet.create({
   },
   image: {
     height: 250,
-  },
-  imageContainer: {
-    position: 'relative',
   },
   avatars: {
     position: 'absolute',

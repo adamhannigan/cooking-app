@@ -18,6 +18,7 @@ import Follow from './app/onboard/Follow'
 import Menu from './app/onboard/Menu'
 import Home from './app/home/Home'
 import MealDetails from './app/meal/MealDetails'
+import Profile from './app/profile/Profile'
 
 import ChooseMeal from './app/cook/ChooseMeal'
 import Cook from './app/cook/Cook'
@@ -31,8 +32,11 @@ const Stack = createStackNavigator()
 console.disableYellowBox = true
 
 export type Routes = {
-  '/',
+  '/'
   '/meal/:id': {
+    id: number
+  }
+  '/profile/:id': {
     id: number
   }
 }
@@ -76,6 +80,10 @@ function Navigation() {
         headerLeft: null,
         title: 'Home',
     }
+  }, {
+    name: '/profile/:id',
+    component: Profile,
+    options: headerOptions,
   }]
 
   return (
@@ -114,12 +122,6 @@ function Navigation() {
             <Stack.Screen
               name="Preferences"
               component={Preferences}
-              options={headerOptions}
-            />
-
-            <Stack.Screen
-              name="Menu"
-              component={Menu}
               options={headerOptions}
             />
 

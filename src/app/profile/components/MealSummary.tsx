@@ -5,7 +5,7 @@ import {
   Image,
 } from 'react-native';
 
-import { Meal as IMeal } from '../../../../constants/dummyData'
+import { Meal as IMeal } from 'constants/dummyData'
 // galio components
 import {
   Block, theme

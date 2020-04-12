@@ -302,7 +302,7 @@ const Cook = props => {
                       width: width/2 - theme.SIZES.BASE * 2,
                       marginLeft: theme.SIZES.BASE,
                     }}>
-                      <Text category='s1'>Photo of dirty dishes.</Text>
+                      <Text category='s1'>Photo of chef.</Text>
                       <Block style={styles.takePhotoContainer}>
                         <DirtySVG
                           width={width / 2 - theme.SIZES.BASE * 3 }

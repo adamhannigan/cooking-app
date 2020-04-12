@@ -5,6 +5,8 @@ import {
   Image,
 } from 'react-native';
 
+import { useNavigation } from '@react-navigation/native'
+
 import { Meal as IMeal } from '../../../../constants/dummyData'
 // galio components
 import {
@@ -12,6 +14,8 @@ import {
 } from 'galio-framework';
 
 import { Text, Avatar, useTheme } from '@ui-kitten/components'
+import { TouchableOpacity } from 'react-native-gesture-handler';
+import { NavProp } from 'Navigation';
 
 const { width } = Dimensions.get('screen');
 
@@ -26,24 +30,33 @@ const AvatarHeader = ({
     name,
     time,
 }: Props) => {
+    const navigation = useNavigation<NavProp>()
+    const onClick = () => {
+        navigation.navigate('/profile/:id', {
+            id: 1,
+        })
+    }
+
     return (
         <Block style={styles.container}>
-            <Block row>
-                <Avatar
-                    style={styles.avatar}
-                    source={{
-                        uri: 'http://i.pravatar.cc/100?id=skater',
-                    }}
-                />
-                <Block>
-                    <Text style={styles.text}>
-                        { name }
-                    </Text>
-                    <Text appearance='hint' style={styles.text}>
-                        Sydney, Australia
-                    </Text>
+            <TouchableOpacity onPress={onClick}>
+                <Block row>
+                    <Avatar
+                        style={styles.avatar}
+                        source={{
+                            uri: 'http://i.pravatar.cc/100?id=skater',
+                        }}
+                    />
+                    <Block>
+                        <Text style={styles.text}>
+                            { name }
+                        </Text>
+                        <Text appearance='hint' style={styles.text}>
+                            Sydney, Australia
+                        </Text>
+                    </Block>
                 </Block>
-            </Block>
+            </TouchableOpacity>
             <Block style={styles.timeContainer}>
                 <Text appearance='hint' style={styles.text}>
                     { time }

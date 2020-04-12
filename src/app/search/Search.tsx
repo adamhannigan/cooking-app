@@ -15,16 +15,16 @@ import Constants from 'expo-constants';
 
 const { statusBarHeight } = Constants;
 
-import PersonItem, { Person } from './node_modules/components/PersonItem'
+import PersonItem, { Person } from 'components/PersonItem'
 
 // galio components
 import {
   Block, Icon, NavBar, theme, Input
-} from './node_modules/galio-framework';
+} from 'galio-framework';
 
-import MealSummary from './node_modules/app/home/myMenu/components/MealSummary'
+import MealSummary from 'app/profile/components/MealSummary'
 
-import { groups, meals } from './node_modules/constants/dummyData'
+import { groups, meals } from 'constants/dummyData'
 
 const { width, height } = Dimensions.get('screen');
 
