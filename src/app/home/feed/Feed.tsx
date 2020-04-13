@@ -16,7 +16,7 @@ import {
   Block, Icon, NavBar, theme,
 } from 'galio-framework';
 
-import { useRoute, useIsFocused } from '@react-navigation/native'
+import { useRoute, useIsFocused, useNavigation } from '@react-navigation/native'
 
 import { NavProp } from 'Navigation'
 
@@ -30,17 +30,32 @@ const { width, height } = Dimensions.get('screen');
 
 const Feed = props => {
   const [isFocused, setIsFocused ] = React.useState<boolean>(false)
+  const [notInterested, setNotInterested ] = React.useState<string[]>([])
   const kittenTheme = useTheme()
+  const navigation = useNavigation()
+  const route = useRoute()
+  
+  const onNotInterested = (name: string) => {
+    setNotInterested([
+      ...notInterested,
+      name,
+    ])
+  }
 
   React.useEffect(() => {
     const focus = async () => {
       await new Promise(r => setTimeout(r, 500))
 
       setIsFocused(true)
+
+      setNotInterested([])
     }
 
     focus()
-  }, [])
+  }, [route])
+
+  // Filter out any meals they do not want to see tonight
+  const interesedMeals = sortedMeals.filter(group => !notInterested.includes(group.tag.name))
 
   return (
     <View style={{ flex: 1, ...styles.container }}>
@@ -48,13 +63,14 @@ const Feed = props => {
         <Block center style={{ marginTop: - theme.SIZES.BASE * 2 }}>
           <Block flex style={styles.header}>
             {
-              sortedMeals.map((group) => (
+              interesedMeals.map((group) => (
                   <Block>
                     <Block style={styles.tagHeader}>
                       <Text category='h3'>{group.tag.name}</Text>
                       <Button
-                            appearance='ghost'
-                          >
+                          appearance='ghost'
+                          onPress={() => onNotInterested(group.tag.name)}
+                        >
                           Not interested
                       </Button>
                     </Block>
@@ -67,7 +83,10 @@ const Feed = props => {
                                 name={meal.user.name}
                                 time='10 hrs ago'
                               />
-                              <MealCard {...meal}/>
+                              <MealCard
+                                {...meal}
+                                secondaryTag={meal.preferences.find(pref => pref.name !== group.tag.name).name}
+                              />
                             </Block>
                           )
                           : idx % 2 === 1 && (
@@ -132,6 +151,7 @@ const styles = StyleSheet.create({
     
     backgroundColor: 'white',
 
+    borderTopWidth: 1,
     borderBottomWidth: 1,
     borderColor: '#e3e3e3',
   },

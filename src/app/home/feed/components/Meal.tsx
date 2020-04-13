@@ -2,6 +2,7 @@ import React from 'react';
 import {
   Image,
   StyleSheet,
+  Dimensions,
 } from 'react-native';
 
 import { useNavigation } from '@react-navigation/native'
@@ -14,6 +15,8 @@ import { Meal as IMeal } from 'constants/dummyData'
 
 import { NavProp } from 'Navigation'
 
+import drool from './assets/droolFrame.gif'
+
 import Actions from './Actions'
 
 // galio components
@@ -21,8 +24,13 @@ import {
   Block, theme, Icon
 } from 'galio-framework';
 
+const { width, height } = Dimensions.get('screen');
 
-const Meal = (meal: IMeal) => {
+export interface Props extends IMeal {
+  secondaryTag?: string
+}
+
+const Meal = (meal: Props) => {
     const kittenTheme = useTheme()
     const navigation = useNavigation<NavProp>()
 
@@ -37,16 +45,28 @@ const Meal = (meal: IMeal) => {
     return (
         <Block>
             <Block>
-                <SliderBox
-                  images={[
-                    meal.image,
-                    meal.image
-                  ]}
-                  style={styles.image}
-                  onCurrentImagePressed={onClick}
-                  dotColor={kittenTheme['color-info-default']}
-                  imageLoadingColor={kittenTheme['color-primary-default']}
-                />
+                <Block style={styles.imageContainer}>
+                  {
+                    meal.secondaryTag && (
+                      <Block style={{
+                        ...styles.tag,
+                        backgroundColor: kittenTheme['color-info-default']
+                      }}>
+                        <Text style={styles.tagText}>{meal.secondaryTag}</Text>
+                      </Block>
+                    )
+                  }
+                  <SliderBox
+                    images={[
+                      meal.image,
+                      meal.image
+                    ]}
+                    style={styles.image}
+                    onCurrentImagePressed={onClick}
+                    dotColor={kittenTheme['color-info-default']}
+                    imageLoadingColor={kittenTheme['color-primary-default']}
+                  />
+                </Block>
               {
                   /**
               <Block style={styles.avatars}>
@@ -79,17 +99,44 @@ const Meal = (meal: IMeal) => {
                       {meal.title}
                     </Text>
                   </Block>
-                  <Block row start>
-                    <Icon
-                      name='heart'
-                      color={kittenTheme['color-danger-default']}
-                      family={"AntDesign"} size={15}
-                      style={{ marginRight: 5 }}
-                    />
-                    <Text category='s1'>
-                        44 people are now hungry
-                    </Text>
+                  <Text category='p1' appearance='hint'>
+                      Tip: {meal.tip}
+                  </Text>
+                  <Block row style={{
+                      marginTop: theme.SIZES.BASE,
+                    }}>
+                    <Block row middle style={{
+                      marginRight: theme.SIZES.BASE,
+                    }}>
+                      {/*
+                      <Icon
+                        name='heart'
+                        color={kittenTheme['color-danger-default']}
+                        family={"AntDesign"} size={15}
+                        style={{ marginRight: 5 }}
+                      />
+                      */}
+                      <Image
+                          source={drool}
+                          style={styles.drool}
+                      />
+                      <Text category='s1'>
+                          44
+                      </Text>
+                    </Block>
+                    <Block row middle start>
+                      <Icon
+                        name='addusergroup'
+                        color={kittenTheme['color-info-default']}
+                        family={"AntDesign"} size={15}
+                        style={{ marginRight: 5 }}
+                      />
+                      <Text category='s1'>
+                          22 friends have cooked this
+                      </Text>
+                    </Block>
                   </Block>
+
               </Block>
               <Actions {...meal} />
             </Block>
@@ -100,39 +147,37 @@ const Meal = (meal: IMeal) => {
 const styles = StyleSheet.create({
   content: {
     padding: theme.SIZES.BASE / 2,
+    width,
 
     borderRadius: 5,
   },
-  image: {
+  imageContainer: {
+    width,
     height: 250,
   },
-  avatars: {
-    position: 'absolute',
-    width: '100%',
+  image: {
     height: '100%',
-    display: 'flex',
-    flexWrap: 'wrap',
+    width: '100%'
   },
-  playButtonContainer: {
+  drool: {
+    width: 20,
+    height: 25,
+  },
+  tag: {
     position: 'absolute',
-    right: 5,
     top: 5,
-    backgroundColor: 'white',
-    width: 50,
-    height: 50,
-    borderRadius: 50,
-  },
-  playButton: {
-    fontSize: 50,
-  },
-  avatar: {
-    margin: 5,
-    width: 50,
-    height: 50,
+    left: 5,
 
-    borderWidth: 3,
-    backgroundColor: 'white',
-    borderColor: 'white',
+    zIndex: 1,
+
+    borderRadius: 5,
+    padding: 8,
+    paddingHorizontal: 18,
+  },
+  tagText: {
+    color: 'white',
+    fontWeight: 'bold',
+    fontSize: 18,
   },
 });
 

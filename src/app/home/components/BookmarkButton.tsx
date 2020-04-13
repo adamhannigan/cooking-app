@@ -11,12 +11,13 @@ import {
 } from 'galio-framework';
 import { useNavigation } from '@react-navigation/native'
 import { TouchableOpacity } from 'react-native-gesture-handler';
+import { NavProp } from 'Navigation';
 
 const AnimatedIcon = Animated.createAnimatedComponent(Icon)
 
 function BookmarkButton() {
   const theme = useTheme()
-  const navigation = useNavigation()
+  const navigation = useNavigation<NavProp>()
 
   const [scale] = React.useState(new Animated.Value(1))
 
@@ -53,7 +54,7 @@ function BookmarkButton() {
   }, [])
 
   const onClick = () => {
-    onTwirl()
+    navigation.navigate('/favourites')
   }
 
   return (

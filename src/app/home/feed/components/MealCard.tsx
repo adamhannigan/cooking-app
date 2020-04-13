@@ -6,7 +6,7 @@ import {
 
 import { Meal as IMeal } from '../../../../constants/dummyData'
 
-import Meal from './Meal'
+import Meal, { Props } from './Meal'
 
 // galio components
 import {
@@ -17,7 +17,7 @@ import { Text, useTheme } from '@ui-kitten/components'
 
 const { width } = Dimensions.get('screen');
 
-const MealCard = (meal: IMeal) => {
+const MealCard = (meal: Props) => {
     return (
         <Block style={styles.container}>
           <Meal {...meal} />

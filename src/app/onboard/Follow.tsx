@@ -87,7 +87,7 @@ const Follow = ({ navigation }) => {
             size='medium'
             appearance='ghost'
             status='primary'
-            onPress={() => navigation.navigate('Menu')}
+            onPress={() => navigation.navigate('/onboard/meals')}
           >
             Skip for now
           </Button>
@@ -95,7 +95,7 @@ const Follow = ({ navigation }) => {
             size='medium'
             status='primary'
             disabled={followed.length === 0}
-            onPress={() => navigation.navigate('Menu')}
+            onPress={() => navigation.navigate('/onboard/meals')}
           >
             Next
           </Button>

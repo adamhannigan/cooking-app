@@ -11,6 +11,11 @@ import { useTheme } from '@ui-kitten/components'
 import { BookmarkModel } from 'domain/bookmarks/model'
 import { Meal as IMeal } from 'constants/dummyData'
 
+import droolGif from './assets/drool.gif'
+import droolFrame from './assets/droolFrame.gif'
+import starGif from './assets/star.gif'
+import starFrame from './assets/starFrame.gif'
+
 // galio components
 import {
   Block, theme, Icon
@@ -30,11 +35,6 @@ const Meal = (meal: IMeal) => {
       BookmarkModel.addMeal(meal)
     }
 
-    const onAddToMenu = () => {
-        // Reset for testing
-        setLikes(meal.likes)
-    }
-
     const userLikes = (likes - meal.likes)
     const isFavourited = userLikes >= 1
 
@@ -42,12 +42,26 @@ const Meal = (meal: IMeal) => {
       setLikes(likes + 1)
     }
 
+    const droolImage = isFavourited
+        ? droolGif
+        : droolFrame
+
+    const starImage = isSaved
+        ? starGif
+        : starFrame
+
     return (
         <Block style={styles.actions}>
             <TouchableOpacity onPress={onLike} disabled={isFavourited}>
-                <Block row>
+                <Block row style={styles.shadow}>
                     <Block style={styles.icon}>
-                        <Icon
+                        <Image
+                            source={droolImage}
+                            style={styles.drool}
+                        />
+                        {
+                            /*
+                            <Icon
                             name={
                                 isFavourited
                                     ? 'heart'
@@ -56,19 +70,9 @@ const Meal = (meal: IMeal) => {
                             color={kittenTheme['color-danger-default']}
                             family={"AntDesign"} size={25}
                         />
-                        {
-                            /*
-                        <Icon
-                            name='heart'
-                            color={kittenTheme['color-danger-default']}
-                            family={"AntDesign"} size={25}
-                            style={{
-                                ...styles.heart,
-                                height: userLikes * 8,
-                            }}
-                        />
-                        */
+                            */
                         }
+                        
                     </Block>
                 </Block>
             </TouchableOpacity>
@@ -89,24 +93,16 @@ const Meal = (meal: IMeal) => {
             {
                 isFavourited && [
                 <TouchableOpacity onPress={onFavourite}>
-                    <Block style={styles.icon}>
-                        <Icon
-                            name={isSaved ? 'star' : 'staro'}
-                            color={kittenTheme['color-primary-default']}
-                            family={"AntDesign"} size={25}
-                            
-                        />
+                    <Block style={styles.shadow}>
+                        <Block style={styles.icon}>
+                            <Image
+                                source={starImage}
+                                style={styles.star}
+                            />
+                        </Block>
                     </Block>
-                </TouchableOpacity>,
-                /*<TouchableOpacity onPress={onAddToMenu}>
-                    <Block style={styles.icon}>
-                        <Icon
-                            name='filetext1'
-                            color={kittenTheme['color-info-default']}
-                            family={"AntDesign"} size={25}
-                        />
-                    </Block>
-                </TouchableOpacity>*/
+                    
+                </TouchableOpacity>
             ]}
         </Block>
     )
@@ -119,9 +115,24 @@ icon: {
     padding: 10,
     borderRadius: 25,
 
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+
+    height: 46,
+    width: 46,
+
     shadowOffset:{  width: 5,  height: 3,  },
     shadowColor: '#777',
     shadowOpacity: 0.3,
+
+    overflow: 'hidden',
+},
+shadow: {
+    shadowOffset:{  width: 4,  height: 5,  },
+    shadowColor: '#777',
+    shadowOpacity: 0.6,
+    shadowRadius: 4,
 },
   heart: {
     position: 'absolute',
@@ -136,30 +147,18 @@ icon: {
     flexDirection: 'row-reverse',
     justifyContent: 'space-between',
   },
-  bar: {
-    width: 30,
-    backgroundColor: 'white',
-    position: 'absolute',
-    height: 220,
-    right: 58,
-    borderRadius: 50,
-    bottom: 15,
+  drool: {
+      width: 35,
+      height: 40,
 
-    borderWidth: 5,
-    borderColor: 'orange',
+      position: 'relative',
+      top: 2,
+  },
+  star: {
+    width: 37,
+    height: 37,
 
-    shadowOffset:{  width: 5,  height: 3,  },
-    shadowColor: '#777',
-    shadowOpacity: 0.4,
-    zIndex: -1,
-  },
-  barColor: {
-      backgroundColor: 'orange',
-      position: 'absolute',
-      width: '100%',
-      bottom: 0,
-      zIndex: 2,
-  },
+},
 });
 
 export default Meal;

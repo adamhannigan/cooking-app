@@ -32,9 +32,10 @@ const { width, height } = Dimensions.get('screen');
 
 interface Props {
   id: number
+  isCurrentUser?: boolean
 }
 
-const Menu = ({ id }: Props) => {
+const Menu = ({ id, isCurrentUser }: Props) => {
   const [selected, setSelected] = React.useState([])
   const navigation = useNavigation<NavProp>()
   
@@ -113,12 +114,23 @@ const Menu = ({ id }: Props) => {
               ))
             }
           </Block>
+          {
+            isCurrentUser && (
+              <Button
+                size='medium'
+                status='primary'
+                style={styles.addMenuButton}
+              >
+                Add more items to your menu
+              </Button>
+            )
+          }
         </Block>
 
         <Block>
         <Block row middle space='between'  style={styles.menuTitle}>
             <Text category='h4'>
-              All meals
+              Recents
             </Text>
             <Text appearance='hint' >
               43 items
@@ -167,6 +179,9 @@ const styles = StyleSheet.create({
   meal: {
       backgroundColor: 'white',
       marginBottom: theme.SIZES.BASE,
+  },
+  addMenuButton: {
+    margin: theme.SIZES.BASE,
   },
   mealTitle: {
       flex: 0,

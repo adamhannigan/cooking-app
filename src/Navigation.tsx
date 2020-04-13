@@ -15,7 +15,7 @@ import Login from './app/login/Login'
 import Register from './app/register/Register'
 import Preferences from './app/onboard/Preferences'
 import Follow from './app/onboard/Follow'
-import Menu from './app/onboard/Menu'
+import OnboardMeals from './app/onboard/FavouriteMeals'
 import Home from './app/home/Home'
 import MealDetails from './app/meal/MealDetails'
 import Profile from './app/profile/Profile'
@@ -26,6 +26,7 @@ import Tags from './app/cook/Tags'
 import { CameraView } from './app/cook/Camera'
 
 import BookmarkButton from 'app/home/components/BookmarkButton';
+import Favourites from 'app/favourites/Favourites'
 
 const Stack = createStackNavigator()
 
@@ -39,6 +40,8 @@ export type Routes = {
   '/profile/:id': {
     id: number
   }
+  '/onboard/meals'
+  '/favourites'
 }
 
 export type Route<T extends keyof Routes> = RouteProp<Routes, T>
@@ -83,6 +86,14 @@ function Navigation() {
   }, {
     name: '/profile/:id',
     component: Profile,
+    options: headerOptions,
+  }, {
+    name: '/onboard/meals',
+    component: OnboardMeals,
+    options: headerOptions,
+  }, {
+    name: '/favourites',
+    component: Favourites,
     options: headerOptions,
   }]
 

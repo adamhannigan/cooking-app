@@ -365,7 +365,7 @@ const Cook = props => {
                     }
                   />
                   <Input
-                    label='Tip'
+                    label='Do you have a special tip?'
                     labelStyle={{
                       color: 'black',
                       marginTop: theme.SIZES.BASE,
