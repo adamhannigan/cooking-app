@@ -17,8 +17,7 @@ import { NavProp } from 'Navigation'
 
 import Constants from 'expo-constants';
 
-const { statusBarHeight } = Constants;
-
+import { people } from 'constants/dummyData'
 import MealSummary from './MealSummary'
 
 
@@ -39,6 +38,9 @@ const Menu = ({ id, isCurrentUser }: Props) => {
   const [selected, setSelected] = React.useState([])
   const navigation = useNavigation<NavProp>()
   
+  console.log('ID is: ', id)
+  const person = people.find(user => user.id === id)
+
   const onClick = (id: number) => {
     navigation.navigate('/meal/:id', {
       id,
@@ -59,7 +61,7 @@ const Menu = ({ id, isCurrentUser }: Props) => {
               />
             </TouchableOpacity>
             <Text category='h4'>
-              Adam Hannigan
+              {person.name}
             </Text>
             <Text category='h4' >
               🐔🍖🍅

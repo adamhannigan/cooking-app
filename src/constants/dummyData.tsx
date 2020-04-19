@@ -160,6 +160,21 @@ export interface Meal {
     tip?: string
   }
 
+
+export const people: User[] = [{
+  id: 2,
+  name: 'Adam Hannigan',
+  preferences: [preferences.fitness, preferences.bbq]
+}, {
+  id: 3,
+  name: 'Joe Rogan',
+  preferences: [preferences.stirFry, preferences.lowCarb]
+}, {
+  id: 4,
+  name: 'Mitch Hannigan',
+  preferences: [preferences.germany, preferences.stirFry]
+}]
+
 const recipeBook = {
   // Tacos
 
@@ -171,9 +186,7 @@ const recipeBook = {
     image: 'https://img.buzzfeed.com/thumbnailer-prod-us-east-1/video-api/assets/125259.jpg?output-quality=100&resize=900:*',
     recipe: 'https://img.buzzfeed.com/thumbnailer-prod-us-east-1/video-api/assets/125259.jpg?output-quality=100&resize=900:*',
     tip: 'Make sure you have a clean surface to roll the gnocci!',
-    user: {
-      name: 'Adam Hannigan'
-    },
+    user: people[0],
     likes: 22,
     preferences: [preferences.vegetarian, preferences.pasta],
   },
@@ -184,9 +197,7 @@ const recipeBook = {
     image: 'https://img.buzzfeed.com/video-api-prod/assets/ec15137f921a40f49317cd75d38a961d/BFV14804_Meal-PrepGarlicChickenAndVeggiePasta-TextlessThumb.jpg?output-quality=100&resize=900:*',
     recipe: 'https://img.buzzfeed.com/thumbnailer-prod-us-east-1/video-api/assets/125259.jpg?output-quality=100&resize=900:*',
     tip: 'Keep stirring so the pasta does not stick to the bottom',
-    user: {
-      name: 'Joe Rogan',
-    },
+    user: people[1],
     preferences: [preferences.pasta, preferences.chicken],
     likes: 12,
   },
@@ -197,9 +208,7 @@ const recipeBook = {
     image: 'https://img.buzzfeed.com/tasty-app-user-assets-prod-us-east-1/recipes/44481df056c343438402051b7aec4c7c.jpeg',
     recipe: 'https://img.buzzfeed.com/tasty-app-user-assets-prod-us-east-1/recipes/44481df056c343438402051b7aec4c7c.jpeg',
     tip: 'Keep stirring so the pasta does not stick to the bottom',
-    user: {
-      name: 'Joe Rogan',
-    },
+    user: people[2],
     preferences: [preferences.pasta, preferences.italy],
     likes: 12,
   },
@@ -212,9 +221,7 @@ const recipeBook = {
     image: 'https://img.buzzfeed.com/thumbnailer-prod-us-east-1/c6630a4d04074d11ab60bfa0cb4b03d1/BFV16130_Stir-Fry_4_Ways_FB.jpg?output-quality=100&resize=900:*',
     recipe: 'https://img.buzzfeed.com/thumbnailer-prod-us-east-1/video-api/assets/125259.jpg?output-quality=100&resize=900:*',
     tip: 'Add salt while boiling the brocolli',
-    user: {
-      name: 'Douglas Hannigan',
-    },
+    user: people[1],
     preferences: [preferences.stirFry,  preferences.chicken],
     likes: 10,
   }
@@ -253,13 +260,11 @@ export const sortedMeals: TaggedMeals[] =
       ]
     }, [] as TaggedMeals[])
   
-export const people = [{
-  name: 'Adam Hannigan',
-  preferences: [preferences.fitness, preferences.bbq]
-}, {
-    name: 'Joe Rogan',
-    preferences: [preferences.stirFry, preferences.lowCarb]
-}]
+interface User {
+  id: number
+  name: string
+  preferences: Preference[]
+}
 
 export const groups = [{
     preference: preferences.fitness,
@@ -269,28 +274,32 @@ export const groups = [{
     people,
 }]
 
-export const activity = [{
-  name: 'Adam Hannigan',
-  action: 'Is craving your Prawn Rissoto',
-  icon: 'hearto',
-}, {
-    name: 'Joe Rogan',
-    action: 'Is cooking your Chicken Teriyaki & rice',
-    icon: 'rocket1',
-}, {
-    name: 'Victoria Mota',
-    action: 'Is planning to cook your Chicken Teriyaki & rice',
-    icon: 'book',
+export interface Activity {
+  user: User
+  meal: Meal
+  event: 'drooled' | 'cooked' | 'menu'
+}
 
-},{
-    name: 'Victoria Mota',
-    action: 'Is hungry for your Chicken Teriyaki & rice',
-    icon: 'hearto',
+export const activities: Activity[] = [{
+  user: people[0],
+  meal: meals[2],
+  event: 'cooked',
 }, {
-    name: 'Adam Hannigan',
-    meal: 'Chicken Teriyaki & rice',
-    action: 'Added to their menu: Chicken Teriyaki & rice',
-    icon: 'book',
+  user: people[1],
+  meal: meals[3],
+  event: 'menu',
+}, {
+  user: people[0],
+  meal: meals[3],
+  event: 'menu',
+},{
+  user: people[0],
+  meal: meals[2],
+  event: 'drooled',
+},{
+  user: people[1],
+  meal: meals[2],
+  event: 'drooled',
 }]
 
 interface Group {

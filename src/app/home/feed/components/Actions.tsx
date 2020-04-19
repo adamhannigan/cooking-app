@@ -13,7 +13,6 @@ import { Meal as IMeal } from 'constants/dummyData'
 
 import droolGif from './assets/drool.gif'
 import droolFrame from './assets/droolFrame.gif'
-import RecipeBook from './assets/book.svg'
 
 // galio components
 import {
@@ -24,84 +23,30 @@ const { width, height } = Dimensions.get('screen');
 
 const Actions = (meal: IMeal) => {
     const [likes, setLikes] = React.useState(meal.likes)
-    const [isSaved, setIsSaved] = React.useState(false)
-
-    const kittenTheme = useTheme()
-
-    const onFavourite = () => {
-      setIsSaved(true)
-
-      BookmarkModel.addMeal(meal)
-    }
 
     const userLikes = (likes - meal.likes)
-    const isFavourited = userLikes >= 1
+    const isDrooled = userLikes >= 1
 
     const onLike = () => {
       setLikes(likes + 1)
     }
 
-    const droolImage = isFavourited
+    const droolImage = isDrooled
         ? droolGif
         : droolFrame
 
     return (
         <Block style={styles.actions}>
-            <TouchableOpacity onPress={onLike} disabled={isFavourited}>
+            <TouchableOpacity onPress={onLike} disabled={isDrooled}>
                 <Block row style={styles.shadow}>
                     <Block style={styles.icon}>
                         <Image
                             source={droolImage}
                             style={styles.drool}
                         />
-                        {
-                            /*
-                            <Icon
-                            name={
-                                isFavourited
-                                    ? 'heart'
-                                    : 'hearto'
-                            }
-                            color={kittenTheme['color-danger-default']}
-                            family={"AntDesign"} size={25}
-                        />
-                            */
-                        }
-                        
                     </Block>
                 </Block>
             </TouchableOpacity>
-            {
-                /*
-            <Block style={styles.bar}>
-                <Block
-                    style={{
-                        ...styles.barColor,
-                        height: userLikes * 70,
-                    }}
-                />
-            </Block>
-            */
-            }
-
-
-            {
-                isFavourited && [
-                <TouchableOpacity onPress={onFavourite}>
-                    <Block style={styles.shadow}>
-                        <Block style={{
-                            ...styles.icon,
-                            backgroundColor: kittenTheme['color-primary-default'],
-                        }}>
-                            <RecipeBook
-                                width={30}
-                                fill='white'
-                            />
-                        </Block>
-                    </Block>
-                    
-                </TouchableOpacity>
-            ]}
         </Block>
     )
 }

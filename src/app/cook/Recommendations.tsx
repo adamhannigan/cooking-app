@@ -29,24 +29,6 @@ export const Recommendations = ({ onSelect }: Props)  => {
     <Block>
         <Block style={styles.group}>
             <Text category='h6' style={styles.heading} status='info'>
-              Drools
-            </Text>
-            <Block style={styles.meals}>
-            <ScrollView horizontal>
-                {
-                meals.map(meal => (
-                    <MealBox
-                      {...meal}
-                      onClick={() => onSelect(meal)}
-                    />
-                ))
-                }
-            </ScrollView>
-            </Block>
-        </Block>
-            
-        <Block style={styles.group}>
-            <Text category='h6' style={styles.heading} status='info'>
                 Recently cooked
             </Text>
             <Block style={styles.meals}>
@@ -65,7 +47,7 @@ export const Recommendations = ({ onSelect }: Props)  => {
 
         <Block style={styles.group}>
             <Text category='h6' style={styles.heading} status='info'>
-                Recipe book
+                Drooling over
             </Text>
             <Block style={styles.meals}>
                 {
