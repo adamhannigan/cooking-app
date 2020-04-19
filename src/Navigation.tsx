@@ -26,7 +26,7 @@ import Tags from './app/cook/Tags'
 import { CameraView } from './app/cook/Camera'
 
 import BookmarkButton from 'app/home/components/BookmarkButton';
-import Favourites from 'app/favourites/Favourites'
+import Favourites from 'app/recipeBook/RecipeBook'
 
 const Stack = createStackNavigator()
 
@@ -94,7 +94,10 @@ function Navigation() {
   }, {
     name: '/favourites',
     component: Favourites,
-    options: headerOptions,
+    options: {
+      ...headerOptions,
+      title: 'Recipe Book',
+    },
   }]
 
   return (

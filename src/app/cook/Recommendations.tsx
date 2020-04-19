@@ -14,22 +14,22 @@ import {
   Block, theme
 } from 'galio-framework';
 
-import { meals } from '../../constants/dummyData'
+import { meals, Meal } from '../../constants/dummyData'
 
 import { MealBox } from './MealBox'
 
 const { width } = Dimensions.get('screen');
 
 interface Props {
-  onSelect: (name: string) => void
+  onSelect: (meal: Meal) => void
 }
 
 export const Recommendations = ({ onSelect }: Props)  => {
   return (
     <Block>
-        <Block style={styles.content}>
-            <Text category='h6' style={styles.heading}>
-              Saved
+        <Block style={styles.group}>
+            <Text category='h6' style={styles.heading} status='info'>
+              Drools
             </Text>
             <Block style={styles.meals}>
             <ScrollView horizontal>
@@ -37,7 +37,7 @@ export const Recommendations = ({ onSelect }: Props)  => {
                 meals.map(meal => (
                     <MealBox
                       {...meal}
-                      onClick={() => onSelect(meal.title)}
+                      onClick={() => onSelect(meal)}
                     />
                 ))
                 }
@@ -45,9 +45,9 @@ export const Recommendations = ({ onSelect }: Props)  => {
             </Block>
         </Block>
             
-        <Block style={styles.content}>
-            <Text category='h6' style={styles.heading}>
-                Your menu
+        <Block style={styles.group}>
+            <Text category='h6' style={styles.heading} status='info'>
+                Recently cooked
             </Text>
             <Block style={styles.meals}>
                 <ScrollView horizontal>
@@ -55,11 +55,28 @@ export const Recommendations = ({ onSelect }: Props)  => {
                     meals.map(meal => (
                     <MealBox
                         {...meal}
-                        onClick={() => navigation.navigate('Cook')}
+                        onClick={() => onSelect(meal)}
                     />
                     ))
                 }
                 </ScrollView>
+            </Block>
+        </Block>
+
+        <Block style={styles.group}>
+            <Text category='h6' style={styles.heading} status='info'>
+                Recipe book
+            </Text>
+            <Block style={styles.meals}>
+                {
+                    meals.map(meal => (
+                      <MealBox
+                          {...meal}
+                          size='large'
+                          onClick={() => onSelect(meal)}
+                      />
+                    ))
+                }
             </Block>
         </Block>
     </Block>
@@ -67,18 +84,18 @@ export const Recommendations = ({ onSelect }: Props)  => {
 };
 
 const styles = StyleSheet.create({
-  content: {
+  group: {
     width,
-    marginBottom: theme.SIZES.BASE * 2,
+    marginBottom: theme.SIZES.BASE / 2,
   },
 
   heading: {
     paddingHorizontal: theme.SIZES.BASE / 2,
-    paddingTop: theme.SIZES.BASE / 2,
   },
   meals: {
     display: 'flex',
     flexDirection: 'row',
+    flexWrap: 'wrap',
     width,
     overflow: 'scroll',
   },

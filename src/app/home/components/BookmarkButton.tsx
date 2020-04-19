@@ -11,7 +11,9 @@ import {
 } from 'galio-framework';
 import { useNavigation } from '@react-navigation/native'
 import { TouchableOpacity } from 'react-native-gesture-handler';
+
 import { NavProp } from 'Navigation';
+import RecipeBook from 'app/home/feed/components/assets/book.svg'
 
 const AnimatedIcon = Animated.createAnimatedComponent(Icon)
 
@@ -59,7 +61,9 @@ function BookmarkButton() {
 
   return (
     <TouchableOpacity onPress={onClick}>
-        <AnimatedIcon
+        {
+          /*
+          <AnimatedIcon
             name='staro'
             color='white'
             family={"AntDesign"}
@@ -71,6 +75,14 @@ function BookmarkButton() {
               }],
             }}
         />
+          */
+        }
+        <RecipeBook
+          width={30}
+          fill='white'
+          style={styles.favouriteButton}
+        />
+        
       </TouchableOpacity>
     
   );

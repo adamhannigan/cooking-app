@@ -19,19 +19,46 @@ import { Meal as IMeal } from '../../constants/dummyData'
 
 const { width, height } = Dimensions.get('screen');
 
-interface Meal extends IMeal {
+interface Props extends IMeal {
   onClick: () => void
+  size?: 'medium' | 'large'
 }
 
-export const MealBox = (meal: Meal) => {
+const PADDING = 10
+
+export const MealBox = ({
+  onClick,
+  size = 'medium',
+  ...meal
+}: Props) => {
+  const mealWidth = size === 'medium'
+    ? (width / 2.5) - PADDING * 2
+    : (width / 2) - PADDING * 2
+
+  console.log('Get that width', mealWidth)
+
   return (
-    <TouchableOpacity onPress={meal.onClick}>
-        <Block style={styles.container}>
+    <TouchableOpacity onPress={onClick}>
+        <Block style={{
+          ...styles.container,
+          meal: mealWidth,
+        }}>
             <Image
                 source={{ uri: meal.image }}
-                style={styles.image}
+                style={{
+                  ...styles.image,
+                  height: mealWidth,
+                  width: mealWidth,
+                }}
             />
-            <Text category='s1' style={styles.text}>
+            <Text
+              category='s1'
+              style={{
+                ...styles.text,
+                width: mealWidth,
+              }}
+              numberOfLines={2}
+            >
                 {meal.title}
             </Text>
         </Block>
@@ -40,20 +67,19 @@ export const MealBox = (meal: Meal) => {
 }
 
 // Want the meal to intersect with screen edge so they know to scroll
-const mealWidth = width / 2.5
 const styles = StyleSheet.create({
   container: {
     display: 'flex',
-    padding: 10,
-    width: mealWidth,
+    padding: PADDING,
   },
   image: {
-    height: mealWidth,
     borderRadius: 5,
   },
   text: {
     fontWeight: 'bold',
     lineHeight: 17,
     paddingTop: 2,
+    overflow: 'hidden',
+    width: '100%',
   }
 });

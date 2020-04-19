@@ -13,8 +13,7 @@ import { Meal as IMeal } from 'constants/dummyData'
 
 import droolGif from './assets/drool.gif'
 import droolFrame from './assets/droolFrame.gif'
-import starGif from './assets/star.gif'
-import starFrame from './assets/starFrame.gif'
+import RecipeBook from './assets/book.svg'
 
 // galio components
 import {
@@ -23,7 +22,7 @@ import {
 
 const { width, height } = Dimensions.get('screen');
 
-const Meal = (meal: IMeal) => {
+const Actions = (meal: IMeal) => {
     const [likes, setLikes] = React.useState(meal.likes)
     const [isSaved, setIsSaved] = React.useState(false)
 
@@ -45,10 +44,6 @@ const Meal = (meal: IMeal) => {
     const droolImage = isFavourited
         ? droolGif
         : droolFrame
-
-    const starImage = isSaved
-        ? starGif
-        : starFrame
 
     return (
         <Block style={styles.actions}>
@@ -94,10 +89,13 @@ const Meal = (meal: IMeal) => {
                 isFavourited && [
                 <TouchableOpacity onPress={onFavourite}>
                     <Block style={styles.shadow}>
-                        <Block style={styles.icon}>
-                            <Image
-                                source={starImage}
-                                style={styles.star}
+                        <Block style={{
+                            ...styles.icon,
+                            backgroundColor: kittenTheme['color-primary-default'],
+                        }}>
+                            <RecipeBook
+                                width={30}
+                                fill='white'
                             />
                         </Block>
                     </Block>
@@ -161,4 +159,4 @@ shadow: {
 },
 });
 
-export default Meal;
+export default Actions;

@@ -14,7 +14,7 @@ import {
   Block, theme
 } from 'galio-framework';
 
-import { meals } from '../../constants/dummyData'
+import { meals, Meal } from '../../constants/dummyData'
 
 import { MealBox } from './MealBox'
 import { Recommendations } from './Recommendations'
@@ -31,8 +31,8 @@ const ChooseMeal = props => {
   const [search, setSearch] = React.useState('')
   const [isSearching, setIsSearching] = React.useState(false)
 
-  const onSelect = (name: string) => {
-    prepareMeal(name)
+  const onSelect = (meal: Meal) => {
+    prepareMeal(meal.title)
 
     navigation.navigate('Cook')
   }

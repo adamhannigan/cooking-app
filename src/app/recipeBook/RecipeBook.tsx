@@ -5,24 +5,28 @@ import {
   View,
 } from 'react-native';
 
-import { Text } from '@ui-kitten/components'
+import { Text, Input } from '@ui-kitten/components'
 
 // galio components
 import {
   Block, theme,
 } from 'galio-framework';
 
+import MealList from './MealList';
+
 
 interface Props {
   id: number
 }
 
-const Favourites = ({ id }: Props) => {
+const RecipeBook = ({ id }: Props) => {
+  const [search, setSearch] = React.useState('')
+  
   return (
     <View style={{ flex: 1 }}>
       <ScrollView style={{ flex: 1 }}>
-        <Block style={{ marginTop: - theme.SIZES.BASE * 2 }}>
-            <Text>What is the purpose of this view. What are users trying to acheive</Text>
+        <Block style={styles.container}>
+            <MealList />
         </Block>
       </ScrollView>
     </View>
@@ -30,9 +34,9 @@ const Favourites = ({ id }: Props) => {
 }
 
 const styles = StyleSheet.create({
-  item: {
-
+  container: {
+    padding: theme.SIZES.BASE / 2,
   }
 });
 
-export default Favourites;
+export default RecipeBook;
