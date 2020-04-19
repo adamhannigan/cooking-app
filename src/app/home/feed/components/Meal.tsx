@@ -171,13 +171,15 @@ const styles = StyleSheet.create({
     zIndex: 1,
 
     borderRadius: 5,
-    padding: 8,
-    paddingHorizontal: 18,
+    paddingVertical: 4,
+    paddingHorizontal: 8,
   },
   tagText: {
     color: 'white',
     fontWeight: 'bold',
-    fontSize: 18,
+    fontSize: 28,
+    fontStyle: 'italic',
+    lineHeight: 28,
   },
 });
 

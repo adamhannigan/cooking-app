@@ -28,7 +28,7 @@ const { width } = Dimensions.get('screen');
 
 const Event = ({ event, meal, user }: Activity) => {
     const DroolEvent = () => (
-        <Block styles={styles.content}>
+        <Block style={styles.text}>
             <Text numberOfLines={2}>
                 <Text style={styles.bold}>
                     {user.name}
@@ -161,6 +161,7 @@ const styles = StyleSheet.create({
   text: {
     flex: 1,
     marginRight: 2,
+    overflow: 'hidden',
   },
   bold: {
     fontWeight: 'bold',
@@ -169,9 +170,6 @@ const styles = StyleSheet.create({
     width: 20,
     height: 20,
     marginRight: 5,
-  },
-  content: {
-    flex: 1,
   },
   previewMeal: {
     width: 60,

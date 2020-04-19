@@ -26,6 +26,8 @@ import MealCard from './components/MealCard'
 import AvatarHeader from './components/AvatarHeader'
 import MealSummary from 'app/profile/components/MealSummary'
 
+import MealBoardIcon from 'app/home/activity/assets/menu-board.svg'
+
 const { width, height } = Dimensions.get('screen');
 
 const Feed = props => {
@@ -91,18 +93,17 @@ const Feed = props => {
                           )
                           : idx % 2 === 1 && (
                               <Block style={styles.item}>
-                                <Block center>
-                                  <Text
-                                      category='h1'
-                                    >
-                                     📖
-                                  </Text>
+                                <Block style={styles.mealAddedContainer}>
+                                  <MealBoardIcon width={30} height={30} />
                                   <Text
                                       category='h6'
+                                      status='info'
                                     >
-                                      On the menu
+                                      Personal menu
                                   </Text>
+                                  <MealBoardIcon width={30} height={30} />
                                 </Block>
+
                                 <AvatarHeader
                                   avatarUrl=''
                                   name={meal.user.name}
@@ -167,6 +168,16 @@ const styles = StyleSheet.create({
 
     borderBottomWidth: 1,
     borderTopWidth: 1,
+    borderColor: '#e3e3e3',
+  },
+  mealAddedContainer: {
+    paddingHorizontal: theme.SIZES.BASE,
+    paddingVertical: theme.SIZES.BASE / 2,
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    borderBottomWidth: 1,
     borderColor: '#e3e3e3',
   },
   fab: {
