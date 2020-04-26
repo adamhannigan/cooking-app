@@ -23,17 +23,19 @@ interface Props {
     avatarUrl: string
     name: string
     time: string
+    userId: number
 }
 
 const AvatarHeader = ({
     avatarUrl,
     name,
     time,
+    userId,
 }: Props) => {
     const navigation = useNavigation<NavProp>()
     const onClick = () => {
         navigation.navigate('/profile/:id', {
-            id: 1,
+            id: userId,
         })
     }
 

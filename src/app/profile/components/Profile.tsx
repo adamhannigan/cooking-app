@@ -38,6 +38,7 @@ interface Props {
 const Menu = ({ id, isCurrentUser }: Props) => {
   const navigation = useNavigation<NavProp>()
   
+  console.log('Find: ', id)
   const person = people.find(user => user.id === id)
 
   const onClick = (id: number) => {

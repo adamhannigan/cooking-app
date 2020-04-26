@@ -55,6 +55,7 @@ const Others = () => {
                 name='John Smith'
                 time='12 days ago'
                 avatarUrl=''
+                userId={meal.user.id}
             />
             <MealSummary {...meal} />
         </Block>
@@ -63,6 +64,7 @@ const Others = () => {
                 name='John Smith'
                 time='12 days ago'
                 avatarUrl=''
+                userId={meal.user.id}
             />
             <MealSummary {...meal} />
         </Block>

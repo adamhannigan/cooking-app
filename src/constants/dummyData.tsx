@@ -154,9 +154,7 @@ export interface Meal {
     title: string
     image: string
     action: string
-    user?: {
-      name: string
-    },
+    user?: User
     preferences: Preference[]
     likes: number
     recipe?: string
@@ -165,7 +163,7 @@ export interface Meal {
 
 
 export const people: User[] = [{
-  id: 5,
+  id: 1,
   name: 'Adam Hannigan',
   preferences: [preferences.vegan, preferences.india]
 }, {

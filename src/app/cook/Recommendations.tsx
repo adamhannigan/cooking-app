@@ -12,7 +12,8 @@ import { useNavigation } from '@react-navigation/native'
 
 
 import drool from 'app/home/feed/components/assets/drool.gif'
-import Chef from 'assets/chef.svg'
+import Chef from 'app/home/activity/assets/chef.svg'
+
 
 // galio components
 import {
@@ -50,6 +51,10 @@ export const Recommendations = ({ onSelect }: Props)  => {
             <Text category='h6' style={styles.heading} status='info'>
                 Recently Cooked
             </Text>
+            <Chef
+                width={25}
+                height={25}
+            />
           </Block>
             <Block style={styles.meals}>
                 <ScrollView horizontal>
