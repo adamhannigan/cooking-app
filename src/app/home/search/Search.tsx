@@ -63,7 +63,8 @@ const Search = ({ navigation }) => {
                   console.log('Got group', group)
                     const list: Person = group.people.map(person => ({
                       primary: person.name,
-                      secondary: person.preferences.map(p => p.name),
+                      sasecondary: person.preferences.map(({ name}) => name).join(' - '),
+
                       action: {
                           primary: followed.includes(person.name) ? 'Following' : 'Follow',
                           onClick: () => onFollow(person.name),

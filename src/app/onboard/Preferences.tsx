@@ -26,7 +26,7 @@ const { width, height } = Dimensions.get('screen');
 import { tagGroups } from 'constants/dummyData'
 
 const Preferences = ({ navigation }) => {
-  const [selected, setSelected] = React.useState([])
+  const [selected, setSelected] = React.useState<string[]>([])
 
   const onSelect = (name: string) => {
     const alreadyExists = selected.includes(name)
@@ -61,7 +61,7 @@ const Preferences = ({ navigation }) => {
                   <Block style={styles.tags}>
                       {
                         group.items.map(item => {
-                          const isSelected = selected.includes(item)
+                          const isSelected = selected.includes(item.name)
 
                           return (
                             <Button
@@ -71,9 +71,9 @@ const Preferences = ({ navigation }) => {
                               }}
                               appearance={'outline' }
                               status='primary'
-                              onPress={() => onSelect(item)}
+                              onPress={() => onSelect(item.name)}
                             >
-                                {item}
+                                {item.name}
                               </Button>
                           )
                         })

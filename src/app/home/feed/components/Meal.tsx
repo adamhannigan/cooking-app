@@ -67,29 +67,6 @@ const Meal = (meal: Props) => {
                     imageLoadingColor={kittenTheme['color-primary-default']}
                   />
                 </Block>
-              {
-                  /**
-              <Block style={styles.avatars}>
-                <Avatar
-                  style={styles.avatar}
-                  source={{
-                        uri: 'http://i.pravatar.cc/100?id=skater',
-                  }}
-                />
-
-                   * TODO- secondary cooks
-                   * <Avatar
-                      style={styles.avatar}
-                      source={{
-                            uri: 'http://i.pravatar.cc/100?id=skater',
-                      }}
-                    />
-                   
-                
-              </Block>
-              */
-            }
-
             </Block>
 
             <Block row style={styles.content}>

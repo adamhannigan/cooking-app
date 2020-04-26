@@ -35,8 +35,6 @@ export const MealBox = ({
     ? (width / 2.5) - PADDING * 2
     : (width / 2) - PADDING * 2
 
-  console.log('Get that width', mealWidth)
-
   return (
     <TouchableOpacity onPress={onClick}>
         <Block style={{

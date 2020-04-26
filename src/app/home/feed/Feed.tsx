@@ -99,7 +99,7 @@ const Feed = props => {
                                       category='h6'
                                       status='info'
                                     >
-                                      Personal menu
+                                      {`${meal.user.name}'s menu`}
                                   </Text>
                                   <MealBoardIcon width={30} height={30} />
                                 </Block>

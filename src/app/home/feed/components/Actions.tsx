@@ -8,7 +8,7 @@ import {
 
 import { useTheme } from '@ui-kitten/components'
 
-import { BookmarkModel } from 'domain/bookmarks/model'
+import { DroolModel } from 'domain/drools/model'
 import { Meal as IMeal } from 'constants/dummyData'
 
 import droolGif from './assets/drool.gif'
@@ -22,22 +22,35 @@ import {
 const { width, height } = Dimensions.get('screen');
 
 const Actions = (meal: IMeal) => {
-    const [likes, setLikes] = React.useState(meal.likes)
+    const [isDrooling, setIsDrooling] = React.useState(false)
 
-    const userLikes = (likes - meal.likes)
-    const isDrooled = userLikes >= 1
+    // Hack to remember drools
+    React.useEffect(() => {
+      const fetchIsDrooling = async () => {
+        const drools = await DroolModel.getDrools()
+
+        const drooledMeal = drools.find(droolMeal => droolMeal.id === meal.id)
+        if (drooledMeal) {
+          setIsDrooling(true)
+        }
+      }
+
+      fetchIsDrooling()
+    }, [])
 
     const onLike = () => {
-      setLikes(likes + 1)
+      DroolModel.onDrool(meal)
+
+      setIsDrooling(true)
     }
 
-    const droolImage = isDrooled
+    const droolImage = isDrooling
         ? droolGif
         : droolFrame
 
     return (
         <Block style={styles.actions}>
-            <TouchableOpacity onPress={onLike} disabled={isDrooled}>
+            <TouchableOpacity onPress={onLike} disabled={isDrooling}>
                 <Block row style={styles.shadow}>
                     <Block style={styles.icon}>
                         <Image

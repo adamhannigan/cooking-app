@@ -27,6 +27,7 @@ import {
 } from 'galio-framework';
 
 import { meals } from 'constants/dummyData'
+import { DroolModel } from 'domain/drools/model';
 const { width, height } = Dimensions.get('screen');
 
 interface Props {
@@ -35,10 +36,8 @@ interface Props {
 }
 
 const Menu = ({ id, isCurrentUser }: Props) => {
-  const [selected, setSelected] = React.useState([])
   const navigation = useNavigation<NavProp>()
   
-  console.log('ID is: ', id)
   const person = people.find(user => user.id === id)
 
   const onClick = (id: number) => {
@@ -46,13 +45,20 @@ const Menu = ({ id, isCurrentUser }: Props) => {
       id,
     })
   }
+  
+  // HACK to go back to start of onboarding
+  const onBackToStart = () => {
+    navigation.navigate('Preferences')
+
+    DroolModel.reset()
+  }
 
   return (
     <View style={{ flex: 1 }}>
       <ScrollView style={{ flex: 1 }}>
         <Block style={{ marginTop: - theme.SIZES.BASE * 2 }}>
           <Block center flex style={styles.header}>
-            <TouchableOpacity onPress={() => navigation.navigate('Preferences')}>
+            <TouchableOpacity onPress={onBackToStart}>
               <Avatar
                   style={styles.avatar}
                   source={{

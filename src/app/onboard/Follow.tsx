@@ -58,7 +58,7 @@ const Follow = ({ navigation }) => {
 
                 const data = group.people.map(person => ({
                   primary: person.name,
-                  secondary: person.preferences.join(''),
+                  secondary: person.preferences.map(({ name}) => name).join(' - '),
                   action: {
                     primary: followed.includes(person.name) ? 'Following' : 'Follow',
                     onClick: () => onFollow(person.name),
@@ -67,9 +67,9 @@ const Follow = ({ navigation }) => {
                 }))
 
                 return (
-                  <Block>
+                  <Block style={styles.group}>
                       <Text category='h4' style={styles.title}>
-                          {group.title}
+                          {group.preference.name}
                       </Text>
                       <List
                         data={data}
@@ -118,10 +118,6 @@ const styles = StyleSheet.create({
 
     backgroundColor: 'white',
     width,
-    borderTopWidth: 1,
-    borderTopColor: '#e3e3e3',
-    borderBottomWidth: 1,
-    borderBottomColor: '#e3e3e3',
   },
   bottomBar: {
       padding: theme.SIZES.BASE / 2,
@@ -136,6 +132,9 @@ const styles = StyleSheet.create({
     paddingTop: theme.SIZES.BASE,
     paddingBottom: theme.SIZES.BASE / 2,
     paddingLeft: theme.SIZES.BASE,
+
+    borderBottomWidth: 1,
+    borderBottomColor: '#e3e3e3',
   },
 });
 
