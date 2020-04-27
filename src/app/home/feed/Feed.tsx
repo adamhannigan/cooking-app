@@ -110,7 +110,6 @@ const Feed = props => {
                                   name={meal.user.name}
                                   time='10 hrs ago'
                                   userId={meal.user.id}
-
                                 />
                                 <MealSummary {...meal}/>
                               </Block>

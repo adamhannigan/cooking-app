@@ -17,6 +17,7 @@ import { Text, List, useTheme, Input, Button, ButtonGroup } from '@ui-kitten/com
 
 import { CameraView } from './Camera'
 import { getMeal, Preparation } from './NewMeal'
+import { CaptureImage } from './CaptureImage'
 
 // galio components
 import {
@@ -33,85 +34,24 @@ const styles = StyleSheet.create({
     paddingHorizontal: theme.SIZES.BASE * 1.5,
     width,
   },
-  title: {
-    paddingTop: theme.SIZES.BASE,
-  },
   content: {
     width: width,
     padding: theme.SIZES.BASE,
     display: 'flex',
     justifyContent: 'center',
   },
-  imageContainer: {
-    width: '100%',
-    height: 255, 
-    borderRadius: 10,
-  },
-  takePhotoContainer: {
-    width: '100%',
-    borderWidth: 2,
-    borderRadius: 5,
-    borderStyle: 'dashed',
-    borderColor: 'grey',
-    paddingHorizontal: theme.SIZES.BASE,
-  },
-  captureButton: {
-    height: 85,
-    width: 85,
-    borderRadius: 50,
-    position: 'absolute',
-    left: '50%',
-    top: '50%',
-    marginLeft: -25,
-    marginTop: -38,
-
-    shadowOffset:{  width: 3,  height: 5,  },
-    shadowColor: '#777',
-    shadowOpacity: 0.3,
-  },
-  testButton: {
-    position: 'absolute',
-    bottom: 25,
-    right: 25,
-    height: 50,
-    width: 50,
-    borderRadius: 50,     
-  },
-  removeButton: {
-    position: 'absolute',
-    bottom: 25,
-    right: 85,
-    height: 50,
-    width: 50,
-    borderRadius: 50,  
-  },
-  buttonIcon: {
-    width: 50,
-    height: 50,
-    padding: 10,
-    fontSize: 30,
-  },
-  removeIcon: {
-    width: 50,
-    height: 50,
-    padding: 10,
-    fontSize: 30,
-  },
   bottomBar: {
     margin: 15,
     marginBottom: 25,
+    display: 'flex',
+    flexDirection: 'row',
   },
-  tagHeading: {
-    marginVertical: theme.SIZES.BASE,
-  }
 });
 
 const Cook = props => {
   const kittenTheme = useTheme()
   const { navigate, isFocused, addListener, setOptions } = useNavigation()
-  const [isTakingPhoto, setIsTakingPhoto] = React.useState(false)
   const [photo, setPhoto] = React.useState<string>(null)
-  const [ingredientPhoto, setIngredientPhoto] = React.useState<string>(null)
   const [recipe, setRecipe] = React.useState<string>(null)
   const [tip, setTip] = React.useState<string>(null)
 
@@ -138,27 +78,7 @@ const Cook = props => {
   }, [isFocused])
 
   console.log('Redner cook')
-  const onTakePhoto = () => {
-    setIsTakingPhoto(true)
-    setPhoto(null)
-  }
 
-  const onPhoto = (uri: string) => {
-    setIsTakingPhoto(false)
-    setPhoto(uri)
-  }
-
-  const onRemovePhoto = () => {
-    setPhoto(null)
-  }
-
-  const onCameraClose = () => {
-    setIsTakingPhoto(false)
-  }
-
-  const onAddRecipe = () => {
-
-  }
 
   const onRecipeChange = text => setRecipe(text)
   const onTipChange = text => setRecipe(text)
@@ -168,82 +88,25 @@ const Cook = props => {
     navigate('Tags')
   }
 
-  if (isTakingPhoto) {
-    return (
-      <CameraView
-        onPhotoTaken={onPhoto}
-        onBack={onCameraClose}
-      />
-    )
+  const onSave = () => {
+    // Add meal to list
+    navigate('Home')
   }
 
   return (
-    <View style={{ flex: 1 }}>
+    <View style={{ flex: 1, backgroundColor: 'white' }}>
       <ScrollView style={{ flex: 1 }}>
         {
           meal && (
             <Block>
               <Block style={styles.content}>
-                <Text category='s1'>1. Take a photo of your meal.</Text>
-                {
-                  !photo && (
-                    <Block style={styles.takePhotoContainer}>
-                      <CookingSVG
-                        width={width - theme.SIZES.BASE * 4 }
-                        height={250}
-                      />
-                      <Button
-                        onPress={onTakePhoto}
-                        style={styles.captureButton}
-                        icon={() => 
-                          <Icon
-                              name='camera'
-                              color='white'
-                              family={"AntDesign"}
-                              style={styles.buttonIcon}
-                          />
-                        }
-                      />
-                    </Block>
-                  )
-                }
-                {
-                  photo && [
-                    <Image
-                        source={{ uri: photo }}
-                        style={{
-                          ...styles.imageContainer,
-                        }}
-                    />,
-                    <Button
-                      style={{
-                        ...styles.removeButton,
-                      }}
-                      status='danger'
-                      onPress={onRemovePhoto}
-                      icon={() => 
-                        <Icon
-                            name='delete'
-                            color='white'
-                            family={"AntDesign"}
-                            style={styles.buttonIcon}
-                        />
-                      }
-                    />,
-                    <Button
-                      style={styles.testButton}
-                      onPress={onTakePhoto}
-                      icon={() => 
-                        <Icon
-                            name='camera'
-                            color='white'
-                            family={"AntDesign"}
-                            style={styles.buttonIcon}
-                        />
-                      }
-                    />
-                  ]
-                }
+                <Text category='h6' status='info' style={{ marginVertical: theme.SIZES.BASE }}>
+                  Photos
+                </Text>
+                <CaptureImage
+                  photo={photo}
+                  onPhotoCaptured={setPhoto}
+                />
               </Block>
 
               <Block style={styles.header}>
@@ -296,11 +159,21 @@ const Cook = props => {
           }
       </ScrollView>
       <Block style={styles.bottomBar}>
-          <Button
+        <Button
             size='medium'
             status='primary'
+            appearance='ghost'
+            onPress={onSave}
+            style={{flex: 1}}
+          >
+            Save for later
+          </Button>
+          <Button
+            size='medium'
+            status='info'
             onPress={onDone}
             disabled={!photo}
+            style={{flex: 1}}
           >
             Next
           </Button>
