@@ -15,27 +15,27 @@ const { width } = Dimensions.get('screen');
 const styles = StyleSheet.create({
     captureButton: {
         position: 'absolute',
-        bottom: 50,
+        bottom: 5,
         left: '50%',
         marginLeft: -25,
-        height: 70,
-        width: 70,
+        height: 50,
+        width: 50,
         borderRadius: 50,
     },
     backButton: {
       position: 'absolute',
-      bottom: 50,
-      left: 25,
-      height: 70,
-      width: 70,
+      bottom: 5,
+      left: 5,
+      height: 50,
+      width: 50,
       borderRadius: 50,     
     },
     testButton: {
       position: 'absolute',
-      bottom: 50,
-      right: 25,
-      height: 70,
-      width: 70,
+      bottom: 5,
+      right: 40,
+      height: 50,
+      width: 50,
       borderRadius: 50,     
     },
     buttonIcon: {
@@ -44,22 +44,13 @@ const styles = StyleSheet.create({
       padding: 15,
       fontSize: 40,
     },
+
     container: {
         flex: 1,
         backgroundColor: 'transparent',
         flexDirection: 'row',
         alignItems: 'center',
     },
-    helper: {
-      height: 250,
-      borderWidth: 3,
-      borderColor: 'white',
-      borderStyle: 'dashed',
-
-
-      width: width - 20,
-      marginHorizontal: 10,
-    }
 });
 
 interface Props {
@@ -101,10 +92,9 @@ export const CameraView = ({ onPhotoTaken, onBack }: Props) => {
 
         setIsSet(true)
 
-        console.log('On photo is: ',onPhotoTaken )
         await cameraRef.current.takePictureAsync(options).then(photo => {
            photo.exif.Orientation = 1;            
-            console.log(photo);   
+            console.log(Object.keys(photo)); 
             
             onPhotoTaken(photo.uri)
         });     
@@ -162,7 +152,6 @@ export const CameraView = ({ onPhotoTaken, onBack }: Props) => {
                   />
                 }
               />
-            <Block style={styles.helper} />
         </View>
       </Camera>
     </View>

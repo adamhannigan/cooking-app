@@ -51,11 +51,11 @@ const styles = StyleSheet.create({
 const Cook = props => {
   const kittenTheme = useTheme()
   const { navigate, isFocused, addListener, setOptions } = useNavigation()
-  const [photo, setPhoto] = React.useState<string>(null)
   const [recipe, setRecipe] = React.useState<string>(null)
   const [tip, setTip] = React.useState<string>(null)
-
   const [meal, setMeal] = React.useState<Preparation>(null)
+
+  const [photos, setPhotos] = React.useState<string[]>([])
 
   React.useEffect(() => {
     const loadMeal = () => {
@@ -93,6 +93,16 @@ const Cook = props => {
     navigate('Home')
   }
 
+  const onAddPhoto = (photo: string) => {
+    console.log('Add photo', photo)
+    setPhotos([
+      ...photos,
+      photo,
+    ])
+  }
+
+  console.log('Hpthos length', photos.length)
+
   return (
     <View style={{ flex: 1, backgroundColor: 'white' }}>
       <ScrollView style={{ flex: 1 }}>
@@ -103,10 +113,25 @@ const Cook = props => {
                 <Text category='h6' status='info' style={{ marginVertical: theme.SIZES.BASE }}>
                   Photos
                 </Text>
-                <CaptureImage
-                  photo={photo}
-                  onPhotoCaptured={setPhoto}
-                />
+                <ScrollView
+                  horizontal
+                  decelerationRate={0}
+                  snapToInterval={width / 4 * 3}
+                  snapToAlignment={"center"}
+                >
+                  {
+                    photos.map(photo => (
+                      <CaptureImage
+                        photo={photo}
+                        onPhotoCaptured={() => {}}
+                      />
+                    ))
+                  }
+                  <CaptureImage
+                    photo={null}
+                    onPhotoCaptured={onAddPhoto}
+                  />
+                </ScrollView>
               </Block>
 
               <Block style={styles.header}>
@@ -172,7 +197,7 @@ const Cook = props => {
             size='medium'
             status='info'
             onPress={onDone}
-            disabled={!photo}
+            disabled={photos.length === 0}
             style={{flex: 1}}
           >
             Next

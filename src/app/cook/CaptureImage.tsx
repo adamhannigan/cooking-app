@@ -22,18 +22,30 @@ const styles = StyleSheet.create({
   },
   imageContainer: {
     width: '100%',
-    height: 255, 
+    height: '100%',
     borderRadius: 10,
   },
-  takePhotoContainer: {
+  container: {
+    borderWidth: 1,
+    borderColor: '#ddd',
+    width: width / 4 * 3,
+    height: 150,
+    marginRight: theme.SIZES.BASE,
+    borderRadius: 10,
+  },
+  takingImageContainer: {
+    borderWidth: 1,
+    borderColor: '#ddd',
+    width,
+    height: 200,
   },
   captureButton: {
-    height: 40,
-    width: 40,
+    height: 50,
+    width: 50,
     borderRadius: 50,
     position: 'absolute',
-    left: '25%',
-    top: '50%',
+    left: theme.SIZES.BASE,
+    bottom: theme.SIZES.BASE / 2,
     marginLeft: -12,
     marginTop: -19,
 
@@ -58,14 +70,14 @@ const styles = StyleSheet.create({
     borderRadius: 50,  
   },
   buttonIcon: {
-    width: 43,
+    width: 48,
     height: 50,
     padding: 10,
     fontSize: 28,
   },
   emptyImage: {
-    width: width / 3 * 2,
-    height: 150,
+    width: '100%',
+    height: '100%',
     opacity: 0.3,
   }
 });
@@ -83,7 +95,6 @@ export const CaptureImage = ({
 
   const onTakePhoto = () => {
     setIsTakingPhoto(true)
-    onPhotoCaptured(null)
   }
 
   const onPhoto = (uri: string) => {
@@ -91,85 +102,55 @@ export const CaptureImage = ({
     onPhotoCaptured(uri)
   }
 
-  const onRemovePhoto = () => {
-    onPhotoCaptured(null)
-  }
-
   const onCameraClose = () => {
     setIsTakingPhoto(false)
     onPhotoCaptured(null)
   }
 
-
   if (isTakingPhoto) {
     return (
-      <CameraView
-        onPhotoTaken={onPhoto}
-        onBack={onCameraClose}
-      />
+      <Block style={styles.takingImageContainer}>
+        <CameraView
+          onPhotoTaken={onPhoto}
+          onBack={onCameraClose}
+        />
+      </Block>
+    )
+  }
+
+  if (photo) {
+    console.log('Show photo', photo)
+    return (
+      <Block style={styles.container}>
+        <Image
+            source={{ uri: photo }}
+            style={styles.imageContainer}
+        />
+      </Block>
     )
   }
 
   return (
-      <Block>
-        <Block style={styles.takePhotoContainer}>
-            <Image
-                source={{
-                    uri: 'https://www.thespruceeats.com/thmb/uYCUG1J6o2INmqbxNZY4nkLdBv4=/3120x3120/smart/filters:no_upscale()/greek-butter-cookies-1705307-step-01-5bfef717c9e77c00510e3bf9.jpg',
-                }}
-                style={styles.emptyImage}
-            />
-            <Button
-                onPress={onTakePhoto}
-                style={styles.captureButton}
-                icon={() => 
-                <Icon
-                    name='camera'
-                    color='white'
-                    family={"AntDesign"}
-                    style={styles.buttonIcon}
-                />
-                }
-            />
-        </Block>
-        {
-            photo && [
-                <Image
-                    source={{ uri: photo }}
-                    style={{
-                    ...styles.imageContainer,
-                    }}
-                />,
-                <Button
-                style={{
-                    ...styles.removeButton,
-                }}
-                status='danger'
-                onPress={onRemovePhoto}
-                icon={() => 
-                    <Icon
-                        name='delete'
-                        color='white'
-                        family={"AntDesign"}
-                        style={styles.buttonIcon}
-                    />
-                }
-                />,
-                <Button
-                    style={styles.testButton}
-                    onPress={onTakePhoto}
-                    icon={() => 
-                        <Icon
-                            name='camera'
-                            color='white'
-                            family={"AntDesign"}
-                            style={styles.buttonIcon}
-                        />
-                    }
-                />
-            ]
-        }
-    </Block>
+      <Block style={styles.container}>
+          <Image
+            source={{
+                uri: 'https://www.thespruceeats.com/thmb/uYCUG1J6o2INmqbxNZY4nkLdBv4=/3120x3120/smart/filters:no_upscale()/greek-butter-cookies-1705307-step-01-5bfef717c9e77c00510e3bf9.jpg',
+            }}
+            style={styles.emptyImage}
+          />
+          <Button
+              onPress={onTakePhoto}
+              style={styles.captureButton}
+              icon={() => 
+              <Icon
+                  name='camera'
+                  color='white'
+                  family={"AntDesign"}
+                  style={styles.buttonIcon}
+              />
+              }
+          />
+      </Block>
   )
 }
 
