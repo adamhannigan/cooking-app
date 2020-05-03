@@ -21,7 +21,7 @@ import MealDetails from './app/meal/MealDetails'
 import Profile from './app/profile/Profile'
 
 import ChooseMeal from './app/cook/ChooseMeal'
-import Cook from './app/cook/Cook'
+import Cook, { CookHeaderButton } from './app/cook/Cook'
 import Tags from './app/cook/Tags'
 import { CameraView } from './app/cook/Camera'
 
@@ -43,6 +43,9 @@ export type Routes = {
   }
   '/onboard/meals'
   '/favourites'
+  '/cook/:id': {
+    id: number
+  }
 }
 
 export type Route<T extends keyof Routes> = RouteProp<Routes, T>
@@ -99,6 +102,14 @@ function Navigation() {
       ...headerOptions,
       title: 'Recipe Book',
     },
+  }, {
+    name: '/cook/:id',
+    component: Cook,
+    options: {
+        ...headerOptions,
+        headerLeft: null,
+        headerRight: () => <CookHeaderButton />,
+    }
   }]
 
   return (
@@ -117,12 +128,6 @@ function Navigation() {
                     <CookNowButton />
                   )
               }}
-            />
-
-            <Stack.Screen
-              name="Cook"
-              component={Cook}
-              options={headerOptions}
             />
 
             {

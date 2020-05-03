@@ -6,7 +6,7 @@ import {
   Dimensions,
 } from 'react-native';
 
-import { Text, Input, Icon, useTheme } from '@ui-kitten/components'
+import { Text, Input, Icon, useTheme, Button } from '@ui-kitten/components'
 import { useNavigation } from '@react-navigation/native'
 
 // galio components
@@ -16,54 +16,47 @@ import {
 
 import { meals, Meal } from '../../constants/dummyData'
 
-import { MealBox } from './MealBox'
-import { Recommendations } from './Recommendations'
-import { Search } from './Search'
 import { prepareMeal } from './NewMeal'
+import YourMenu from './YourMenu'
+import { NavProp } from 'Navigation';
+import OrDivider from './components/OrDivider';
 
 const { width } = Dimensions.get('screen');
 
 const ChooseMeal = props => {
   const [selectedIndex, setSelectedIndex] = React.useState(0);
   const kittenTheme = useTheme()
-  const navigation = useNavigation()
-
-  const [search, setSearch] = React.useState('')
-  const [isSearching, setIsSearching] = React.useState(false)
+  const navigation = useNavigation<NavProp>()
 
   const onSelect = (meal: Meal) => {
     prepareMeal(meal.title)
 
-    navigation.navigate('Cook')
+    navigation.navigate('/cook/:id', {
+      id: meal.id,
+    })
   }
 
   return (
     <View style={{ flex: 1 }}>
       <ScrollView style={{ flex: 1 }}>
-        <Block center style={{ marginTop: -theme.SIZES.BASE * 2 }}>
+        <Block style={{ marginTop: -theme.SIZES.BASE * 2 }}>
           <Block flex style={styles.header}>
             <Text category='h3'>
               What did you cook?
             </Text>
             <Text category='p'>
-              Pick a meal from your menu, one of your saved items or search for a new meal.
+              Start a meal from scratch or pick a meal from your menu.
             </Text>
-            <Input
-              placeholder="Search for recipes"
-              style={styles.search}
-              value={search}
-              onChange={e => setSearch(e.target)}
-              onFocus={() => setIsSearching(true)}
-              onBlur={() => setIsSearching(false)}
-            />
           </Block>
-          {
-            !isSearching && <Recommendations onSelect={onSelect} />
-          }
-          {
-            isSearching && <Search />
-          }
-
+          <Block style={styles.container}>
+            <Button
+              status='info'
+            >
+              Start a new meal
+            </Button>
+            <OrDivider />
+          </Block>
+          <YourMenu onSelect={onSelect} />
         </Block>
       </ScrollView>
     </View>
@@ -74,28 +67,19 @@ const styles = StyleSheet.create({
   header: {
     borderTopLeftRadius: theme.SIZES.BASE * 2,
     borderTopRightRadius: theme.SIZES.BASE * 2,
-    paddingTop: theme.SIZES.BASE * 2,
-    paddingHorizontal: theme.SIZES.BASE * 1,
+    paddingTop: theme.SIZES.BASE * 3,
+    paddingBottom: theme.SIZES.BASE * 2,
+    padding: theme.SIZES.BASE * 1,
+    marginBottom: theme.SIZES.BASE * 2,
+
     width,
     backgroundColor: 'white',
+
+    borderBottomWidth: 1,
+    borderColor: '#ddd',
   },
-  content: {
-    width,
-    marginBottom: theme.SIZES.BASE * 2,
-  },
-  search: {
-    marginTop: theme.SIZES.BASE,
-    marginBottom: theme.SIZES.BASE / 2,
-  },
-  heading: {
-    paddingHorizontal: theme.SIZES.BASE / 2,
-    paddingTop: theme.SIZES.BASE / 2,
-  },
-  meals: {
-    display: 'flex',
-    flexDirection: 'row',
-    width,
-    overflow: 'scroll',
+  container: {
+    paddingHorizontal: theme.SIZES.BASE,
   },
 });
 

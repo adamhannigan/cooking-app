@@ -49,7 +49,7 @@ const Others = () => {
 
   return (
     <Block style={styles.container}>
-        <Text style={styles.title} category='h5'>Inspired from</Text>
+        <Text style={styles.title} category='h6' appearance='hint'>Inspired by</Text>
         <Block style={styles.item}>
             <AvatarHeader
                 name='John Smith'

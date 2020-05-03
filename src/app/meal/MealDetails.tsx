@@ -19,7 +19,7 @@ import {
 
 import Constants from 'expo-constants';
 
-import { Route } from 'Navigation'
+import { Route, NavProp } from 'Navigation'
 
 import Others from './Others'
 
@@ -38,7 +38,7 @@ import InfoBlock from './components/InfoBlock'
 const { width, height } = Dimensions.get('screen');
 
 const MealDetails = () => {
-  const navigation = useNavigation()
+  const navigation = useNavigation<NavProp>()
   const route = useRoute<Route<'/meal/:id'>>()
 
   const meal = meals.find(meal => meal.id === route.params.id)
@@ -53,6 +53,12 @@ const MealDetails = () => {
   
   const onOpenRecipe = () => {
     Linking.openURL(meal.recipe)
+  }
+
+  const onCookIt = () => {
+    navigation.navigate('/cook/:id', {
+      id: meal.id,
+    })
   }
   
   return (
@@ -86,7 +92,7 @@ const MealDetails = () => {
                 <Button
                   style={{ margin: theme.SIZES.BASE / 2 }}
                   status='info'
-                  appearance='outline'
+                  onPress={onCookIt}
                 >
                   Cook it!
                 </Button>
