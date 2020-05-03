@@ -19,7 +19,11 @@ import { Routes, NavProp } from 'Navigation'
 
 const { width } = Dimensions.get('screen')
 
-const MealList = props => {
+interface Props {
+  hideCooked?: boolean
+}
+
+const MealList: React.FC<Props> = ({ hideCooked }) => {
   const [search, setSearch] = React.useState('')
   const [isSearching, setIsSearching] = React.useState(false)
 
@@ -42,7 +46,12 @@ const MealList = props => {
             onBlur={() => setIsSearching(false)}
         />
         {
-          !isSearching && <Recommendations onSelect={onSelect} />
+          !isSearching && (
+            <Recommendations
+              hideCooked={hideCooked}
+              onSelect={onSelect}
+            />
+          )
         }
         {
           isSearching && <Search />

@@ -9,7 +9,6 @@ import {
 
 import { useTheme, Text, Button } from '@ui-kitten/components'
 
-import FAB from 'react-native-fab'
 
 // galio components
 import {
@@ -67,6 +66,7 @@ const Feed = props => {
             {
               interesedMeals.map((group) => (
                   <Block>
+                    {/*}
                     <Block style={styles.tagHeader}>
                       <Text category='h3'>{group.tag.name}</Text>
                       <Button
@@ -76,6 +76,7 @@ const Feed = props => {
                           Not interested
                       </Button>
                     </Block>
+                    */}
                     {
                       group.meals.map((meal, idx) => (
                           idx % 2 === 0 ? (
@@ -120,16 +121,9 @@ const Feed = props => {
                 )
               )
             }
-            
           </Block>
         </Block>
       </ScrollView>
-      <FAB buttonColor={kittenTheme['color-primary-default']} iconTextColor="#FFFFFF" onClickAction={() => navigation.navigate('ChooseMeal')} visible={isFocused} iconTextComponent={
-          (
-            <Icon name='plus' family='AntDesign' size={30} />
-          )
-        }
-      />
     </View>
   )
 }

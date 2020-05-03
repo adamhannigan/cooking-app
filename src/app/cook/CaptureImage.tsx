@@ -4,7 +4,7 @@ import {
   Dimensions,
   Image,
 } from 'react-native';
-
+import * as ImagePicker from 'expo-image-picker'
 import { Button } from '@ui-kitten/components'
 
 import { CameraView } from './Camera'
@@ -93,8 +93,19 @@ export const CaptureImage = ({
 }: Props) => {
   const [isTakingPhoto, setIsTakingPhoto] = React.useState(false)
 
-  const onTakePhoto = () => {
-    setIsTakingPhoto(true)
+  const onTakePhoto = async () => {
+
+    console.log('Open it')
+    //setIsTakingPhoto(true)
+    let result = await ImagePicker.launchCameraAsync({
+      mediaTypes: ImagePicker.MediaTypeOptions.Images,
+      allowsEditing: true,
+      aspect: [4, 3],
+      quality: 1
+    });
+
+    console.log('Result', result)
+    onPhotoCaptured(result.uri)
   }
 
   const onPhoto = (uri: string) => {

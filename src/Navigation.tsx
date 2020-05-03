@@ -26,6 +26,7 @@ import Tags from './app/cook/Tags'
 import { CameraView } from './app/cook/Camera'
 
 import BookmarkButton from 'app/home/components/BookmarkButton';
+import CookNowButton from 'app/home/components/CookNowButton';
 import Favourites from 'app/recipeBook/RecipeBook'
 
 const Stack = createStackNavigator()
@@ -108,10 +109,13 @@ function Navigation() {
               component={Home}
               options={{
                   ...headerOptions,
+                  
                   headerRight: () => (
                     <BookmarkButton />
                   ),
-                  headerLeft: null,
+                  headerLeft: () => (
+                    <CookNowButton />
+                  )
               }}
             />
 

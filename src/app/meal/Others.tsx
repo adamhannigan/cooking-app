@@ -49,16 +49,7 @@ const Others = () => {
 
   return (
     <Block style={styles.container}>
-        <Text style={styles.title} category='h4'>Who else cooked this?</Text>
-        <Block style={styles.item}>
-            <AvatarHeader
-                name='John Smith'
-                time='12 days ago'
-                avatarUrl=''
-                userId={meal.user.id}
-            />
-            <MealSummary {...meal} />
-        </Block>
+        <Text style={styles.title} category='h5'>Inspired from</Text>
         <Block style={styles.item}>
             <AvatarHeader
                 name='John Smith'

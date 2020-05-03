@@ -28,10 +28,14 @@ import { DroolModel } from 'domain/drools/model';
 const { width } = Dimensions.get('screen');
 
 interface Props {
+  hideCooked: boolean
   onSelect: (meal: Meal) => void
 }
 
-export const Recommendations = ({ onSelect }: Props)  => {
+export const Recommendations = ({
+  onSelect,
+  hideCooked,
+}: Props)  => {
   const [droolingMeals, setDroolingMeals] = React.useState<Meal[]>([])
 
   React.useEffect(() => {
@@ -46,34 +50,39 @@ export const Recommendations = ({ onSelect }: Props)  => {
 
   return (
     <Block>
-        <Block style={styles.group}>
-          <Block style={styles.header}>
-            <Text category='h6' style={styles.heading} status='info'>
-                Recently Cooked
-            </Text>
-            <Chef
-                width={25}
-                height={25}
-            />
-          </Block>
-            <Block style={styles.meals}>
-                <ScrollView horizontal>
-                {
-                    meals.map(meal => (
-                    <MealBox
-                        {...meal}
-                        onClick={() => onSelect(meal)}
-                    />
-                    ))
-                }
-                </ScrollView>
+        {
+          // TODO - separate components
+          !hideCooked && (
+          <Block style={styles.group}>
+            <Block style={styles.header}>
+              <Text category='h6' style={styles.heading} status='info'>
+                  Recently Cooked
+              </Text>
+              <Chef
+                  width={25}
+                  height={25}
+              />
             </Block>
-        </Block>
+              <Block style={styles.meals}>
+                  <ScrollView horizontal>
+                  {
+                      meals.map(meal => (
+                      <MealBox
+                          {...meal}
+                          onClick={() => onSelect(meal)}
+                      />
+                      ))
+                  }
+                  </ScrollView>
+              </Block>
+          </Block>
+          )
+        }
 
         <Block style={styles.group}>
           <Block style={styles.header}>
             <Text category='h6' style={styles.heading} status='info'>
-                Drooling over
+                Recipe book
             </Text>
             <Image
                 source={drool}

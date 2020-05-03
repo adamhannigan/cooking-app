@@ -15,7 +15,8 @@ import { Meal as IMeal } from 'constants/dummyData'
 
 import { NavProp } from 'Navigation'
 
-import drool from './assets/droolFrame.gif'
+import ColorDrool from '../../assets/colorDrool.svg'
+import Friends from '../../assets/friends.svg'
 
 import Actions from './Actions'
 
@@ -93,20 +94,20 @@ const Meal = (meal: Props) => {
                         style={{ marginRight: 5 }}
                       />
                       */}
-                      <Image
-                          source={drool}
-                          style={styles.drool}
+                      <ColorDrool
+                        style={styles.icon}
+                        width={25}
+                        height={25}
                       />
                       <Text category='s1'>
                           44
                       </Text>
                     </Block>
                     <Block row middle start>
-                      <Icon
-                        name='addusergroup'
-                        color={kittenTheme['color-info-default']}
-                        family={"AntDesign"} size={15}
-                        style={{ marginRight: 5 }}
+                      <Friends
+                        style={styles.icon}
+                        width={25}
+                        height={25}
                       />
                       <Text category='s1'>
                           22 friends have cooked this
@@ -136,27 +137,29 @@ const styles = StyleSheet.create({
     height: '100%',
     width: '100%'
   },
-  drool: {
+  icon: {
     width: 20,
     height: 25,
+    marginRight: 5,
   },
   tag: {
     position: 'absolute',
-    top: 5,
+    top: 0,
     left: 5,
 
     zIndex: 1,
 
-    borderRadius: 5,
+    borderBottomLeftRadius: 5,
+    borderBottomRightRadius: 5,
     paddingVertical: 4,
     paddingHorizontal: 8,
   },
   tagText: {
     color: 'white',
     fontWeight: 'bold',
-    fontSize: 28,
+    fontSize: 14,
     fontStyle: 'italic',
-    lineHeight: 28,
+    lineHeight: 22,
   },
 });
 

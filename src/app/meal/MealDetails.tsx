@@ -7,11 +7,9 @@ import {
   View,
   Linking,
   Dimensions,
-  TouchableOpacity,
-  ImageBackground,
 } from 'react-native';
 
-import { Text, useTheme } from '@ui-kitten/components'
+import { Text, useTheme, Button } from '@ui-kitten/components'
 import {
     useNavigation,
     useRoute,
@@ -63,20 +61,6 @@ const MealDetails = () => {
         <Block>
             <Meal {...meal} />
 
-
-            {
-              meal.recipe && (
-                <TouchableOpacity onPress={onOpenRecipe}>
-                  <InfoBlock
-                    title='Recipe'
-                    icon='link'
-                    text={meal.recipe}
-                    status='info'
-                  />
-                </TouchableOpacity>
-              )
-            }
-
             {
               meal.tip && (
                 <InfoBlock
@@ -86,6 +70,45 @@ const MealDetails = () => {
                 />
               )
             }
+            {
+              meal.recipe && (
+                <Button
+                  style={{ margin: theme.SIZES.BASE / 2 }}
+                  onPress={onOpenRecipe}
+                >
+                  View Recipe
+                </Button>
+              )
+            }
+
+            {
+              meal.recipe && (
+                <Button
+                  style={{ margin: theme.SIZES.BASE / 2 }}
+                  status='info'
+                  appearance='outline'
+                >
+                  Cook it!
+                </Button>
+              )
+            }
+            
+            {
+              /*
+              meal.recipe && (
+                <TouchableOpacity >
+                  <InfoBlock
+                    title='Recipe'
+                    icon='link'
+                    text={meal.recipe}
+                    status='info'
+                  />
+                </TouchableOpacity>
+              )
+              */
+            }
+
+
 
             <Others />
             

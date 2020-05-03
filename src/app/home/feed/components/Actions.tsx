@@ -51,7 +51,7 @@ const Actions = (meal: IMeal) => {
     return (
         <Block style={styles.actions}>
             <TouchableOpacity onPress={onLike} disabled={isDrooling}>
-                <Block row style={styles.shadow}>
+                <Block row style={!isDrooling && styles.shadow}>
                     <Block style={styles.icon}>
                         <Image
                             source={droolImage}
@@ -78,9 +78,6 @@ icon: {
     height: 46,
     width: 46,
 
-    shadowOffset:{  width: 5,  height: 3,  },
-    shadowColor: '#777',
-    shadowOpacity: 0.3,
 
     overflow: 'hidden',
 },

@@ -13,7 +13,7 @@ import { useNavigation } from '@react-navigation/native'
 import { TouchableOpacity } from 'react-native-gesture-handler';
 
 import { NavProp } from 'Navigation';
-import RecipeBook from 'app/home/feed/components/assets/book.svg'
+import RecipeBook from '../assets/colorDrool.svg'
 
 const AnimatedIcon = Animated.createAnimatedComponent(Icon)
 
@@ -78,7 +78,8 @@ function BookmarkButton() {
           */
         }
         <RecipeBook
-          width={30}
+          width={35}
+          height={40}
           fill='white'
           style={styles.favouriteButton}
         />

@@ -17,6 +17,9 @@ import { NavProp } from 'Navigation'
 
 import Constants from 'expo-constants';
 
+import MealBoardIcon from 'app/home/activity/assets/menu-board.svg'
+
+
 import { people } from 'constants/dummyData'
 import MealSummary from './MealSummary'
 
@@ -107,11 +110,20 @@ const Menu = ({ id, isCurrentUser }: Props) => {
           
         <Block>
           <Block row middle space='between'  style={styles.menuTitle}>
-            <Text category='h4'>
-              Menu
-            </Text>
+            <Block row middle>
+              <MealBoardIcon
+                width={35}
+                height={35}
+                style={{
+                  marginRight: theme.SIZES.BASE,
+                }}
+              />
+              <Text category='h4'>
+                Menu
+              </Text>
+            </Block>
             <Text appearance='hint' >
-              4 items
+              4 specials
             </Text>
           </Block>
           <Block>

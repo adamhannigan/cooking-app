@@ -26,7 +26,7 @@ const RecipeBook = ({ id }: Props) => {
     <View style={{ flex: 1 }}>
       <ScrollView style={{ flex: 1 }}>
         <Block style={styles.container}>
-            <MealList />
+            <MealList hideCooked />
         </Block>
       </ScrollView>
     </View>
