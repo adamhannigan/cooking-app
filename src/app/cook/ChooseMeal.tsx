@@ -29,10 +29,14 @@ const ChooseMeal = props => {
   const navigation = useNavigation<NavProp>()
 
   const onSelect = (meal: Meal) => {
-    prepareMeal(meal.title)
-
-    navigation.navigate('/cook/:id', {
+    navigation.navigate('/cook/:id?', {
       id: meal.id,
+    })
+  }
+
+  const onStartNewMeal = () => {
+    navigation.navigate('/cook/:id?', {
+      id: 22,
     })
   }
 
@@ -51,6 +55,7 @@ const ChooseMeal = props => {
           <Block style={styles.container}>
             <Button
               status='info'
+              onPress={onStartNewMeal}
             >
               Start a new meal
             </Button>

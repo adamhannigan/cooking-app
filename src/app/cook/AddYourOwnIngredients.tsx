@@ -5,6 +5,7 @@ import {
   View,
   Dimensions,
   Image,
+  KeyboardAvoidingView,
 } from 'react-native';
 
 import * as ImagePicker from 'expo-image-picker'
@@ -131,19 +132,19 @@ const AddSteps = props => {
         </Block>
 
         <Input
-            multiline={true}
+            numberOfLines={3}
             placeholder='Enter your ingredients'
             style={{
                 marginTop: -theme.SIZES.BASE * 2,
             }}
             textStyle={{
-                minHeight: 64,
+                fontSize: 18,
             }}
         />
 
         {
             steps.map((photo, index) => (
-                <Block style={styles.step}>
+                <KeyboardAvoidingView style={styles.step}>
                     <Text category='h5' status='info'>
                         {`Step ${index + 1}`}
                     </Text>
@@ -194,7 +195,7 @@ const AddSteps = props => {
                             minHeight: 64,
                         }}
                     />
-                </Block>
+                </KeyboardAvoidingView>
             ))
         }
 

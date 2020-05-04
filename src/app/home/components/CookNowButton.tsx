@@ -13,7 +13,7 @@ import {
   Block,
 } from 'galio-framework';
 
-import PaperIcon from '../assets/paper.svg'
+import PaperIcon from '../assets/file.svg'
 
 function CookNowButton() {
   const navigation = useNavigation<NavProp>()
@@ -31,6 +31,7 @@ function CookNowButton() {
             width={35}
             height={40}
             style={styles.button}
+            fill='white'
           />
         </Block>
       </TouchableOpacity>

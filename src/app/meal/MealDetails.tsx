@@ -56,7 +56,7 @@ const MealDetails = () => {
   }
 
   const onCookIt = () => {
-    navigation.navigate('/cook/:id', {
+    navigation.navigate('/cook/:id?', {
       id: meal.id,
     })
   }

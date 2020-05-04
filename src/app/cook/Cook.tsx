@@ -11,10 +11,12 @@ import CookingSVG from './assets/cooking.svg'
 import IngredientSVG from './assets/HealthyFood_02.svg'
 import DirtySVG from './assets/dirty.svg'
 
-import { useNavigation } from '@react-navigation/native'
+import { useNavigation, useRoute } from '@react-navigation/native'
 import * as ImagePicker from 'expo-image-picker'
 
 import { Text, List, useTheme, Input, Button, ButtonGroup } from '@ui-kitten/components'
+
+import { meals, Meal } from 'constants/dummyData'
 
 import { CameraView } from './Camera'
 import { getMeal, Preparation } from './NewMeal'
@@ -30,6 +32,7 @@ import OrDivider from './components/OrDivider'
 import CameraSVG from './assets/camera.svg'
 import IngredientsSVG from './assets/ingredients.svg'
 import AddSteps from './AddYourOwnIngredients';
+import { Route } from 'Navigation';
 
 export { CookHeaderButton } from './CookHeaderButton'
 const { width } = Dimensions.get('screen');
@@ -71,21 +74,33 @@ const styles = StyleSheet.create({
 
 const Cook = props => {
   const kittenTheme = useTheme()
+  const route = useRoute<Route<'/cook/:id?'>>()
   const { navigate, isFocused, addListener, setOptions } = useNavigation()
+
   const [recipe, setRecipe] = React.useState<string>(null)
+  const [title, setTitle] = React.useState<string>(null)
   const [tip, setTip] = React.useState<string>(null)
-  const [meal, setMeal] = React.useState<Preparation>(null)
+  const [meal, setMeal] = React.useState<Meal>(null)
 
   const [photo, setPhoto] = React.useState<string>(null)
 
   React.useEffect(() => {
     const loadMeal = () => {
-      const meal = getMeal()
-      console.log('Loaded', meal)
+      
+      const meal = meals.find(meal => !!route.params && route.params.id === meal.id)
+      console.log('Loading: route.params.id', route.params.id)
+
       setMeal(meal)
 
-      // Navigation header
-      setOptions({ title: meal.getTitle() })
+      if (meal) {
+        setRecipe(meal.recipe)
+
+        // Navigation header
+        setOptions({ title: meal.title })
+      } else {
+        setRecipe(null)
+        setOptions({ title: '' })
+      }
     }
 
     addListener('focus', () => {
@@ -103,6 +118,12 @@ const Cook = props => {
 
   const onRecipeChange = text => setRecipe(text)
 
+  const onTitleChange = text => {
+    console.log('Text', text.nativeEvent.text)
+    setOptions({ title: text.nativeEvent.text })
+    setTitle(text)
+  }
+
   const onDone = () => {
     // Add meal to list
     navigate('Tags')
@@ -110,7 +131,7 @@ const Cook = props => {
 
   const onSave = () => {
     // Add meal to list
-    navigate('Home')
+    navigate('/')
   }
 
   const onTakePhoto = async () => {
@@ -136,9 +157,31 @@ const Cook = props => {
         <Text category='h3'>
           Get Started
         </Text>
+
         {
-          meal && (
             <Block>
+              {
+                !meal && (
+                  <Input
+                    multiline={true}
+                    placeholder='Creamy...'
+                    label='What did you cook?'
+                    onChange={onTitleChange}
+                    style={{
+                        marginTop: theme.SIZES.BASE * 2,
+                    }}
+                    labelStyle={{
+                      color: 'black',
+                      fontSize: 16,
+                      fontWeight: 'normal'
+                    }}
+                    textStyle={{
+                        minHeight: 64,
+                        fontSize: 20,
+                    }}
+                />
+                )
+              }
                 <Block style={styles.imageContainer}>
                   {
                     !photo && [
@@ -172,15 +215,15 @@ const Cook = props => {
                 )
                 }
                 </Block>
-              <Input
+                <Input
                     label='Add a link to the recipe'
                     autoCapitalize='none'
                     labelStyle={{
                       color: 'black',
-                      fontSize: 14,
+                      fontSize: 16,
                       fontWeight: 'normal'
                     }}
-                    placeholder={`www.${meal.getTitle().toLowerCase().substr(0, 10)}...`}
+                    placeholder={`www.creamy-chic...`}
                     value={recipe}
                     onChangeText={onRecipeChange}
                     icon={() => 
@@ -190,13 +233,15 @@ const Cook = props => {
                           family={"AntDesign"}
                       />
                     }
+                    textStyle={{
+                      fontSize: 18,
+                    }}
               />
 
               <OrDivider backgroundColor='white' />
 
               <AddSteps />
             </Block>
-            )
           }
         </Block>
 

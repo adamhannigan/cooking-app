@@ -43,8 +43,8 @@ export type Routes = {
   }
   '/onboard/meals'
   '/favourites'
-  '/cook/:id': {
-    id: number
+  '/cook/:id?': {
+    id?: number
   }
 }
 
@@ -84,7 +84,9 @@ function Navigation() {
         headerRight: () => (
           <BookmarkButton />
         ),
-        headerLeft: null,
+        headerLeft: () => (
+          <CookNowButton />
+        ),
         title: 'Home',
     }
   }, {
@@ -103,33 +105,18 @@ function Navigation() {
       title: 'Recipe Book',
     },
   }, {
-    name: '/cook/:id',
+    name: '/cook/:id?',
     component: Cook,
     options: {
         ...headerOptions,
         headerLeft: null,
         headerRight: () => <CookHeaderButton />,
-    }
+    },
   }]
 
   return (
     <NavigationContainer>
         <Stack.Navigator>
-          <Stack.Screen
-              name="Home"
-              component={Home}
-              options={{
-                  ...headerOptions,
-                  
-                  headerRight: () => (
-                    <BookmarkButton />
-                  ),
-                  headerLeft: () => (
-                    <CookNowButton />
-                  )
-              }}
-            />
-
             {
               routes.map(route => (<Stack.Screen {...route} />))
             }
