@@ -84,23 +84,22 @@ const Cook = props => {
 
   const [photo, setPhoto] = React.useState<string>(null)
 
+  const matchedMeal = meals.find(meal => !!route.params && route.params.id === meal.id)
+
   React.useEffect(() => {
     const loadMeal = () => {
-      
-      const meal = meals.find(meal => !!route.params && route.params.id === meal.id)
-      console.log('Loading: route.params.id', route.params.id)
 
-      setMeal(meal)
-
-      if (meal) {
-        setRecipe(meal.recipe)
+      if (matchedMeal) {
+        setRecipe(matchedMeal.recipe)
 
         // Navigation header
-        setOptions({ title: meal.title })
+        setOptions({ title: matchedMeal.title })
       } else {
         setRecipe(null)
         setOptions({ title: '' })
       }
+
+      setMeal(matchedMeal)
     }
 
     addListener('focus', () => {
@@ -148,6 +147,8 @@ const Cook = props => {
     console.log('Result', result)
     setPhoto(result.uri)
   }
+  
+  console.log('Matched meal', matchedMeal)
 
   return (
     <View style={{ flex: 1, backgroundColor: 'white' }}>
@@ -240,7 +241,10 @@ const Cook = props => {
 
               <OrDivider backgroundColor='white' />
 
-              <AddSteps />
+              <AddSteps
+                initialIngredients={matchedMeal && matchedMeal.ingredients}
+                initialSteps={matchedMeal && matchedMeal.steps}
+              />
             </Block>
           }
         </Block>

@@ -17,6 +17,8 @@ import {
   Block, theme
 } from 'galio-framework';
 
+import { Step, Ingredients } from 'constants/dummyData'
+
 import OrDivider from './components/OrDivider'
 
 import IngredientsSVG from './assets/ingredients.svg'
@@ -50,12 +52,40 @@ const styles = StyleSheet.create({
   }
 });
 
-const AddSteps = props => {
-  const [ingredientPhoto, setIngredientPhoto] = React.useState<string>(null)
-  const [ingredients, setIngredients] = React.useState<string[]>([null])
+interface Props {
+    initialSteps?: Step[]
+    initialIngredients?: Ingredients
+}
+
+const AddSteps: React.FC<Props> = ({
+    initialSteps,
+    initialIngredients,
+}) => {
+  const [ingredientPhoto, setIngredientPhoto] = React.useState<string>(
+    initialIngredients
+        ? initialIngredients.photoUrl
+        : null
+  )
+
+
+
+
+  const [ingredients, setIngredients] = React.useState<string[]>(
+    initialIngredients
+        ? [...initialIngredients.items, null]
+        : [null]
+    )
+
+    console.log('Use initial', initialIngredients
+    ? [...initialIngredients.items, null]
+    : [null])
   
   // Currently, we are just storing image steps
-  const [steps, setSteps] = React.useState<string[]>([null])
+  const [steps, setSteps] = React.useState<Step[]>(
+      initialSteps 
+        ? [...initialSteps, null]
+        : [null]
+)
 
   const onTakePhoto = async () => {
     //setIsTakingPhoto(true)
@@ -79,7 +109,23 @@ const AddSteps = props => {
     });
 
     const newSteps = [...steps]
-    newSteps[stepIndex] = result.uri
+    newSteps[stepIndex] = {
+        ...newSteps[stepIndex],
+        photoUrl: result.uri,
+    }
+
+    setSteps(newSteps)
+  }
+
+  const onSetStepText = (text: string, stepIndex: number) => {
+    const newSteps = [...steps]
+
+    // Nullify if empty string
+    const name = text || null
+    newSteps[stepIndex] = {
+        ...newSteps[stepIndex],
+        description: name,
+    }
 
     setSteps(newSteps)
   }
@@ -176,7 +222,7 @@ const AddSteps = props => {
         </Button>
 
         {
-            steps.map((photo, index) => (
+            steps.map((step, index) => (
                 <Block style={styles.step}>
                     <Text category='h5' status='info'>
                         {`Step ${index + 1}`}
@@ -184,17 +230,17 @@ const AddSteps = props => {
 
                     <Block style={styles.imageContainer}>
                         {
-                            photo && (
+                            step && (
                                 <Image
                                     source={{
-                                        uri: photo
+                                        uri: step.photoUrl
                                     }}
                                     style={styles.image}
                                 />
                             )
                         }
                         {
-                            !photo && [
+                            !step && [
                                 <StepsSVG
                                     width={100}
                                     height={100}
@@ -224,6 +270,8 @@ const AddSteps = props => {
                         textStyle={{
                             minHeight: 64,
                         }}
+                        value={step && step.description}
+                        onChangeText={(text) => onSetStepText(text, index)}
                     />
                 </Block>
             ))
