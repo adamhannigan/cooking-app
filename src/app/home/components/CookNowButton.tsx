@@ -13,7 +13,7 @@ import {
   Block,
 } from 'galio-framework';
 
-import PaperIcon from '../assets/file.svg'
+import PaperIcon from '../assets/penAndPaper.svg'
 
 function CookNowButton() {
   const navigation = useNavigation<NavProp>()

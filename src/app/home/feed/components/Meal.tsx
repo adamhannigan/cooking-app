@@ -35,7 +35,7 @@ const Meal = (meal: Props) => {
     const kittenTheme = useTheme()
     const navigation = useNavigation<NavProp>()
 
-    const [selectedIndex, setSelectedIndex] = React.useState(0);
+    const [imageInViewIndex, setImageInViewIndex] = React.useState(0);
 
     const onClick = () => {
       navigation.navigate('/meal/:id', {
@@ -43,27 +43,59 @@ const Meal = (meal: Props) => {
       })
     }
 
+    const onImageSlide = (imageIndexInView: number) => {
+      setImageInViewIndex(imageIndexInView)
+      console.log()
+    }
+
+    const stepsWithImages = meal.steps
+      .filter(step => step.photoUrl)
+      .map(step => step.photoUrl)
+
+    const images: string[] = [
+      meal.image,
+      ...(meal.ingredients ? [meal.ingredients.photoUrl] : []),
+      ...stepsWithImages,
+    ]
+
+    const getStepNumber = (photoUrl: string) => meal.steps.findIndex(step => step.photoUrl === photoUrl) + 1
+
     return (
         <Block>
             <Block>
                 <Block style={styles.imageContainer}>
                   {
-                    meal.secondaryTag && (
+                    meal.steps.length > 0 && (
                       <Block style={{
                         ...styles.tag,
-                        backgroundColor: kittenTheme['color-info-default']
+                        backgroundColor: kittenTheme['color-info-default'],
+                        left: imageInViewIndex * (width / images.length),
                       }}>
-                        <Text style={styles.tagText}>{meal.secondaryTag}</Text>
+                        <Text style={styles.tagText}>
+                          {
+                            imageInViewIndex === 0 && `${meal.steps.length} steps`
+                          }
+                          {
+                            imageInViewIndex === 1 && meal.ingredients && 'Ingredients'
+                          }
+                          {
+                            imageInViewIndex > 1 && meal.ingredients
+                              && `Step ${getStepNumber(images[imageInViewIndex])}`
+                          }
+                          {
+                            imageInViewIndex > 0 && !meal.ingredients
+                              && `Step ${getStepNumber(images[imageInViewIndex])}`
+                          }
+                        </Text>
                       </Block>
                     )
                   }
+
                   <SliderBox
-                    images={[
-                      meal.image,
-                      meal.image
-                    ]}
+                    images={images}
                     style={styles.image}
                     onCurrentImagePressed={onClick}
+                    currentImageEmitter={onImageSlide}
                     dotColor={kittenTheme['color-info-default']}
                     imageLoadingColor={kittenTheme['color-primary-default']}
                   />

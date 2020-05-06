@@ -149,6 +149,17 @@ const preferences = {
   },
 }
 
+export interface Step {
+  photoUrl?: string
+  description?: string
+}
+
+export interface Ingredients {
+  photoUrl: string
+  items: string[]
+}
+
+
 export interface Meal {
     id: number
     title: string
@@ -159,6 +170,8 @@ export interface Meal {
     likes: number
     recipe?: string
     tip?: string
+    ingredients?: Ingredients
+    steps: Step[]
   }
 
 
@@ -209,6 +222,25 @@ const recipeBook = {
     user: people[0],
     likes: 22,
     preferences: [preferences.vegetarian, preferences.pasta],
+    ingredients: {
+      photoUrl: 'https://img.buzzfeed.com/thumbnailer-prod-us-east-1/video-api/assets/125259.jpg?output-quality=100&resize=900:*',
+      items: [
+        '3 sweet potatoes',
+        '2 tbs flour',
+        'Parmesan',
+        'Salt & Pepper',
+      ],
+    },
+    steps: [{
+      photoUrl: 'https://img.buzzfeed.com/thumbnailer-prod-us-east-1/video-api/assets/125259.jpg?output-quality=100&resize=900:*',
+      description: 'Boil and chop the mash potato'
+    }, {
+      description: 'Mix in flour & roll'
+    }, {
+      description: 'Boil for 10 minutes'
+    }, {
+      description: 'Fry in a little bit of butter'
+    }]
   },
   creamyCajunPasta: {
     id: 3,
@@ -219,6 +251,7 @@ const recipeBook = {
     user: people[1],
     preferences: [preferences.pasta, preferences.chicken],
     likes: 12,
+    steps: [],
   },
   easySausagePasta: {
     id: 5,
@@ -229,6 +262,11 @@ const recipeBook = {
     user: people[2],
     preferences: [preferences.pasta, preferences.italy],
     likes: 12,
+    steps: [{
+      photoUrl: 'https://img.buzzfeed.com/tasty-app-user-assets-prod-us-east-1/recipes/44481df056c343438402051b7aec4c7c.jpeg',
+    }, {
+      photoUrl: 'http://img.buzzfeed.com/tasty-app-user-assets-prod-us-east-1/recipes/44481df056c343438402051b7aec4c7c.jpeg',
+    }],
   },
 
   // Stir Fry
@@ -241,6 +279,7 @@ const recipeBook = {
     user: people[1],
     preferences: [preferences.stirFry,  preferences.chicken],
     likes: 10,
+    steps: [],
   },
   lemonCousCous: {
     id: 5,
@@ -251,6 +290,7 @@ const recipeBook = {
     user: people[2],
     preferences: [preferences.salad,  preferences.morocco],
     likes: 10,
+    steps: [],
   },
   
   teriyakiChicken: {
@@ -262,6 +302,7 @@ const recipeBook = {
     user: people[3],
     preferences: [preferences.japan,  preferences.chicken],
     likes: 10,
+    steps: [],
   },
 
   lasagne: {
@@ -273,6 +314,7 @@ const recipeBook = {
     user: people[3],
     preferences: [preferences.japan,  preferences.chicken],
     likes: 10,
+    steps: [],
   },
 
   roastVeggieSalad: {
@@ -284,6 +326,7 @@ const recipeBook = {
     user: people[3],
     preferences: [preferences.vegetarian,  preferences.avocado],
     likes: 10,
+    steps: [],
   },
 
   hamburgers: {
@@ -295,6 +338,7 @@ const recipeBook = {
     user: people[3],
     preferences: [preferences.bbq,  preferences.sandwich],
     likes: 10,
+    steps: [],
   }
 }
 

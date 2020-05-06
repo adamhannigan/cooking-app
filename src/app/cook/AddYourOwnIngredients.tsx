@@ -36,7 +36,7 @@ const styles = StyleSheet.create({
     borderColor: '#ddd',
     borderRadius: 5,
     marginTop: theme.SIZES.BASE,
-    marginBottom: theme.SIZES.BASE * 4,
+    marginBottom: theme.SIZES.BASE,
   },
   step: {
       marginTop: theme.SIZES.BASE * 2,
@@ -52,6 +52,7 @@ const styles = StyleSheet.create({
 
 const AddSteps = props => {
   const [ingredientPhoto, setIngredientPhoto] = React.useState<string>(null)
+  const [ingredients, setIngredients] = React.useState<string[]>([null])
   
   // Currently, we are just storing image steps
   const [steps, setSteps] = React.useState<string[]>([null])
@@ -88,6 +89,23 @@ const AddSteps = props => {
           ...steps,
           null,
       ])
+  }
+
+  const onChangeIngredient = (text: string, ingredientIndex: number) => {
+      const newIngredients = [...ingredients]
+
+      // Nullify if empty string
+      const name = text || null
+      newIngredients[ingredientIndex] = name
+
+      setIngredients(newIngredients)
+  }
+
+  const onAddIngredient = () => {
+    setIngredients([
+        ...ingredients,
+        null,
+    ])
   }
 
   return (
@@ -131,20 +149,35 @@ const AddSteps = props => {
             }
         </Block>
 
-        <Input
-            numberOfLines={3}
-            placeholder='Enter your ingredients'
-            style={{
-                marginTop: -theme.SIZES.BASE * 2,
-            }}
-            textStyle={{
-                fontSize: 18,
-            }}
-        />
+        {
+            ingredients.map((ingredient, index) => (
+                <Input
+                    numberOfLines={3}
+                    placeholder='Add the ingredient...'
+                    style={{
+                    }}
+                    textStyle={{
+                        fontSize: 18,
+                    }}
+                    value={ingredient}
+                    onChangeText={(text) => onChangeIngredient(text, index)}
+                />
+            ))
+        }
+
+        <Button
+            style={styles.addAnotherStep}
+            status='info'
+            // Disable if last ingredients is still empty
+            disabled={!ingredients[ingredients.length - 1]}
+            onPress={onAddIngredient}
+        >
+            Add another ingredient +
+        </Button>
 
         {
             steps.map((photo, index) => (
-                <KeyboardAvoidingView style={styles.step}>
+                <Block style={styles.step}>
                     <Text category='h5' status='info'>
                         {`Step ${index + 1}`}
                     </Text>
@@ -188,14 +221,11 @@ const AddSteps = props => {
                     <Input
                         multiline={true}
                         placeholder='Describe the step...'
-                        style={{
-                            marginTop: -theme.SIZES.BASE * 2,
-                        }}
                         textStyle={{
                             minHeight: 64,
                         }}
                     />
-                </KeyboardAvoidingView>
+                </Block>
             ))
         }
 

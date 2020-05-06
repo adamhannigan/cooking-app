@@ -34,6 +34,8 @@ import { meals } from 'constants/dummyData'
 import Meal from 'app/home/feed/components/Meal';
 
 import InfoBlock from './components/InfoBlock'
+import Steps from './components/Steps'
+import IngredientList from './components/IngredientList'
 
 const { width, height } = Dimensions.get('screen');
 
@@ -68,15 +70,6 @@ const MealDetails = () => {
             <Meal {...meal} />
 
             {
-              meal.tip && (
-                <InfoBlock
-                  title='Tip'
-                  icon='bulb1'
-                  text={meal.tip}
-                />
-              )
-            }
-            {
               meal.recipe && (
                 <Button
                   style={{ margin: theme.SIZES.BASE / 2 }}
@@ -98,6 +91,19 @@ const MealDetails = () => {
                 </Button>
               )
             }
+
+            {
+              meal.ingredients && (
+                <IngredientList {...meal.ingredients} />
+              )
+            }
+            
+            {
+              meal.steps && (
+                <Steps steps={meal.steps} />
+              )
+            }
+
             
             {
               /*

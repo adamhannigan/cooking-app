@@ -64,19 +64,7 @@ function Navigation() {
     },
   }
 
-  const routes: RouteConfig<Routes, keyof Routes, object>[] = [{
-    name: '/meal/:id',
-    component: MealDetails,
-    options: {
-      ...headerOptions,
-      headerBackTitle: 'Back',
-
-    },
-    initialParams: {
-      // Hot reload testing
-      id: 1,
-    },
-  }, {
+  const routes: RouteConfig<Routes, keyof Routes, object>[] = [ {
     name: '/',
     component: Home,
     options: {
@@ -89,6 +77,18 @@ function Navigation() {
         ),
         title: 'Home',
     }
+  }, {
+    name: '/meal/:id',
+    component: MealDetails,
+    options: {
+      ...headerOptions,
+      headerBackTitle: 'Back',
+
+    },
+    initialParams: {
+      // Hot reload testing
+      id: 1,
+    },
   }, {
     name: '/profile/:id',
     component: Profile,
