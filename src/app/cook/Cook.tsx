@@ -14,13 +14,9 @@ import DirtySVG from './assets/dirty.svg'
 import { useNavigation, useRoute } from '@react-navigation/native'
 import * as ImagePicker from 'expo-image-picker'
 
-import { Text, List, useTheme, Input, Button, ButtonGroup } from '@ui-kitten/components'
+import { Text, useTheme, Input, Button, ButtonGroup } from '@ui-kitten/components'
 
 import { meals, Meal } from 'constants/dummyData'
-
-import { CameraView } from './Camera'
-import { getMeal, Preparation } from './NewMeal'
-import { CaptureImage } from './CaptureImage'
 
 // galio components
 import {
@@ -30,8 +26,8 @@ import {
 import OrDivider from './components/OrDivider'
 
 import CameraSVG from './assets/camera.svg'
-import IngredientsSVG from './assets/ingredients.svg'
-import AddSteps from './AddYourOwnIngredients';
+import AddIngredients from './AddYourOwnIngredients';
+import AddSteps from './AddSteps';
 import { Route } from 'Navigation';
 
 export { CookHeaderButton } from './CookHeaderButton'
@@ -44,6 +40,9 @@ const styles = StyleSheet.create({
   content: {
     width: width,
     padding: theme.SIZES.BASE,
+  },
+  checkboxContainer: {
+    marginVertical: theme.SIZES.BASE,
   },
   imageContainer: {
     display: 'flex',
@@ -59,7 +58,7 @@ const styles = StyleSheet.create({
   },
   image: {
     width: '100%',
-    height: 200,
+    height: 400,
   },
   bottomBar: {
     padding: theme.SIZES.BASE,
@@ -79,10 +78,10 @@ const Cook = props => {
 
   const [recipe, setRecipe] = React.useState<string>(null)
   const [title, setTitle] = React.useState<string>(null)
-  const [tip, setTip] = React.useState<string>(null)
   const [meal, setMeal] = React.useState<Meal>(null)
 
   const [photo, setPhoto] = React.useState<string>(null)
+  const [isMenuItem, setIsMenuItem] = React.useState<boolean>(true)
 
   const matchedMeal = meals.find(meal => !!route.params && route.params.id === meal.id)
 
@@ -103,22 +102,17 @@ const Cook = props => {
     }
 
     addListener('focus', () => {
-      console.log('On focus')
       loadMeal()
     })
 
     loadMeal()
 
-    console.log('Focused changed')
   }, [isFocused])
-
-  console.log('Redner cook')
 
 
   const onRecipeChange = text => setRecipe(text)
 
   const onTitleChange = text => {
-    console.log('Text', text.nativeEvent.text)
     setOptions({ title: text.nativeEvent.text })
     setTitle(text)
   }
@@ -136,20 +130,24 @@ const Cook = props => {
   const onTakePhoto = async () => {
 
     console.log('Open it')
+    await ImagePicker.requestCameraPermissionsAsync()
+    
     //setIsTakingPhoto(true)
     let result = await ImagePicker.launchCameraAsync({
       mediaTypes: ImagePicker.MediaTypeOptions.Images,
-      allowsEditing: true,
-      aspect: [4, 3],
       quality: 1
     });
 
     console.log('Result', result)
-    setPhoto(result.uri)
+    if (!result.cancelled) {
+      setPhoto(result.uri)
+    }
+  }
+
+  const onToggleMenuItem = () => {
+    setIsMenuItem(!isMenuItem)
   }
   
-  console.log('Matched meal', matchedMeal)
-
   return (
     <View style={{ flex: 1, backgroundColor: 'white' }}>
       <ScrollView style={{ flex: 1 }}>
@@ -183,6 +181,7 @@ const Cook = props => {
                 />
                 )
               }
+
                 <Block style={styles.imageContainer}>
                   {
                     !photo && [
@@ -241,8 +240,11 @@ const Cook = props => {
 
               <OrDivider backgroundColor='white' />
 
-              <AddSteps
+              <AddIngredients
                 initialIngredients={matchedMeal && matchedMeal.ingredients}
+              />
+
+              <AddSteps
                 initialSteps={matchedMeal && matchedMeal.steps}
               />
             </Block>

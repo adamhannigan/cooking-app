@@ -94,8 +94,6 @@ export const CameraView = ({ onPhotoTaken, onBack }: Props) => {
 
         await cameraRef.current.takePictureAsync(options).then(photo => {
            photo.exif.Orientation = 1;            
-            console.log(Object.keys(photo)); 
-            
             onPhotoTaken(photo.uri)
         });     
       }

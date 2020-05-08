@@ -11,8 +11,9 @@ import { useTheme } from '@ui-kitten/components'
 import { DroolModel } from 'domain/drools/model'
 import { Meal as IMeal } from 'constants/dummyData'
 
-import droolGif from './assets/drool.gif'
-import droolFrame from './assets/droolFrame.gif'
+//import droolGif from './assets/drool.gif'
+//import droolFrame from './assets/droolFrame.gif'
+import LoveEyeSVG from './assets/loveEyes.svg'
 
 // galio components
 import {
@@ -44,17 +45,12 @@ const Actions = (meal: IMeal) => {
       setIsDrooling(true)
     }
 
-    const droolImage = isDrooling
-        ? droolGif
-        : droolFrame
-
     return (
         <Block style={styles.actions}>
             <TouchableOpacity onPress={onLike} disabled={isDrooling}>
                 <Block row style={!isDrooling && styles.shadow}>
                     <Block style={styles.icon}>
-                        <Image
-                            source={droolImage}
+                        <LoveEyeSVG
                             style={styles.drool}
                         />
                     </Block>
@@ -105,7 +101,6 @@ shadow: {
       height: 40,
 
       position: 'relative',
-      top: 2,
   },
   star: {
     width: 37,

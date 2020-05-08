@@ -35,8 +35,6 @@ interface Props {
 }
 
 const PersonItem = ({ item }: Props) => {
-    console.log('Item', item)
-
     return (
         <ListItem
         title={item.primary}

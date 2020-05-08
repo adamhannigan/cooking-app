@@ -10,7 +10,6 @@ class Drool {
             return []
         }
 
-        console.log('Got drools', JSON.parse(drools))
         return JSON.parse(drools) as Meal[]
     }
 

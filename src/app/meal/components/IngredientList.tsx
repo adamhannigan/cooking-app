@@ -17,7 +17,7 @@ interface Props extends Ingredients {}
 
 const IngredientList = ({ 
     items,
-    photoUrl,
+    photo,
 }: Props) => {
   const kittenTheme = useTheme()
   
@@ -49,10 +49,10 @@ const IngredientList = ({
             )
         }
         {
-            photoUrl && (
+            photo && (
                 <Image
                     source={{
-                        uri: photoUrl,
+                        uri: photo.url,
                     }}
                     style={styles.image}
                 />

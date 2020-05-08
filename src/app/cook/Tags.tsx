@@ -35,7 +35,7 @@ const Preferences = () => {
 
   React.useEffect(() => {
     addListener('focus', () => {
-      console.log('Focus')
+      ('Focus')
       meal.current = getMeal()
       setSelected(meal.current.getTags())
     })

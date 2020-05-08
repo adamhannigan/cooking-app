@@ -60,7 +60,6 @@ const Search = ({ navigation }) => {
         <Block>
             {
                 groups.map(group => {
-                  console.log('Got group', group)
                     const list: Person = group.people.map(person => ({
                       primary: person.name,
                       sasecondary: person.preferences.map(({ name}) => name).join(' - '),

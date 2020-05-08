@@ -39,7 +39,6 @@ export const Recommendations = ({
   const [droolingMeals, setDroolingMeals] = React.useState<Meal[]>([])
 
   React.useEffect(() => {
-    console.log('Recommended!')
     const loadDrools = async () => {
       const meals = await DroolModel.getDrools()
       setDroolingMeals(meals)

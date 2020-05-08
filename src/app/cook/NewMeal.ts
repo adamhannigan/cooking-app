@@ -42,7 +42,6 @@ export function prepareMeal(name: string) {
 }
 
 export function getMeal() {
-    console.log('Get meal', instance)
     if (!instance) {
         instance = new Preparation('Fake Spaghetti')
     }

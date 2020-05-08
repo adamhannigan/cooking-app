@@ -150,12 +150,19 @@ const preferences = {
 }
 
 export interface Step {
-  photoUrl?: string
+  photo?: {
+    url: string
+  }
+  video?: {
+    url: string
+  }
   description?: string
 }
 
 export interface Ingredients {
-  photoUrl: string
+  photo: {
+    url: string
+  }
   items: string[]
 }
 
@@ -223,7 +230,9 @@ const recipeBook = {
     likes: 22,
     preferences: [preferences.vegetarian, preferences.pasta],
     ingredients: {
-      photoUrl: 'https://img.buzzfeed.com/thumbnailer-prod-us-east-1/video-api/assets/125259.jpg?output-quality=100&resize=900:*',
+      photo: {
+        url: 'https://img.buzzfeed.com/thumbnailer-prod-us-east-1/video-api/assets/125259.jpg?output-quality=100&resize=900:*',
+      },
       items: [
         '3 sweet potatoes',
         '2 tbs flour',
@@ -232,7 +241,9 @@ const recipeBook = {
       ],
     },
     steps: [{
-      photoUrl: 'https://img.buzzfeed.com/thumbnailer-prod-us-east-1/video-api/assets/125259.jpg?output-quality=100&resize=900:*',
+      photo: {
+        url: 'https://img.buzzfeed.com/thumbnailer-prod-us-east-1/video-api/assets/125259.jpg?output-quality=100&resize=900:*',
+      },
       description: 'Boil and chop the mash potato'
     }, {
       description: 'Mix in flour & roll'
@@ -263,9 +274,13 @@ const recipeBook = {
     preferences: [preferences.pasta, preferences.italy],
     likes: 12,
     steps: [{
-      photoUrl: 'https://img.buzzfeed.com/tasty-app-user-assets-prod-us-east-1/recipes/44481df056c343438402051b7aec4c7c.jpeg',
+      photo: {
+        url: 'https://img.buzzfeed.com/tasty-app-user-assets-prod-us-east-1/recipes/44481df056c343438402051b7aec4c7c.jpeg',
+      },
     }, {
-      photoUrl: 'http://img.buzzfeed.com/tasty-app-user-assets-prod-us-east-1/recipes/44481df056c343438402051b7aec4c7c.jpeg',
+      photo: {
+        url: 'http://img.buzzfeed.com/tasty-app-user-assets-prod-us-east-1/recipes/44481df056c343438402051b7aec4c7c.jpeg',
+      },
     }],
   },
 

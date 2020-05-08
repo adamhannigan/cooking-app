@@ -10,6 +10,7 @@ import { useNavigation } from '@react-navigation/native'
 import { Text, useTheme, ViewPager } from '@ui-kitten/components'
 
 import { SliderBox } from "react-native-image-slider-box";
+import Carousel from 'react-native-snap-carousel'
 
 import { Meal as IMeal } from 'constants/dummyData'
 
@@ -24,6 +25,7 @@ import Actions from './Actions'
 import {
   Block, theme, Icon
 } from 'galio-framework';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 
 const { width, height } = Dimensions.get('screen');
 
@@ -45,26 +47,29 @@ const Meal = (meal: Props) => {
 
     const onImageSlide = (imageIndexInView: number) => {
       setImageInViewIndex(imageIndexInView)
-      console.log()
     }
 
     const stepsWithImages = meal.steps
-      .filter(step => step.photoUrl)
-      .map(step => step.photoUrl)
+      .filter(step => step.photo)
+      .map(step => step.photo.url)
 
     const images: string[] = [
       meal.image,
-      ...(meal.ingredients ? [meal.ingredients.photoUrl] : []),
+      ...(meal.ingredients ? [meal.ingredients.photo.url] : []),
       ...stepsWithImages,
     ]
 
-    const getStepNumber = (photoUrl: string) => meal.steps.findIndex(step => step.photoUrl === photoUrl) + 1
+    const getStepNumber = (url: string) => meal.steps.findIndex(step => step.photo.url === url) + 1
 
-    return (
-        <Block>
-            <Block>
-                <Block style={styles.imageContainer}>
-                  {
+    const carouselRef = React.useRef(null)
+
+    const CarouselItem = ( {item, index} ) => {
+      console.log("rendering,", index, item)
+
+      return (
+          <TouchableOpacity onPress={onClick}>
+            {
+              /*
                     meal.steps.length > 0 && (
                       <Block style={{
                         ...styles.tag,
@@ -89,16 +94,50 @@ const Meal = (meal: Props) => {
                         </Text>
                       </Block>
                     )
-                  }
+                        */}
+            <Image
+              source={{
+                uri: item,
+              }}
+              style={{
+                width: '100%',
+                height: 300,
+                borderRadius: 5,
+              }}
+            />
+          </TouchableOpacity>
+      );
+    }
 
+    return (
+        <Block>
+            <Block>
+                <Block style={styles.imageContainer}>
+                  
+
+
+                  {/*
                   <SliderBox
                     images={images}
-                    style={styles.image}
                     onCurrentImagePressed={onClick}
                     currentImageEmitter={onImageSlide}
                     dotColor={kittenTheme['color-info-default']}
                     imageLoadingColor={kittenTheme['color-primary-default']}
                   />
+                  */}
+
+                  <Carousel
+                    style={styles.image}
+                    ref={(c) => { carouselRef.current = c; }}
+                    data={images}
+                    renderItem={CarouselItem}
+                    onSnapToItem={console.log}
+                    sliderWidth={width}
+                    itemWidth={width - theme.SIZES.BASE * 4}
+                    layout={'default'}
+                    firstItem={0}
+                  />
+
                 </Block>
             </Block>
 
@@ -163,7 +202,7 @@ const styles = StyleSheet.create({
   },
   imageContainer: {
     width,
-    height: 250,
+    height: 350,
   },
   image: {
     height: '100%',

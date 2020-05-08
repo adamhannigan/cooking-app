@@ -51,10 +51,10 @@ const Steps = ({
                         )
                     }
                     {
-                        step.photoUrl && (
+                        step.photo && (
                             <Image
                                 source={{
-                                    uri: step.photoUrl,
+                                    uri: step.photo.url,
                                 }}
                                 style={styles.image}
                             />
