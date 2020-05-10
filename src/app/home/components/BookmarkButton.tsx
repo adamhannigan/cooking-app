@@ -13,7 +13,7 @@ import { useNavigation } from '@react-navigation/native'
 import { TouchableOpacity } from 'react-native-gesture-handler';
 
 import { NavProp } from 'Navigation';
-import RecipeBook from '../assets/colorDrool.svg'
+import RecipeBook from '../feed/components/assets/smile.svg'
 
 const AnimatedIcon = Animated.createAnimatedComponent(Icon)
 

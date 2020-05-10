@@ -7,17 +7,20 @@ import {
 
 import { useNavigation } from '@react-navigation/native'
 
-import { Text, useTheme, ViewPager } from '@ui-kitten/components'
+import { Text, useTheme } from '@ui-kitten/components'
 
-import { SliderBox } from "react-native-image-slider-box";
 import Carousel from 'react-native-snap-carousel'
+import { Video } from 'expo-av'
 
 import { Meal as IMeal } from 'constants/dummyData'
 
 import { NavProp } from 'Navigation'
 
-import ColorDrool from '../../assets/colorDrool.svg'
-import Friends from '../../assets/friends.svg'
+import ColorDrool from '../../assets/hungry.svg'
+import ExerciseSVG from './assets/excercise.svg'
+import AnnouncementSVG from './assets/announcement.svg'
+import HeartDroolSVG from './assets/smile.svg'
+import TrophySVG from './assets/cup.svg'
 
 import Actions from './Actions'
 
@@ -28,6 +31,11 @@ import {
 import { TouchableOpacity } from 'react-native-gesture-handler';
 
 const { width, height } = Dimensions.get('screen');
+
+interface Media {
+  type: 'image' | 'video'
+  url: string
+}
 
 export interface Props extends IMeal {
   secondaryTag?: string
@@ -45,26 +53,40 @@ const Meal = (meal: Props) => {
       })
     }
 
-    const onImageSlide = (imageIndexInView: number) => {
+    const onFocusedItemChange = (imageIndexInView: number) => {
+      console.log('imageIndexInView', imageIndexInView)
       setImageInViewIndex(imageIndexInView)
     }
 
-    const stepsWithImages = meal.steps
-      .filter(step => step.photo)
-      .map(step => step.photo.url)
+    const stepsWithMedia = meal.steps
+      .filter(step => step.photo || step.video)
+      .map(step => step.photo ? {
+        type: 'image',
+        url: step.photo.url
+      }: {
+        type: 'video',
+        url: step.video.url,
+      }) as Media[]
 
-    const images: string[] = [
-      meal.image,
-      ...(meal.ingredients ? [meal.ingredients.photo.url] : []),
-      ...stepsWithImages,
+
+    const images: Media[] = [
+      {
+        type: 'image' as 'image',
+        url: meal.image,
+      },
+      ...(meal.ingredients ? [{
+        type: 'image'as 'image',
+        url: meal.ingredients.photo.url
+      }] : []),
+      ...stepsWithMedia,
     ]
 
     const getStepNumber = (url: string) => meal.steps.findIndex(step => step.photo.url === url) + 1
 
     const carouselRef = React.useRef(null)
 
-    const CarouselItem = ( {item, index} ) => {
-      console.log("rendering,", index, item)
+    const CarouselItem = ( {item, index, ...reset }: { item: Media, index: number}) => {
+      console.log("rendering,", index, item, reset)
 
       return (
           <TouchableOpacity onPress={onClick}>
@@ -95,16 +117,41 @@ const Meal = (meal: Props) => {
                       </Block>
                     )
                         */}
-            <Image
-              source={{
-                uri: item,
-              }}
-              style={{
-                width: '100%',
-                height: 300,
-                borderRadius: 5,
-              }}
-            />
+            {
+              item.type === 'image' && (
+                <Image
+                  source={{
+                    uri: item.url,
+                  }}
+                  style={{
+                    width: '100%',
+                    height: 300,
+                    borderRadius: 5,
+                  }}
+                />
+              )
+            }
+            {
+              item.type === 'video' && (
+                <Video
+                  source={{
+                    uri: item.url,
+                  }}
+                  style={{
+                    width: '100%',
+                    height: 300,
+                    borderRadius: 5,
+                  }}
+                  rate={1.0}
+                  volume={1.0}
+                  isMuted={false}
+                  resizeMode="cover"
+                  shouldPlay={imageInViewIndex === index}
+                  isLooping
+                />
+              )
+            }
+            
           </TouchableOpacity>
       );
     }
@@ -131,7 +178,7 @@ const Meal = (meal: Props) => {
                     ref={(c) => { carouselRef.current = c; }}
                     data={images}
                     renderItem={CarouselItem}
-                    onSnapToItem={console.log}
+                    onSnapToItem={onFocusedItemChange}
                     sliderWidth={width}
                     itemWidth={width - theme.SIZES.BASE * 4}
                     layout={'default'}
@@ -141,51 +188,62 @@ const Meal = (meal: Props) => {
                 </Block>
             </Block>
 
-            <Block row style={styles.content}>
+            <Block style={styles.content}>
               <Block>
-                  <Block>
-                    <Text category='h5'>
-                      {meal.title}
-                    </Text>
-                  </Block>
-                  <Text category='p1' appearance='hint'>
-                      Tip: {meal.tip}
+                <Text category='h5'>
+                  {meal.title}
+                </Text>
+              </Block>
+              <Block row middle style={{
+                width,
+                paddingRight: 10,
+              }}>
+                <Block style={{
+                  marginRight: 0,
+                  width: 40,
+                }}>
+                  <AnnouncementSVG
+                    width={35}
+                    height={35}
+                  />
+                </Block>
+                
+                <Text style={{ flex: 1 }} numberOfLines={2}>
+                  {meal.tip}
+                </Text>
+              </Block>
+              <Block row style={{
+                padding: 5,
+                paddingTop: 10,
+                marginTop: 10,
+                borderTopWidth: 1,
+                borderTopColor: '#ddd',
+              }}>
+                <Block row>
+                  <TrophySVG
+                    width={20}
+                    height={20}
+                    style={{
+                      marginRight: 13,
+                    }}
+                  />
+                  <Text appearance='hint'>
+                    3 people have cooked this
                   </Text>
-                  <Block row style={{
-                      marginTop: theme.SIZES.BASE,
-                    }}>
-                    <Block row middle style={{
-                      marginRight: theme.SIZES.BASE,
-                    }}>
-                      {/*
-                      <Icon
-                        name='heart'
-                        color={kittenTheme['color-danger-default']}
-                        family={"AntDesign"} size={15}
-                        style={{ marginRight: 5 }}
-                      />
-                      */}
-                      <ColorDrool
-                        style={styles.icon}
-                        width={25}
-                        height={25}
-                      />
-                      <Text category='s1'>
-                          44
-                      </Text>
-                    </Block>
-                    <Block row middle start>
-                      <Friends
-                        style={styles.icon}
-                        width={25}
-                        height={25}
-                      />
-                      <Text category='s1'>
-                          22 friends have cooked this
-                      </Text>
-                    </Block>
-                  </Block>
-
+                </Block>
+                <Block row>
+                  <HeartDroolSVG
+                    width={20}
+                    height={20}
+                    style={{
+                      marginRight: 13,
+                      marginLeft: 15,
+                    }}
+                  />
+                  <Text appearance='hint'>
+                    25
+                  </Text>
+                </Block>
               </Block>
               <Actions {...meal} />
             </Block>
@@ -202,7 +260,6 @@ const styles = StyleSheet.create({
   },
   imageContainer: {
     width,
-    height: 350,
   },
   image: {
     height: '100%',

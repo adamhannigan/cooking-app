@@ -67,7 +67,9 @@ const MealDetails = () => {
     <View style={{ flex: 1 }}>
       <ScrollView style={{ flex: 1 }}>
         <Block>
-            <Meal {...meal} />
+            <Block style={styles.mealContainer}>
+              <Meal {...meal} />
+            </Block>
 
             {
               meal.recipe && (
@@ -131,6 +133,12 @@ const MealDetails = () => {
 }
 
 const styles = StyleSheet.create({
+  mealContainer: {
+      backgroundColor: 'white',
+      paddingTop: theme.SIZES.BASE,
+      borderBottomWidth: 1,
+      borderColor: '#ddd',
+  }
 });
 
 export default MealDetails;

@@ -13,9 +13,12 @@ import {
 
 import { Text, useTheme } from '@ui-kitten/components'
 
+import LoveEyesSVG from '../../home/feed/components/assets/loveEyes.svg'
+import TrophySVG from '../../home/feed/components/assets/cup.svg'
+import RecipeListSVG from '../../home/feed/components/assets/recipeList.svg'
+
 const { width } = Dimensions.get('screen');
 
-import Stats from './Stats'
 
 const MealSummary = (meal: IMeal) => {
     return (
@@ -25,22 +28,33 @@ const MealSummary = (meal: IMeal) => {
                     source={{ uri: meal.image }}
                     style={styles.image}
                 />
+                    
             </Block>
             <Block style={styles.content}>
                 <Block>
                     <Text category='h6'>
                         {meal.title}
                     </Text>
-                    {
-                        meal.preferences.map(tag => (
-                            <Text category='s1' appearance='hint'>
-                                {tag.emoji}
-                                {tag.name}
-                            </Text>
-                        ))
-                    }
+                    <Block row style={styles.stat}>
+                      <TrophySVG
+                        width={20}
+                        height={20}
+                        style={{
+                          marginRight: 5,
+                        }}
+                      />
+                      <Text>12 people have tried this recipe</Text>
+                  </Block>
+                  <Block row style={styles.stat}>
+                      <Text
+                        appearance='hint'
+                        numberOfLines={2}
+                      >
+                        {meal.tip}
+                      </Text>
+                  </Block>
                 </Block>
-                <Stats likeCount={10} recipe={meal.recipe} />
+                
             </Block>
         </Block>
   )
@@ -60,7 +74,6 @@ const styles = StyleSheet.create({
     width: 100,
     borderTopRightRadius: 10,
     borderBottomRightRadius: 10,
-
   },
   imageContainer: {
     borderTopRightRadius: 10,
@@ -81,6 +94,10 @@ const styles = StyleSheet.create({
       marginLeft: theme.SIZES.BASE,
       justifyContent: 'space-between',
       flex: 1,
+  },
+  stat: {
+    marginTop: 5,
+    marginBottom: 5,
   },
 });
 

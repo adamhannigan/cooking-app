@@ -4,6 +4,8 @@ import {
   Image,
 } from 'react-native';
 
+import { Video } from 'expo-av'
+
 import { Step } from 'constants/dummyData'
 
 import { Text, useTheme } from '@ui-kitten/components'
@@ -60,6 +62,22 @@ const Steps = ({
                             />
                         )
                     }
+                    {
+                        step.video && (
+                            <Video
+                                source={{
+                                    uri: step.video.url,
+                                }}
+                                style={styles.image}
+                                rate={1.0}
+                                volume={1.0}
+                                isMuted={false}
+                                resizeMode="cover"
+                                isLooping
+                                shouldPlay
+                            />
+                        )
+                    }
                 </Block>
             ))
         }
@@ -90,7 +108,7 @@ const styles = StyleSheet.create({
         marginLeft: theme.SIZES.BASE,
     },
     image: {
-        height: 200,
+        height: 400,
         marginTop: 8,
         borderRadius: 3,
     },

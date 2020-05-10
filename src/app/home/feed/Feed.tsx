@@ -99,9 +99,8 @@ const Feed = props => {
                                   <MealBoardIcon width={30} height={30} />
                                   <Text
                                       category='h6'
-                                      status='info'
                                     >
-                                      {`${meal.user.name}'s menu`}
+                                      Trending menu
                                   </Text>
                                   <MealBoardIcon width={30} height={30} />
                                 </Block>

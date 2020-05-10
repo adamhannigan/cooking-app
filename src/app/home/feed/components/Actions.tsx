@@ -13,7 +13,8 @@ import { Meal as IMeal } from 'constants/dummyData'
 
 //import droolGif from './assets/drool.gif'
 //import droolFrame from './assets/droolFrame.gif'
-import LoveEyeSVG from './assets/loveEyes.svg'
+import HeartSmileSVG from './assets/enjoy.svg'
+import HeartDroolSVG from './assets/smile.svg'
 
 // galio components
 import {
@@ -50,9 +51,23 @@ const Actions = (meal: IMeal) => {
             <TouchableOpacity onPress={onLike} disabled={isDrooling}>
                 <Block row style={!isDrooling && styles.shadow}>
                     <Block style={styles.icon}>
-                        <LoveEyeSVG
-                            style={styles.drool}
-                        />
+                        {
+                          isDrooling && (
+                            <HeartDroolSVG
+                              width={40}
+                              height={40}
+                            />
+                          )
+                        }
+                        {
+                          !isDrooling && (
+                            <HeartSmileSVG
+                              width={40}
+                              height={40}
+                            />
+                          )
+                        }
+                        
                     </Block>
                 </Block>
             </TouchableOpacity>
@@ -65,28 +80,22 @@ icon: {
     marginRight: 5,
     backgroundColor: 'white',
     padding: 10,
-    borderRadius: 25,
+    borderRadius: 30,
 
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
 
-    height: 46,
-    width: 46,
-
+    borderWidth: 1,
+    borderColor: '#ddd',
 
     overflow: 'hidden',
-},
-shadow: {
-    shadowOffset:{  width: 4,  height: 5,  },
-    shadowColor: '#777',
-    shadowOpacity: 0.6,
-    shadowRadius: 4,
-},
-  heart: {
-    position: 'absolute',
-    left: 10,
-    top: 10,
+  },
+  shadow: {
+      shadowOffset:{  width: 4,  height: 5,  },
+      shadowColor: '#777',
+      shadowOpacity: 0.6,
+      shadowRadius: 4,
   },
   actions: {
     position: 'absolute',
@@ -96,17 +105,6 @@ shadow: {
     flexDirection: 'row-reverse',
     justifyContent: 'space-between',
   },
-  drool: {
-      width: 35,
-      height: 40,
-
-      position: 'relative',
-  },
-  star: {
-    width: 37,
-    height: 37,
-
-},
 });
 
 export default Actions;

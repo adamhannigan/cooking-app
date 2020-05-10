@@ -156,7 +156,7 @@ export interface Step {
   video?: {
     url: string
   }
-  description?: string
+  description: string
 }
 
 export interface Ingredients {
@@ -277,10 +277,13 @@ const recipeBook = {
       photo: {
         url: 'https://img.buzzfeed.com/tasty-app-user-assets-prod-us-east-1/recipes/44481df056c343438402051b7aec4c7c.jpeg',
       },
+      description: 'Do it',
     }, {
-      photo: {
-        url: 'http://img.buzzfeed.com/tasty-app-user-assets-prod-us-east-1/recipes/44481df056c343438402051b7aec4c7c.jpeg',
+      video: {
+        url: 'https://vid.tasty.co/output/165705/landscape_480/1587664748',
       },
+      description: 'Do it',
+
     }],
   },
 
