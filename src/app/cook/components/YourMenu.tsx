@@ -19,7 +19,7 @@ import {
   Block, theme
 } from 'galio-framework';
 
-import { meals, Meal } from '../../constants/dummyData'
+import { meals, Meal } from '../../../constants/dummyData'
 
 import { MealBox } from './MealBox'
 import { DroolModel } from 'domain/drools/model';

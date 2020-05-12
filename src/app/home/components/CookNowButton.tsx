@@ -3,7 +3,7 @@ import 'react-native-gesture-handler'
 import React from 'react';
 import { StyleSheet, Animated, Easing } from 'react-native'
 
-import { useNavigation } from '@react-navigation/native'
+import { useNavigation, useIsFocused } from '@react-navigation/native'
 import { TouchableOpacity } from 'react-native-gesture-handler';
 
 import { NavProp } from 'Navigation';
@@ -13,26 +13,58 @@ import {
   Block,
 } from 'galio-framework';
 
+import {
+  useTheme,
+} from '@ui-kitten/components'
+
 import PaperIcon from '../assets/penAndPaper.svg'
+import { InProgressMealModel } from 'domain/inProgressMeals/model';
 
 function CookNowButton() {
-  const navigation = useNavigation<NavProp>()
+  const theme = useTheme()
 
+  const navigation = useNavigation<NavProp>()
+  const [isInProgress, setIsInProgress] = React.useState(false)
+
+  const isFocused = useIsFocused()
 
   const onClick = () => {
-    navigation.navigate('ChooseMeal')
+    if (isInProgress) {
+      navigation.navigate('/cook/progress')
+    } else {
+      navigation.navigate('/cook/pick')
+    }
   }
+
+  React.useEffect(() => {
+    const load = async () => {
+      const inProgressMeal = await InProgressMealModel.get()
+
+      setIsInProgress(!!inProgressMeal)
+    }
+
+    load()
+  }, [isFocused])
 
   return (
     <TouchableOpacity onPress={onClick}>
         <Block styles={styles.container}>
-          <Block styles={styles.badge} />
           <PaperIcon
             width={35}
             height={40}
             style={styles.button}
             fill='white'
           />
+          {
+            isInProgress && (
+              <Block 
+                style={{
+                  ...styles.badge,
+                  backgroundColor: theme['color-danger-default'],
+                }}
+              />
+            )
+          }
         </Block>
       </TouchableOpacity>
   );
@@ -41,18 +73,20 @@ function CookNowButton() {
 const styles = StyleSheet.create({
   container: {
     position: 'relative',
+    width: 50,
+    height: 50,
   },
     button: {
       marginLeft: 10,
     },
     badge: {
-      width: 50,
-      height: 50,
-      backgroundColor: 'green',
-      position: 'relative',
+      width: 10,
+      height: 10,
+      borderRadius: 10,
       top: 0,
-      left: 0,
-      zIndex: 22,
+      right: 3,
+
+      position: 'absolute',
     }
 });
 

@@ -19,9 +19,9 @@ import {
 
 import { Ingredients } from 'constants/dummyData'
 
-import IngredientsSVG from './assets/ingredients.svg'
+import IngredientsSVG from '../assets/ingredients.svg'
 
-export { CookHeaderButton } from './CookHeaderButton'
+export { CookHeaderButton } from '../CookHeaderButton'
 
 const styles = StyleSheet.create({
   imageContainer: {

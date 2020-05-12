@@ -97,6 +97,11 @@ const preferences = {
     name: 'Indian',
     emoji:  '🇮🇳',
   },
+  // TODO - use more broad -> easier to relate to
+  asian: {
+    name: 'Asian',
+    emoji: '🇹🇭',
+  },
   thailand: {
     name: 'Thai',
     emoji: '🇹🇭',
@@ -348,10 +353,9 @@ const recipeBook = {
   },
 
   hamburgers: {
-    id: 8,
+    id: 2,
     title: 'Hamburger',
     image: 'https://food.fnr.sndimg.com/content/dam/images/food/fullset/2004/2/25/0/bw2b07_hambugers1.jpg.rend.hgtvcom.826.620.suffix/1558017418187.jpeg',
-    recipe: 'https://food.fnr.sndimg.com/content/dam/images/food/fullset/2004/2/25/0/bw2b07_hambugers1.jpg.rend.hgtvcom.826.620.suffix/1558017418187.jpeg',
     tip: 'Healthier if you use ripe avocados',
     user: people[3],
     preferences: [preferences.bbq,  preferences.sandwich],
@@ -492,7 +496,7 @@ export const tagGroups: Group[] = [{
     preferences.pizza,
   ],
 }, {
-  name: 'Countries',
+  name: 'Cuisine',
   items: [
     preferences.india,
     preferences.thailand,

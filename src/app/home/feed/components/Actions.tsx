@@ -54,16 +54,16 @@ const Actions = (meal: IMeal) => {
                         {
                           isDrooling && (
                             <HeartDroolSVG
-                              width={40}
-                              height={40}
+                              width={35}
+                              height={35}
                             />
                           )
                         }
                         {
                           !isDrooling && (
                             <HeartSmileSVG
-                              width={40}
-                              height={40}
+                              width={35}
+                              height={35}
                             />
                           )
                         }
@@ -92,14 +92,19 @@ icon: {
     overflow: 'hidden',
   },
   shadow: {
-      shadowOffset:{  width: 4,  height: 5,  },
-      shadowColor: '#777',
-      shadowOpacity: 0.6,
-      shadowRadius: 4,
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    
+    elevation: 5,
   },
   actions: {
     position: 'absolute',
-    right: 0,
+    right: 10,
     top: -20,
     display: 'flex',
     flexDirection: 'row-reverse',

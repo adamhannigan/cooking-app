@@ -37,9 +37,7 @@ interface Media {
   url: string
 }
 
-export interface Props extends IMeal {
-  secondaryTag?: string
-}
+export interface Props extends IMeal {}
 
 const Meal = (meal: Props) => {
     const kittenTheme = useTheme()
@@ -86,10 +84,11 @@ const Meal = (meal: Props) => {
     const carouselRef = React.useRef(null)
 
     const CarouselItem = ( {item, index, ...reset }: { item: Media, index: number}) => {
-      console.log("rendering,", index, item, reset)
-
       return (
-          <TouchableOpacity onPress={onClick}>
+          <TouchableOpacity
+            onPress={onClick}
+           
+          >
             {
               /*
                     meal.steps.length > 0 && (
@@ -194,24 +193,29 @@ const Meal = (meal: Props) => {
                   {meal.title}
                 </Text>
               </Block>
-              <Block row middle style={{
-                width,
-                paddingRight: 10,
-              }}>
-                <Block style={{
-                  marginRight: 0,
-                  width: 40,
-                }}>
-                  <AnnouncementSVG
-                    width={35}
-                    height={35}
-                  />
-                </Block>
-                
-                <Text style={{ flex: 1 }} numberOfLines={2}>
-                  {meal.tip}
-                </Text>
-              </Block>
+              {
+                meal.tip && (
+                  <Block row middle style={{
+                    width,
+                    paddingRight: 10,
+                  }}>
+                    <Block style={{
+                      marginRight: 0,
+                      width: 40,
+                    }}>
+                      <AnnouncementSVG
+                        width={35}
+                        height={35}
+                      />
+                    </Block>
+                    
+                    <Text style={{ flex: 1 }} numberOfLines={2}>
+                      {meal.tip}
+                    </Text>
+                  </Block>
+                )
+              }
+             
               <Block row style={{
                 padding: 5,
                 paddingTop: 10,
@@ -260,10 +264,19 @@ const styles = StyleSheet.create({
   },
   imageContainer: {
     width,
+
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    
   },
   image: {
     height: '100%',
-    width: '100%'
+    width: '100%',
   },
   icon: {
     width: 20,

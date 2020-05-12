@@ -21,6 +21,8 @@ import Constants from 'expo-constants';
 
 import { Route, NavProp } from 'Navigation'
 
+import CryingSVG from './assets/crying.svg'
+
 import Others from './Others'
 
 const { statusBarHeight } = Constants;
@@ -58,10 +60,13 @@ const MealDetails = () => {
   }
 
   const onCookIt = () => {
-    navigation.navigate('/cook/:id?', {
+    navigation.navigate('/cook/details/:id', {
       id: meal.id,
     })
   }
+
+  console.log('Meal', meal)
+  console.log('route.params.id', route.params.id)
   
   return (
     <View style={{ flex: 1 }}>
@@ -71,28 +76,33 @@ const MealDetails = () => {
               <Meal {...meal} />
             </Block>
 
-            {
-              meal.recipe && (
-                <Button
-                  style={{ margin: theme.SIZES.BASE / 2 }}
-                  onPress={onOpenRecipe}
-                >
-                  View Recipe
-                </Button>
-              )
-            }
+              <Button
+                style={{ margin: theme.SIZES.BASE / 2 }}
+                status='info'
+                onPress={onCookIt}
+              >
+                Cook it tonight
+              </Button>
+
 
             {
               meal.recipe && (
-                <Button
-                  style={{ margin: theme.SIZES.BASE / 2 }}
+                <Text
+                  style={{
+                    marginHorizontal: theme.SIZES.BASE,
+                    marginTop: theme.SIZES.BASE * 2,
+                    fontSize: 14,
+                  }}
+                  onPress={onOpenRecipe}
                   status='info'
-                  onPress={onCookIt}
+                  category='label'
+                  numberOfLines={1}
                 >
-                  Cook it!
-                </Button>
+                  {meal.recipe}
+                </Text>
               )
             }
+
 
             {
               meal.ingredients && (
@@ -101,8 +111,22 @@ const MealDetails = () => {
             }
             
             {
-              meal.steps && (
+              meal.steps.length > 0 && (
                 <Steps steps={meal.steps} />
+              )
+            }
+
+            {
+              meal.steps.length === 0 && !meal.recipe && (
+                <Block center middle style={{ marginTop: theme.SIZES.BASE }}>
+                  <Text appearance='hint'>
+                    No recipe has been added yet.
+                  </Text>
+                  <CryingSVG 
+                    width={100}
+                    height={100}
+                  />
+                </Block>
               )
             }
 

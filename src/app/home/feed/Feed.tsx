@@ -7,135 +7,99 @@ import {
 } from 'react-native';
 
 
-import { useTheme, Text, Button } from '@ui-kitten/components'
-
+import { Text } from '@ui-kitten/components'
 
 // galio components
 import {
-  Block, Icon, NavBar, theme,
+  Block, theme,
 } from 'galio-framework';
 
-import { useRoute, useIsFocused, useNavigation } from '@react-navigation/native'
+import { useRoute, useIsFocused } from '@react-navigation/native'
 
-import { NavProp } from 'Navigation'
+import { Meal } from '../../../constants/dummyData'
 
-import { sortedMeals } from '../../../constants/dummyData'
+import MealSummary from 'app/profile/components/MealSummary'
+import MealBoardIcon from 'app/home/activity/assets/menu-board.svg'
 
 import MealCard from './components/MealCard'
 import AvatarHeader from './components/AvatarHeader'
-import MealSummary from 'app/profile/components/MealSummary'
 
-import MealBoardIcon from 'app/home/activity/assets/menu-board.svg'
+import InProgressMeal from './components/InProgressMeal';
+import { MealsModel } from 'domain/meals/model';
 
 const { width, height } = Dimensions.get('screen');
 
 const Feed = props => {
-  const [isFocused, setIsFocused ] = React.useState<boolean>(false)
-  const [notInterested, setNotInterested ] = React.useState<string[]>([])
-  const kittenTheme = useTheme()
-  const navigation = useNavigation()
-  const route = useRoute()
-  
-  const onNotInterested = (name: string) => {
-    setNotInterested([
-      ...notInterested,
-      name,
-    ])
-  }
+  const [meals, setMeals] = React.useState<Meal[]>([])
+  const isFocused = useIsFocused()
 
   React.useEffect(() => {
-    const focus = async () => {
-      await new Promise(r => setTimeout(r, 500))
+    console.log('Is focused')
+    const load = async () => {
+      const storedMeals = await MealsModel.getAll()
 
-      setIsFocused(true)
-
-      setNotInterested([])
+      console.log('Got stored', storedMeals)
+      setMeals(storedMeals)
     }
 
-    focus()
-  }, [route])
-
-  // Filter out any meals they do not want to see tonight
-  const interesedMeals = sortedMeals.filter(group => !notInterested.includes(group.tag.name))
+    load()
+  }, [isFocused])
 
   return (
-    <View style={{ flex: 1, ...styles.container }}>
+    <View style={{ flex: 1 }}>
       <ScrollView style={{ flex: 1 }}>
-        <Block center style={{ marginTop: - theme.SIZES.BASE * 2 }}>
+          <InProgressMeal />
           <Block flex style={styles.header}>
             {
-              interesedMeals.map((group) => (
-                  <Block>
-                    {/*}
-                    <Block style={styles.tagHeader}>
-                      <Text category='h3'>{group.tag.name}</Text>
-                      <Button
-                          appearance='ghost'
-                          onPress={() => onNotInterested(group.tag.name)}
-                        >
-                          Not interested
-                      </Button>
+              meals.map((meal, idx) => (
+                  idx % 2 === 0 ? (
+                    <Block style={styles.item}>
+                      <AvatarHeader
+                        avatarUrl=''
+                        name={meal.user.name}
+                        time='10 hrs ago'
+                        userId={meal.user.id}
+                      />
+                      <MealCard
+                        {...meal}
+                      />
                     </Block>
-                    */}
-                    {
-                      group.meals.map((meal, idx) => (
-                          idx % 2 === 0 ? (
-                            <Block style={styles.item}>
-                              <AvatarHeader
-                                avatarUrl=''
-                                name={meal.user.name}
-                                time='10 hrs ago'
-                                userId={meal.user.id}
-                              />
-                              <MealCard
-                                {...meal}
-                                secondaryTag={meal.preferences.find(pref => pref.name !== group.tag.name).name}
-                              />
-                            </Block>
-                          )
-                          : idx % 2 === 1 && (
-                              <Block style={styles.item}>
-                                <Block style={styles.mealAddedContainer}>
-                                  <MealBoardIcon width={30} height={30} />
-                                  <Text
-                                      category='h6'
-                                    >
-                                      Trending menu
-                                  </Text>
-                                  <MealBoardIcon width={30} height={30} />
-                                </Block>
+                  )
+                  : idx % 2 === 1 && (
+                      <Block style={styles.item}>
+                        <Block style={styles.mealAddedContainer}>
+                          <MealBoardIcon width={30} height={30} />
+                          <Text
+                              category='h6'
+                            >
+                              Trending menu
+                          </Text>
+                          <MealBoardIcon width={30} height={30} />
+                        </Block>
 
-                                <AvatarHeader
-                                  avatarUrl=''
-                                  name={meal.user.name}
-                                  time='10 hrs ago'
-                                  userId={meal.user.id}
-                                />
-                                <MealSummary {...meal}/>
-                              </Block>
-                          )
-                      ))
-                    }
-                  </Block>
+                        <AvatarHeader
+                          avatarUrl=''
+                          name={meal.user.name}
+                          time='10 hrs ago'
+                          userId={meal.user.id}
+                        />
+                        <MealSummary {...meal}/>
+                      </Block>
+                  )
                 )
               )
             }
           </Block>
-        </Block>
       </ScrollView>
     </View>
   )
 }
 
 const styles = StyleSheet.create({
-  container: {
-  },
   header: {
     borderTopLeftRadius: theme.SIZES.BASE * 2,
     borderTopRightRadius: theme.SIZES.BASE * 2,
-    paddingVertical: theme.SIZES.BASE * 2,
     width,
-    paddingBottom: theme.SIZES.BASE * 3,
   },
   tagHeader: {
     padding: theme.SIZES.BASE / 2,

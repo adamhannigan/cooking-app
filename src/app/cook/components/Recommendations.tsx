@@ -11,7 +11,7 @@ import { Text } from '@ui-kitten/components'
 import { useNavigation } from '@react-navigation/native'
 
 
-import drool from 'app/home/feed/components/assets/drool.gif'
+import SmileSVG from 'app/home/feed/components/assets/smile.svg'
 import Chef from 'app/home/activity/assets/chef.svg'
 
 
@@ -20,7 +20,7 @@ import {
   Block, theme
 } from 'galio-framework';
 
-import { meals, Meal } from '../../constants/dummyData'
+import { meals, Meal } from '../../../constants/dummyData'
 
 import { MealBox } from './MealBox'
 import { DroolModel } from 'domain/drools/model';
@@ -81,11 +81,12 @@ export const Recommendations = ({
         <Block style={styles.group}>
           <Block style={styles.header}>
             <Text category='h6' style={styles.heading} status='info'>
-                Recipe book
+                Recents
             </Text>
-            <Image
-                source={drool}
+            <SmileSVG
                 style={styles.drool}
+                width={25}
+                height={25}
             />
           </Block>
             

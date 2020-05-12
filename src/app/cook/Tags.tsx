@@ -13,8 +13,7 @@ import { Text, Avatar, Button } from '@ui-kitten/components'
 import { useNavigation } from '@react-navigation/native'
 import Constants from 'expo-constants';
 
-
-import { getMeal, Preparation } from './NewMeal'
+import { getMeal, Preparation } from './components/NewMeal'
 
 const { statusBarHeight } = Constants;
 
@@ -24,22 +23,15 @@ import {
   Block, Icon, NavBar, theme
 } from 'galio-framework';
 
-import { tagGroups } from 'constants/dummyData'
+import { tagGroups, meals } from 'constants/dummyData'
+import { InProgressMealModel } from 'domain/inProgressMeals/model';
+import { MealsModel } from 'domain/meals/model';
 
 const { width, height } = Dimensions.get('screen');
 
 const Preferences = () => {
   const [selected, setSelected] = React.useState<string[]>([])
   const { navigate, addListener } = useNavigation()
-  const meal = React.useRef<Preparation>()
-
-  React.useEffect(() => {
-    addListener('focus', () => {
-      ('Focus')
-      meal.current = getMeal()
-      setSelected(meal.current.getTags())
-    })
-  }, [])
 
   const onSelect = (name: string) => {
     const alreadyExists = selected.includes(name)
@@ -54,8 +46,19 @@ const Preferences = () => {
     setSelected(newTags)
   }
 
-  const onDone = () => {
-    meal.current.setTags(selected)
+  const onDone = async () => {
+    const inProgressMeal = await InProgressMealModel.get()
+
+    const meal = {
+      ...inProgressMeal,
+      preferences: selected.map(name => ({ name })),
+    }
+
+    console.log('Save meal: ', meal)
+    await MealsModel.addFakeMeal(meal)
+
+    await InProgressMealModel.clear()
+
     navigate('/')
   }
 
@@ -65,7 +68,7 @@ const Preferences = () => {
         <Block center style={{ marginTop: - theme.SIZES.BASE * 2 }}>
           <Block flex style={styles.header}>
             <Text category='h4' style={styles.title}>
-              Select 2 tags.
+              Select up to 2 tags.
             </Text>
             <Text category='p'>
               These tags will appear on your meal and help your friends find your meals.
@@ -111,9 +114,8 @@ const Preferences = () => {
           <Button
             status='primary'
             onPress={onDone}
-            disabled={selected.length < 2}
           >
-            Done {selected.length < 2 && `${selected.length} / 2`}
+            Share
           </Button>
       </Block>
     </View>

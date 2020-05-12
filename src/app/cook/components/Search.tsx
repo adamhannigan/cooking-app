@@ -14,7 +14,7 @@ import {
   Block, theme
 } from 'galio-framework';
 
-import { meals } from '../../constants/dummyData'
+import { meals } from '../../../constants/dummyData'
 
 import { MealBox } from './MealBox'
 

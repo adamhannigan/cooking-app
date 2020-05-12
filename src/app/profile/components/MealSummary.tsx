@@ -3,6 +3,7 @@ import {
   StyleSheet,
   Dimensions,
   Image,
+  TouchableOpacity
 } from 'react-native';
 
 import { Meal as IMeal } from 'constants/dummyData'
@@ -16,13 +17,24 @@ import { Text, useTheme } from '@ui-kitten/components'
 import LoveEyesSVG from '../../home/feed/components/assets/loveEyes.svg'
 import TrophySVG from '../../home/feed/components/assets/cup.svg'
 import RecipeListSVG from '../../home/feed/components/assets/recipeList.svg'
+import { useNavigation } from '@react-navigation/native';
+import { NavProp } from 'Navigation';
 
 const { width } = Dimensions.get('screen');
 
 
 const MealSummary = (meal: IMeal) => {
+  const navigation = useNavigation<NavProp>()
+  const onClick = () => {
+    navigation.navigate('/meal/:id', {
+      id: meal.id
+    })
+  }
     return (
-        <Block style={styles.container}>
+        <TouchableOpacity
+          style={styles.container}
+          onPress={onClick}
+        >
             <Block style={styles.imageContainer}>
                 <Image
                     source={{ uri: meal.image }}
@@ -56,7 +68,7 @@ const MealSummary = (meal: IMeal) => {
                 </Block>
                 
             </Block>
-        </Block>
+        </TouchableOpacity>
   )
 }
 
@@ -72,23 +84,25 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     height: 100,
     width: 100,
-    borderTopRightRadius: 10,
-    borderBottomRightRadius: 10,
+    borderRadius: 10,
   },
   imageContainer: {
-    borderTopRightRadius: 10,
-    borderBottomRightRadius: 10,
-
     borderWidth: 1,
     borderColor: '#ddd',
+    borderRadius: 10,
 
     // Offset the border
-    marginLeft: -1,
+    marginLeft: theme.SIZES.BASE,
 
-    shadowOffset:{  width: 5,  height: 5 },
-    shadowColor: '#202020',
-    shadowOpacity: 0.2,
-    shadowRadius: 10,
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    
+    elevation: 5,
   },
   content: {
       marginLeft: theme.SIZES.BASE,

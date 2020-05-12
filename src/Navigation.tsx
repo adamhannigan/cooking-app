@@ -21,9 +21,11 @@ import MealDetails from './app/meal/MealDetails'
 import Profile from './app/profile/Profile'
 
 import ChooseMeal from './app/cook/ChooseMeal'
-import Cook, { CookHeaderButton } from './app/cook/Cook'
+import CookDetails from 'app/cook/Details'
+import { CookHeaderButton } from 'app/cook/components/Cooker'
+import InProgress from 'app/cook/InProgress'
 import Tags from './app/cook/Tags'
-import { CameraView } from './app/cook/Camera'
+import { CameraView } from './app/cook/components/Camera'
 
 import BookmarkButton from 'app/home/components/BookmarkButton';
 import CookNowButton from 'app/home/components/CookNowButton';
@@ -43,9 +45,12 @@ export type Routes = {
   }
   '/onboard/meals'
   '/favourites'
-  '/cook/:id?': {
+  '/cook/details/:id': {
     id?: number
   }
+  '/cook/progress'
+  '/cook/pick'
+  '/cook/tags'
 }
 
 export type Route<T extends keyof Routes> = RouteProp<Routes, T>
@@ -105,13 +110,29 @@ function Navigation() {
       title: 'Recipe Book',
     },
   }, {
-    name: '/cook/:id?',
-    component: Cook,
+    name: '/cook/details/:id',
+    component: CookDetails,
     options: {
         ...headerOptions,
         headerLeft: null,
         headerRight: () => <CookHeaderButton />,
     },
+  }, {
+    name: '/cook/progress',
+    component: InProgress,
+    options: {
+        ...headerOptions,
+        headerLeft: null,
+        headerRight: () => <CookHeaderButton />,
+    },
+  }, {
+    name: '/cook/pick',
+    component: ChooseMeal,
+    options: headerOptions,
+  }, {
+    name: '/cook/tags',
+    component: Tags,
+    options: headerOptions,
   }]
 
   return (
@@ -127,7 +148,6 @@ function Navigation() {
               options={headerOptions}
             />
 
-            
 
             <Stack.Screen
               name="Preferences"
@@ -145,25 +165,6 @@ function Navigation() {
               component={Register}
               options={headerOptions}
             />
-
-            <Stack.Screen
-              name="ChooseMeal"
-              component={ChooseMeal}
-              options={headerOptions}
-            />
-
-            <Stack.Screen
-              name="Camera"
-              component={CameraView}
-              options={headerOptions}
-            />
-
-            <Stack.Screen
-              name="Tags"
-              component={Tags}
-              options={headerOptions}
-            />
-
         </Stack.Navigator>
     </NavigationContainer>
   );

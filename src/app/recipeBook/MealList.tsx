@@ -12,8 +12,8 @@ import {
   Block, theme
 } from 'galio-framework';
 
-import { Recommendations } from 'app/cook/Recommendations'
-import { Search } from 'app/cook/Search'
+import { Recommendations } from 'app/cook/components/Recommendations'
+import { Search } from 'app/cook/components/Search'
 import { Meal } from 'constants/dummyData'
 import { Routes, NavProp } from 'Navigation'
 
@@ -37,25 +37,10 @@ const MealList: React.FC<Props> = ({ hideCooked }) => {
 
   return (
     <Block center>
-        <Input
-            placeholder="Search for recipes"
-            style={styles.search}
-            value={search}
-            onChange={e => setSearch(e.target as unknown as string)}
-            onFocus={() => setIsSearching(true)}
-            onBlur={() => setIsSearching(false)}
-        />
-        {
-          !isSearching && (
-            <Recommendations
-              hideCooked={hideCooked}
-              onSelect={onSelect}
-            />
-          )
-        }
-        {
-          isSearching && <Search />
-        }
+      <Recommendations
+        hideCooked={hideCooked}
+        onSelect={onSelect}
+      />
     </Block>
   )
 };

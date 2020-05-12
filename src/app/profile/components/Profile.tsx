@@ -31,6 +31,8 @@ import {
 
 import { meals } from 'constants/dummyData'
 import { DroolModel } from 'domain/drools/model';
+import { InProgressMealModel } from 'domain/inProgressMeals/model';
+import { MealsModel } from 'domain/meals/model';
 const { width, height } = Dimensions.get('screen');
 
 interface Props {
@@ -51,9 +53,12 @@ const Menu = ({ id, isCurrentUser }: Props) => {
   
   // HACK to go back to start of onboarding
   const onBackToStart = () => {
+    DroolModel.reset()
+    InProgressMealModel.clear()
+    MealsModel.clear()
+    
     navigation.navigate('Preferences')
 
-    DroolModel.reset()
   }
 
   return (
@@ -122,7 +127,7 @@ const Menu = ({ id, isCurrentUser }: Props) => {
               </Text>
             </Block>
             <Text appearance='hint' >
-              4 specials
+              {`${meals.length} menu items`}
             </Text>
           </Block>
           <Block>
@@ -141,7 +146,7 @@ const Menu = ({ id, isCurrentUser }: Props) => {
                 status='primary'
                 style={styles.addMenuButton}
               >
-                Add more items to your menu
+                Edit your menu
               </Button>
             )
           }
@@ -150,10 +155,7 @@ const Menu = ({ id, isCurrentUser }: Props) => {
         <Block>
         <Block row middle space='between'  style={styles.menuTitle}>
             <Text category='h4'>
-              Recents
-            </Text>
-            <Text appearance='hint' >
-              43 items
+              Recent Activity
             </Text>
           </Block>
             <Block>

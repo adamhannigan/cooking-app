@@ -15,7 +15,7 @@ import {
   Block, theme, Icon
 } from 'galio-framework';
 
-import { Meal as IMeal } from '../../constants/dummyData'
+import { Meal as IMeal } from '../../../constants/dummyData'
 
 const { width, height } = Dimensions.get('screen');
 

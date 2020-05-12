@@ -16,8 +16,8 @@ import {
 
 import { meals, Meal } from '../../constants/dummyData'
 
-import { prepareMeal } from './NewMeal'
-import YourMenu from './YourMenu'
+import { prepareMeal } from './components/NewMeal'
+import YourMenu from './components/YourMenu'
 import { NavProp } from 'Navigation';
 import OrDivider from './components/OrDivider';
 
@@ -29,13 +29,13 @@ const ChooseMeal = props => {
   const navigation = useNavigation<NavProp>()
 
   const onSelect = (meal: Meal) => {
-    navigation.navigate('/cook/:id?', {
+    navigation.navigate('/cook/details/:id', {
       id: meal.id,
     })
   }
 
   const onStartNewMeal = () => {
-    navigation.navigate('/cook/:id?', {
+    navigation.navigate('/cook/details/:id', {
       id: 22,
     })
   }

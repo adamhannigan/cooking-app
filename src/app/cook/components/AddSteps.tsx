@@ -18,9 +18,9 @@ import {
 
 import { Step } from 'constants/dummyData'
 
-import StepsSVG from './assets/steps.svg'
+import StepsSVG from '../assets/steps.svg'
 
-export { CookHeaderButton } from './CookHeaderButton'
+export { CookHeaderButton } from '../CookHeaderButton'
 const { width } = Dimensions.get('screen');
 
 const styles = StyleSheet.create({

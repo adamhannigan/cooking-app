@@ -10,12 +10,15 @@ import { useNavigation } from '@react-navigation/native'
 import { TouchableOpacity } from 'react-native-gesture-handler';
 
 import { NavProp } from 'Navigation';
+import { InProgressMealModel } from 'domain/inProgressMeals/model';
 
 export function CookHeaderButton() {
   const navigation = useNavigation<NavProp>()
 
 
-  const onClick = () => {
+  const onClick = async () => {
+    await InProgressMealModel.clear()
+    
     navigation.navigate('/')
   }
 

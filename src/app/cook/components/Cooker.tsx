@@ -7,30 +7,26 @@ import {
   Image,
 } from 'react-native';
 
-import CookingSVG from './assets/cooking.svg'
-import IngredientSVG from './assets/HealthyFood_02.svg'
-import DirtySVG from './assets/dirty.svg'
-
 import { useNavigation, useRoute } from '@react-navigation/native'
 import * as ImagePicker from 'expo-image-picker'
 
-import { Text, useTheme, Input, Button, ButtonGroup } from '@ui-kitten/components'
+import { Text, Input, Button } from '@ui-kitten/components'
 
-import { meals, Meal } from 'constants/dummyData'
+import { Meal } from 'constants/dummyData'
+import { InProgressMealModel } from 'domain/inProgressMeals/model'
 
 // galio components
 import {
   Block, theme, Icon
 } from 'galio-framework';
 
-import OrDivider from './components/OrDivider'
+import OrDivider from './OrDivider'
 
-import CameraSVG from './assets/camera.svg'
+import CameraSVG from '../assets/camera.svg'
 import AddIngredients from './AddYourOwnIngredients';
 import AddSteps from './AddSteps';
-import { Route } from 'Navigation';
 
-export { CookHeaderButton } from './CookHeaderButton'
+export { CookHeaderButton } from '../CookHeaderButton'
 const { width } = Dimensions.get('screen');
 
 const styles = StyleSheet.create({
@@ -71,65 +67,35 @@ const styles = StyleSheet.create({
   },
 });
 
-const Cook = props => {
-  const kittenTheme = useTheme()
-  const route = useRoute<Route<'/cook/:id?'>>()
-  const { navigate, isFocused, addListener, setOptions } = useNavigation()
+interface Props {
+    meal?: Meal
+}
 
-  const [recipe, setRecipe] = React.useState<string>(null)
-  const [title, setTitle] = React.useState<string>(null)
-  const [meal, setMeal] = React.useState<Meal>(null)
-
-  const [photo, setPhoto] = React.useState<string>(null)
-  const [isMenuItem, setIsMenuItem] = React.useState<boolean>(true)
-
-  const matchedMeal = meals.find(meal => !!route.params && route.params.id === meal.id)
-
-  React.useEffect(() => {
-    const loadMeal = () => {
-
-      if (matchedMeal) {
-        setRecipe(matchedMeal.recipe)
-
-        // Navigation header
-        setOptions({ title: matchedMeal.title })
-      } else {
-        setRecipe(null)
-        setOptions({ title: '' })
-      }
-
-      setMeal(matchedMeal)
-    }
-
-    addListener('focus', () => {
-      loadMeal()
-    })
-
-    loadMeal()
-
-  }, [isFocused])
-
+const Cooker: React.FC<Props> = ({
+    meal,
+}) => {
+  const [recipe, setRecipe] = React.useState<string>(meal && meal.recipe)
+  const [title, setTitle] = React.useState<string>(meal && meal.title)
+  const [photo, setPhoto] = React.useState<string>()
 
   const onRecipeChange = text => setRecipe(text)
 
-  const onTitleChange = text => {
-    setOptions({ title: text.nativeEvent.text })
-    setTitle(text)
+  const { navigate, setOptions } = useNavigation()
+
+  const onTitleChange = title => {
+    setOptions({ title })
+    setTitle(title)
   }
 
-  const onDone = () => {
+  const onDone = async () => {
+    await save()
+
     // Add meal to list
-    navigate('Tags')
+    navigate('/cook/tags')
   }
 
-  const onSave = () => {
-    // Add meal to list
-    navigate('/')
-  }
 
   const onTakePhoto = async () => {
-
-    console.log('Open it')
     await ImagePicker.requestCameraPermissionsAsync()
     
     //setIsTakingPhoto(true)
@@ -144,8 +110,26 @@ const Cook = props => {
     }
   }
 
-  const onToggleMenuItem = () => {
-    setIsMenuItem(!isMenuItem)
+  const save = async () => {
+    await InProgressMealModel.save({
+      image: photo,
+      title: title,
+      steps: [],
+      ingredients: null,
+      preferences: [],
+      user: {
+        id: 1,
+        name: 'Adam Hannigan'
+      },
+      id: 2, // FAKE
+      likes: 55,
+    } as Meal)
+  }
+
+  const onSaveAndClose = async () => {
+    await save()
+
+    navigate('/')
   }
   
   return (
@@ -165,7 +149,8 @@ const Cook = props => {
                     multiline={true}
                     placeholder='Creamy...'
                     label='What did you cook?'
-                    onChange={onTitleChange}
+                    onChangeText={onTitleChange}
+                    value={title}
                     style={{
                         marginTop: theme.SIZES.BASE * 2,
                     }}
@@ -226,13 +211,6 @@ const Cook = props => {
                     placeholder={`www.creamy-chic...`}
                     value={recipe}
                     onChangeText={onRecipeChange}
-                    icon={() => 
-                      <Icon
-                          name='link'
-                          size='small'
-                          family={"AntDesign"}
-                      />
-                    }
                     textStyle={{
                       fontSize: 18,
                     }}
@@ -241,11 +219,11 @@ const Cook = props => {
               <OrDivider backgroundColor='white' />
 
               <AddIngredients
-                initialIngredients={matchedMeal && matchedMeal.ingredients}
+                initialIngredients={meal && meal.ingredients}
               />
 
               <AddSteps
-                initialSteps={matchedMeal && matchedMeal.steps}
+                initialSteps={meal && meal.steps}
               />
             </Block>
           }
@@ -257,10 +235,10 @@ const Cook = props => {
             size='medium'
             status='info'
             appearance='ghost'
-            onPress={onSave}
+            onPress={onSaveAndClose}
             style={{flex: 1}}
           >
-            Save and close
+            Save for later
           </Button>
           <Button
             size='medium'
@@ -277,4 +255,4 @@ const Cook = props => {
 };
 
 
-export default Cook;
+export default Cooker;
