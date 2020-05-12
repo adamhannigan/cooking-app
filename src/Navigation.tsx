@@ -77,9 +77,9 @@ function Navigation() {
         headerRight: () => (
           <BookmarkButton />
         ),
-        headerLeft: () => (
+        /* headerLeft: () => (
           <CookNowButton />
-        ),
+        ),*/
         title: 'Home',
     }
   }, {
