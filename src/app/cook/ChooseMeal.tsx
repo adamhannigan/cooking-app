@@ -16,10 +16,10 @@ import {
 
 import { meals, Meal } from '../../constants/dummyData'
 
-import { prepareMeal } from './components/NewMeal'
+import SearchSVG from 'app/home/assets/search.svg'
 import YourMenu from './components/YourMenu'
 import { NavProp } from 'Navigation';
-import OrDivider from './components/OrDivider';
+import TakePhoto from './components/TakePhoto'
 
 const { width } = Dimensions.get('screen');
 
@@ -34,34 +34,66 @@ const ChooseMeal = props => {
     })
   }
 
-  const onStartNewMeal = () => {
-    navigation.navigate('/cook/details/:id', {
-      id: 22,
-    })
-  }
+  const [search, setSearch] = React.useState<string>('')
 
+  const scrollViewRef = React.useRef<ScrollView>(null)
+  
+  const onFocus = () => {
+    scrollViewRef.current.scrollTo(theme.SIZES.BASE * 14)
+  }
+  
   return (
     <View style={{ flex: 1 }}>
-      <ScrollView style={{ flex: 1 }}>
+      <ScrollView style={{ flex: 1 }} ref={ref => scrollViewRef.current = ref}>
         <Block style={{ marginTop: -theme.SIZES.BASE * 2 }}>
           <Block flex style={styles.header}>
-            <Text category='h3'>
+          <TakePhoto />
+            <Text category='h5'>
               What did you cook?
             </Text>
-            <Text category='p'>
-              Start a meal from scratch or pick a meal from your menu.
-            </Text>
+            <Block row center style={{ marginTop: theme.SIZES.BASE }}>
+              <Input
+                  placeholder='Creamy...'
+                  onChangeText={setSearch}
+                  value={search}
+                  onFocus={onFocus}
+                  style={{
+                    flex: 1,
+                    marginRight: theme.SIZES.BASE,
+                  }}
+                  labelStyle={{
+                    color: 'black',
+                    fontSize: 16,
+                    fontWeight: 'normal'
+                  }}
+                  textStyle={{
+                      fontSize: 20,
+                  }}
+              />
+              <SearchSVG
+                width={30}
+                height={30}
+              />
+            </Block>
           </Block>
-          <Block style={styles.container}>
+          {
+            search.length > 0 && (
             <Button
               status='info'
-              onPress={onStartNewMeal}
+              appearance='ghost'
+              style={{
+                marginHorizontal: theme.SIZES.BASE / 2,
+                marginBottom: theme.SIZES.BASE / 2,
+              }}
             >
-              Start a new meal
+              {`Add "${search}" +`}
             </Button>
-            <OrDivider />
-          </Block>
-          <YourMenu onSelect={onSelect} />
+            )
+          }
+          <YourMenu
+            onSelect={onSelect}
+            search={search}
+          />
         </Block>
       </ScrollView>
     </View>
@@ -75,7 +107,7 @@ const styles = StyleSheet.create({
     paddingTop: theme.SIZES.BASE * 3,
     paddingBottom: theme.SIZES.BASE * 2,
     padding: theme.SIZES.BASE * 1,
-    marginBottom: theme.SIZES.BASE * 2,
+    marginBottom: theme.SIZES.BASE ,
 
     width,
     backgroundColor: 'white',
@@ -84,7 +116,7 @@ const styles = StyleSheet.create({
     borderColor: '#ddd',
   },
   container: {
-    paddingHorizontal: theme.SIZES.BASE,
+    paddingHorizontal: theme.SIZES.BASE / 2,
   },
 });
 

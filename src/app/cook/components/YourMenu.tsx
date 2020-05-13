@@ -28,31 +28,27 @@ const { width } = Dimensions.get('screen');
 
 interface Props {
   onSelect: (meal: Meal) => void
+  search: string
 }
 
 export const YourMenu = ({
   onSelect,
+  search,
 }: Props)  => {
   return (
     <Block>
         <Block style={styles.group}>
-          <Block style={styles.header}>
-            <Text category='h6' style={styles.heading} status='info'>
-                Choose from your menu
-            </Text>
-            <MealBoardIcon
-                width={25}
-                height={25}
-            />
-          </Block>
             <Block style={styles.meals}>
                 {
-                    meals.map(meal => (
-                    <MealBox
-                        {...meal}
-                        size='large'
-                        onClick={() => onSelect(meal)}
-                    />
+                    meals
+                      .filter(meal => meal.title.toLowerCase().includes(search.toLowerCase()))
+                      .map((meal, index) => (
+                        <MealBox
+                            {...meal}
+                            size='large'
+                            onClick={() => onSelect(meal)}
+                            isFromMenu={index % 3 === 0}
+                        />
                     ))
                 }
             </Block>
@@ -64,6 +60,7 @@ export const YourMenu = ({
 const styles = StyleSheet.create({
   group: {
     width,
+    minHeight: 2000,
     marginBottom: theme.SIZES.BASE / 2,
 
     backgroundColor: 'white',

@@ -17,11 +17,15 @@ import {
 
 import { Meal as IMeal } from '../../../constants/dummyData'
 
+import HeartSVG from 'app/home/feed/components/assets/smile.svg'
+import MenuSVG from 'app/home/assets/menu.svg'
+
 const { width, height } = Dimensions.get('screen');
 
 interface Props extends IMeal {
   onClick: () => void
   size?: 'medium' | 'large'
+  isFromMenu?: boolean
 }
 
 const PADDING = 10
@@ -29,6 +33,7 @@ const PADDING = 10
 export const MealBox = ({
   onClick,
   size = 'medium',
+  isFromMenu,
   ...meal
 }: Props) => {
   const mealWidth = size === 'medium'
@@ -41,6 +46,34 @@ export const MealBox = ({
           ...styles.container,
           meal: mealWidth,
         }}>
+          <Block
+            style={{
+              position: 'absolute',
+              backgroundColor: 'white',
+              zIndex: 10000,
+              borderBottomLeftRadius: 50,
+              right: 0,
+              padding: 10,
+            }}>
+            {
+              isFromMenu && (
+                <MenuSVG
+                  width={30}
+                  height={30}
+                />
+              )
+            }
+            {
+              !isFromMenu && (
+                <HeartSVG
+                  width={30}
+                  height={30}
+                />
+              )
+            }
+            
+            
+          </Block>
             <Image
                 source={{ uri: meal.image }}
                 style={{
