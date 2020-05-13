@@ -69,7 +69,6 @@ const AddSteps: React.FC<Props> = ({
       quality: 1
     });
 
-    console.log('onTakeStepPhoto', result)
     if (!result.cancelled) {
         const newSteps = [...steps]
 

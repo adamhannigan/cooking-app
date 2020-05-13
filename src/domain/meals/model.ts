@@ -8,14 +8,12 @@ class Meals {
     public async getAll(): Promise<Meal[]> {
         const storedMeals = await AsyncStorage.getItem(STORAGE_KEY)
 
-        console.log('Stored', storedMeals)
         if (!storedMeals) {
             return meals
         }
 
         const parsed = JSON.parse(storedMeals) as Meal[]
 
-        console.log('Got', parsed)
         return [
             ...parsed,
             ...meals,

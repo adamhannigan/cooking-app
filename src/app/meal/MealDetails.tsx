@@ -65,9 +65,6 @@ const MealDetails = () => {
     })
   }
 
-  console.log('Meal', meal)
-  console.log('route.params.id', route.params.id)
-  
   return (
     <View style={{ flex: 1 }}>
       <ScrollView style={{ flex: 1 }}>

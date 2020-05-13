@@ -18,19 +18,23 @@ import MyMenu from './myMenu/MyMenu'
 import Search from './search/Search'
 import Cook from 'app/cook/ChooseMeal'
 
-import RecipeSVG from './assets/file.svg'
-import RecipeOutlineSVG from './assets/penAndPaperOutline.svg'
-import FriendSVG from './assets/friends.svg'
+import CameraSVG from './assets/camera.svg'
+import CameraOutlineSVG from './assets/cameraIcon.svg'
 import FoodSVG from './assets/food.svg'
 import FoodOutlineSVG from './assets/foodOutline.svg'
 import SearchSVG from './assets/search.svg'
 import SearchOutlineSVG from './assets/searchOutline.svg'
-import HatSVG from './assets/hat.svg'
-import HatOutlineSVG from './assets/hatOutline.svg'
-import ActivitySVG from './assets/activity.svg'
-import ActivityOutlineSVG from './assets/activityOutline.svg'
+import HatSVG from './assets/menu.svg'
+import HatOutlineSVG from './assets/menuOutline.svg'
+import ActivitySVG from './assets/notification.svg'
+import ActivityOutlineSVG from './assets/notificationOutline.svg'
 
 import { InProgressMealModel } from 'domain/inProgressMeals/model';
+
+// galio components
+import {
+    Block,
+  } from 'galio-framework';
 
 const routes = [
     { key: 'meals', title: 'Meals', icon: 'silverware-fork-knife' },
@@ -55,8 +59,6 @@ const Home = () => {
     const navigation = useNavigation()
     const isFocused = useIsFocused()
     const route = useRoute()
-
-    console.log('Render home', route)
 
     React.useEffect(() => {
         const load = async () => {
@@ -117,20 +119,33 @@ const Home = () => {
         options:{
             tabBarBadge: inProgress,
             tabBarIcon: ({ focused }) => (
-                focused
-                    ? (
-                        <RecipeSVG
-                            width={40}
-                            height={40}
-                        />
-                    )
-                    : (
-                        <RecipeOutlineSVG
-                            width={40}
-                            height={40}
-                            fill={'#bbb'}
-                        />
-                    )
+                <Block style={{
+                    borderWidth: 1,
+                    borderColor: focused ? theme['color-primary-default'] : '#bbb',
+                    padding: 10,
+                    borderRadius: 50,
+                    marginTop: -10,
+                }}>
+                    {
+                        focused
+                            ? (
+                                <CameraSVG
+                                    width={40}
+                                    height={40}
+                                />
+                            )
+                            : (
+                                
+                                    <CameraOutlineSVG
+                                        width={40}
+                                        height={40}
+                                        fill={'#bbb'}
+                                    />
+                                
+                            )
+
+                    }
+                </Block>
             ),
         }
     }, {

@@ -104,7 +104,6 @@ const Cooker: React.FC<Props> = ({
       quality: 1
     });
 
-    console.log('Result', result)
     if (!result.cancelled) {
       setPhoto(result.uri)
     }

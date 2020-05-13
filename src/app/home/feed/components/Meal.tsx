@@ -52,7 +52,6 @@ const Meal = (meal: Props) => {
     }
 
     const onFocusedItemChange = (imageIndexInView: number) => {
-      console.log('imageIndexInView', imageIndexInView)
       setImageInViewIndex(imageIndexInView)
     }
 

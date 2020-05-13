@@ -54,7 +54,6 @@ const Preferences = () => {
       preferences: selected.map(name => ({ name })),
     }
 
-    console.log('Save meal: ', meal)
     await MealsModel.addFakeMeal(meal)
 
     await InProgressMealModel.clear()

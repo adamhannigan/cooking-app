@@ -19,7 +19,7 @@ import { useRoute, useIsFocused } from '@react-navigation/native'
 import { Meal } from '../../../constants/dummyData'
 
 import MealSummary from 'app/profile/components/MealSummary'
-import MealBoardIcon from 'app/home/activity/assets/menu-board.svg'
+import MealBoardIcon from 'app/home/assets/menu.svg'
 
 import MealCard from './components/MealCard'
 import AvatarHeader from './components/AvatarHeader'
@@ -34,11 +34,9 @@ const Feed = props => {
   const isFocused = useIsFocused()
 
   React.useEffect(() => {
-    console.log('Is focused')
     const load = async () => {
       const storedMeals = await MealsModel.getAll()
 
-      console.log('Got stored', storedMeals)
       setMeals(storedMeals)
     }
 
@@ -70,11 +68,13 @@ const Feed = props => {
                         <Block style={styles.mealAddedContainer}>
                           <MealBoardIcon width={30} height={30} />
                           <Text
-                              category='h6'
+                              appearance='hint'
+                              style={{
+                                marginLeft: theme.SIZES.BASE,
+                              }}
                             >
-                              Trending menu
+                              Recommended from their menu
                           </Text>
-                          <MealBoardIcon width={30} height={30} />
                         </Block>
 
                         <AvatarHeader
@@ -135,7 +135,6 @@ const styles = StyleSheet.create({
     display: 'flex',
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'space-between',
     borderBottomWidth: 1,
     borderColor: '#e3e3e3',
   },

@@ -95,7 +95,7 @@ export const CaptureImage = ({
 
   const onTakePhoto = async () => {
 
-    console.log('Open it')
+    ('Open it')
     //setIsTakingPhoto(true)
     let result = await ImagePicker.launchCameraAsync({
       mediaTypes: ImagePicker.MediaTypeOptions.Images,
@@ -104,7 +104,6 @@ export const CaptureImage = ({
       quality: 1
     });
 
-    console.log('Result', result)
     onPhotoCaptured(result.uri)
   }
 
@@ -130,7 +129,6 @@ export const CaptureImage = ({
   }
 
   if (photo) {
-    console.log('Show photo', photo)
     return (
       <Block style={styles.container}>
         <Image

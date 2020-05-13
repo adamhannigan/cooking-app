@@ -34,7 +34,7 @@ const InProgressMeal = () => {
     React.useEffect(() => {
         const load = async () => {
             const inProgressMeal = await InProgressMealModel.get()
-            console.log('Loaded', inProgressMeal)
+            ('Loaded', inProgressMeal)
             setMeal(inProgressMeal)
         }
 

@@ -72,7 +72,7 @@ const AddIngredients: React.FC<Props> = ({
     });
 
     if (!result.cancelled) {
-        console.log('Result', result)
+        ('Result', result)
         setIngredientPhoto({
             url: result.uri,
         })

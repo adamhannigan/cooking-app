@@ -18,8 +18,8 @@ import {
   Block, theme
 } from 'galio-framework';
 
-import drool from 'app/home/feed/components/assets/droolFrame.gif'
-import Chef from './assets/chef.svg'
+import HeartSVG from 'app/home/feed/components/assets/smile.svg'
+import PanSVG from './assets/pan.svg'
 import Menu from './assets/menu-board.svg'
 import { useNavigation } from '@react-navigation/native';
 import { NavProp } from 'Navigation';
@@ -39,8 +39,9 @@ const Event = ({ event, meal, user }: Activity) => {
                 </Text>
             </Text>
             <Block row>
-                <Image
-                    source={drool}
+                <HeartSVG
+                    width={20}
+                    height={20}
                     style={styles.icon}
                 />
                 <Text appearance='hint'>14h</Text>
@@ -80,7 +81,11 @@ const Event = ({ event, meal, user }: Activity) => {
                     </Text>
                 </Text>
                 <Block row>
-                    <Chef width={20} style={styles.icon}/>
+                    <PanSVG
+                        width={20}
+                        height={20}
+                        style={styles.icon}
+                    />
                     <Text appearance='hint'>14h</Text>
                 </Block>
             </Block>
