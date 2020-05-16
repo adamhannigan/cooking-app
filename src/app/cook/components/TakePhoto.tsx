@@ -2,11 +2,12 @@ import React from 'react';
 import {
   StyleSheet,
   Image,
+  TouchableOpacity,
 } from 'react-native';
 
 import * as ImagePicker from 'expo-image-picker'
 
-import {  Button } from '@ui-kitten/components'
+import { Button, Spinner } from '@ui-kitten/components'
 
 import { Meal } from 'constants/dummyData'
 
@@ -24,7 +25,9 @@ const styles = StyleSheet.create({
   imageContainer: {
     display: 'flex',
     alignItems: 'center',
+    justifyContent: 'center',
     width: '100%',
+    height: 300,
     backgroundColor: '#f0f0f0',
 
     borderWidth: 1,
@@ -32,41 +35,65 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     marginTop: theme.SIZES.BASE,
     marginBottom: theme.SIZES.BASE,
+
+
+    shadowOffset:{  width: 3,  height: 5,  },
+    shadowColor: '#777',
+    shadowOpacity: 0.3,
   },
   image: {
     width: '100%',
-    height: 400,
+    height: '100%',
+    borderRadius: 5,
+
   },
 });
 
 interface Props {
-    meal?: Meal
+    onPhoto: (url: string) => void
+    photoUrl: string
 }
 
-const Cooker: React.FC<Props> = ({
-    meal,
+const TakePhoto: React.FC<Props> = ({
+  onPhoto,
+  photoUrl,
 }) => {
-  const [photo, setPhoto] = React.useState<string>()
+  const [isLoading, setIsLoading] = React.useState(false)
 
   const onTakePhoto = async () => {
     await ImagePicker.requestCameraPermissionsAsync()
     
-    //setIsTakingPhoto(true)
+    setIsLoading(true)
+
     let result = await ImagePicker.launchCameraAsync({
       mediaTypes: ImagePicker.MediaTypeOptions.Images,
       quality: 1
     });
 
     if (!result.cancelled) {
-      setPhoto(result.uri)
+      await new Promise(res => setTimeout(res, 500))
+
+      onPhoto(result.uri)
     }
+
+    setIsLoading(false)
   }
 
    
   return (
-    <Block style={styles.imageContainer}>
+    <TouchableOpacity
+      style={styles.imageContainer}
+      onPress={onTakePhoto}
+    >
         {
-            !photo && [
+          isLoading && (
+            <Spinner
+              size='giant'
+            />
+          )
+        }
+        {
+            !isLoading && !photoUrl && [
                 <CameraSVG
                 width={100}
                 height={100}
@@ -75,30 +102,31 @@ const Cooker: React.FC<Props> = ({
                 }}
                 />,
                 <Button
-                appearance='outline'
-                status='basic'
-                onPress={onTakePhoto}
-                style={{
-                    marginVertical: theme.SIZES.BASE,
-                }}
+                  appearance='ghost'
+                  status='info'
+                  
+                  style={{
+                      marginVertical: theme.SIZES.BASE,
+                  }}
                 >
                 Take a photo of your meal
                 </Button>
                 ]
         }
+
         {
-            photo &&  (
-            <Image
-                source={{
-                    uri: photo
-                }}
-                style={styles.image}
-            />
-        )
+            !isLoading && photoUrl &&  (
+              <Image
+                  source={{
+                      uri: photoUrl
+                  }}
+                  style={styles.image}
+              />
+          )
         }
-    </Block>
+    </TouchableOpacity>
   )
 };
 
 
-export default Cooker;
+export default TakePhoto;

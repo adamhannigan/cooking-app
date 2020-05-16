@@ -7,7 +7,10 @@ import {
 } from 'react-native';
 
 import { Text, Input, Icon, useTheme, Button } from '@ui-kitten/components'
-import { useNavigation } from '@react-navigation/native'
+import {
+  useNavigation,
+  useIsFocused,
+} from '@react-navigation/native'
 
 // galio components
 import {
@@ -20,6 +23,7 @@ import SearchSVG from 'app/home/assets/search.svg'
 import YourMenu from './components/YourMenu'
 import { NavProp } from 'Navigation';
 import TakePhoto from './components/TakePhoto'
+import { InProgressMealModel } from 'domain/inProgressMeals/model';
 
 const { width } = Dimensions.get('screen');
 
@@ -27,14 +31,42 @@ const ChooseMeal = props => {
   const [selectedIndex, setSelectedIndex] = React.useState(0);
   const kittenTheme = useTheme()
   const navigation = useNavigation<NavProp>()
+  const [search, setSearch] = React.useState<string>('')
+  const [photo, setPhoto] = React.useState(null)
 
-  const onSelect = (meal: Meal) => {
-    navigation.navigate('/cook/details/:id', {
-      id: meal.id,
-    })
+  const isFocused = useIsFocused()
+
+  React.useEffect(() => {
+    setSearch('')
+    setPhoto(null)
+  }, [isFocused])
+
+  const onSelect = async (meal: Meal) => {
+    let inspiredMeal = meal
+
+    if (photo) {
+      inspiredMeal = {
+        ...meal,
+        image: photo,
+      }
+    }
+
+    console.log('inspired', inspiredMeal)
+
+    await InProgressMealModel.save(inspiredMeal)
+
+    navigation.navigate('/cook/progress')
   }
 
-  const [search, setSearch] = React.useState<string>('')
+  const onAddNewMeal = async () => {
+    await InProgressMealModel.save({
+      title: search,
+      image: photo,
+    } as Meal)
+
+    navigation.navigate('/cook/progress')
+  }
+
 
   const scrollViewRef = React.useRef<ScrollView>(null)
   
@@ -47,7 +79,10 @@ const ChooseMeal = props => {
       <ScrollView style={{ flex: 1 }} ref={ref => scrollViewRef.current = ref}>
         <Block style={{ marginTop: -theme.SIZES.BASE * 2 }}>
           <Block flex style={styles.header}>
-          <TakePhoto />
+            <TakePhoto
+              photoUrl={photo}
+              onPhoto={setPhoto}
+            />
             <Text category='h5'>
               What did you cook?
             </Text>
@@ -80,11 +115,11 @@ const ChooseMeal = props => {
             search.length > 0 && (
             <Button
               status='info'
-              appearance='ghost'
               style={{
                 marginHorizontal: theme.SIZES.BASE / 2,
                 marginBottom: theme.SIZES.BASE / 2,
               }}
+              onPress={onAddNewMeal}
             >
               {`Add "${search}" +`}
             </Button>

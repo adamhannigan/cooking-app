@@ -54,11 +54,9 @@ const Preferences = () => {
       preferences: selected.map(name => ({ name })),
     }
 
-    await MealsModel.addFakeMeal(meal)
+    await InProgressMealModel.save(meal)
 
-    await InProgressMealModel.clear()
-
-    navigate('/')
+    navigate('/cook/progress')
   }
 
   return (
@@ -111,10 +109,11 @@ const Preferences = () => {
       </ScrollView>
       <Block style={styles.bottomBar}>
           <Button
-            status='primary'
+            status='info'
+            appearance='outline'
             onPress={onDone}
           >
-            Share
+            Save
           </Button>
       </Block>
     </View>

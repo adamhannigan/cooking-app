@@ -49,19 +49,14 @@ const styles = StyleSheet.create({
 });
 
 interface Props {
-    initialSteps?: Step[]
+    steps?: Step[]
+    onChange: (steps: Step[]) => void
 }
 
 const AddSteps: React.FC<Props> = ({
-    initialSteps,
+    steps = [null],
+    onChange,
 }) => {
-  // Currently, we are just storing image steps
-  const [steps, setSteps] = React.useState<Step[]>(
-      initialSteps 
-        ? [...initialSteps, null]
-        : [null]
-    )
-
   const onTakeStepPhoto = async (stepIndex: number) => {
     let result = await ImagePicker.launchCameraAsync({
       mediaTypes: ImagePicker.MediaTypeOptions.All,
@@ -88,7 +83,7 @@ const AddSteps: React.FC<Props> = ({
             }
         }
 
-        setSteps(newSteps)
+        onChange(newSteps)
     }
   }
 
@@ -102,11 +97,11 @@ const AddSteps: React.FC<Props> = ({
         description: name,
     }
 
-    setSteps(newSteps)
+    onChange(newSteps)
   }
 
   const onAddStep = () => {
-      setSteps([
+      onChange([
           ...steps,
           null,
       ])

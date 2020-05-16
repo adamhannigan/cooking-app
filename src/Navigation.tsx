@@ -22,6 +22,7 @@ import Profile from './app/profile/Profile'
 
 import ChooseMeal from './app/cook/ChooseMeal'
 import CookDetails from 'app/cook/Details'
+import Recipe from 'app/cook/Recipe'
 import { CookHeaderButton } from 'app/cook/components/Cooker'
 import InProgress from 'app/cook/InProgress'
 import Tags from './app/cook/Tags'
@@ -49,6 +50,7 @@ export type Routes = {
     id?: number
   }
   '/cook/progress'
+  '/cook/recipe'
   '/cook/pick'
   '/cook/tags'
 }
@@ -107,7 +109,7 @@ function Navigation() {
     component: Favourites,
     options: {
       ...headerOptions,
-      title: 'Recipe Book',
+      title: 'Your recent likes',
     },
   }, {
     name: '/cook/details/:id',
@@ -125,6 +127,10 @@ function Navigation() {
         headerLeft: null,
         headerRight: () => <CookHeaderButton />,
     },
+  }, {
+    name: '/cook/recipe',
+    component: Recipe,
+    options: headerOptions,
   }, {
     name: '/cook/pick',
     component: ChooseMeal,

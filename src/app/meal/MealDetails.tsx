@@ -38,6 +38,7 @@ import Meal from 'app/home/feed/components/Meal';
 import InfoBlock from './components/InfoBlock'
 import Steps from './components/Steps'
 import IngredientList from './components/IngredientList'
+import { InProgressMealModel } from 'domain/inProgressMeals/model';
 
 const { width, height } = Dimensions.get('screen');
 
@@ -59,10 +60,14 @@ const MealDetails = () => {
     Linking.openURL(meal.recipe)
   }
 
-  const onCookIt = () => {
-    navigation.navigate('/cook/details/:id', {
-      id: meal.id,
+  const onCookIt = async () => {
+    await InProgressMealModel.save({
+      ...meal,
+      // We want users to add their own photo!
+      image: null,
     })
+  
+    navigation.navigate('/cook/progress')
   }
 
   return (

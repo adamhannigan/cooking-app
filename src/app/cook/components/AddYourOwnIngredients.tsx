@@ -21,6 +21,8 @@ import { Ingredients } from 'constants/dummyData'
 
 import IngredientsSVG from '../assets/ingredients.svg'
 
+import TakePhoto from './TakePhoto'
+
 export { CookHeaderButton } from '../CookHeaderButton'
 
 const styles = StyleSheet.create({
@@ -46,99 +48,65 @@ const styles = StyleSheet.create({
 });
 
 interface Props {
-    initialIngredients?: Ingredients
+    ingredients: Ingredients
+    onChange: (ingredients: Ingredients) => void
 }
 
 const AddIngredients: React.FC<Props> = ({
-    initialIngredients,
+    ingredients = {
+        items: [null],
+        photo: null,
+    },
+    onChange,
 }) => {
-  const [ingredientPhoto, setIngredientPhoto] = React.useState<{ url: string }>(
-    initialIngredients
-        ? initialIngredients.photo
-        : null
-  )
-
-  const [ingredients, setIngredients] = React.useState<string[]>(
-    initialIngredients
-        ? [...initialIngredients.items, null]
-        : [null]
-    )
-
-  const onTakePhoto = async () => {
-    //setIsTakingPhoto(true)
-    let result = await ImagePicker.launchCameraAsync({
-      mediaTypes: ImagePicker.MediaTypeOptions.Images,
-      quality: 1
-    });
-
-    if (!result.cancelled) {
-        ('Result', result)
-        setIngredientPhoto({
-            url: result.uri,
-        })
-    }
+  const onPhoto = (url?: string) => {
+    onChange({
+        ...ingredients,
+        photo: url && {
+            url,
+        },
+    })
   }
 
   const onChangeIngredient = (text: string, ingredientIndex: number) => {
-      const newIngredients = [...ingredients]
+      const newIngredients = [...ingredients.items]
 
       // Nullify if empty string
       const name = text || null
       newIngredients[ingredientIndex] = name
 
-      setIngredients(newIngredients)
+      onChange({
+          ...ingredients,
+          items: newIngredients,
+      })
   }
 
   const onAddIngredient = () => {
-    setIngredients([
+    onChange({
         ...ingredients,
-        null,
-    ])
+        items: [
+            ...ingredients.items,
+            null,
+        ]
+    })
   }
+
+  console.log('Ingredients', ingredients)
+
 
   return (
     <Block>
         <Text category='h5' status='info'>
             Add your ingredients
         </Text>
-        <Block style={styles.imageContainer}>
-            
-            {
-                ingredientPhoto && (
-                    <Image
-                        source={{
-                            uri: ingredientPhoto.url
-                        }}
-                        style={styles.image}
-                    />
-                )
-            }
-            {
-                !ingredientPhoto && [
-                    <IngredientsSVG
-                        width={100}
-                        height={100}
-                        style={{
-                            marginTop: theme.SIZES.BASE,
-                        }}
-                    />,
-                    <Button
-                        appearance='outline'
-                        status='basic'
-                        onPress={onTakePhoto}
-                        style={{
-                            marginTop: theme.SIZES.BASE,
-                            marginBottom: theme.SIZES.BASE,
-                        }}
-                    >
-                        Take a photo of your ingredients
-                    </Button>
-                ]
-            }
-        </Block>
+        <TakePhoto
+            photoUrl={ingredients.photo && ingredients.photo.url}
+            onPhoto={onPhoto}
+        />
+
 
         {
-            ingredients.map((ingredient, index) => (
+            ingredients && ingredients.items.map((ingredient, index) => (
                 <Input
                     numberOfLines={3}
                     placeholder='Add the ingredient...'
@@ -156,9 +124,8 @@ const AddIngredients: React.FC<Props> = ({
         <Button
             style={styles.addAnotherStep}
             status='info'
-            // Disable if last ingredients is still empty
-            disabled={!ingredients[ingredients.length - 1]}
             onPress={onAddIngredient}
+            disabled={!ingredients.items[ingredients.items.length - 1]}
         >
             Add another ingredient +
         </Button>

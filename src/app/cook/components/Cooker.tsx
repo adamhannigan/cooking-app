@@ -8,63 +8,55 @@ import {
 } from 'react-native';
 
 import { useNavigation, useRoute } from '@react-navigation/native'
-import * as ImagePicker from 'expo-image-picker'
 
-import { Text, Input, Button } from '@ui-kitten/components'
+import { Text, Input, Button, Avatar } from '@ui-kitten/components'
 
 import { Meal } from 'constants/dummyData'
 import { InProgressMealModel } from 'domain/inProgressMeals/model'
 
 // galio components
 import {
-  Block, theme, Icon
+  Block, theme,
 } from 'galio-framework';
 
-import OrDivider from './OrDivider'
+import TrophySVG from 'app/home/feed/components/assets/cup.svg'
+import CryingSVG from 'app/meal/assets/crying.svg'
 
-import CameraSVG from '../assets/camera.svg'
-import AddIngredients from './AddYourOwnIngredients';
-import AddSteps from './AddSteps';
+import Tags from 'app/home/feed/components/Tags'
+
+import IngredientSVG from '../assets/ingredients.svg'
+import TakePhoto from './TakePhoto';
+import { NavProp } from 'Navigation';
+import { MealsModel } from 'domain/meals/model';
 
 export { CookHeaderButton } from '../CookHeaderButton'
 const { width } = Dimensions.get('screen');
 
 const styles = StyleSheet.create({
-  header: {
-    paddingTop: theme.SIZES.BASE,
-  },
-  content: {
+  container: {
     width: width,
     padding: theme.SIZES.BASE,
-  },
-  checkboxContainer: {
-    marginVertical: theme.SIZES.BASE,
-  },
-  imageContainer: {
-    display: 'flex',
-    alignItems: 'center',
-    width: '100%',
-    backgroundColor: '#f0f0f0',
 
-    borderWidth: 1,
-    borderColor: '#ddd',
-    borderRadius: 5,
-    marginTop: theme.SIZES.BASE,
-    marginBottom: theme.SIZES.BASE * 4,
-  },
-  image: {
-    width: '100%',
-    height: 400,
+    flex: 1,
+    display: 'flex',
+    alignItems: 'stretch',
   },
   bottomBar: {
     padding: theme.SIZES.BASE,
     paddingBottom: theme.SIZES.BASE * 2,
     display: 'flex',
     flexDirection: 'row',
+    flex: 0,
     borderTopWidth: 1,
     borderTopColor: '#ddd',
     backgroundColor: '#f0f0f0',
   },
+  avatar: {
+    marginRight: theme.SIZES.BASE,
+  },
+  stats: {
+    marginTop: theme.SIZES.BASE * 3,
+  }
 });
 
 interface Props {
@@ -74,13 +66,10 @@ interface Props {
 const Cooker: React.FC<Props> = ({
     meal,
 }) => {
-  const [recipe, setRecipe] = React.useState<string>(meal && meal.recipe)
   const [title, setTitle] = React.useState<string>(meal && meal.title)
-  const [photo, setPhoto] = React.useState<string>()
+  const [photo, setPhoto] = React.useState<string>(meal && meal.image)
 
-  const onRecipeChange = text => setRecipe(text)
-
-  const { navigate, setOptions } = useNavigation()
+  const { navigate, setOptions } = useNavigation<NavProp>()
 
   const onTitleChange = title => {
     setOptions({ title })
@@ -90,57 +79,40 @@ const Cooker: React.FC<Props> = ({
   const onDone = async () => {
     await save()
 
+    await MealsModel.addFakeMeal(meal)
+
+    await InProgressMealModel.clear()
+
     // Add meal to list
-    navigate('/cook/tags')
-  }
-
-
-  const onTakePhoto = async () => {
-    await ImagePicker.requestCameraPermissionsAsync()
-    
-    //setIsTakingPhoto(true)
-    let result = await ImagePicker.launchCameraAsync({
-      mediaTypes: ImagePicker.MediaTypeOptions.Images,
-      quality: 1
-    });
-
-    if (!result.cancelled) {
-      setPhoto(result.uri)
-    }
+    navigate('/')
   }
 
   const save = async () => {
     await InProgressMealModel.save({
+      ...meal,
       image: photo,
       title: title,
-      steps: [],
-      ingredients: null,
-      preferences: [],
-      user: {
-        id: 1,
-        name: 'Adam Hannigan'
-      },
-      id: 2, // FAKE
-      likes: 55,
     } as Meal)
   }
 
-  const onSaveAndClose = async () => {
+  const onGoToRecipe = async () => {
     await save()
 
-    navigate('/')
+    navigate('/cook/recipe')
   }
+
+  const onEditTags = async () => {
+    await save()
+
+    navigate('/cook/tags')
+  }
+
+  const hasRecipe = meal.recipe || meal.steps.length
   
   return (
     <View style={{ flex: 1, backgroundColor: 'white' }}>
-      <ScrollView style={{ flex: 1 }}>
-        <Block style={styles.content}>
-
-        <Text category='h3'>
-          Get Started
-        </Text>
-
-        {
+      <ScrollView style={{ flex: 1 }} >
+          <Block style={styles.container}>
             <Block>
               {
                 !meal && (
@@ -166,79 +138,167 @@ const Cooker: React.FC<Props> = ({
                 )
               }
 
-                <Block style={styles.imageContainer}>
-                  {
-                    !photo && [
-                      <CameraSVG
-                        width={100}
-                        height={100}
+              <TakePhoto
+                photoUrl={photo}
+                onPhoto={setPhoto}
+              />
+
+              {
+                !meal.id && (
+                  <Block>
+                    <Block row middle>
+                      <TrophySVG
+                        width={30}
+                        height={30}
                         style={{
-                          marginTop: theme.SIZES.BASE,
+                          marginRight: theme.SIZES.BASE,
                         }}
-                      />,
-                      <Button
-                        appearance='outline'
-                        status='basic'
-                        onPress={onTakePhoto}
+                      />
+                      <Text
+                        appearance='hint'
                         style={{
-                          marginVertical: theme.SIZES.BASE,
+                          flex: 1,
                         }}
                       >
-                        Take a photo of your meal
-                      </Button>
-                      ]
-                }
-                {
-                  photo &&  (
-                    <Image
-                        source={{
-                            uri: photo
-                        }}
-                        style={styles.image}
-                    />
+                        Congratulations, this is your first time cooking {meal.title}.
+
+                        What were your thoughts?
+                      </Text>
+                    </Block>
+                    <Input
+                      placeholder='It was...'
+                      multiline
+                      style={{
+                        flex: 1,
+                        marginTop: theme.SIZES.BASE,
+                        minHeight: 60,
+                      }}
+                      labelStyle={{
+                        color: 'black',
+                        fontSize: 16,
+                        fontWeight: 'normal'
+                      }}
+                      textStyle={{
+                          fontSize: 20,
+                      }}
+                  />
+                  </Block>
                 )
-                }
-                </Block>
-                <Input
-                    label='Add a link to the recipe'
-                    autoCapitalize='none'
-                    labelStyle={{
-                      color: 'black',
-                      fontSize: 16,
-                      fontWeight: 'normal'
-                    }}
-                    placeholder={`www.creamy-chic...`}
-                    value={recipe}
-                    onChangeText={onRecipeChange}
-                    textStyle={{
-                      fontSize: 18,
-                    }}
-              />
+              }
 
-              <OrDivider backgroundColor='white' />
+              {
+                meal.id && (
+                  // TODO = check if it is off their own menu
+                  <Block>
+                    <Block row middle>
+                      <Avatar
+                          style={styles.avatar}
+                          source={{
+                              uri: 'http://i.pravatar.cc/100?id=skater',
+                          }}
+                      />
+                      <Text
+                        appearance='hint'
+                        style={{
+                          flex: 1,
+                        }}
+                      >
+                        Inspired by {meal.user.name}.
 
-              <AddIngredients
-                initialIngredients={meal && meal.ingredients}
-              />
+                        What were your thoughts?
+                      </Text>
+                    </Block>
+                    <Input
+                      placeholder='It was...'
+                      multiline
 
-              <AddSteps
-                initialSteps={meal && meal.steps}
-              />
+                      style={{
+                        flex: 1,
+                        marginTop: theme.SIZES.BASE,
+                      }}
+                      labelStyle={{
+                        color: 'black',
+                        fontSize: 16,
+                        fontWeight: 'normal'
+                      }}
+                      textStyle={{
+                        fontSize: 20,
+                        minHeight: 80,
+
+                      }}
+                  />
+                  </Block>
+                )
+              }
+
             </Block>
-          }
-        </Block>
 
+            <Block style={styles.stats}>
+                <Block row space='between' middle>
+                  <Tags tags={meal.preferences} />
+                  <Button
+                    appearance='ghost'
+                    style={{ marginRight: -theme.SIZES.BASE }}
+                    onPress={onEditTags}
+                  >
+                    Edit
+                  </Button>
+                </Block>
+                {
+                  hasRecipe && (
+                    <Block row space='between' middle>
+                      <Block row middle>
+                        <IngredientSVG
+                          width={25}
+                          height={25}
+                          style={{
+                            marginRight: theme.SIZES.BASE / 2,
+                          }}
+
+                        />
+                        <Text appearance='hint'>
+                          Recipe included
+                        </Text>
+                      </Block>
+                      <Button
+                        style={{ marginRight: -theme.SIZES.BASE }}
+                        appearance='ghost'
+                        onPress={onGoToRecipe}
+                      >
+                        Change the recipe
+                      </Button>
+                    </Block>
+                  )
+                }
+
+                {
+                  !hasRecipe && (
+                    <Block row space='between' middle>
+                      <Block row middle>
+                        <CryingSVG
+                          width={25}
+                          height={25}
+                          style={{
+                            marginRight: theme.SIZES.BASE / 2,
+                          }}
+                        />
+                        <Text appearance='hint'>
+                          No recipe has been added yet
+                        </Text>
+                      </Block>
+                      <Button
+                        appearance='outline'
+                        onPress={onGoToRecipe}
+                      >
+                        Add a recipe
+                      </Button>
+                    </Block>
+                  )
+                }
+          </Block>
+        </Block>
       </ScrollView>
       <Block style={styles.bottomBar}>
-        <Button
-            size='medium'
-            status='info'
-            appearance='ghost'
-            onPress={onSaveAndClose}
-            style={{flex: 1}}
-          >
-            Save for later
-          </Button>
           <Button
             size='medium'
             status='info'
@@ -246,12 +306,11 @@ const Cooker: React.FC<Props> = ({
             disabled={!photo}
             style={{flex: 1}}
           >
-            Next
+            Share
           </Button>
         </Block>
     </View>
   )
 };
-
 
 export default Cooker;

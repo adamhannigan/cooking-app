@@ -25,7 +25,7 @@ export function CookHeaderButton() {
   return (
     <TouchableOpacity onPress={onClick}>
         <Icon
-            name='delete'
+            name='close'
             color='white'
             family={"AntDesign"}
             style={styles.icon}

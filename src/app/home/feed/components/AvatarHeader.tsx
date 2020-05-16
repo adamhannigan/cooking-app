@@ -17,8 +17,7 @@ import { Text, Avatar, useTheme } from '@ui-kitten/components'
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { NavProp } from 'Navigation';
 
-import ExerciseSVG from './assets/excercise.svg'
-import BakingSVG from './assets/baking.svg'
+import Tags from './Tags'
 
 const { width } = Dimensions.get('screen');
 
@@ -56,29 +55,7 @@ const AvatarHeader = ({
                         <Text style={styles.text}>
                             { name }
                         </Text>
-                        <Block row middle>
-                            <ExerciseSVG
-                                width={25}
-                                height={25}
-                                style={{
-                                    marginRight: 5,
-                                }}
-                            />
-                            <Text appearance='hint'>
-                                Fitness
-                            </Text>
-                            <BakingSVG
-                                width={25}
-                                height={25}
-                                style={{
-                                    marginRight: 5,
-                                    marginLeft: 10,
-                                }}
-                            />
-                            <Text  appearance='hint'>
-                                Baking
-                            </Text>
-                        </Block>
+                        <Tags />
                     </Block>
                 </Block>
             </TouchableOpacity>
