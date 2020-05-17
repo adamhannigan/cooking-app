@@ -107,14 +107,18 @@ const Menu = ({ }) => {
             size='medium'
             appearance='ghost'
             status='primary'
-            onPress={() => navigation.navigate('/')}
+            onPress={() => navigation.navigate('/home', {
+              screen: '/feed'
+            })}
           >
             Skip for now
           </Button>
           <Button
             size='medium'
             status='primary'
-            onPress={() => navigation.navigate('/')}
+            onPress={() => navigation.navigate('/home', {
+              screen: '/feed'
+            })}
             disabled={selected.length === 0}
           >
             Next

@@ -26,8 +26,8 @@ import SearchSVG from './assets/search.svg'
 import SearchOutlineSVG from './assets/searchOutline.svg'
 import HatSVG from './assets/menu.svg'
 import HatOutlineSVG from './assets/menuOutline.svg'
-import ActivitySVG from './assets/notification.svg'
-import ActivityOutlineSVG from './assets/notificationOutline.svg'
+import ActivitySVG from './assets/speaker.svg'
+import ActivityOutlineSVG from './assets/speakerOutline.svg'
 
 import { InProgressMealModel } from 'domain/inProgressMeals/model';
 
@@ -60,13 +60,15 @@ const Home = () => {
     const route = useRoute()
 
     React.useEffect(() => {
-        const load = async () => {
-          const inProgressMeal = await InProgressMealModel.get()
-    
-          setInProgress(!!inProgressMeal)
+        if (isFocused) {
+            const load = async () => {
+            const inProgressMeal = await InProgressMealModel.get()
+        
+            setInProgress(!!inProgressMeal)
+            }
+        
+            load()
         }
-    
-        load()
       }, [isFocused])
 
     const componentRoutes = [{
@@ -189,8 +191,6 @@ const Home = () => {
             ),
         }
       }]
-
-    console.log('Chosen route to render', route)
 
     return (
         <Tab.Navigator

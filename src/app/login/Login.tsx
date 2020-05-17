@@ -26,7 +26,9 @@ const Login = ({ navigation }: any) => {
           password,
         })
 
-        navigation.navigate('/')
+        navigation.navigate('/home', {
+          screen: '/feed'
+        })
       } catch (error) {
         setError(error.code)
       }

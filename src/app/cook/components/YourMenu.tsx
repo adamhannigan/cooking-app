@@ -11,8 +11,7 @@ import { Text } from '@ui-kitten/components'
 import { useNavigation } from '@react-navigation/native'
 
 
-import MealBoardIcon from 'app/home/activity/assets/menu-board.svg'
-
+import MealBoardIcon from 'app/home/assets/menu.svg'
 
 // galio components
 import {

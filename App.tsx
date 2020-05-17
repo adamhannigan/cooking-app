@@ -25,19 +25,11 @@ Amplify.configure(amplify);
 
 function App() {
 
-  let [fontsLoaded] = useFonts({
-    'Open Sans': require('./assets/fonts/OpenSans-Bold.ttf'),
-  });
-
-  if (!fontsLoaded) {
-      return <AppLoading />
-  }
-
 
   return (
     <React.Fragment>
         <IconRegistry icons={EvaIconsPack} />
-        <ApplicationProvider customMapping={customMapping} mapping={mapping} theme={theme}>
+        <ApplicationProvider mapping={mapping} theme={theme}>
             <Navigation />
         </ApplicationProvider>
     </React.Fragment>

@@ -110,7 +110,6 @@ const Cooker: React.FC<Props> = ({
   const scrollViewRef = React.useRef<ScrollView>(null)
   
   const onFocus = () => {
-    console.log('SCroll it!')
     scrollViewRef.current.scrollTo(theme.SIZES.BASE * 12)
   }
   

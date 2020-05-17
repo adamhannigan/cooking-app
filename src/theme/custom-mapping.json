@@ -1,5 +1,12 @@
 {
     "strict": {
-      "text-font-family": "Open Sans"
-    }
-  }
+      "text-font-family": "OpenSans",
+      "text-subtitle-1-font-family": "OpenSans-Light",
+      "text-subtitle-1-font-family": "OpenSans-Light",
+
+      "text-paragraph-1-font-size": 15,
+      "text-paragraph-1-font-weight": "400",
+      "text-paragraph-1-font-family": "OpenSans-Light"
+    },
+    "components": {}
+}

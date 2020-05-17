@@ -17,26 +17,26 @@ const InProgress = props => {
   const isFocused = useIsFocused()
 
   React.useEffect(() => {
-    setMeal(null)
+    if (isFocused) {
+      setMeal(null)
 
-    const loadMeal = async () => {
-        const inProgressMeal = await InProgressMealModel.get()
-        setMeal(inProgressMeal)
+      const loadMeal = async () => {
+          const inProgressMeal = await InProgressMealModel.get()
+          setMeal(inProgressMeal)
 
-        setOptions({
-            title: inProgressMeal.title,
-        })
+          setOptions({
+              title: inProgressMeal.title,
+          })
+      }
+
+      loadMeal()
     }
-
-    loadMeal()
   }, [isFocused])
 
   if (!meal) {
     return null
   }
 
-  console.log('Got to cooked', meal)
-  
   return (
     <Cooker meal={meal} />
   )

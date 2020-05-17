@@ -37,23 +37,26 @@ const ChooseMeal = props => {
   const isFocused = useIsFocused()
 
   React.useEffect(() => {
-    setSearch('')
-    setPhoto(null)
+    if (isFocused) {
+      setSearch('')
+      setPhoto(null)
+    }
   }, [isFocused])
 
   const onSelect = async (meal: Meal) => {
-    let inspiredMeal = meal
+    let {
+      // Do not copy the photo and the tip
+      image,
+      tip,
+      ...inspiredMeal
+    } = meal
 
-    if (photo) {
-      inspiredMeal = {
-        ...meal,
-        image: photo,
-      }
+    const newMeal = {
+      ...inspiredMeal,
+      image: photo,
     }
 
-    console.log('inspired', inspiredMeal)
-
-    await InProgressMealModel.save(inspiredMeal)
+    await InProgressMealModel.save(newMeal)
 
     navigation.navigate('/cook/progress')
   }

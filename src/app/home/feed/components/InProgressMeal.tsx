@@ -32,13 +32,14 @@ const InProgressMeal = () => {
     const isFocused = useIsFocused()
 
     React.useEffect(() => {
-        const load = async () => {
-            const inProgressMeal = await InProgressMealModel.get()
-            ('Loaded', inProgressMeal)
-            setMeal(inProgressMeal)
-        }
+      if (isFocused) {
+          const load = async () => {
+              const inProgressMeal = await InProgressMealModel.get()
+              setMeal(inProgressMeal)
+          }
 
-        load()
+          load()
+      }
     }, [isFocused])
 
     const onClick = () => {

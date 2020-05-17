@@ -37,13 +37,16 @@ function CookNowButton() {
   }
 
   React.useEffect(() => {
-    const load = async () => {
-      const inProgressMeal = await InProgressMealModel.get()
+    if (isFocused) {
 
-      setIsInProgress(!!inProgressMeal)
+      const load = async () => {
+        const inProgressMeal = await InProgressMealModel.get()
+
+        setIsInProgress(!!inProgressMeal)
+      }
+
+      load()
     }
-
-    load()
   }, [isFocused])
 
   return (

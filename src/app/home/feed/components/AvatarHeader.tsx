@@ -86,13 +86,13 @@ const styles = StyleSheet.create({
     width: '100%',
   },
   avatar: {
-    width: 50,
-    height: 50,
+    width: 40,
+    height: 40,
   },
   avatarCircle: { 
     borderWidth: 2,
     marginRight: theme.SIZES.BASE / 2,
-    borderRadius: 50,
+    borderRadius: 40,
     padding: 2,
   },
   timeContainer: {

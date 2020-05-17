@@ -37,9 +37,7 @@ const Tags = ({
                     />
                     <Text
                         appearance='hint'
-                        style={{
-                            fontFamily: 'Open Sans',
-                        }}
+                        category='p1'
                     >
                         {tags[0].name}
                     </Text>
@@ -57,7 +55,10 @@ const Tags = ({
                             marginLeft: 10,
                         }}
                     />
-                    <Text appearance='hint'>
+                    <Text
+                        appearance='hint'
+                        category='p1'
+                    >
                         {tags[1].name}
                     </Text>
                 </>

@@ -34,13 +34,15 @@ const Feed = props => {
   const isFocused = useIsFocused()
 
   React.useEffect(() => {
-    const load = async () => {
-      const storedMeals = await MealsModel.getAll()
+    if (isFocused) {
+      const load = async () => {
+        const storedMeals = await MealsModel.getAll()
 
-      setMeals(storedMeals)
+        setMeals(storedMeals)
+      }
+
+      load()
     }
-
-    load()
   }, [isFocused])
 
   return (

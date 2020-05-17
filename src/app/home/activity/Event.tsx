@@ -19,8 +19,8 @@ import {
 } from 'galio-framework';
 
 import HeartSVG from 'app/home/feed/components/assets/smile.svg'
+import Menu from 'app/home/assets/menu.svg'
 import PanSVG from './assets/pan.svg'
-import Menu from './assets/menu-board.svg'
 import { useNavigation } from '@react-navigation/native';
 import { NavProp } from 'Navigation';
 

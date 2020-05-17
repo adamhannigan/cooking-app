@@ -19,7 +19,9 @@ export function CookHeaderButton() {
   const onClick = async () => {
     await InProgressMealModel.clear()
     
-    navigation.navigate('/')
+    navigation.navigate('/home', {
+      screen: '/feed'
+    })
   }
 
   return (

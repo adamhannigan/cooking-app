@@ -17,7 +17,7 @@ import { NavProp } from 'Navigation'
 
 import Constants from 'expo-constants';
 
-import MealBoardIcon from 'app/home/activity/assets/menu-board.svg'
+import MealBoardIcon from 'app/home/assets/menu.svg'
 
 
 import { people } from 'constants/dummyData'
@@ -133,7 +133,11 @@ const Menu = ({ id, isCurrentUser }: Props) => {
           <Block>
             {
               meals.map(card => (
-                <TouchableOpacity onPress={() => onClick(card.id)} style={styles.item}>
+                <TouchableOpacity
+                onPress={() => onClick(card.id)}
+                style={styles.item}
+                key={card.id}
+              >
                   <MealSummary {...card}/>
                 </TouchableOpacity>
               ))

@@ -91,9 +91,6 @@ const AddIngredients: React.FC<Props> = ({
     })
   }
 
-  console.log('Ingredients', ingredients)
-
-
   return (
     <Block>
         <Text category='h5' status='info'>
