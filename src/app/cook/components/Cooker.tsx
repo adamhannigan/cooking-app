@@ -4,7 +4,8 @@ import {
   ScrollView,
   View,
   Dimensions,
-  Image,
+  KeyboardAvoidingView,
+  Platform,
 } from 'react-native';
 
 import { useNavigation, useRoute } from '@react-navigation/native'
@@ -66,15 +67,10 @@ interface Props {
 const Cooker: React.FC<Props> = ({
     meal,
 }) => {
-  const [title, setTitle] = React.useState<string>(meal && meal.title)
-  const [photo, setPhoto] = React.useState<string>(meal && meal.image)
+  const [photo, setPhoto] = React.useState<string>(meal.image)
+  const [description, setDescription] = React.useState<string>(meal.tip || '')
 
   const { navigate, setOptions } = useNavigation<NavProp>()
-
-  const onTitleChange = title => {
-    setOptions({ title })
-    setTitle(title)
-  }
 
   const onDone = async () => {
     await save()
@@ -84,14 +80,16 @@ const Cooker: React.FC<Props> = ({
     await InProgressMealModel.clear()
 
     // Add meal to list
-    navigate('/')
+    navigate('/home', {
+      screen: '/feed',
+    })
   }
 
   const save = async () => {
     await InProgressMealModel.save({
       ...meal,
       image: photo,
-      title: title,
+      tip: description,
     } as Meal)
   }
 
@@ -107,36 +105,25 @@ const Cooker: React.FC<Props> = ({
     navigate('/cook/tags')
   }
 
-  const hasRecipe = meal.recipe || meal.steps.length
+  const hasRecipe = meal.recipe || meal.steps.length > 0
+
+  const scrollViewRef = React.useRef<ScrollView>(null)
+  
+  const onFocus = () => {
+    console.log('SCroll it!')
+    scrollViewRef.current.scrollTo(theme.SIZES.BASE * 12)
+  }
+  
   
   return (
+    <KeyboardAvoidingView
+      style={{ flex: 1 }}
+      behavior={Platform.OS == "ios" ? "padding" : "height"}
+    >
     <View style={{ flex: 1, backgroundColor: 'white' }}>
-      <ScrollView style={{ flex: 1 }} >
+      <ScrollView style={{ flex: 1 }} ref={ref => scrollViewRef.current = ref}>
           <Block style={styles.container}>
             <Block>
-              {
-                !meal && (
-                  <Input
-                    multiline={true}
-                    placeholder='Creamy...'
-                    label='What did you cook?'
-                    onChangeText={onTitleChange}
-                    value={title}
-                    style={{
-                        marginTop: theme.SIZES.BASE * 2,
-                    }}
-                    labelStyle={{
-                      color: 'black',
-                      fontSize: 16,
-                      fontWeight: 'normal'
-                    }}
-                    textStyle={{
-                        minHeight: 64,
-                        fontSize: 20,
-                    }}
-                />
-                )
-              }
 
               <TakePhoto
                 photoUrl={photo}
@@ -165,23 +152,6 @@ const Cooker: React.FC<Props> = ({
                         What were your thoughts?
                       </Text>
                     </Block>
-                    <Input
-                      placeholder='It was...'
-                      multiline
-                      style={{
-                        flex: 1,
-                        marginTop: theme.SIZES.BASE,
-                        minHeight: 60,
-                      }}
-                      labelStyle={{
-                        color: 'black',
-                        fontSize: 16,
-                        fontWeight: 'normal'
-                      }}
-                      textStyle={{
-                          fontSize: 20,
-                      }}
-                  />
                   </Block>
                 )
               }
@@ -208,40 +178,48 @@ const Cooker: React.FC<Props> = ({
                         What were your thoughts?
                       </Text>
                     </Block>
-                    <Input
-                      placeholder='It was...'
-                      multiline
-
-                      style={{
-                        flex: 1,
-                        marginTop: theme.SIZES.BASE,
-                      }}
-                      labelStyle={{
-                        color: 'black',
-                        fontSize: 16,
-                        fontWeight: 'normal'
-                      }}
-                      textStyle={{
-                        fontSize: 20,
-                        minHeight: 80,
-
-                      }}
-                  />
                   </Block>
                 )
               }
 
+              <Input
+                  placeholder='It was...'
+                  multiline
+                  style={{
+                    flex: 1,
+                    marginTop: theme.SIZES.BASE,
+                    minHeight: 60,
+                  }}
+                  labelStyle={{
+                    color: 'black',
+                    fontSize: 16,
+                    fontWeight: 'normal'
+                  }}
+                  textStyle={{
+                      fontSize: 20,
+                      minHeight: 80,
+                  }}
+                  onFocus={onFocus}
+                  value={description}
+                  onChangeText={setDescription}
+              />
+
             </Block>
 
             <Block style={styles.stats}>
-                <Block row space='between' middle>
+                <Block row space='between' middle style={{
+                  marginBottom: theme.SIZES.BASE,
+                  paddingBottom: theme.SIZES.BASE,
+                  borderBottomWidth: 1,
+                  borderBottomColor: '#f0f0f0'
+                }}>
                   <Tags tags={meal.preferences} />
                   <Button
                     appearance='ghost'
                     style={{ marginRight: -theme.SIZES.BASE }}
                     onPress={onEditTags}
                   >
-                    Edit
+                    Change tags
                   </Button>
                 </Block>
                 {
@@ -310,6 +288,7 @@ const Cooker: React.FC<Props> = ({
           </Button>
         </Block>
     </View>
+    </KeyboardAvoidingView>
   )
 };
 

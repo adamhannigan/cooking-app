@@ -25,27 +25,44 @@ const Tags = ({
     }]
 }: Props) => (
     <Block row>
-        <ExerciseSVG
-            width={25}
-            height={25}
-            style={{
-                marginRight: 5,
-            }}
-        />
-        <Text appearance='hint'>
-            {tags[0].name}
-        </Text>
-        <BakingSVG
-            width={25}
-            height={25}
-            style={{
-                marginRight: 5,
-                marginLeft: 10,
-            }}
-        />
-        <Text appearance='hint'>
-            {tags.length > 1 && tags[1].name}
-        </Text>
+        {
+            tags.length > 0 && (
+                <>
+                    <ExerciseSVG
+                        width={25}
+                        height={25}
+                        style={{
+                            marginRight: 5,
+                        }}
+                    />
+                    <Text
+                        appearance='hint'
+                        style={{
+                            fontFamily: 'Open Sans',
+                        }}
+                    >
+                        {tags[0].name}
+                    </Text>
+                </>
+            )
+        }
+        {
+            tags.length > 1 && (
+                <>
+                    <BakingSVG
+                        width={25}
+                        height={25}
+                        style={{
+                            marginRight: 5,
+                            marginLeft: 10,
+                        }}
+                    />
+                    <Text appearance='hint'>
+                        {tags[1].name}
+                    </Text>
+                </>
+            )
+        }
     </Block>
 )
 

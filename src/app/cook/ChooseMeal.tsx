@@ -62,6 +62,11 @@ const ChooseMeal = props => {
     await InProgressMealModel.save({
       title: search,
       image: photo,
+      preferences: [{
+        name: 'Food',
+      }],
+      ingredients: null,
+      steps: [],
     } as Meal)
 
     navigation.navigate('/cook/progress')
@@ -71,7 +76,7 @@ const ChooseMeal = props => {
   const scrollViewRef = React.useRef<ScrollView>(null)
   
   const onFocus = () => {
-    scrollViewRef.current.scrollTo(theme.SIZES.BASE * 14)
+    scrollViewRef.current.scrollTo(theme.SIZES.BASE * 21)
   }
   
   return (
@@ -121,7 +126,7 @@ const ChooseMeal = props => {
               }}
               onPress={onAddNewMeal}
             >
-              {`Add "${search}" +`}
+              {`Add new meal: "${search}"`}
             </Button>
             )
           }

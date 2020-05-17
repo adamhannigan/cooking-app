@@ -37,7 +37,9 @@ const Stack = createStackNavigator()
 console.disableYellowBox = true
 
 export type Routes = {
-  '/'
+  // There are nested routes in /home
+  '/home'
+
   '/meal/:id': {
     id: number
   }
@@ -72,7 +74,7 @@ function Navigation() {
   }
 
   const routes: RouteConfig<Routes, keyof Routes, object>[] = [ {
-    name: '/',
+    name: '/home',
     component: Home,
     options: {
         ...headerOptions,

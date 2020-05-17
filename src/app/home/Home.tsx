@@ -56,7 +56,6 @@ const Tab = createMaterialBottomTabNavigator();
 const Home = () => {
     const [inProgress, setInProgress] = React.useState<boolean>(false)
     const theme = useTheme()
-    const navigation = useNavigation()
     const isFocused = useIsFocused()
     const route = useRoute()
 
@@ -71,10 +70,9 @@ const Home = () => {
       }, [isFocused])
 
     const componentRoutes = [{
-        name: '/',
+        name: '/feed',
         component: Feed,
         options:{
-            tabBarLabel: 'Meals',
             tabBarIcon: ({ focused }) => (
                 focused
                     ? (
@@ -192,6 +190,8 @@ const Home = () => {
         }
       }]
 
+    console.log('Chosen route to render', route)
+
     return (
         <Tab.Navigator
             initialRouteName='/'
@@ -202,10 +202,9 @@ const Home = () => {
             }}
             activeColor='white'
             labeled={false}
-            
         >
             {
-              componentRoutes.map(route => (<Tab.Screen {...route} />))
+              componentRoutes.map(componentRoute => (<Tab.Screen {...componentRoute} />))
             }
         </Tab.Navigator>
     )

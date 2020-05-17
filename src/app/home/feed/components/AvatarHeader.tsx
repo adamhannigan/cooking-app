@@ -41,16 +41,23 @@ const AvatarHeader = ({
         })
     }
 
+    const kittenTheme = useTheme()
+
     return (
         <Block style={styles.container}>
             <TouchableOpacity onPress={onClick}>
                 <Block row>
-                    <Avatar
-                        style={styles.avatar}
-                        source={{
-                            uri: 'http://i.pravatar.cc/100?id=skater',
-                        }}
-                    />
+                    <Block style={{
+                        ...styles.avatarCircle,
+                        borderColor: kittenTheme['color-primary-default'],
+                    }}>
+                        <Avatar
+                            style={styles.avatar}
+                            source={{
+                                uri: 'http://i.pravatar.cc/100?id=skater',
+                            }}
+                        />
+                    </Block>
                     <Block>
                         <Text style={styles.text}>
                             { name }
@@ -79,12 +86,14 @@ const styles = StyleSheet.create({
     width: '100%',
   },
   avatar: {
-    marginRight: theme.SIZES.BASE / 2,
     width: 50,
     height: 50,
-
-    borderWidth: 1,
-    borderColor: '#ddd',
+  },
+  avatarCircle: { 
+    borderWidth: 2,
+    marginRight: theme.SIZES.BASE / 2,
+    borderRadius: 50,
+    padding: 2,
   },
   timeContainer: {
   },
