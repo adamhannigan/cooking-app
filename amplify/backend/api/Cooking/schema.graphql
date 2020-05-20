@@ -1,0 +1,66 @@
+type S3Object {
+  bucket: String!
+  region: String!
+  key: String!
+}
+
+type Media {
+    file: S3Object
+}
+
+type Ingredients {
+    image: Media
+    items: [String!]
+} 
+
+type Step {
+    image: Media
+    description: String!
+}
+
+type Like @model {
+  id: ID!
+  meal: Meal @connection(name: "MealLike")
+  createdBy: User @connection(name: "UserLike")
+  createdAt: AWSDateTime!
+}
+
+type Meal @model {
+  id: ID!
+  title: String!
+  image: Media
+  description: String
+  createdBy: User @connection(name: "UserMeal")
+  createdAt: AWSDateTime!
+
+  likes: [Like] @connection(name: "MealLike")
+  inspiredBy: Meal @connection
+  menuItem: MenuItem @connection(name: "MenuMeal")
+
+  recipe: String
+  ingredients: [Ingredients]
+  steps: [Step]
+  tags: [String!]
+}
+
+type MenuItem @model {
+  id: ID!
+  order: Int!
+
+  createdBy: User @connection(name: "UserMenuItem")
+  createdAt: AWSDateTime!
+  meal: Meal @connection(name: "MenuMeal")
+}
+
+type User @model {
+  id: ID!
+  firstName: String!
+  lastName: String!
+  email: String!
+  mobile: String
+  createdAt: AWSDateTime!
+
+  meals: [Meal] @connection(name: "UserMeal")
+  menuItems: [MenuItem] @connection(name: "UserMenuItem")
+  likes: [Meal] @connection(name: "UserLike")
+}

@@ -1,6 +1,6 @@
 {
     "identityPoolName": "cookingaca957bc_identitypool_aca957bc",
-    "allowUnauthenticatedIdentities": false,
+    "allowUnauthenticatedIdentities": true,
     "resourceNameTruncated": "cookinaca957bc",
     "userPoolName": "cookingaca957bc_userpool_aca957bc",
     "autoVerifiedAttributes": [

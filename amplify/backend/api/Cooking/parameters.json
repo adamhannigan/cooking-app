@@ -1,0 +1,11 @@
+{
+    "AppSyncApiName": "Cooking",
+    "DynamoDBBillingMode": "PAY_PER_REQUEST",
+    "DynamoDBEnableServerSideEncryption": "false",
+    "AuthCognitoUserPoolId": {
+        "Fn::GetAtt": [
+            "authcookingaca957bc",
+            "Outputs.UserPoolId"
+        ]
+    }
+}
