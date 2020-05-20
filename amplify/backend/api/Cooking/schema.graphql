@@ -62,5 +62,5 @@ type User @model {
 
   meals: [Meal] @connection(name: "UserMeal")
   menuItems: [MenuItem] @connection(name: "UserMenuItem")
-  likes: [Meal] @connection(name: "UserLike")
+  likes: [Like] @connection(name: "UserLike")
 }
