@@ -17,7 +17,7 @@ import {
   Block, theme
 } from 'galio-framework';
 
-import { Ingredients } from 'constants/dummyData'
+import { Ingredients, Media } from 'constants/dummyData'
 
 import IngredientsSVG from '../assets/ingredients.svg'
 
@@ -55,16 +55,14 @@ interface Props {
 const AddIngredients: React.FC<Props> = ({
     ingredients = {
         items: [null],
-        photo: null,
+        image: null,
     },
     onChange,
 }) => {
-  const onPhoto = (url?: string) => {
+  const onPhoto = (image?: Media) => {
     onChange({
         ...ingredients,
-        photo: url && {
-            url,
-        },
+        image,
     })
   }
 
@@ -97,7 +95,7 @@ const AddIngredients: React.FC<Props> = ({
             Add your ingredients
         </Text>
         <TakePhoto
-            photoUrl={ingredients.photo && ingredients.photo.url}
+            photoUrl={ingredients.image && ingredients.image.url}
             onPhoto={onPhoto}
         />
 

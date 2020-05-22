@@ -2,22 +2,13 @@
 // this is an auto generated file. This will be overwritten
 
 export const onCreateLike = /* GraphQL */ `
-  subscription OnCreateLike {
-    onCreateLike {
+  subscription OnCreateLike($owner: String!) {
+    onCreateLike(owner: $owner) {
       id
       meal {
         id
         title
         description
-        createdBy {
-          id
-          firstName
-          lastName
-          email
-          mobile
-          createdAt
-        }
-        createdAt
         likes {
           nextToken
         }
@@ -25,14 +16,23 @@ export const onCreateLike = /* GraphQL */ `
           id
           title
           description
-          createdAt
           recipe
           tags
+          owner
         }
         menuItem {
           id
           order
-          createdAt
+          owner
+        }
+        createdBy {
+          id
+          username
+          email
+          firstName
+          lastName
+          bio
+          owner
         }
         recipe
         ingredients {
@@ -42,14 +42,15 @@ export const onCreateLike = /* GraphQL */ `
           description
         }
         tags
+        owner
       }
-      createdBy {
+      likedBy {
         id
+        username
+        email
         firstName
         lastName
-        email
-        mobile
-        createdAt
+        bio
         meals {
           nextToken
         }
@@ -59,28 +60,20 @@ export const onCreateLike = /* GraphQL */ `
         likes {
           nextToken
         }
+        owner
       }
-      createdAt
+      owner
     }
   }
 `;
 export const onUpdateLike = /* GraphQL */ `
-  subscription OnUpdateLike {
-    onUpdateLike {
+  subscription OnUpdateLike($owner: String!) {
+    onUpdateLike(owner: $owner) {
       id
       meal {
         id
         title
         description
-        createdBy {
-          id
-          firstName
-          lastName
-          email
-          mobile
-          createdAt
-        }
-        createdAt
         likes {
           nextToken
         }
@@ -88,14 +81,23 @@ export const onUpdateLike = /* GraphQL */ `
           id
           title
           description
-          createdAt
           recipe
           tags
+          owner
         }
         menuItem {
           id
           order
-          createdAt
+          owner
+        }
+        createdBy {
+          id
+          username
+          email
+          firstName
+          lastName
+          bio
+          owner
         }
         recipe
         ingredients {
@@ -105,14 +107,15 @@ export const onUpdateLike = /* GraphQL */ `
           description
         }
         tags
+        owner
       }
-      createdBy {
+      likedBy {
         id
+        username
+        email
         firstName
         lastName
-        email
-        mobile
-        createdAt
+        bio
         meals {
           nextToken
         }
@@ -122,28 +125,20 @@ export const onUpdateLike = /* GraphQL */ `
         likes {
           nextToken
         }
+        owner
       }
-      createdAt
+      owner
     }
   }
 `;
 export const onDeleteLike = /* GraphQL */ `
-  subscription OnDeleteLike {
-    onDeleteLike {
+  subscription OnDeleteLike($owner: String!) {
+    onDeleteLike(owner: $owner) {
       id
       meal {
         id
         title
         description
-        createdBy {
-          id
-          firstName
-          lastName
-          email
-          mobile
-          createdAt
-        }
-        createdAt
         likes {
           nextToken
         }
@@ -151,14 +146,23 @@ export const onDeleteLike = /* GraphQL */ `
           id
           title
           description
-          createdAt
           recipe
           tags
+          owner
         }
         menuItem {
           id
           order
-          createdAt
+          owner
+        }
+        createdBy {
+          id
+          username
+          email
+          firstName
+          lastName
+          bio
+          owner
         }
         recipe
         ingredients {
@@ -168,14 +172,15 @@ export const onDeleteLike = /* GraphQL */ `
           description
         }
         tags
+        owner
       }
-      createdBy {
+      likedBy {
         id
+        username
+        email
         firstName
         lastName
-        email
-        mobile
-        createdAt
+        bio
         meals {
           nextToken
         }
@@ -185,14 +190,15 @@ export const onDeleteLike = /* GraphQL */ `
         likes {
           nextToken
         }
+        owner
       }
-      createdAt
+      owner
     }
   }
 `;
 export const onCreateMeal = /* GraphQL */ `
-  subscription OnCreateMeal {
-    onCreateMeal {
+  subscription OnCreateMeal($owner: String!) {
+    onCreateMeal(owner: $owner) {
       id
       title
       image {
@@ -203,28 +209,10 @@ export const onCreateMeal = /* GraphQL */ `
         }
       }
       description
-      createdBy {
-        id
-        firstName
-        lastName
-        email
-        mobile
-        createdAt
-        meals {
-          nextToken
-        }
-        menuItems {
-          nextToken
-        }
-        likes {
-          nextToken
-        }
-      }
-      createdAt
       likes {
         items {
           id
-          createdAt
+          owner
         }
         nextToken
       }
@@ -232,15 +220,6 @@ export const onCreateMeal = /* GraphQL */ `
         id
         title
         description
-        createdBy {
-          id
-          firstName
-          lastName
-          email
-          mobile
-          createdAt
-        }
-        createdAt
         likes {
           nextToken
         }
@@ -248,14 +227,23 @@ export const onCreateMeal = /* GraphQL */ `
           id
           title
           description
-          createdAt
           recipe
           tags
+          owner
         }
         menuItem {
           id
           order
-          createdAt
+          owner
+        }
+        createdBy {
+          id
+          username
+          email
+          firstName
+          lastName
+          bio
+          owner
         }
         recipe
         ingredients {
@@ -265,27 +253,47 @@ export const onCreateMeal = /* GraphQL */ `
           description
         }
         tags
+        owner
       }
       menuItem {
         id
         order
-        createdBy {
-          id
-          firstName
-          lastName
-          email
-          mobile
-          createdAt
-        }
-        createdAt
         meal {
           id
           title
           description
-          createdAt
           recipe
           tags
+          owner
         }
+        createdBy {
+          id
+          username
+          email
+          firstName
+          lastName
+          bio
+          owner
+        }
+        owner
+      }
+      createdBy {
+        id
+        username
+        email
+        firstName
+        lastName
+        bio
+        meals {
+          nextToken
+        }
+        menuItems {
+          nextToken
+        }
+        likes {
+          nextToken
+        }
+        owner
       }
       recipe
       ingredients {
@@ -295,12 +303,13 @@ export const onCreateMeal = /* GraphQL */ `
         description
       }
       tags
+      owner
     }
   }
 `;
 export const onUpdateMeal = /* GraphQL */ `
-  subscription OnUpdateMeal {
-    onUpdateMeal {
+  subscription OnUpdateMeal($owner: String!) {
+    onUpdateMeal(owner: $owner) {
       id
       title
       image {
@@ -311,28 +320,10 @@ export const onUpdateMeal = /* GraphQL */ `
         }
       }
       description
-      createdBy {
-        id
-        firstName
-        lastName
-        email
-        mobile
-        createdAt
-        meals {
-          nextToken
-        }
-        menuItems {
-          nextToken
-        }
-        likes {
-          nextToken
-        }
-      }
-      createdAt
       likes {
         items {
           id
-          createdAt
+          owner
         }
         nextToken
       }
@@ -340,15 +331,6 @@ export const onUpdateMeal = /* GraphQL */ `
         id
         title
         description
-        createdBy {
-          id
-          firstName
-          lastName
-          email
-          mobile
-          createdAt
-        }
-        createdAt
         likes {
           nextToken
         }
@@ -356,14 +338,23 @@ export const onUpdateMeal = /* GraphQL */ `
           id
           title
           description
-          createdAt
           recipe
           tags
+          owner
         }
         menuItem {
           id
           order
-          createdAt
+          owner
+        }
+        createdBy {
+          id
+          username
+          email
+          firstName
+          lastName
+          bio
+          owner
         }
         recipe
         ingredients {
@@ -373,27 +364,47 @@ export const onUpdateMeal = /* GraphQL */ `
           description
         }
         tags
+        owner
       }
       menuItem {
         id
         order
-        createdBy {
-          id
-          firstName
-          lastName
-          email
-          mobile
-          createdAt
-        }
-        createdAt
         meal {
           id
           title
           description
-          createdAt
           recipe
           tags
+          owner
         }
+        createdBy {
+          id
+          username
+          email
+          firstName
+          lastName
+          bio
+          owner
+        }
+        owner
+      }
+      createdBy {
+        id
+        username
+        email
+        firstName
+        lastName
+        bio
+        meals {
+          nextToken
+        }
+        menuItems {
+          nextToken
+        }
+        likes {
+          nextToken
+        }
+        owner
       }
       recipe
       ingredients {
@@ -403,12 +414,13 @@ export const onUpdateMeal = /* GraphQL */ `
         description
       }
       tags
+      owner
     }
   }
 `;
 export const onDeleteMeal = /* GraphQL */ `
-  subscription OnDeleteMeal {
-    onDeleteMeal {
+  subscription OnDeleteMeal($owner: String!) {
+    onDeleteMeal(owner: $owner) {
       id
       title
       image {
@@ -419,28 +431,10 @@ export const onDeleteMeal = /* GraphQL */ `
         }
       }
       description
-      createdBy {
-        id
-        firstName
-        lastName
-        email
-        mobile
-        createdAt
-        meals {
-          nextToken
-        }
-        menuItems {
-          nextToken
-        }
-        likes {
-          nextToken
-        }
-      }
-      createdAt
       likes {
         items {
           id
-          createdAt
+          owner
         }
         nextToken
       }
@@ -448,15 +442,6 @@ export const onDeleteMeal = /* GraphQL */ `
         id
         title
         description
-        createdBy {
-          id
-          firstName
-          lastName
-          email
-          mobile
-          createdAt
-        }
-        createdAt
         likes {
           nextToken
         }
@@ -464,14 +449,23 @@ export const onDeleteMeal = /* GraphQL */ `
           id
           title
           description
-          createdAt
           recipe
           tags
+          owner
         }
         menuItem {
           id
           order
-          createdAt
+          owner
+        }
+        createdBy {
+          id
+          username
+          email
+          firstName
+          lastName
+          bio
+          owner
         }
         recipe
         ingredients {
@@ -481,27 +475,47 @@ export const onDeleteMeal = /* GraphQL */ `
           description
         }
         tags
+        owner
       }
       menuItem {
         id
         order
-        createdBy {
-          id
-          firstName
-          lastName
-          email
-          mobile
-          createdAt
-        }
-        createdAt
         meal {
           id
           title
           description
-          createdAt
           recipe
           tags
+          owner
         }
+        createdBy {
+          id
+          username
+          email
+          firstName
+          lastName
+          bio
+          owner
+        }
+        owner
+      }
+      createdBy {
+        id
+        username
+        email
+        firstName
+        lastName
+        bio
+        meals {
+          nextToken
+        }
+        menuItems {
+          nextToken
+        }
+        likes {
+          nextToken
+        }
+        owner
       }
       recipe
       ingredients {
@@ -511,45 +525,19 @@ export const onDeleteMeal = /* GraphQL */ `
         description
       }
       tags
+      owner
     }
   }
 `;
 export const onCreateMenuItem = /* GraphQL */ `
-  subscription OnCreateMenuItem {
-    onCreateMenuItem {
+  subscription OnCreateMenuItem($owner: String!) {
+    onCreateMenuItem(owner: $owner) {
       id
       order
-      createdBy {
-        id
-        firstName
-        lastName
-        email
-        mobile
-        createdAt
-        meals {
-          nextToken
-        }
-        menuItems {
-          nextToken
-        }
-        likes {
-          nextToken
-        }
-      }
-      createdAt
       meal {
         id
         title
         description
-        createdBy {
-          id
-          firstName
-          lastName
-          email
-          mobile
-          createdAt
-        }
-        createdAt
         likes {
           nextToken
         }
@@ -557,14 +545,23 @@ export const onCreateMenuItem = /* GraphQL */ `
           id
           title
           description
-          createdAt
           recipe
           tags
+          owner
         }
         menuItem {
           id
           order
-          createdAt
+          owner
+        }
+        createdBy {
+          id
+          username
+          email
+          firstName
+          lastName
+          bio
+          owner
         }
         recipe
         ingredients {
@@ -574,46 +571,39 @@ export const onCreateMenuItem = /* GraphQL */ `
           description
         }
         tags
+        owner
       }
+      createdBy {
+        id
+        username
+        email
+        firstName
+        lastName
+        bio
+        meals {
+          nextToken
+        }
+        menuItems {
+          nextToken
+        }
+        likes {
+          nextToken
+        }
+        owner
+      }
+      owner
     }
   }
 `;
 export const onUpdateMenuItem = /* GraphQL */ `
-  subscription OnUpdateMenuItem {
-    onUpdateMenuItem {
+  subscription OnUpdateMenuItem($owner: String!) {
+    onUpdateMenuItem(owner: $owner) {
       id
       order
-      createdBy {
-        id
-        firstName
-        lastName
-        email
-        mobile
-        createdAt
-        meals {
-          nextToken
-        }
-        menuItems {
-          nextToken
-        }
-        likes {
-          nextToken
-        }
-      }
-      createdAt
       meal {
         id
         title
         description
-        createdBy {
-          id
-          firstName
-          lastName
-          email
-          mobile
-          createdAt
-        }
-        createdAt
         likes {
           nextToken
         }
@@ -621,14 +611,23 @@ export const onUpdateMenuItem = /* GraphQL */ `
           id
           title
           description
-          createdAt
           recipe
           tags
+          owner
         }
         menuItem {
           id
           order
-          createdAt
+          owner
+        }
+        createdBy {
+          id
+          username
+          email
+          firstName
+          lastName
+          bio
+          owner
         }
         recipe
         ingredients {
@@ -638,46 +637,39 @@ export const onUpdateMenuItem = /* GraphQL */ `
           description
         }
         tags
+        owner
       }
+      createdBy {
+        id
+        username
+        email
+        firstName
+        lastName
+        bio
+        meals {
+          nextToken
+        }
+        menuItems {
+          nextToken
+        }
+        likes {
+          nextToken
+        }
+        owner
+      }
+      owner
     }
   }
 `;
 export const onDeleteMenuItem = /* GraphQL */ `
-  subscription OnDeleteMenuItem {
-    onDeleteMenuItem {
+  subscription OnDeleteMenuItem($owner: String!) {
+    onDeleteMenuItem(owner: $owner) {
       id
       order
-      createdBy {
-        id
-        firstName
-        lastName
-        email
-        mobile
-        createdAt
-        meals {
-          nextToken
-        }
-        menuItems {
-          nextToken
-        }
-        likes {
-          nextToken
-        }
-      }
-      createdAt
       meal {
         id
         title
         description
-        createdBy {
-          id
-          firstName
-          lastName
-          email
-          mobile
-          createdAt
-        }
-        createdAt
         likes {
           nextToken
         }
@@ -685,14 +677,23 @@ export const onDeleteMenuItem = /* GraphQL */ `
           id
           title
           description
-          createdAt
           recipe
           tags
+          owner
         }
         menuItem {
           id
           order
-          createdAt
+          owner
+        }
+        createdBy {
+          id
+          username
+          email
+          firstName
+          lastName
+          bio
+          owner
         }
         recipe
         ingredients {
@@ -702,27 +703,54 @@ export const onDeleteMenuItem = /* GraphQL */ `
           description
         }
         tags
+        owner
       }
+      createdBy {
+        id
+        username
+        email
+        firstName
+        lastName
+        bio
+        meals {
+          nextToken
+        }
+        menuItems {
+          nextToken
+        }
+        likes {
+          nextToken
+        }
+        owner
+      }
+      owner
     }
   }
 `;
 export const onCreateUser = /* GraphQL */ `
-  subscription OnCreateUser {
-    onCreateUser {
+  subscription OnCreateUser($owner: String!) {
+    onCreateUser(owner: $owner) {
       id
+      username
+      email
       firstName
       lastName
-      email
-      mobile
-      createdAt
+      bio
+      image {
+        file {
+          bucket
+          region
+          key
+        }
+      }
       meals {
         items {
           id
           title
           description
-          createdAt
           recipe
           tags
+          owner
         }
         nextToken
       }
@@ -730,37 +758,45 @@ export const onCreateUser = /* GraphQL */ `
         items {
           id
           order
-          createdAt
+          owner
         }
         nextToken
       }
       likes {
         items {
           id
-          createdAt
+          owner
         }
         nextToken
       }
+      owner
     }
   }
 `;
 export const onUpdateUser = /* GraphQL */ `
-  subscription OnUpdateUser {
-    onUpdateUser {
+  subscription OnUpdateUser($owner: String!) {
+    onUpdateUser(owner: $owner) {
       id
+      username
+      email
       firstName
       lastName
-      email
-      mobile
-      createdAt
+      bio
+      image {
+        file {
+          bucket
+          region
+          key
+        }
+      }
       meals {
         items {
           id
           title
           description
-          createdAt
           recipe
           tags
+          owner
         }
         nextToken
       }
@@ -768,37 +804,45 @@ export const onUpdateUser = /* GraphQL */ `
         items {
           id
           order
-          createdAt
+          owner
         }
         nextToken
       }
       likes {
         items {
           id
-          createdAt
+          owner
         }
         nextToken
       }
+      owner
     }
   }
 `;
 export const onDeleteUser = /* GraphQL */ `
-  subscription OnDeleteUser {
-    onDeleteUser {
+  subscription OnDeleteUser($owner: String!) {
+    onDeleteUser(owner: $owner) {
       id
+      username
+      email
       firstName
       lastName
-      email
-      mobile
-      createdAt
+      bio
+      image {
+        file {
+          bucket
+          region
+          key
+        }
+      }
       meals {
         items {
           id
           title
           description
-          createdAt
           recipe
           tags
+          owner
         }
         nextToken
       }
@@ -806,17 +850,18 @@ export const onDeleteUser = /* GraphQL */ `
         items {
           id
           order
-          createdAt
+          owner
         }
         nextToken
       }
       likes {
         items {
           id
-          createdAt
+          owner
         }
         nextToken
       }
+      owner
     }
   }
 `;

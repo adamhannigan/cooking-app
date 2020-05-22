@@ -5,11 +5,15 @@ import {
   TouchableOpacity,
 } from 'react-native';
 
-import * as ImagePicker from 'expo-image-picker'
+import {
+  launchCameraAsync,
+  requestCameraPermissionsAsync,
+  MediaTypeOptions,
+} from 'expo-image-picker'
 
 import { Button, Spinner } from '@ui-kitten/components'
 
-import { Meal } from 'constants/dummyData'
+import { Media } from 'constants/dummyData'
 
 // galio components
 import {
@@ -18,6 +22,7 @@ import {
 
 
 import CameraSVG from '../assets/camera.svg'
+import { upload } from 'domain/meals/api/uploadImage';
 
 export { CookHeaderButton } from '../CookHeaderButton'
 
@@ -49,31 +54,41 @@ const styles = StyleSheet.create({
   },
 });
 
+
 interface Props {
-    onPhoto: (url: string) => void
-    photoUrl: string
+    onPhoto: (photo: Media) => void
+    photo: Media
 }
 
 const TakePhoto: React.FC<Props> = ({
   onPhoto,
-  photoUrl,
+  photo,
 }) => {
   const [isLoading, setIsLoading] = React.useState(false)
 
   const onTakePhoto = async () => {
-    await ImagePicker.requestCameraPermissionsAsync()
+    await requestCameraPermissionsAsync()
     
     setIsLoading(true)
 
-    let result = await ImagePicker.launchCameraAsync({
-      mediaTypes: ImagePicker.MediaTypeOptions.Images,
+    let result = await launchCameraAsync({
+      mediaTypes: MediaTypeOptions.Images,
       quality: 1
     });
 
     if (!result.cancelled) {
+      const url = result.uri
+
+      const { s3Path } = await upload({
+        fileName: 'mealIMage.jpg',
+        fileUrl: url,
+      })
       await new Promise(res => setTimeout(res, 500))
 
-      onPhoto(result.uri)
+      onPhoto({
+        url,
+        s3Path,
+      })
     }
 
     setIsLoading(false)
@@ -93,7 +108,7 @@ const TakePhoto: React.FC<Props> = ({
           )
         }
         {
-            !isLoading && !photoUrl && [
+            !isLoading && !photo && [
                 <CameraSVG
                 width={100}
                 height={100}
@@ -115,10 +130,10 @@ const TakePhoto: React.FC<Props> = ({
         }
 
         {
-            !isLoading && photoUrl &&  (
+            !isLoading && photo &&  (
               <Image
                   source={{
-                      uri: photoUrl
+                      uri: photo.url
                   }}
                   style={styles.image}
               />

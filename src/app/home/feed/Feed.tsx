@@ -16,8 +16,6 @@ import {
 
 import { useRoute, useIsFocused } from '@react-navigation/native'
 
-import { Meal } from '../../../constants/dummyData'
-
 import MealSummary from 'app/profile/components/MealSummary'
 import MealBoardIcon from 'app/home/assets/menu.svg'
 
@@ -25,7 +23,7 @@ import MealCard from './components/MealCard'
 import AvatarHeader from './components/AvatarHeader'
 
 import InProgressMeal from './components/InProgressMeal';
-import { MealsModel } from 'domain/meals/model';
+import { MealsModel, Meal } from 'domain/meals/model';
 
 const { width, height } = Dimensions.get('screen');
 
@@ -56,9 +54,9 @@ const Feed = props => {
                     <Block style={styles.item}>
                       <AvatarHeader
                         avatarUrl=''
-                        name={meal.user.name}
+                        name={meal.createdBy.username}
                         time='10 hrs ago'
-                        userId={meal.user.id}
+                        userId={meal.createdBy.id}
                       />
                       <MealCard
                         {...meal}

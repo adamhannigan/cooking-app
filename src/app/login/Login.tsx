@@ -8,20 +8,26 @@ import { Auth } from 'aws-amplify'
 import {
   Block, Button, Input, NavBar, Text, theme,
 } from 'galio-framework';
+import { UserModel } from 'domain/users/model';
+import { useNavigation } from '@react-navigation/native';
+import { NavProp } from 'Navigation';
+import { AuthModel } from 'domain/auth/model';
 
 const { height, width } = Dimensions.get('window');
 
-const Login = ({ navigation }: any) => {
+const Login = () => {
     const [username, setUsername] = React.useState<string>('')
     const [password, setPassword] = React.useState<string>('')
     const [isLoading, setIsLoading] = React.useState<boolean>(false)
     const [error, setError] = React.useState<string>('')
 
+    const navigation = useNavigation<NavProp>()
+
     const onLogin = async () => {
       setIsLoading(true)
 
       try {
-        await Auth.signIn({
+        await AuthModel.login({
           username,
           password,
         })
@@ -86,7 +92,7 @@ const Login = ({ navigation }: any) => {
               >
                 Sign in
               </Button>
-              <Button color="transparent" shadowless onPress={() => navigation.navigate('Register')}>
+              <Button color="transparent" shadowless onPress={() => navigation.navigate('/register')}>
                 <Text center color={theme.COLORS.ERROR} size={theme.SIZES.FONT * 0.75}>
                   {"Don't have an account? Sign Up"}
                 </Text>

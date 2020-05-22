@@ -6,37 +6,41 @@ import {
   KeyboardAvoidingView,
   Platform,
 } from 'react-native';
+
 // galio component
 import {
   Block, Button, Input, Text, NavBar, theme,
 } from 'galio-framework';
 
-import { Auth } from 'aws-amplify'
+import { useNavigation } from '@react-navigation/native';
+import { NavProp } from 'Navigation';
+import { AuthModel } from 'domain/auth/model';
 
 const { height, width } = Dimensions.get('window');
 
-const Login = ({ navigation }) => {
+const Login = () => {
   const [username, setUsername] = React.useState<string>('')
   const [password, setPassword] = React.useState<string>('')
   const [email, setEmail] = React.useState<string>('')
   const [isLoading, setIsLoading] = React.useState<boolean>(false)
   const [error, setError] = React.useState<string>('')
 
+  const navigation = useNavigation<NavProp>()
+
   const onSignUp = async () => {
     setIsLoading(true)
 
     try {
-      await Auth.signUp({
+      await AuthModel.register({
         username,
         password,
-        attributes: {
-          email,
-        },
+        email,
       })
 
-      navigation.navigate('Login')
+      navigation.navigate('/login')
     } catch (error) {
-      setError(error.code)
+      console.log('Uh oh', error)
+      setError(error.code || error)
     }
 
     setIsLoading(false)
@@ -46,7 +50,6 @@ const Login = ({ navigation }) => {
     <Block safe flex style={{ backgroundColor: theme.COLORS.WHITE }}>
         <NavBar
           title="Sign Up"
-          onLeftPress={() => navigation.openDrawer()}
           style={Platform.OS === 'android' ? { marginTop: theme.SIZES.BASE } : null}
         />
         <KeyboardAvoidingView style={styles.container} behavior="height" enabled>
@@ -89,7 +92,7 @@ const Login = ({ navigation }) => {
                 loading={isLoading}>
                 Sign up
               </Button>
-              <Button color="transparent" shadowless onPress={() => navigation.navigate('Login')}>
+              <Button color="transparent" shadowless onPress={() => navigation.navigate('/login')}>
                 <Text center color={theme.COLORS.ERROR} size={theme.SIZES.FONT * 0.75}>
                   Already have an account? Sign In
                 </Text>

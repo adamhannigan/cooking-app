@@ -12,7 +12,7 @@ import { useNavigation, useRoute } from '@react-navigation/native'
 
 import { Text, Input, Button, Avatar } from '@ui-kitten/components'
 
-import { Meal } from 'constants/dummyData'
+import { Meal, Media } from 'constants/dummyData'
 import { InProgressMealModel } from 'domain/inProgressMeals/model'
 
 // galio components
@@ -67,15 +67,17 @@ interface Props {
 const Cooker: React.FC<Props> = ({
     meal,
 }) => {
-  const [photo, setPhoto] = React.useState<string>(meal.image)
+  const [photo, setPhoto] = React.useState<Media>(meal.image)
   const [description, setDescription] = React.useState<string>(meal.tip || '')
 
   const { navigate, setOptions } = useNavigation<NavProp>()
 
   const onDone = async () => {
-    await save()
-
-    await MealsModel.addFakeMeal(meal)
+    await MealsModel.create({
+      title: meal.title,
+      description: meal.tip,
+      // TODO - image
+    })
 
     await InProgressMealModel.clear()
 
@@ -125,7 +127,7 @@ const Cooker: React.FC<Props> = ({
             <Block>
 
               <TakePhoto
-                photoUrl={photo}
+                photo={photo}
                 onPhoto={setPhoto}
               />
 

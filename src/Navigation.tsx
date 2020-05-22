@@ -26,7 +26,6 @@ import Recipe from 'app/cook/Recipe'
 import { CookHeaderButton } from 'app/cook/components/Cooker'
 import InProgress from 'app/cook/InProgress'
 import Tags from './app/cook/Tags'
-import { CameraView } from './app/cook/components/Camera'
 
 import BookmarkButton from 'app/home/components/BookmarkButton';
 import CookNowButton from 'app/home/components/CookNowButton';
@@ -37,6 +36,8 @@ const Stack = createStackNavigator()
 console.disableYellowBox = true
 
 export type Routes = {
+  '/login'
+  '/register'
   // There are nested routes in /home
   '/home'
 
@@ -46,7 +47,11 @@ export type Routes = {
   '/profile/:id': {
     id: number
   }
+
+  '/onboard/preferences'
+  '/onboard/follow'
   '/onboard/meals'
+
   '/favourites'
   '/cook/details/:id': {
     id?: number
@@ -73,7 +78,15 @@ function Navigation() {
     },
   }
 
-  const routes: RouteConfig<Routes, keyof Routes, object>[] = [ {
+  const routes: RouteConfig<Routes, keyof Routes, object>[] = [{
+    name: '/login',
+    component: Login,
+    options: headerOptions,
+  }, {
+    name: '/register',
+    component: Register,
+    options: headerOptions,
+  },{
     name: '/home',
     component: Home,
     options: {
@@ -103,10 +116,18 @@ function Navigation() {
     component: Profile,
     options: headerOptions,
   }, {
+    name: '/onboard/preferences',
+    component: Preferences,
+    options: headerOptions,
+  }, {
+    name: '/onboard/people',
+    component: Follow,
+    options: headerOptions,
+  }, {
     name: '/onboard/meals',
     component: OnboardMeals,
     options: headerOptions,
-  }, {
+  },  {
     name: '/favourites',
     component: Favourites,
     options: {
@@ -149,30 +170,6 @@ function Navigation() {
             {
               routes.map(route => (<Stack.Screen {...route} />))
             }
-
-            <Stack.Screen
-              name="Follow"
-              component={Follow}
-              options={headerOptions}
-            />
-
-
-            <Stack.Screen
-              name="Preferences"
-              component={Preferences}
-              options={headerOptions}
-            />
-
-            <Stack.Screen
-                name="Login"
-                component={Login}
-            />
-
-            <Stack.Screen
-              name="Register"
-              component={Register}
-              options={headerOptions}
-            />
         </Stack.Navigator>
     </NavigationContainer>
   );

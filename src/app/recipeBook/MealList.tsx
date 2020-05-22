@@ -12,7 +12,7 @@ import {
   Block, theme
 } from 'galio-framework';
 
-import { Recommendations } from 'app/cook/components/Recommendations'
+import { Recommendations } from 'app/recipeBook/components/Recommendations'
 import { Search } from 'app/cook/components/Search'
 import { Meal } from 'constants/dummyData'
 import { Routes, NavProp } from 'Navigation'

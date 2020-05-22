@@ -1,6 +1,6 @@
 type S3Object {
-  bucket: String!
-  region: String!
+  bucket: String
+  region: String
   key: String!
 }
 
@@ -18,24 +18,28 @@ type Step {
     description: String!
 }
 
-type Like @model {
+type Like @model @auth(rules: [{
+  allow: owner,
+  operations: [create, update, delete]
+}]) {
   id: ID!
   meal: Meal @connection(name: "MealLike")
-  createdBy: User @connection(name: "UserLike")
-  createdAt: AWSDateTime!
+  likedBy: User @connection(name: "UserLike")
 }
 
-type Meal @model {
+type Meal @model @auth(rules: [{
+  allow: owner,
+  operations: [create, update, delete]
+}]) {
   id: ID!
   title: String!
   image: Media
   description: String
-  createdBy: User @connection(name: "UserMeal")
-  createdAt: AWSDateTime!
 
   likes: [Like] @connection(name: "MealLike")
   inspiredBy: Meal @connection
   menuItem: MenuItem @connection(name: "MenuMeal")
+  createdBy: User @connection(name: "UserMeal")
 
   recipe: String
   ingredients: [Ingredients]
@@ -43,22 +47,28 @@ type Meal @model {
   tags: [String!]
 }
 
-type MenuItem @model {
+type MenuItem @model @auth(rules: [{
+  allow: owner,
+  operations: [create, update, delete]
+}]) {
   id: ID!
   order: Int!
 
-  createdBy: User @connection(name: "UserMenuItem")
-  createdAt: AWSDateTime!
   meal: Meal @connection(name: "MenuMeal")
+  createdBy: User @connection(name: "UserMenuItem")
 }
 
-type User @model {
+type User @model @auth(rules: [{
+  allow: owner,
+  operations: [create, update, delete]
+}]){
   id: ID!
-  firstName: String!
-  lastName: String!
-  email: String!
-  mobile: String
-  createdAt: AWSDateTime!
+  username: String!
+  email: String
+  firstName: String
+  lastName: String
+  bio: String
+  image: Media
 
   meals: [Meal] @connection(name: "UserMeal")
   menuItems: [MenuItem] @connection(name: "UserMenuItem")

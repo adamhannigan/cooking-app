@@ -88,7 +88,7 @@ const ChooseMeal = props => {
         <Block style={{ marginTop: -theme.SIZES.BASE * 2 }}>
           <Block flex style={styles.header}>
             <TakePhoto
-              photoUrl={photo}
+              photo={photo}
               onPhoto={setPhoto}
             />
             <Text category='h5'>

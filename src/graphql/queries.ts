@@ -9,15 +9,6 @@ export const getLike = /* GraphQL */ `
         id
         title
         description
-        createdBy {
-          id
-          firstName
-          lastName
-          email
-          mobile
-          createdAt
-        }
-        createdAt
         likes {
           nextToken
         }
@@ -25,14 +16,23 @@ export const getLike = /* GraphQL */ `
           id
           title
           description
-          createdAt
           recipe
           tags
+          owner
         }
         menuItem {
           id
           order
-          createdAt
+          owner
+        }
+        createdBy {
+          id
+          username
+          email
+          firstName
+          lastName
+          bio
+          owner
         }
         recipe
         ingredients {
@@ -42,14 +42,15 @@ export const getLike = /* GraphQL */ `
           description
         }
         tags
+        owner
       }
-      createdBy {
+      likedBy {
         id
+        username
+        email
         firstName
         lastName
-        email
-        mobile
-        createdAt
+        bio
         meals {
           nextToken
         }
@@ -59,8 +60,9 @@ export const getLike = /* GraphQL */ `
         likes {
           nextToken
         }
+        owner
       }
-      createdAt
+      owner
     }
   }
 `;
@@ -77,19 +79,20 @@ export const listLikes = /* GraphQL */ `
           id
           title
           description
-          createdAt
           recipe
           tags
+          owner
         }
-        createdBy {
+        likedBy {
           id
+          username
+          email
           firstName
           lastName
-          email
-          mobile
-          createdAt
+          bio
+          owner
         }
-        createdAt
+        owner
       }
       nextToken
     }
@@ -108,28 +111,10 @@ export const getMeal = /* GraphQL */ `
         }
       }
       description
-      createdBy {
-        id
-        firstName
-        lastName
-        email
-        mobile
-        createdAt
-        meals {
-          nextToken
-        }
-        menuItems {
-          nextToken
-        }
-        likes {
-          nextToken
-        }
-      }
-      createdAt
       likes {
         items {
           id
-          createdAt
+          owner
         }
         nextToken
       }
@@ -137,15 +122,6 @@ export const getMeal = /* GraphQL */ `
         id
         title
         description
-        createdBy {
-          id
-          firstName
-          lastName
-          email
-          mobile
-          createdAt
-        }
-        createdAt
         likes {
           nextToken
         }
@@ -153,14 +129,23 @@ export const getMeal = /* GraphQL */ `
           id
           title
           description
-          createdAt
           recipe
           tags
+          owner
         }
         menuItem {
           id
           order
-          createdAt
+          owner
+        }
+        createdBy {
+          id
+          username
+          email
+          firstName
+          lastName
+          bio
+          owner
         }
         recipe
         ingredients {
@@ -170,27 +155,47 @@ export const getMeal = /* GraphQL */ `
           description
         }
         tags
+        owner
       }
       menuItem {
         id
         order
-        createdBy {
-          id
-          firstName
-          lastName
-          email
-          mobile
-          createdAt
-        }
-        createdAt
         meal {
           id
           title
           description
-          createdAt
           recipe
           tags
+          owner
         }
+        createdBy {
+          id
+          username
+          email
+          firstName
+          lastName
+          bio
+          owner
+        }
+        owner
+      }
+      createdBy {
+        id
+        username
+        email
+        firstName
+        lastName
+        bio
+        meals {
+          nextToken
+        }
+        menuItems {
+          nextToken
+        }
+        likes {
+          nextToken
+        }
+        owner
       }
       recipe
       ingredients {
@@ -200,6 +205,7 @@ export const getMeal = /* GraphQL */ `
         description
       }
       tags
+      owner
     }
   }
 `;
@@ -214,15 +220,6 @@ export const listMeals = /* GraphQL */ `
         id
         title
         description
-        createdBy {
-          id
-          firstName
-          lastName
-          email
-          mobile
-          createdAt
-        }
-        createdAt
         likes {
           nextToken
         }
@@ -230,14 +227,23 @@ export const listMeals = /* GraphQL */ `
           id
           title
           description
-          createdAt
           recipe
           tags
+          owner
         }
         menuItem {
           id
           order
-          createdAt
+          owner
+        }
+        createdBy {
+          id
+          username
+          email
+          firstName
+          lastName
+          bio
+          owner
         }
         recipe
         ingredients {
@@ -247,6 +253,7 @@ export const listMeals = /* GraphQL */ `
           description
         }
         tags
+        owner
       }
       nextToken
     }
@@ -257,37 +264,10 @@ export const getMenuItem = /* GraphQL */ `
     getMenuItem(id: $id) {
       id
       order
-      createdBy {
-        id
-        firstName
-        lastName
-        email
-        mobile
-        createdAt
-        meals {
-          nextToken
-        }
-        menuItems {
-          nextToken
-        }
-        likes {
-          nextToken
-        }
-      }
-      createdAt
       meal {
         id
         title
         description
-        createdBy {
-          id
-          firstName
-          lastName
-          email
-          mobile
-          createdAt
-        }
-        createdAt
         likes {
           nextToken
         }
@@ -295,14 +275,23 @@ export const getMenuItem = /* GraphQL */ `
           id
           title
           description
-          createdAt
           recipe
           tags
+          owner
         }
         menuItem {
           id
           order
-          createdAt
+          owner
+        }
+        createdBy {
+          id
+          username
+          email
+          firstName
+          lastName
+          bio
+          owner
         }
         recipe
         ingredients {
@@ -312,7 +301,27 @@ export const getMenuItem = /* GraphQL */ `
           description
         }
         tags
+        owner
       }
+      createdBy {
+        id
+        username
+        email
+        firstName
+        lastName
+        bio
+        meals {
+          nextToken
+        }
+        menuItems {
+          nextToken
+        }
+        likes {
+          nextToken
+        }
+        owner
+      }
+      owner
     }
   }
 `;
@@ -326,23 +335,24 @@ export const listMenuItems = /* GraphQL */ `
       items {
         id
         order
-        createdBy {
-          id
-          firstName
-          lastName
-          email
-          mobile
-          createdAt
-        }
-        createdAt
         meal {
           id
           title
           description
-          createdAt
           recipe
           tags
+          owner
         }
+        createdBy {
+          id
+          username
+          email
+          firstName
+          lastName
+          bio
+          owner
+        }
+        owner
       }
       nextToken
     }
@@ -352,19 +362,26 @@ export const getUser = /* GraphQL */ `
   query GetUser($id: ID!) {
     getUser(id: $id) {
       id
+      username
+      email
       firstName
       lastName
-      email
-      mobile
-      createdAt
+      bio
+      image {
+        file {
+          bucket
+          region
+          key
+        }
+      }
       meals {
         items {
           id
           title
           description
-          createdAt
           recipe
           tags
+          owner
         }
         nextToken
       }
@@ -372,17 +389,18 @@ export const getUser = /* GraphQL */ `
         items {
           id
           order
-          createdAt
+          owner
         }
         nextToken
       }
       likes {
         items {
           id
-          createdAt
+          owner
         }
         nextToken
       }
+      owner
     }
   }
 `;
@@ -395,11 +413,11 @@ export const listUsers = /* GraphQL */ `
     listUsers(filter: $filter, limit: $limit, nextToken: $nextToken) {
       items {
         id
+        username
+        email
         firstName
         lastName
-        email
-        mobile
-        createdAt
+        bio
         meals {
           nextToken
         }
@@ -409,6 +427,7 @@ export const listUsers = /* GraphQL */ `
         likes {
           nextToken
         }
+        owner
       }
       nextToken
     }

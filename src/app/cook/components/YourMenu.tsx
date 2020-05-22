@@ -21,7 +21,7 @@ import {
 import { meals, Meal } from '../../../constants/dummyData'
 
 import { MealBox } from './MealBox'
-import { DroolModel } from 'domain/drools/model';
+import { LikeModel } from 'domain/likes/model';
 
 const { width } = Dimensions.get('screen');
 

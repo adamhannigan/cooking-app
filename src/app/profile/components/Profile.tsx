@@ -30,7 +30,7 @@ import {
 } from 'galio-framework';
 
 import { meals } from 'constants/dummyData'
-import { DroolModel } from 'domain/drools/model';
+import { LikeModel } from 'domain/likes/model';
 import { InProgressMealModel } from 'domain/inProgressMeals/model';
 import { MealsModel } from 'domain/meals/model';
 const { width, height } = Dimensions.get('screen');
@@ -53,7 +53,7 @@ const Menu = ({ id, isCurrentUser }: Props) => {
   
   // HACK to go back to start of onboarding
   const onBackToStart = () => {
-    DroolModel.reset()
+    LikeModel.reset()
     InProgressMealModel.clear()
     MealsModel.clear()
     

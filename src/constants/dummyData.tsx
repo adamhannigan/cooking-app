@@ -155,28 +155,24 @@ const preferences = {
 }
 
 export interface Step {
-  photo?: {
-    url: string
-  }
-  video?: {
-    url: string
-  }
+  image?: Media
   description: string
 }
 
 export interface Ingredients {
-  photo: {
-    url: string
-  }
+  image: Media
   items: string[]
 }
 
+export interface Media {
+  url: string
+  s3Path?: string
+}
 
 export interface Meal {
     id: number
     title: string
-    image: string
-    action: string
+    image: Media
     user?: User
     preferences: Preference[]
     likes: number
@@ -184,7 +180,7 @@ export interface Meal {
     tip?: string
     ingredients?: Ingredients
     steps: Step[]
-  }
+}
 
 
 export const people: User[] = [{
@@ -228,14 +224,16 @@ const recipeBook = {
   sweetPotatoGnocci: {
     id: 1,
     title: 'Sweet Potato Gnocci',
-    image: 'https://img.buzzfeed.com/thumbnailer-prod-us-east-1/video-api/assets/125259.jpg?output-quality=100&resize=900:*',
+    image: {
+      url: 'https://img.buzzfeed.com/thumbnailer-prod-us-east-1/video-api/assets/125259.jpg?output-quality=100&resize=900:*',
+    },
     recipe: 'https://img.buzzfeed.com/thumbnailer-prod-us-east-1/video-api/assets/125259.jpg?output-quality=100&resize=900:*',
     tip: 'Make sure you have a clean surface to roll the gnocci!',
     user: people[0],
     likes: 22,
     preferences: [preferences.vegetarian, preferences.pasta],
     ingredients: {
-      photo: {
+      image: {
         url: 'https://img.buzzfeed.com/thumbnailer-prod-us-east-1/video-api/assets/125259.jpg?output-quality=100&resize=900:*',
       },
       items: [
@@ -246,7 +244,7 @@ const recipeBook = {
       ],
     },
     steps: [{
-      photo: {
+      image: {
         url: 'https://img.buzzfeed.com/thumbnailer-prod-us-east-1/video-api/assets/125259.jpg?output-quality=100&resize=900:*',
       },
       description: 'Boil and chop the mash potato'
@@ -261,7 +259,9 @@ const recipeBook = {
   creamyCajunPasta: {
     id: 3,
     title: 'Creamy Cajun Pasta',
-    image: 'https://img.buzzfeed.com/video-api-prod/assets/ec15137f921a40f49317cd75d38a961d/BFV14804_Meal-PrepGarlicChickenAndVeggiePasta-TextlessThumb.jpg?output-quality=100&resize=900:*',
+    image: {
+      url: 'https://img.buzzfeed.com/video-api-prod/assets/ec15137f921a40f49317cd75d38a961d/BFV14804_Meal-PrepGarlicChickenAndVeggiePasta-TextlessThumb.jpg?output-quality=100&resize=900:*',
+    },
     recipe: 'https://img.buzzfeed.com/thumbnailer-prod-us-east-1/video-api/assets/125259.jpg?output-quality=100&resize=900:*',
     tip: 'Keep stirring so the pasta does not stick to the bottom',
     user: people[1],
@@ -272,14 +272,16 @@ const recipeBook = {
   easySausagePasta: {
     id: 5,
     title: 'Easy sausage pasta',
-    image: 'https://img.buzzfeed.com/tasty-app-user-assets-prod-us-east-1/recipes/44481df056c343438402051b7aec4c7c.jpeg',
+    image: {
+      url: 'https://img.buzzfeed.com/tasty-app-user-assets-prod-us-east-1/recipes/44481df056c343438402051b7aec4c7c.jpeg',
+    },
     recipe: 'https://img.buzzfeed.com/tasty-app-user-assets-prod-us-east-1/recipes/44481df056c343438402051b7aec4c7c.jpeg',
     tip: 'Keep stirring so the pasta does not stick to the bottom',
     user: people[2],
     preferences: [preferences.pasta, preferences.italy],
     likes: 12,
     steps: [{
-      photo: {
+      image: {
         url: 'https://img.buzzfeed.com/tasty-app-user-assets-prod-us-east-1/recipes/44481df056c343438402051b7aec4c7c.jpeg',
       },
       description: 'Do it',
@@ -296,7 +298,9 @@ const recipeBook = {
   chickenBrocolliStirFry: {
     id: 4,
     title: 'Chicken and Brocoslli Stir Fry',
-    image: 'https://img.buzzfeed.com/thumbnailer-prod-us-east-1/c6630a4d04074d11ab60bfa0cb4b03d1/BFV16130_Stir-Fry_4_Ways_FB.jpg?output-quality=100&resize=900:*',
+    image: {
+      url: 'https://img.buzzfeed.com/thumbnailer-prod-us-east-1/c6630a4d04074d11ab60bfa0cb4b03d1/BFV16130_Stir-Fry_4_Ways_FB.jpg?output-quality=100&resize=900:*',
+    },
     recipe: 'https://img.buzzfeed.com/thumbnailer-prod-us-east-1/video-api/assets/125259.jpg?output-quality=100&resize=900:*',
     tip: 'Add salt while boiling the brocolli',
     user: people[1],
@@ -307,7 +311,9 @@ const recipeBook = {
   lemonCousCous: {
     id: 5,
     title: 'Lemon Cous Cous Salad',
-    image: 'https://www.inspiredtaste.net/wp-content/uploads/2017/12/Easy-Couscous-Salad-Recipe-2-1200.jpg',
+    image: {
+      url: 'https://www.inspiredtaste.net/wp-content/uploads/2017/12/Easy-Couscous-Salad-Recipe-2-1200.jpg',
+    },
     recipe: 'https://www.inspiredtaste.net/wp-content/uploads/2017/12/Easy-Couscous-Salad-Recipe-2-1200.jpg',
     tip: 'Add salt while boiling the brocolli',
     user: people[2],
@@ -319,7 +325,9 @@ const recipeBook = {
   teriyakiChicken: {
     id: 6,
     title: 'Teriyaki Chicken',
-    image: 'https://hips.hearstapps.com/delish/assets/17/26/1498598755-teriyaki-chicken.jpg',
+    image: {
+      url: 'https://hips.hearstapps.com/delish/assets/17/26/1498598755-teriyaki-chicken.jpg',
+    },
     recipe: 'https://hips.hearstapps.com/delish/assets/17/26/1498598755-teriyaki-chicken.jpg',
     tip: 'High pan heat for crispy edges',
     user: people[3],
@@ -331,7 +339,9 @@ const recipeBook = {
   lasagne: {
     id: 7,
     title: 'Lasagne',
-    image: 'https://myfoodbook.com.au/sites/default/files/styles/single_recipe/public/recipe_photo/Classic%20Lasagne.jpg',
+    image: {
+      url: 'https://myfoodbook.com.au/sites/default/files/styles/single_recipe/public/recipe_photo/Classic%20Lasagne.jpg',
+    },
     recipe: 'https://myfoodbook.com.au/sites/default/files/styles/single_recipe/public/recipe_photo/Classic%20Lasagne.jpg',
     tip: 'High pan heat for crispy edges',
     user: people[3],
@@ -343,7 +353,9 @@ const recipeBook = {
   roastVeggieSalad: {
     id: 8,
     title: 'Roast Veggie Salad',
-    image: 'https://www.chelseasmessyapron.com/wp-content/uploads/2019/09/Roasted-Veggie-Salad-1.jpg',
+    image: {
+      url: 'https://www.chelseasmessyapron.com/wp-content/uploads/2019/09/Roasted-Veggie-Salad-1.jpg',
+    },
     recipe: 'https://www.chelseasmessyapron.com/wp-content/uploads/2019/09/Roasted-Veggie-Salad-1.jpg',
     tip: 'Healthier if you use ripe avocados',
     user: people[3],
@@ -355,7 +367,9 @@ const recipeBook = {
   hamburgers: {
     id: 2,
     title: 'Hamburger',
-    image: 'https://food.fnr.sndimg.com/content/dam/images/food/fullset/2004/2/25/0/bw2b07_hambugers1.jpg.rend.hgtvcom.826.620.suffix/1558017418187.jpeg',
+    image: {
+      url: 'https://food.fnr.sndimg.com/content/dam/images/food/fullset/2004/2/25/0/bw2b07_hambugers1.jpg.rend.hgtvcom.826.620.suffix/1558017418187.jpeg',
+    },
     tip: 'Healthier if you use ripe avocados',
     user: people[3],
     preferences: [preferences.bbq,  preferences.sandwich],

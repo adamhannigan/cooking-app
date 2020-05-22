@@ -13,9 +13,6 @@ import { Text, Avatar, Button } from '@ui-kitten/components'
 
 import Constants from 'expo-constants';
 
-const { statusBarHeight } = Constants;
-
-
 // galio components
 import {
   Block, Icon, NavBar, theme
@@ -23,10 +20,24 @@ import {
 
 const { width, height } = Dimensions.get('screen');
 
-import { tagGroups } from 'constants/dummyData'
+import { useNavigation } from '@react-navigation/native';
+import { NavProp } from 'Navigation';
+import { UserModel } from 'domain/users/model';
 
-const Preferences = ({ navigation }) => {
+const items = [{
+  name: 'Vegetarian',
+}, {
+  name: 'Fitness',
+}]
+const Preferences = () => {
   const [selected, setSelected] = React.useState<string[]>([])
+  const navigation = useNavigation<NavProp>()
+
+  const onNext = async () => {
+    // TODO Add preferences locally for search on next screen
+
+    navigation.navigate('/onboard/follow')
+  }
 
   const onSelect = (name: string) => {
     const alreadyExists = selected.includes(name)
@@ -50,7 +61,30 @@ const Preferences = ({ navigation }) => {
               Select some foods and lifestyles you are interested in to help personalize your menu experience and find similar people to follow.
             </Text>
           </Block>
+          <Block style={styles.tags}>
+              {
+                items.map(item => {
+                  const isSelected = selected.includes(item.name)
+
+                  return (
+                    <Button
+                      style={{
+                        ...styles.tag,
+                        backgroundColor: isSelected ? '#fe9b0040' : 'white'
+                      }}
+                      appearance={'outline' }
+                      status='primary'
+                      onPress={() => onSelect(item.name)}
+                    >
+                        {item.name}
+                      </Button>
+                  )
+                })
+              }
+          </Block>
+          
           {
+            /*
             tagGroups.map(group => (
               <Block style={styles.group}>
                   <Block>
@@ -81,6 +115,7 @@ const Preferences = ({ navigation }) => {
                   </Block>
               </Block>
             ))
+            */
           }
         </Block>
       </ScrollView>
@@ -89,14 +124,14 @@ const Preferences = ({ navigation }) => {
             size='medium'
             appearance='ghost'
             status='primary'
-            onPress={() => navigation.navigate('Follow')}
+            onPress={onNext}
           >
             Skip for now
           </Button>
           <Button
             size='medium'
             status='primary'
-            onPress={() => navigation.navigate('Follow')}
+            onPress={onNext}
             disabled={selected.length === 0}
           >
             Next

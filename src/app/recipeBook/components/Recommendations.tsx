@@ -22,8 +22,8 @@ import {
 
 import { meals, Meal } from '../../../constants/dummyData'
 
-import { MealBox } from './MealBox'
-import { DroolModel } from 'domain/drools/model';
+import { MealBox } from '../../cook/components/MealBox'
+import { LikeModel } from 'domain/likes/model';
 
 const { width } = Dimensions.get('screen');
 
@@ -40,7 +40,7 @@ export const Recommendations = ({
 
   React.useEffect(() => {
     const loadDrools = async () => {
-      const meals = await DroolModel.getDrools()
+      const meals = await LikeModel.getDrools()
       setDroolingMeals(meals)
     }
 

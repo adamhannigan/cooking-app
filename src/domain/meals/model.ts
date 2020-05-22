@@ -1,37 +1,22 @@
-import { AsyncStorage } from 'react-native'
+import { GetMealQuery } from 'API';
 
-import { Meal, meals } from '../../constants/dummyData'
+import getMealList from './api/getMealList'
+import create, { CreateMealInput } from './api/create'
+import like from './api/like'
 
-const STORAGE_KEY = '@createdMeals'
+export type Meal = Omit<Exclude<GetMealQuery['getMeal'], null>, '__typename'>;
 
 class Meals {
     public async getAll(): Promise<Meal[]> {
-        const storedMeals = await AsyncStorage.getItem(STORAGE_KEY)
-
-        if (!storedMeals) {
-            return meals
-        }
-
-        const parsed = JSON.parse(storedMeals) as Meal[]
-
-        return [
-            ...parsed,
-            ...meals,
-        ]
+        return getMealList()
     }
 
-    public async addFakeMeal(meal: Meal) {
-        const meals = await this.getAll()
-
-        const newMeals = [
-            meal,
-            ...meals,
-        ]
-        await AsyncStorage.setItem(STORAGE_KEY, JSON.stringify(newMeals))
+    public async create(meal: CreateMealInput) {
+        return create(meal)
     }
 
-    public async clear() {
-        await AsyncStorage.removeItem(STORAGE_KEY)
+    public async like(mealId: number) {
+        return like(mealId)
     }
 }
 

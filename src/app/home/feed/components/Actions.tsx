@@ -8,7 +8,7 @@ import {
 
 import { useTheme } from '@ui-kitten/components'
 
-import { DroolModel } from 'domain/drools/model'
+import { LikeModel } from 'domain/likes/model'
 import { Meal as IMeal } from 'constants/dummyData'
 
 //import droolGif from './assets/drool.gif'
@@ -29,7 +29,7 @@ const Actions = (meal: IMeal) => {
     // Hack to remember drools
     React.useEffect(() => {
       const fetchIsDrooling = async () => {
-        const drools = await DroolModel.getDrools()
+        const drools = await LikeModel.getDrools()
 
         const drooledMeal = drools.find(droolMeal => droolMeal.id === meal.id)
         if (drooledMeal) {
@@ -41,7 +41,7 @@ const Actions = (meal: IMeal) => {
     }, [])
 
     const onLike = () => {
-      DroolModel.onDrool(meal)
+      LikeModel.onDrool(meal)
 
       setIsDrooling(true)
     }
