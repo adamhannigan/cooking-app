@@ -12,9 +12,11 @@ class Users {
     private currentUser: User = null
 
     public constructor() {
+        console.log('Constructed')
         authEventHandler.listen({
             event: 'login',
             handler: async () => {
+                console.log('User model knows')
                 // Check if we need to create
                 this.currentUser = await getCurrentUser()
             }

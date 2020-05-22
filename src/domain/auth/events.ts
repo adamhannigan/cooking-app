@@ -10,6 +10,7 @@ class AuthEvents {
     private listeners: Listener[] = []
 
     public listen(listener: Listener) {
+        console.log('Add lstiener', listener)
         this.listeners.push(listener)
     }
 

@@ -11,6 +11,10 @@ class Auth {
         email: string
     }) {
         await register(user)
+
+        console.log('Registered')
+        // TODO store session
+        authEventHandler.onLogin()
     }
 
     public async login(user: {
@@ -19,8 +23,7 @@ class Auth {
     }) {
         const loggedIn = await login(user)
 
-        // TODO store session
-        authEventHandler.onLogin()
+
     }
 
     public async getCurrentUser() {

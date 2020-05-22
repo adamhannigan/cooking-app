@@ -61,6 +61,8 @@ export async function getCurrentUser() {
         return
     }
 
+    console.log('incognitoUser', incognitoUser)
+
     let user: User
 
     try {
@@ -70,6 +72,8 @@ export async function getCurrentUser() {
     } catch (e) {
         console.error('getUser: ', e)
     }
+
+    console.log('user', user)
 
     // User does not yet exist
     if (!user) {
@@ -86,6 +90,8 @@ export async function getCurrentUser() {
             console.error('createUser: ', e)
         }
     }
+
+    console.log('user now', user)
 
     return user
 }

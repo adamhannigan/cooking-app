@@ -27,8 +27,6 @@ import { CookHeaderButton } from 'app/cook/components/Cooker'
 import InProgress from 'app/cook/InProgress'
 import Tags from './app/cook/Tags'
 
-import BookmarkButton from 'app/home/components/BookmarkButton';
-import CookNowButton from 'app/home/components/CookNowButton';
 import Favourites from 'app/recipeBook/RecipeBook'
 
 const Stack = createStackNavigator()
@@ -91,12 +89,6 @@ function Navigation() {
     component: Home,
     options: {
         ...headerOptions,
-        headerRight: () => (
-          <BookmarkButton />
-        ),
-        /* headerLeft: () => (
-          <CookNowButton />
-        ),*/
         title: 'Home',
     }
   }, {

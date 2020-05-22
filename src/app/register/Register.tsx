@@ -15,6 +15,7 @@ import {
 import { useNavigation } from '@react-navigation/native';
 import { NavProp } from 'Navigation';
 import { AuthModel } from 'domain/auth/model';
+import { UserModel } from 'domain/users/model';
 
 const { height, width } = Dimensions.get('window');
 
