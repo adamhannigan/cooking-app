@@ -18,5 +18,5 @@ export default async function like({
         likeLikedById: userId,
     }
 
-    await API.graphql(graphqlOperation(createLike, input))
+    await API.graphql(graphqlOperation(createLike, { input }))
 }

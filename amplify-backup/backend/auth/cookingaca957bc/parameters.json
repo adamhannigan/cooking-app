@@ -46,10 +46,20 @@
     },
     "useDefault": "manual",
     "userPoolGroupList": [],
-    "dependsOn": [],
+    "dependsOn": [
+        {
+            "category": "function",
+            "resourceName": "cookingaca957bcPreSignup",
+            "triggerProvider": "Cognito",
+            "attributes": [
+                "Arn",
+                "Name"
+            ]
+        }
+    ],
     "userPoolGroups": false,
     "adminQueries": false,
-    "triggers": "{}",
+    "triggers": "{\"PreSignup\":[\"custom\"]}",
     "hostedUI": false,
     "parentStack": {
         "Ref": "AWS::StackId"

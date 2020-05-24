@@ -63,6 +63,12 @@ export const createLike = /* GraphQL */ `
         likes {
           nextToken
         }
+        followers {
+          nextToken
+        }
+        following {
+          nextToken
+        }
         owner
       }
       owner
@@ -131,6 +137,12 @@ export const updateLike = /* GraphQL */ `
         likes {
           nextToken
         }
+        followers {
+          nextToken
+        }
+        following {
+          nextToken
+        }
         owner
       }
       owner
@@ -197,6 +209,189 @@ export const deleteLike = /* GraphQL */ `
           nextToken
         }
         likes {
+          nextToken
+        }
+        followers {
+          nextToken
+        }
+        following {
+          nextToken
+        }
+        owner
+      }
+      owner
+    }
+  }
+`;
+export const createFollower = /* GraphQL */ `
+  mutation CreateFollower(
+    $input: CreateFollowerInput!
+    $condition: ModelFollowerConditionInput
+  ) {
+    createFollower(input: $input, condition: $condition) {
+      id
+      user {
+        id
+        username
+        email
+        firstName
+        lastName
+        bio
+        meals {
+          nextToken
+        }
+        menuItems {
+          nextToken
+        }
+        likes {
+          nextToken
+        }
+        followers {
+          nextToken
+        }
+        following {
+          nextToken
+        }
+        owner
+      }
+      followedBy {
+        id
+        username
+        email
+        firstName
+        lastName
+        bio
+        meals {
+          nextToken
+        }
+        menuItems {
+          nextToken
+        }
+        likes {
+          nextToken
+        }
+        followers {
+          nextToken
+        }
+        following {
+          nextToken
+        }
+        owner
+      }
+      owner
+    }
+  }
+`;
+export const updateFollower = /* GraphQL */ `
+  mutation UpdateFollower(
+    $input: UpdateFollowerInput!
+    $condition: ModelFollowerConditionInput
+  ) {
+    updateFollower(input: $input, condition: $condition) {
+      id
+      user {
+        id
+        username
+        email
+        firstName
+        lastName
+        bio
+        meals {
+          nextToken
+        }
+        menuItems {
+          nextToken
+        }
+        likes {
+          nextToken
+        }
+        followers {
+          nextToken
+        }
+        following {
+          nextToken
+        }
+        owner
+      }
+      followedBy {
+        id
+        username
+        email
+        firstName
+        lastName
+        bio
+        meals {
+          nextToken
+        }
+        menuItems {
+          nextToken
+        }
+        likes {
+          nextToken
+        }
+        followers {
+          nextToken
+        }
+        following {
+          nextToken
+        }
+        owner
+      }
+      owner
+    }
+  }
+`;
+export const deleteFollower = /* GraphQL */ `
+  mutation DeleteFollower(
+    $input: DeleteFollowerInput!
+    $condition: ModelFollowerConditionInput
+  ) {
+    deleteFollower(input: $input, condition: $condition) {
+      id
+      user {
+        id
+        username
+        email
+        firstName
+        lastName
+        bio
+        meals {
+          nextToken
+        }
+        menuItems {
+          nextToken
+        }
+        likes {
+          nextToken
+        }
+        followers {
+          nextToken
+        }
+        following {
+          nextToken
+        }
+        owner
+      }
+      followedBy {
+        id
+        username
+        email
+        firstName
+        lastName
+        bio
+        meals {
+          nextToken
+        }
+        menuItems {
+          nextToken
+        }
+        likes {
+          nextToken
+        }
+        followers {
+          nextToken
+        }
+        following {
           nextToken
         }
         owner
@@ -303,6 +498,12 @@ export const createMeal = /* GraphQL */ `
           nextToken
         }
         likes {
+          nextToken
+        }
+        followers {
+          nextToken
+        }
+        following {
           nextToken
         }
         owner
@@ -419,6 +620,12 @@ export const updateMeal = /* GraphQL */ `
         likes {
           nextToken
         }
+        followers {
+          nextToken
+        }
+        following {
+          nextToken
+        }
         owner
       }
       recipe
@@ -533,6 +740,12 @@ export const deleteMeal = /* GraphQL */ `
         likes {
           nextToken
         }
+        followers {
+          nextToken
+        }
+        following {
+          nextToken
+        }
         owner
       }
       recipe
@@ -610,6 +823,12 @@ export const createMenuItem = /* GraphQL */ `
         likes {
           nextToken
         }
+        followers {
+          nextToken
+        }
+        following {
+          nextToken
+        }
         owner
       }
       owner
@@ -677,6 +896,12 @@ export const updateMenuItem = /* GraphQL */ `
           nextToken
         }
         likes {
+          nextToken
+        }
+        followers {
+          nextToken
+        }
+        following {
           nextToken
         }
         owner
@@ -748,6 +973,12 @@ export const deleteMenuItem = /* GraphQL */ `
         likes {
           nextToken
         }
+        followers {
+          nextToken
+        }
+        following {
+          nextToken
+        }
         owner
       }
       owner
@@ -793,6 +1024,20 @@ export const createUser = /* GraphQL */ `
         nextToken
       }
       likes {
+        items {
+          id
+          owner
+        }
+        nextToken
+      }
+      followers {
+        items {
+          id
+          owner
+        }
+        nextToken
+      }
+      following {
         items {
           id
           owner
@@ -848,6 +1093,20 @@ export const updateUser = /* GraphQL */ `
         }
         nextToken
       }
+      followers {
+        items {
+          id
+          owner
+        }
+        nextToken
+      }
+      following {
+        items {
+          id
+          owner
+        }
+        nextToken
+      }
       owner
     }
   }
@@ -891,6 +1150,20 @@ export const deleteUser = /* GraphQL */ `
         nextToken
       }
       likes {
+        items {
+          id
+          owner
+        }
+        nextToken
+      }
+      followers {
+        items {
+          id
+          owner
+        }
+        nextToken
+      }
+      following {
         items {
           id
           owner

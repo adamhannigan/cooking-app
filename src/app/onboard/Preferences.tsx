@@ -9,11 +9,11 @@ import {
   TouchableOpacity
 } from 'react-native';
 
-import { Text, Avatar, Button } from '@ui-kitten/components'
+import { Text, Spinner, Button } from '@ui-kitten/components'
 
 // galio components
 import {
-  Block, Icon, NavBar, theme
+  Block, theme
 } from 'galio-framework';
 
 const { width, height } = Dimensions.get('screen');
@@ -21,18 +21,31 @@ const { width, height } = Dimensions.get('screen');
 import { useNavigation } from '@react-navigation/native';
 import { NavProp } from 'Navigation';
 import { TagsModel, Tag } from 'domain/tags/model';
+import { UserModel } from 'domain/users/model';
 
 
 const Preferences = () => {
   const [tags, setTags] = React.useState<Tag[]>([])
   const [selected, setSelected] = React.useState<Tag[]>([])
+  const [isLoading, setIsLoading] = React.useState(true)
+  const [error, setError] = React.useState(null)
+
   const navigation = useNavigation<NavProp>()
 
   useEffect(() => {
     const load = async () => {
-      const availableTags = await TagsModel.getAll()
+      try {
+        await UserModel.createNewUser()
+    
+        const availableTags = await TagsModel.getAll()
 
-      setTags(availableTags)
+        setTags(availableTags)
+        setIsLoading(false)
+      } catch(e) {
+        console.log('Caught', e)
+        setError(e.toString())
+        setIsLoading(false)
+      }
     }
 
     load()
@@ -53,6 +66,8 @@ const Preferences = () => {
       setSelected([...selected, tag])
     }
   }
+  
+  console.log('Use tags', tags)
 
   return (
     <View style={{ flex: 1 }}>
@@ -66,6 +81,18 @@ const Preferences = () => {
               Select some foods and lifestyles you are interested in to help personalize your menu experience and find similar people to follow.
             </Text>
           </Block>
+          {
+            isLoading && (
+              <Spinner />
+            )
+          }
+          {
+            error && (
+              <Text>
+                {`Error: ${error}`}
+              </Text>
+            )
+          }
           <Block style={styles.tags}>
               {
                 tags.map(tag => {

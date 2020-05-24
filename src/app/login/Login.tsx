@@ -19,7 +19,7 @@ const Login = () => {
     const [username, setUsername] = React.useState<string>('')
     const [password, setPassword] = React.useState<string>('')
     const [isLoading, setIsLoading] = React.useState<boolean>(false)
-    const [error, setError] = React.useState<string>('')
+    const [error, setError] = React.useState<string>(null)
 
     const navigation = useNavigation<NavProp>()
 
@@ -32,9 +32,15 @@ const Login = () => {
           password,
         })
 
-        navigation.navigate('/home', {
-          screen: '/feed'
-        })
+        const user = await UserModel.getCurrentUser()
+        console.log('Where should we go?', user)
+        if (!user) {
+          navigation.navigate('/onboard/preferences')
+        } else {
+          navigation.navigate('/home', {
+            screen: '/feed'
+          })
+        }
       } catch (error) {
         setError(error.code)
       }

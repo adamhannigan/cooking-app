@@ -18,7 +18,7 @@ class Meals {
     }
 
     public async like(meal: Meal) {
-        const currentUser = UserModel.getCurrentUser()
+        const currentUser = await UserModel.getCurrentUser()
 
         return like({
             userId: currentUser.id,
@@ -27,7 +27,7 @@ class Meals {
     }
 
     public async addToMenu(meal: Meal) {
-        const currentUser = UserModel.getCurrentUser()
+        const currentUser = await UserModel.getCurrentUser()
         
         return addToMenu({
             userId: currentUser.id,

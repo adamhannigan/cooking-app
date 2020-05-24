@@ -7,7 +7,7 @@ import {
 } from 'react-native';
 
 
-import { Text } from '@ui-kitten/components'
+import { Text, Spinner } from '@ui-kitten/components'
 
 // galio components
 import {
@@ -29,14 +29,22 @@ const { width, height } = Dimensions.get('screen');
 
 const Feed = props => {
   const [meals, setMeals] = React.useState<Meal[]>([])
+  const [isLoading, setIsLoading] = React.useState(true)
+  const [error, setError] = React.useState(null)
+
   const isFocused = useIsFocused()
 
   React.useEffect(() => {
     if (isFocused) {
       const load = async () => {
-        const storedMeals = await MealsModel.getAll()
+        try {
+          const storedMeals = await MealsModel.getAll()
+          setMeals(storedMeals)
+        } catch (e) {
+          setError(e)
+        }
 
-        setMeals(storedMeals)
+        setIsLoading(false)
       }
 
       load()
@@ -48,6 +56,25 @@ const Feed = props => {
       <ScrollView style={{ flex: 1 }}>
           <InProgressMeal />
           <Block flex style={styles.header}>
+            {
+              isLoading && (
+                <Spinner />
+              )
+            }
+            {
+              error && (
+                <Text>
+                  {`Error: ${error}`}
+                </Text>
+              )
+            }
+            {
+              meals.length === 0 && (
+                <Text>
+                  No meals yet.
+                </Text>
+              )
+            }
             {
               meals.map((meal, idx) => (
                   idx % 2 === 0 ? (
@@ -79,9 +106,9 @@ const Feed = props => {
 
                         <AvatarHeader
                           avatarUrl=''
-                          name={meal.user.name}
+                          name={meal.createdBy.username}
                           time='10 hrs ago'
-                          userId={meal.user.id}
+                          userId={meal.createdBy.id}
                         />
                         <MealSummary {...meal}/>
                       </Block>

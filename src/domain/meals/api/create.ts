@@ -7,5 +7,5 @@ import { createMeal } from 'graphql/mutations'
 export { CreateMealInput }
 
 export default async function create(input: CreateMealInput){
-    await API.graphql(graphqlOperation(createMeal, input))
+    await API.graphql(graphqlOperation(createMeal, { input }))
 }

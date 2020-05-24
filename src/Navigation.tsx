@@ -40,10 +40,10 @@ export type Routes = {
   '/home'
 
   '/meal/:id': {
-    id: number
+    id: string
   }
   '/profile/:id': {
-    id: number
+    id: string
   }
 
   '/onboard/preferences'
@@ -52,7 +52,7 @@ export type Routes = {
 
   '/favourites'
   '/cook/details/:id': {
-    id?: number
+    id?: string
   }
   '/cook/progress'
   '/cook/recipe'
@@ -84,7 +84,19 @@ function Navigation() {
     name: '/register',
     component: Register,
     options: headerOptions,
-  },{
+  }, {
+    name: '/onboard/preferences',
+    component: Preferences,
+    options: headerOptions,
+  }, {
+    name: '/onboard/people',
+    component: Follow,
+    options: headerOptions,
+  }, {
+    name: '/onboard/meals',
+    component: OnboardMeals,
+    options: headerOptions,
+  }, {
     name: '/home',
     component: Home,
     options: {
@@ -108,18 +120,6 @@ function Navigation() {
     component: Profile,
     options: headerOptions,
   }, {
-    name: '/onboard/preferences',
-    component: Preferences,
-    options: headerOptions,
-  }, {
-    name: '/onboard/people',
-    component: Follow,
-    options: headerOptions,
-  }, {
-    name: '/onboard/meals',
-    component: OnboardMeals,
-    options: headerOptions,
-  },  {
     name: '/favourites',
     component: Favourites,
     options: {

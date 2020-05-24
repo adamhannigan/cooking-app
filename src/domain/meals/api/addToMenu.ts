@@ -21,5 +21,5 @@ export default async function addToMenu({
         menuItemMealId: mealId,
     }
 
-    await API.graphql(graphqlOperation(createMenuItem, input))
+    await API.graphql(graphqlOperation(createMenuItem, { input }))
 }

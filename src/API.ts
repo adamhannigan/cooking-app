@@ -24,6 +24,28 @@ export type DeleteLikeInput = {
   id?: string | null,
 };
 
+export type CreateFollowerInput = {
+  id?: string | null,
+  followerUserId?: string | null,
+  followerFollowedById?: string | null,
+};
+
+export type ModelFollowerConditionInput = {
+  and?: Array< ModelFollowerConditionInput | null > | null,
+  or?: Array< ModelFollowerConditionInput | null > | null,
+  not?: ModelFollowerConditionInput | null,
+};
+
+export type UpdateFollowerInput = {
+  id: string,
+  followerUserId?: string | null,
+  followerFollowedById?: string | null,
+};
+
+export type DeleteFollowerInput = {
+  id?: string | null,
+};
+
 export type CreateMealInput = {
   id?: string | null,
   title: string,
@@ -221,6 +243,13 @@ export type ModelIDInput = {
   size?: ModelSizeInput | null,
 };
 
+export type ModelFollowerFilterInput = {
+  id?: ModelIDInput | null,
+  and?: Array< ModelFollowerFilterInput | null > | null,
+  or?: Array< ModelFollowerFilterInput | null > | null,
+  not?: ModelFollowerFilterInput | null,
+};
+
 export type ModelMealFilterInput = {
   id?: ModelIDInput | null,
   title?: ModelStringInput | null,
@@ -327,6 +356,14 @@ export type CreateLikeMutation = {
         __typename: "ModelLikeConnection",
         nextToken: string | null,
       } | null,
+      followers:  {
+        __typename: "ModelFollowerConnection",
+        nextToken: string | null,
+      } | null,
+      following:  {
+        __typename: "ModelFollowerConnection",
+        nextToken: string | null,
+      } | null,
       owner: string | null,
     } | null,
     owner: string | null,
@@ -408,6 +445,14 @@ export type UpdateLikeMutation = {
         __typename: "ModelLikeConnection",
         nextToken: string | null,
       } | null,
+      followers:  {
+        __typename: "ModelFollowerConnection",
+        nextToken: string | null,
+      } | null,
+      following:  {
+        __typename: "ModelFollowerConnection",
+        nextToken: string | null,
+      } | null,
       owner: string | null,
     } | null,
     owner: string | null,
@@ -487,6 +532,233 @@ export type DeleteLikeMutation = {
       } | null,
       likes:  {
         __typename: "ModelLikeConnection",
+        nextToken: string | null,
+      } | null,
+      followers:  {
+        __typename: "ModelFollowerConnection",
+        nextToken: string | null,
+      } | null,
+      following:  {
+        __typename: "ModelFollowerConnection",
+        nextToken: string | null,
+      } | null,
+      owner: string | null,
+    } | null,
+    owner: string | null,
+  } | null,
+};
+
+export type CreateFollowerMutationVariables = {
+  input: CreateFollowerInput,
+  condition?: ModelFollowerConditionInput | null,
+};
+
+export type CreateFollowerMutation = {
+  createFollower:  {
+    __typename: "Follower",
+    id: string,
+    user:  {
+      __typename: "User",
+      id: string,
+      username: string,
+      email: string | null,
+      firstName: string | null,
+      lastName: string | null,
+      bio: string | null,
+      meals:  {
+        __typename: "ModelMealConnection",
+        nextToken: string | null,
+      } | null,
+      menuItems:  {
+        __typename: "ModelMenuItemConnection",
+        nextToken: string | null,
+      } | null,
+      likes:  {
+        __typename: "ModelLikeConnection",
+        nextToken: string | null,
+      } | null,
+      followers:  {
+        __typename: "ModelFollowerConnection",
+        nextToken: string | null,
+      } | null,
+      following:  {
+        __typename: "ModelFollowerConnection",
+        nextToken: string | null,
+      } | null,
+      owner: string | null,
+    } | null,
+    followedBy:  {
+      __typename: "User",
+      id: string,
+      username: string,
+      email: string | null,
+      firstName: string | null,
+      lastName: string | null,
+      bio: string | null,
+      meals:  {
+        __typename: "ModelMealConnection",
+        nextToken: string | null,
+      } | null,
+      menuItems:  {
+        __typename: "ModelMenuItemConnection",
+        nextToken: string | null,
+      } | null,
+      likes:  {
+        __typename: "ModelLikeConnection",
+        nextToken: string | null,
+      } | null,
+      followers:  {
+        __typename: "ModelFollowerConnection",
+        nextToken: string | null,
+      } | null,
+      following:  {
+        __typename: "ModelFollowerConnection",
+        nextToken: string | null,
+      } | null,
+      owner: string | null,
+    } | null,
+    owner: string | null,
+  } | null,
+};
+
+export type UpdateFollowerMutationVariables = {
+  input: UpdateFollowerInput,
+  condition?: ModelFollowerConditionInput | null,
+};
+
+export type UpdateFollowerMutation = {
+  updateFollower:  {
+    __typename: "Follower",
+    id: string,
+    user:  {
+      __typename: "User",
+      id: string,
+      username: string,
+      email: string | null,
+      firstName: string | null,
+      lastName: string | null,
+      bio: string | null,
+      meals:  {
+        __typename: "ModelMealConnection",
+        nextToken: string | null,
+      } | null,
+      menuItems:  {
+        __typename: "ModelMenuItemConnection",
+        nextToken: string | null,
+      } | null,
+      likes:  {
+        __typename: "ModelLikeConnection",
+        nextToken: string | null,
+      } | null,
+      followers:  {
+        __typename: "ModelFollowerConnection",
+        nextToken: string | null,
+      } | null,
+      following:  {
+        __typename: "ModelFollowerConnection",
+        nextToken: string | null,
+      } | null,
+      owner: string | null,
+    } | null,
+    followedBy:  {
+      __typename: "User",
+      id: string,
+      username: string,
+      email: string | null,
+      firstName: string | null,
+      lastName: string | null,
+      bio: string | null,
+      meals:  {
+        __typename: "ModelMealConnection",
+        nextToken: string | null,
+      } | null,
+      menuItems:  {
+        __typename: "ModelMenuItemConnection",
+        nextToken: string | null,
+      } | null,
+      likes:  {
+        __typename: "ModelLikeConnection",
+        nextToken: string | null,
+      } | null,
+      followers:  {
+        __typename: "ModelFollowerConnection",
+        nextToken: string | null,
+      } | null,
+      following:  {
+        __typename: "ModelFollowerConnection",
+        nextToken: string | null,
+      } | null,
+      owner: string | null,
+    } | null,
+    owner: string | null,
+  } | null,
+};
+
+export type DeleteFollowerMutationVariables = {
+  input: DeleteFollowerInput,
+  condition?: ModelFollowerConditionInput | null,
+};
+
+export type DeleteFollowerMutation = {
+  deleteFollower:  {
+    __typename: "Follower",
+    id: string,
+    user:  {
+      __typename: "User",
+      id: string,
+      username: string,
+      email: string | null,
+      firstName: string | null,
+      lastName: string | null,
+      bio: string | null,
+      meals:  {
+        __typename: "ModelMealConnection",
+        nextToken: string | null,
+      } | null,
+      menuItems:  {
+        __typename: "ModelMenuItemConnection",
+        nextToken: string | null,
+      } | null,
+      likes:  {
+        __typename: "ModelLikeConnection",
+        nextToken: string | null,
+      } | null,
+      followers:  {
+        __typename: "ModelFollowerConnection",
+        nextToken: string | null,
+      } | null,
+      following:  {
+        __typename: "ModelFollowerConnection",
+        nextToken: string | null,
+      } | null,
+      owner: string | null,
+    } | null,
+    followedBy:  {
+      __typename: "User",
+      id: string,
+      username: string,
+      email: string | null,
+      firstName: string | null,
+      lastName: string | null,
+      bio: string | null,
+      meals:  {
+        __typename: "ModelMealConnection",
+        nextToken: string | null,
+      } | null,
+      menuItems:  {
+        __typename: "ModelMenuItemConnection",
+        nextToken: string | null,
+      } | null,
+      likes:  {
+        __typename: "ModelLikeConnection",
+        nextToken: string | null,
+      } | null,
+      followers:  {
+        __typename: "ModelFollowerConnection",
+        nextToken: string | null,
+      } | null,
+      following:  {
+        __typename: "ModelFollowerConnection",
         nextToken: string | null,
       } | null,
       owner: string | null,
@@ -613,6 +885,14 @@ export type CreateMealMutation = {
       } | null,
       likes:  {
         __typename: "ModelLikeConnection",
+        nextToken: string | null,
+      } | null,
+      followers:  {
+        __typename: "ModelFollowerConnection",
+        nextToken: string | null,
+      } | null,
+      following:  {
+        __typename: "ModelFollowerConnection",
         nextToken: string | null,
       } | null,
       owner: string | null,
@@ -751,6 +1031,14 @@ export type UpdateMealMutation = {
         __typename: "ModelLikeConnection",
         nextToken: string | null,
       } | null,
+      followers:  {
+        __typename: "ModelFollowerConnection",
+        nextToken: string | null,
+      } | null,
+      following:  {
+        __typename: "ModelFollowerConnection",
+        nextToken: string | null,
+      } | null,
       owner: string | null,
     } | null,
     recipe: string | null,
@@ -887,6 +1175,14 @@ export type DeleteMealMutation = {
         __typename: "ModelLikeConnection",
         nextToken: string | null,
       } | null,
+      followers:  {
+        __typename: "ModelFollowerConnection",
+        nextToken: string | null,
+      } | null,
+      following:  {
+        __typename: "ModelFollowerConnection",
+        nextToken: string | null,
+      } | null,
       owner: string | null,
     } | null,
     recipe: string | null,
@@ -979,6 +1275,14 @@ export type CreateMenuItemMutation = {
         __typename: "ModelLikeConnection",
         nextToken: string | null,
       } | null,
+      followers:  {
+        __typename: "ModelFollowerConnection",
+        nextToken: string | null,
+      } | null,
+      following:  {
+        __typename: "ModelFollowerConnection",
+        nextToken: string | null,
+      } | null,
       owner: string | null,
     } | null,
     owner: string | null,
@@ -1059,6 +1363,14 @@ export type UpdateMenuItemMutation = {
       } | null,
       likes:  {
         __typename: "ModelLikeConnection",
+        nextToken: string | null,
+      } | null,
+      followers:  {
+        __typename: "ModelFollowerConnection",
+        nextToken: string | null,
+      } | null,
+      following:  {
+        __typename: "ModelFollowerConnection",
         nextToken: string | null,
       } | null,
       owner: string | null,
@@ -1143,6 +1455,14 @@ export type DeleteMenuItemMutation = {
         __typename: "ModelLikeConnection",
         nextToken: string | null,
       } | null,
+      followers:  {
+        __typename: "ModelFollowerConnection",
+        nextToken: string | null,
+      } | null,
+      following:  {
+        __typename: "ModelFollowerConnection",
+        nextToken: string | null,
+      } | null,
       owner: string | null,
     } | null,
     owner: string | null,
@@ -1199,6 +1519,24 @@ export type CreateUserMutation = {
       __typename: "ModelLikeConnection",
       items:  Array< {
         __typename: "Like",
+        id: string,
+        owner: string | null,
+      } | null > | null,
+      nextToken: string | null,
+    } | null,
+    followers:  {
+      __typename: "ModelFollowerConnection",
+      items:  Array< {
+        __typename: "Follower",
+        id: string,
+        owner: string | null,
+      } | null > | null,
+      nextToken: string | null,
+    } | null,
+    following:  {
+      __typename: "ModelFollowerConnection",
+      items:  Array< {
+        __typename: "Follower",
         id: string,
         owner: string | null,
       } | null > | null,
@@ -1263,6 +1601,24 @@ export type UpdateUserMutation = {
       } | null > | null,
       nextToken: string | null,
     } | null,
+    followers:  {
+      __typename: "ModelFollowerConnection",
+      items:  Array< {
+        __typename: "Follower",
+        id: string,
+        owner: string | null,
+      } | null > | null,
+      nextToken: string | null,
+    } | null,
+    following:  {
+      __typename: "ModelFollowerConnection",
+      items:  Array< {
+        __typename: "Follower",
+        id: string,
+        owner: string | null,
+      } | null > | null,
+      nextToken: string | null,
+    } | null,
     owner: string | null,
   } | null,
 };
@@ -1317,6 +1673,24 @@ export type DeleteUserMutation = {
       __typename: "ModelLikeConnection",
       items:  Array< {
         __typename: "Like",
+        id: string,
+        owner: string | null,
+      } | null > | null,
+      nextToken: string | null,
+    } | null,
+    followers:  {
+      __typename: "ModelFollowerConnection",
+      items:  Array< {
+        __typename: "Follower",
+        id: string,
+        owner: string | null,
+      } | null > | null,
+      nextToken: string | null,
+    } | null,
+    following:  {
+      __typename: "ModelFollowerConnection",
+      items:  Array< {
+        __typename: "Follower",
         id: string,
         owner: string | null,
       } | null > | null,
@@ -1400,6 +1774,14 @@ export type GetLikeQuery = {
         __typename: "ModelLikeConnection",
         nextToken: string | null,
       } | null,
+      followers:  {
+        __typename: "ModelFollowerConnection",
+        nextToken: string | null,
+      } | null,
+      following:  {
+        __typename: "ModelFollowerConnection",
+        nextToken: string | null,
+      } | null,
       owner: string | null,
     } | null,
     owner: string | null,
@@ -1428,6 +1810,116 @@ export type ListLikesQuery = {
         owner: string | null,
       } | null,
       likedBy:  {
+        __typename: "User",
+        id: string,
+        username: string,
+        email: string | null,
+        firstName: string | null,
+        lastName: string | null,
+        bio: string | null,
+        owner: string | null,
+      } | null,
+      owner: string | null,
+    } | null > | null,
+    nextToken: string | null,
+  } | null,
+};
+
+export type GetFollowerQueryVariables = {
+  id: string,
+};
+
+export type GetFollowerQuery = {
+  getFollower:  {
+    __typename: "Follower",
+    id: string,
+    user:  {
+      __typename: "User",
+      id: string,
+      username: string,
+      email: string | null,
+      firstName: string | null,
+      lastName: string | null,
+      bio: string | null,
+      meals:  {
+        __typename: "ModelMealConnection",
+        nextToken: string | null,
+      } | null,
+      menuItems:  {
+        __typename: "ModelMenuItemConnection",
+        nextToken: string | null,
+      } | null,
+      likes:  {
+        __typename: "ModelLikeConnection",
+        nextToken: string | null,
+      } | null,
+      followers:  {
+        __typename: "ModelFollowerConnection",
+        nextToken: string | null,
+      } | null,
+      following:  {
+        __typename: "ModelFollowerConnection",
+        nextToken: string | null,
+      } | null,
+      owner: string | null,
+    } | null,
+    followedBy:  {
+      __typename: "User",
+      id: string,
+      username: string,
+      email: string | null,
+      firstName: string | null,
+      lastName: string | null,
+      bio: string | null,
+      meals:  {
+        __typename: "ModelMealConnection",
+        nextToken: string | null,
+      } | null,
+      menuItems:  {
+        __typename: "ModelMenuItemConnection",
+        nextToken: string | null,
+      } | null,
+      likes:  {
+        __typename: "ModelLikeConnection",
+        nextToken: string | null,
+      } | null,
+      followers:  {
+        __typename: "ModelFollowerConnection",
+        nextToken: string | null,
+      } | null,
+      following:  {
+        __typename: "ModelFollowerConnection",
+        nextToken: string | null,
+      } | null,
+      owner: string | null,
+    } | null,
+    owner: string | null,
+  } | null,
+};
+
+export type ListFollowersQueryVariables = {
+  filter?: ModelFollowerFilterInput | null,
+  limit?: number | null,
+  nextToken?: string | null,
+};
+
+export type ListFollowersQuery = {
+  listFollowers:  {
+    __typename: "ModelFollowerConnection",
+    items:  Array< {
+      __typename: "Follower",
+      id: string,
+      user:  {
+        __typename: "User",
+        id: string,
+        username: string,
+        email: string | null,
+        firstName: string | null,
+        lastName: string | null,
+        bio: string | null,
+        owner: string | null,
+      } | null,
+      followedBy:  {
         __typename: "User",
         id: string,
         username: string,
@@ -1560,6 +2052,14 @@ export type GetMealQuery = {
       } | null,
       likes:  {
         __typename: "ModelLikeConnection",
+        nextToken: string | null,
+      } | null,
+      followers:  {
+        __typename: "ModelFollowerConnection",
+        nextToken: string | null,
+      } | null,
+      following:  {
+        __typename: "ModelFollowerConnection",
         nextToken: string | null,
       } | null,
       owner: string | null,
@@ -1712,6 +2212,14 @@ export type GetMenuItemQuery = {
         __typename: "ModelLikeConnection",
         nextToken: string | null,
       } | null,
+      followers:  {
+        __typename: "ModelFollowerConnection",
+        nextToken: string | null,
+      } | null,
+      following:  {
+        __typename: "ModelFollowerConnection",
+        nextToken: string | null,
+      } | null,
       owner: string | null,
     } | null,
     owner: string | null,
@@ -1810,6 +2318,24 @@ export type GetUserQuery = {
       } | null > | null,
       nextToken: string | null,
     } | null,
+    followers:  {
+      __typename: "ModelFollowerConnection",
+      items:  Array< {
+        __typename: "Follower",
+        id: string,
+        owner: string | null,
+      } | null > | null,
+      nextToken: string | null,
+    } | null,
+    following:  {
+      __typename: "ModelFollowerConnection",
+      items:  Array< {
+        __typename: "Follower",
+        id: string,
+        owner: string | null,
+      } | null > | null,
+      nextToken: string | null,
+    } | null,
     owner: string | null,
   } | null,
 };
@@ -1841,6 +2367,14 @@ export type ListUsersQuery = {
       } | null,
       likes:  {
         __typename: "ModelLikeConnection",
+        nextToken: string | null,
+      } | null,
+      followers:  {
+        __typename: "ModelFollowerConnection",
+        nextToken: string | null,
+      } | null,
+      following:  {
+        __typename: "ModelFollowerConnection",
         nextToken: string | null,
       } | null,
       owner: string | null,
@@ -1923,6 +2457,14 @@ export type OnCreateLikeSubscription = {
         __typename: "ModelLikeConnection",
         nextToken: string | null,
       } | null,
+      followers:  {
+        __typename: "ModelFollowerConnection",
+        nextToken: string | null,
+      } | null,
+      following:  {
+        __typename: "ModelFollowerConnection",
+        nextToken: string | null,
+      } | null,
       owner: string | null,
     } | null,
     owner: string | null,
@@ -2003,6 +2545,14 @@ export type OnUpdateLikeSubscription = {
         __typename: "ModelLikeConnection",
         nextToken: string | null,
       } | null,
+      followers:  {
+        __typename: "ModelFollowerConnection",
+        nextToken: string | null,
+      } | null,
+      following:  {
+        __typename: "ModelFollowerConnection",
+        nextToken: string | null,
+      } | null,
       owner: string | null,
     } | null,
     owner: string | null,
@@ -2081,6 +2631,230 @@ export type OnDeleteLikeSubscription = {
       } | null,
       likes:  {
         __typename: "ModelLikeConnection",
+        nextToken: string | null,
+      } | null,
+      followers:  {
+        __typename: "ModelFollowerConnection",
+        nextToken: string | null,
+      } | null,
+      following:  {
+        __typename: "ModelFollowerConnection",
+        nextToken: string | null,
+      } | null,
+      owner: string | null,
+    } | null,
+    owner: string | null,
+  } | null,
+};
+
+export type OnCreateFollowerSubscriptionVariables = {
+  owner: string,
+};
+
+export type OnCreateFollowerSubscription = {
+  onCreateFollower:  {
+    __typename: "Follower",
+    id: string,
+    user:  {
+      __typename: "User",
+      id: string,
+      username: string,
+      email: string | null,
+      firstName: string | null,
+      lastName: string | null,
+      bio: string | null,
+      meals:  {
+        __typename: "ModelMealConnection",
+        nextToken: string | null,
+      } | null,
+      menuItems:  {
+        __typename: "ModelMenuItemConnection",
+        nextToken: string | null,
+      } | null,
+      likes:  {
+        __typename: "ModelLikeConnection",
+        nextToken: string | null,
+      } | null,
+      followers:  {
+        __typename: "ModelFollowerConnection",
+        nextToken: string | null,
+      } | null,
+      following:  {
+        __typename: "ModelFollowerConnection",
+        nextToken: string | null,
+      } | null,
+      owner: string | null,
+    } | null,
+    followedBy:  {
+      __typename: "User",
+      id: string,
+      username: string,
+      email: string | null,
+      firstName: string | null,
+      lastName: string | null,
+      bio: string | null,
+      meals:  {
+        __typename: "ModelMealConnection",
+        nextToken: string | null,
+      } | null,
+      menuItems:  {
+        __typename: "ModelMenuItemConnection",
+        nextToken: string | null,
+      } | null,
+      likes:  {
+        __typename: "ModelLikeConnection",
+        nextToken: string | null,
+      } | null,
+      followers:  {
+        __typename: "ModelFollowerConnection",
+        nextToken: string | null,
+      } | null,
+      following:  {
+        __typename: "ModelFollowerConnection",
+        nextToken: string | null,
+      } | null,
+      owner: string | null,
+    } | null,
+    owner: string | null,
+  } | null,
+};
+
+export type OnUpdateFollowerSubscriptionVariables = {
+  owner: string,
+};
+
+export type OnUpdateFollowerSubscription = {
+  onUpdateFollower:  {
+    __typename: "Follower",
+    id: string,
+    user:  {
+      __typename: "User",
+      id: string,
+      username: string,
+      email: string | null,
+      firstName: string | null,
+      lastName: string | null,
+      bio: string | null,
+      meals:  {
+        __typename: "ModelMealConnection",
+        nextToken: string | null,
+      } | null,
+      menuItems:  {
+        __typename: "ModelMenuItemConnection",
+        nextToken: string | null,
+      } | null,
+      likes:  {
+        __typename: "ModelLikeConnection",
+        nextToken: string | null,
+      } | null,
+      followers:  {
+        __typename: "ModelFollowerConnection",
+        nextToken: string | null,
+      } | null,
+      following:  {
+        __typename: "ModelFollowerConnection",
+        nextToken: string | null,
+      } | null,
+      owner: string | null,
+    } | null,
+    followedBy:  {
+      __typename: "User",
+      id: string,
+      username: string,
+      email: string | null,
+      firstName: string | null,
+      lastName: string | null,
+      bio: string | null,
+      meals:  {
+        __typename: "ModelMealConnection",
+        nextToken: string | null,
+      } | null,
+      menuItems:  {
+        __typename: "ModelMenuItemConnection",
+        nextToken: string | null,
+      } | null,
+      likes:  {
+        __typename: "ModelLikeConnection",
+        nextToken: string | null,
+      } | null,
+      followers:  {
+        __typename: "ModelFollowerConnection",
+        nextToken: string | null,
+      } | null,
+      following:  {
+        __typename: "ModelFollowerConnection",
+        nextToken: string | null,
+      } | null,
+      owner: string | null,
+    } | null,
+    owner: string | null,
+  } | null,
+};
+
+export type OnDeleteFollowerSubscriptionVariables = {
+  owner: string,
+};
+
+export type OnDeleteFollowerSubscription = {
+  onDeleteFollower:  {
+    __typename: "Follower",
+    id: string,
+    user:  {
+      __typename: "User",
+      id: string,
+      username: string,
+      email: string | null,
+      firstName: string | null,
+      lastName: string | null,
+      bio: string | null,
+      meals:  {
+        __typename: "ModelMealConnection",
+        nextToken: string | null,
+      } | null,
+      menuItems:  {
+        __typename: "ModelMenuItemConnection",
+        nextToken: string | null,
+      } | null,
+      likes:  {
+        __typename: "ModelLikeConnection",
+        nextToken: string | null,
+      } | null,
+      followers:  {
+        __typename: "ModelFollowerConnection",
+        nextToken: string | null,
+      } | null,
+      following:  {
+        __typename: "ModelFollowerConnection",
+        nextToken: string | null,
+      } | null,
+      owner: string | null,
+    } | null,
+    followedBy:  {
+      __typename: "User",
+      id: string,
+      username: string,
+      email: string | null,
+      firstName: string | null,
+      lastName: string | null,
+      bio: string | null,
+      meals:  {
+        __typename: "ModelMealConnection",
+        nextToken: string | null,
+      } | null,
+      menuItems:  {
+        __typename: "ModelMenuItemConnection",
+        nextToken: string | null,
+      } | null,
+      likes:  {
+        __typename: "ModelLikeConnection",
+        nextToken: string | null,
+      } | null,
+      followers:  {
+        __typename: "ModelFollowerConnection",
+        nextToken: string | null,
+      } | null,
+      following:  {
+        __typename: "ModelFollowerConnection",
         nextToken: string | null,
       } | null,
       owner: string | null,
@@ -2206,6 +2980,14 @@ export type OnCreateMealSubscription = {
       } | null,
       likes:  {
         __typename: "ModelLikeConnection",
+        nextToken: string | null,
+      } | null,
+      followers:  {
+        __typename: "ModelFollowerConnection",
+        nextToken: string | null,
+      } | null,
+      following:  {
+        __typename: "ModelFollowerConnection",
         nextToken: string | null,
       } | null,
       owner: string | null,
@@ -2343,6 +3125,14 @@ export type OnUpdateMealSubscription = {
         __typename: "ModelLikeConnection",
         nextToken: string | null,
       } | null,
+      followers:  {
+        __typename: "ModelFollowerConnection",
+        nextToken: string | null,
+      } | null,
+      following:  {
+        __typename: "ModelFollowerConnection",
+        nextToken: string | null,
+      } | null,
       owner: string | null,
     } | null,
     recipe: string | null,
@@ -2478,6 +3268,14 @@ export type OnDeleteMealSubscription = {
         __typename: "ModelLikeConnection",
         nextToken: string | null,
       } | null,
+      followers:  {
+        __typename: "ModelFollowerConnection",
+        nextToken: string | null,
+      } | null,
+      following:  {
+        __typename: "ModelFollowerConnection",
+        nextToken: string | null,
+      } | null,
       owner: string | null,
     } | null,
     recipe: string | null,
@@ -2569,6 +3367,14 @@ export type OnCreateMenuItemSubscription = {
         __typename: "ModelLikeConnection",
         nextToken: string | null,
       } | null,
+      followers:  {
+        __typename: "ModelFollowerConnection",
+        nextToken: string | null,
+      } | null,
+      following:  {
+        __typename: "ModelFollowerConnection",
+        nextToken: string | null,
+      } | null,
       owner: string | null,
     } | null,
     owner: string | null,
@@ -2648,6 +3454,14 @@ export type OnUpdateMenuItemSubscription = {
       } | null,
       likes:  {
         __typename: "ModelLikeConnection",
+        nextToken: string | null,
+      } | null,
+      followers:  {
+        __typename: "ModelFollowerConnection",
+        nextToken: string | null,
+      } | null,
+      following:  {
+        __typename: "ModelFollowerConnection",
         nextToken: string | null,
       } | null,
       owner: string | null,
@@ -2731,6 +3545,14 @@ export type OnDeleteMenuItemSubscription = {
         __typename: "ModelLikeConnection",
         nextToken: string | null,
       } | null,
+      followers:  {
+        __typename: "ModelFollowerConnection",
+        nextToken: string | null,
+      } | null,
+      following:  {
+        __typename: "ModelFollowerConnection",
+        nextToken: string | null,
+      } | null,
       owner: string | null,
     } | null,
     owner: string | null,
@@ -2786,6 +3608,24 @@ export type OnCreateUserSubscription = {
       __typename: "ModelLikeConnection",
       items:  Array< {
         __typename: "Like",
+        id: string,
+        owner: string | null,
+      } | null > | null,
+      nextToken: string | null,
+    } | null,
+    followers:  {
+      __typename: "ModelFollowerConnection",
+      items:  Array< {
+        __typename: "Follower",
+        id: string,
+        owner: string | null,
+      } | null > | null,
+      nextToken: string | null,
+    } | null,
+    following:  {
+      __typename: "ModelFollowerConnection",
+      items:  Array< {
+        __typename: "Follower",
         id: string,
         owner: string | null,
       } | null > | null,
@@ -2849,6 +3689,24 @@ export type OnUpdateUserSubscription = {
       } | null > | null,
       nextToken: string | null,
     } | null,
+    followers:  {
+      __typename: "ModelFollowerConnection",
+      items:  Array< {
+        __typename: "Follower",
+        id: string,
+        owner: string | null,
+      } | null > | null,
+      nextToken: string | null,
+    } | null,
+    following:  {
+      __typename: "ModelFollowerConnection",
+      items:  Array< {
+        __typename: "Follower",
+        id: string,
+        owner: string | null,
+      } | null > | null,
+      nextToken: string | null,
+    } | null,
     owner: string | null,
   } | null,
 };
@@ -2902,6 +3760,24 @@ export type OnDeleteUserSubscription = {
       __typename: "ModelLikeConnection",
       items:  Array< {
         __typename: "Like",
+        id: string,
+        owner: string | null,
+      } | null > | null,
+      nextToken: string | null,
+    } | null,
+    followers:  {
+      __typename: "ModelFollowerConnection",
+      items:  Array< {
+        __typename: "Follower",
+        id: string,
+        owner: string | null,
+      } | null > | null,
+      nextToken: string | null,
+    } | null,
+    following:  {
+      __typename: "ModelFollowerConnection",
+      items:  Array< {
+        __typename: "Follower",
         id: string,
         owner: string | null,
       } | null > | null,

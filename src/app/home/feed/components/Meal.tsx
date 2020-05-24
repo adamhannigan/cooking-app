@@ -12,12 +12,10 @@ import { Text, useTheme } from '@ui-kitten/components'
 import Carousel from 'react-native-snap-carousel'
 import { Video } from 'expo-av'
 
-import { Meal as IMeal } from 'constants/dummyData'
-
 import { NavProp } from 'Navigation'
 
-import ColorDrool from '../../assets/hungry.svg'
-import ExerciseSVG from './assets/excercise.svg'
+import { Meal as IMeal } from 'domain/meals/model';
+
 import AnnouncementSVG from './assets/announcement.svg'
 import HeartDroolSVG from './assets/smile.svg'
 import TrophySVG from './assets/cup.svg'
@@ -55,6 +53,7 @@ const Meal = (meal: Props) => {
       setImageInViewIndex(imageIndexInView)
     }
 
+    /*
     const stepsWithMedia = meal.steps
       .filter(step => step.photo || step.video)
       .map(step => step.photo ? {
@@ -64,21 +63,22 @@ const Meal = (meal: Props) => {
         type: 'video',
         url: step.video.url,
       }) as Media[]
+      */
 
 
     const images: Media[] = [
       {
         type: 'image' as 'image',
-        url: meal.image,
+        url: meal.image.file.key,
       },
-      ...(meal.ingredients ? [{
+      /*...(meal.ingredients ? [{
         type: 'image'as 'image',
         url: meal.ingredients.photo.url
       }] : []),
-      ...stepsWithMedia,
+      ...stepsWithMedia,*/
     ]
 
-    const getStepNumber = (url: string) => meal.steps.findIndex(step => step.photo.url === url) + 1
+    // const getStepNumber = (url: string) => meal.steps.findIndex(step => step.photo.url === url) + 1
 
     const carouselRef = React.useRef(null)
 
@@ -193,7 +193,7 @@ const Meal = (meal: Props) => {
                 </Text>
               </Block>
               {
-                meal.tip && (
+                meal.description && (
                   <Block row middle style={{
                     width,
                     paddingRight: 10,
@@ -209,7 +209,7 @@ const Meal = (meal: Props) => {
                     </Block>
                     
                     <Text style={{ flex: 1 }} numberOfLines={2}>
-                      {meal.tip}
+                      {meal.description}
                     </Text>
                   </Block>
                 )

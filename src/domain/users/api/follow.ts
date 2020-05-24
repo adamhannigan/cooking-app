@@ -1,15 +1,27 @@
-import API, { graphqlOperation } from '@aws-amplify/api'
+import API, { graphqlOperation, GraphQLResult } from '@aws-amplify/api'
 
-import { CreateUser } from 'API'
+import {
+    CreateFollowerInput,
+    CreateFollowerMutation,
+} from 'API'
 
 import { createLike } from 'graphql/mutations'
 
-export default async function follow(mealId: number){
-    const input: CreateLikeInput = {
-        likeMealId: mealId.toString(),
-        // TODO - how do we get the current user ID?
-        likeLikedById: '22',
+interface Options {
+    followerId: string
+    userId: string
+}
+
+export async function follow({
+    followerId,
+    userId,
+}){
+    const input: CreateFollowerInput = {
+        followerUserId: followerId,
+        followerFollowedById: userId,
     }
 
-    await API.graphql(graphqlOperation(createLike, input))
+    const response: GraphQLResult<CreateFollowerMutation> = await API.graphql(graphqlOperation(createLike, { input }))
+
+    return response.data.createFollower
 }

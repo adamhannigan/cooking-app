@@ -8,8 +8,8 @@ import {
 
 import { useTheme } from '@ui-kitten/components'
 
-import { LikeModel } from 'domain/likes/model'
-import { Meal as IMeal } from 'constants/dummyData'
+import { Meal, MealsModel } from 'domain/meals/model';
+import { LikesModel } from 'domain/likes/model'
 
 //import droolGif from './assets/drool.gif'
 //import droolFrame from './assets/droolFrame.gif'
@@ -20,16 +20,17 @@ import HeartDroolSVG from './assets/smile.svg'
 import {
   Block, theme, Icon
 } from 'galio-framework';
+import { UserModel } from 'domain/users/model';
 
 const { width, height } = Dimensions.get('screen');
 
-const Actions = (meal: IMeal) => {
+const Actions = (meal: Meal) => {
     const [isDrooling, setIsDrooling] = React.useState(false)
 
     // Hack to remember drools
     React.useEffect(() => {
       const fetchIsDrooling = async () => {
-        const drools = await LikeModel.getDrools()
+        const drools = await LikesModel.getAll()
 
         const drooledMeal = drools.find(droolMeal => droolMeal.id === meal.id)
         if (drooledMeal) {
@@ -41,7 +42,7 @@ const Actions = (meal: IMeal) => {
     }, [])
 
     const onLike = () => {
-      LikeModel.onDrool(meal)
+      MealsModel.like(meal)
 
       setIsDrooling(true)
     }

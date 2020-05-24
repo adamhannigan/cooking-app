@@ -4,8 +4,6 @@ import {
   Dimensions,
 } from 'react-native';
 
-import { Meal as IMeal } from '../../../../constants/dummyData'
-
 import Meal, { Props } from './Meal'
 
 // galio components

@@ -60,6 +60,12 @@ export const getLike = /* GraphQL */ `
         likes {
           nextToken
         }
+        followers {
+          nextToken
+        }
+        following {
+          nextToken
+        }
         owner
       }
       owner
@@ -84,6 +90,95 @@ export const listLikes = /* GraphQL */ `
           owner
         }
         likedBy {
+          id
+          username
+          email
+          firstName
+          lastName
+          bio
+          owner
+        }
+        owner
+      }
+      nextToken
+    }
+  }
+`;
+export const getFollower = /* GraphQL */ `
+  query GetFollower($id: ID!) {
+    getFollower(id: $id) {
+      id
+      user {
+        id
+        username
+        email
+        firstName
+        lastName
+        bio
+        meals {
+          nextToken
+        }
+        menuItems {
+          nextToken
+        }
+        likes {
+          nextToken
+        }
+        followers {
+          nextToken
+        }
+        following {
+          nextToken
+        }
+        owner
+      }
+      followedBy {
+        id
+        username
+        email
+        firstName
+        lastName
+        bio
+        meals {
+          nextToken
+        }
+        menuItems {
+          nextToken
+        }
+        likes {
+          nextToken
+        }
+        followers {
+          nextToken
+        }
+        following {
+          nextToken
+        }
+        owner
+      }
+      owner
+    }
+  }
+`;
+export const listFollowers = /* GraphQL */ `
+  query ListFollowers(
+    $filter: ModelFollowerFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listFollowers(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        user {
+          id
+          username
+          email
+          firstName
+          lastName
+          bio
+          owner
+        }
+        followedBy {
           id
           username
           email
@@ -193,6 +288,12 @@ export const getMeal = /* GraphQL */ `
           nextToken
         }
         likes {
+          nextToken
+        }
+        followers {
+          nextToken
+        }
+        following {
           nextToken
         }
         owner
@@ -319,6 +420,12 @@ export const getMenuItem = /* GraphQL */ `
         likes {
           nextToken
         }
+        followers {
+          nextToken
+        }
+        following {
+          nextToken
+        }
         owner
       }
       owner
@@ -400,6 +507,20 @@ export const getUser = /* GraphQL */ `
         }
         nextToken
       }
+      followers {
+        items {
+          id
+          owner
+        }
+        nextToken
+      }
+      following {
+        items {
+          id
+          owner
+        }
+        nextToken
+      }
       owner
     }
   }
@@ -425,6 +546,12 @@ export const listUsers = /* GraphQL */ `
           nextToken
         }
         likes {
+          nextToken
+        }
+        followers {
+          nextToken
+        }
+        following {
           nextToken
         }
         owner

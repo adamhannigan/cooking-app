@@ -1,0 +1,23 @@
+{
+    "master": {
+        "awscloudformation": {
+            "AuthRoleName": "amplify-cooking-meals-master-145944-authRole",
+            "UnauthRoleArn": "arn:aws:iam::113168382663:role/amplify-cooking-meals-master-145944-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::113168382663:role/amplify-cooking-meals-master-145944-authRole",
+            "Region": "ap-southeast-2",
+            "DeploymentBucketName": "amplify-cooking-meals-master-145944-deployment",
+            "UnauthRoleName": "amplify-cooking-meals-master-145944-unauthRole",
+            "StackName": "amplify-cooking-meals-master-145944",
+            "StackId": "arn:aws:cloudformation:ap-southeast-2:113168382663:stack/amplify-cooking-meals-master-145944/642ab480-9d7b-11ea-855b-0a11551d5e9e",
+            "AmplifyAppId": "d3t8thxpx6vull"
+        },
+        "categories": {
+            "auth": {
+                "cookingaca957bc": {}
+            },
+            "function": {
+                "cookingaca957bcPreSignup": {}
+            }
+        }
+    }
+}

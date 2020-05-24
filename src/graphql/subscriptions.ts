@@ -60,6 +60,12 @@ export const onCreateLike = /* GraphQL */ `
         likes {
           nextToken
         }
+        followers {
+          nextToken
+        }
+        following {
+          nextToken
+        }
         owner
       }
       owner
@@ -125,6 +131,12 @@ export const onUpdateLike = /* GraphQL */ `
         likes {
           nextToken
         }
+        followers {
+          nextToken
+        }
+        following {
+          nextToken
+        }
         owner
       }
       owner
@@ -188,6 +200,180 @@ export const onDeleteLike = /* GraphQL */ `
           nextToken
         }
         likes {
+          nextToken
+        }
+        followers {
+          nextToken
+        }
+        following {
+          nextToken
+        }
+        owner
+      }
+      owner
+    }
+  }
+`;
+export const onCreateFollower = /* GraphQL */ `
+  subscription OnCreateFollower($owner: String!) {
+    onCreateFollower(owner: $owner) {
+      id
+      user {
+        id
+        username
+        email
+        firstName
+        lastName
+        bio
+        meals {
+          nextToken
+        }
+        menuItems {
+          nextToken
+        }
+        likes {
+          nextToken
+        }
+        followers {
+          nextToken
+        }
+        following {
+          nextToken
+        }
+        owner
+      }
+      followedBy {
+        id
+        username
+        email
+        firstName
+        lastName
+        bio
+        meals {
+          nextToken
+        }
+        menuItems {
+          nextToken
+        }
+        likes {
+          nextToken
+        }
+        followers {
+          nextToken
+        }
+        following {
+          nextToken
+        }
+        owner
+      }
+      owner
+    }
+  }
+`;
+export const onUpdateFollower = /* GraphQL */ `
+  subscription OnUpdateFollower($owner: String!) {
+    onUpdateFollower(owner: $owner) {
+      id
+      user {
+        id
+        username
+        email
+        firstName
+        lastName
+        bio
+        meals {
+          nextToken
+        }
+        menuItems {
+          nextToken
+        }
+        likes {
+          nextToken
+        }
+        followers {
+          nextToken
+        }
+        following {
+          nextToken
+        }
+        owner
+      }
+      followedBy {
+        id
+        username
+        email
+        firstName
+        lastName
+        bio
+        meals {
+          nextToken
+        }
+        menuItems {
+          nextToken
+        }
+        likes {
+          nextToken
+        }
+        followers {
+          nextToken
+        }
+        following {
+          nextToken
+        }
+        owner
+      }
+      owner
+    }
+  }
+`;
+export const onDeleteFollower = /* GraphQL */ `
+  subscription OnDeleteFollower($owner: String!) {
+    onDeleteFollower(owner: $owner) {
+      id
+      user {
+        id
+        username
+        email
+        firstName
+        lastName
+        bio
+        meals {
+          nextToken
+        }
+        menuItems {
+          nextToken
+        }
+        likes {
+          nextToken
+        }
+        followers {
+          nextToken
+        }
+        following {
+          nextToken
+        }
+        owner
+      }
+      followedBy {
+        id
+        username
+        email
+        firstName
+        lastName
+        bio
+        meals {
+          nextToken
+        }
+        menuItems {
+          nextToken
+        }
+        likes {
+          nextToken
+        }
+        followers {
+          nextToken
+        }
+        following {
           nextToken
         }
         owner
@@ -291,6 +477,12 @@ export const onCreateMeal = /* GraphQL */ `
           nextToken
         }
         likes {
+          nextToken
+        }
+        followers {
+          nextToken
+        }
+        following {
           nextToken
         }
         owner
@@ -404,6 +596,12 @@ export const onUpdateMeal = /* GraphQL */ `
         likes {
           nextToken
         }
+        followers {
+          nextToken
+        }
+        following {
+          nextToken
+        }
         owner
       }
       recipe
@@ -515,6 +713,12 @@ export const onDeleteMeal = /* GraphQL */ `
         likes {
           nextToken
         }
+        followers {
+          nextToken
+        }
+        following {
+          nextToken
+        }
         owner
       }
       recipe
@@ -589,6 +793,12 @@ export const onCreateMenuItem = /* GraphQL */ `
         likes {
           nextToken
         }
+        followers {
+          nextToken
+        }
+        following {
+          nextToken
+        }
         owner
       }
       owner
@@ -653,6 +863,12 @@ export const onUpdateMenuItem = /* GraphQL */ `
           nextToken
         }
         likes {
+          nextToken
+        }
+        followers {
+          nextToken
+        }
+        following {
           nextToken
         }
         owner
@@ -721,6 +937,12 @@ export const onDeleteMenuItem = /* GraphQL */ `
         likes {
           nextToken
         }
+        followers {
+          nextToken
+        }
+        following {
+          nextToken
+        }
         owner
       }
       owner
@@ -763,6 +985,20 @@ export const onCreateUser = /* GraphQL */ `
         nextToken
       }
       likes {
+        items {
+          id
+          owner
+        }
+        nextToken
+      }
+      followers {
+        items {
+          id
+          owner
+        }
+        nextToken
+      }
+      following {
         items {
           id
           owner
@@ -815,6 +1051,20 @@ export const onUpdateUser = /* GraphQL */ `
         }
         nextToken
       }
+      followers {
+        items {
+          id
+          owner
+        }
+        nextToken
+      }
+      following {
+        items {
+          id
+          owner
+        }
+        nextToken
+      }
       owner
     }
   }
@@ -855,6 +1105,20 @@ export const onDeleteUser = /* GraphQL */ `
         nextToken
       }
       likes {
+        items {
+          id
+          owner
+        }
+        nextToken
+      }
+      followers {
+        items {
+          id
+          owner
+        }
+        nextToken
+      }
+      following {
         items {
           id
           owner

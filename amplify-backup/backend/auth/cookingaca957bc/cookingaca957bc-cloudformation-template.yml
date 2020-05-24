@@ -9,6 +9,18 @@ Parameters:
     Type: String
   
   
+  
+  
+  functioncookingaca957bcPreSignupArn: 
+    Type: String
+    Default: functioncookingaca957bcPreSignupArn
+  
+  functioncookingaca957bcPreSignupName: 
+    Type: String
+    Default: functioncookingaca957bcPreSignupName
+  
+  
+  
 
     
   identityPoolName:
@@ -163,6 +175,19 @@ Resources:
         
       
       
+      LambdaConfig:
+        
+        
+        
+        
+        
+        
+        
+          PreSignUp: !Ref functioncookingaca957bcPreSignupArn
+        
+        
+        
+      
       
       AutoVerifiedAttributes: !Ref autoVerifiedAttributes
       
@@ -191,6 +216,15 @@ Resources:
     
     
   
+  
+  UserPoolPreSignupLambdaInvokePermission: 
+    Type: "AWS::Lambda::Permission"
+    DependsOn: UserPool
+    Properties: 
+      Action: "lambda:invokeFunction"
+      Principal: "cognito-idp.amazonaws.com"
+      FunctionName: !Ref functioncookingaca957bcPreSignupName
+      SourceArn: !GetAtt UserPool.Arn
   
    
     

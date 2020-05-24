@@ -14,16 +14,17 @@ import {
 
 import { Text, useTheme } from '@ui-kitten/components'
 
-import LoveEyesSVG from '../../home/feed/components/assets/loveEyes.svg'
-import TrophySVG from '../../home/feed/components/assets/cup.svg'
-import RecipeListSVG from '../../home/feed/components/assets/recipeList.svg'
 import { useNavigation } from '@react-navigation/native';
+
 import { NavProp } from 'Navigation';
+
+import { Meal } from 'domain/meals/model';
+
+import TrophySVG from '../../home/feed/components/assets/cup.svg'
 
 const { width } = Dimensions.get('screen');
 
-
-const MealSummary = (meal: IMeal) => {
+const MealSummary = (meal: Meal) => {
   const navigation = useNavigation<NavProp>()
   const onClick = () => {
     navigation.navigate('/meal/:id', {
@@ -37,7 +38,7 @@ const MealSummary = (meal: IMeal) => {
         >
             <Block style={styles.imageContainer}>
                 <Image
-                    source={{ uri: meal.image }}
+                    source={{ uri: meal.image.file.key }}
                     style={styles.image}
                 />
                     
@@ -62,7 +63,7 @@ const MealSummary = (meal: IMeal) => {
                         appearance='hint'
                         numberOfLines={2}
                       >
-                        {meal.tip}
+                        {meal.description}
                       </Text>
                   </Block>
                 </Block>
