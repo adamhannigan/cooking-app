@@ -15,14 +15,13 @@ import {
   Block, theme,
 } from 'galio-framework';
 
-import { Meal as IMeal } from '../../../constants/dummyData'
-
 import HeartSVG from 'app/home/feed/components/assets/smile.svg'
 import MenuSVG from 'app/home/assets/menu.svg'
+import { Meal } from 'domain/meals/model';
 
 const { width, height } = Dimensions.get('screen');
 
-interface Props extends IMeal {
+interface Props extends Meal {
   onClick: () => void
   size?: 'medium' | 'large'
   isFromMenu?: boolean
@@ -53,7 +52,7 @@ export const MealBox = ({
             appearance='hint'
             category='label'
           >
-            {meal.user.name}
+            {meal.createdBy.username}
           </Text>
         </Block>
         <Block style={{
@@ -89,7 +88,7 @@ export const MealBox = ({
             
           </Block>
             <Image
-                source={{ uri: meal.image }}
+                source={{ uri: meal.image.file.key }}
                 style={{
                   ...styles.image,
                   height: mealWidth,

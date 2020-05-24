@@ -17,13 +17,13 @@ import {
   Block, theme
 } from 'galio-framework';
 
-import { meals, Meal } from '../../constants/dummyData'
-
 import SearchSVG from 'app/home/assets/search.svg'
 import YourMenu from './components/YourMenu'
 import { NavProp } from 'Navigation';
 import TakePhoto from './components/TakePhoto'
-import { InProgressMealModel } from 'domain/inProgressMeals/model';
+
+import { InProgressMealModel, InProgressMeal } from 'domain/inProgressMeals/model';
+import { Meal } from 'domain/meals/model';
 
 const { width } = Dimensions.get('screen');
 
@@ -47,18 +47,20 @@ const ChooseMeal = props => {
     let {
       // Do not copy the photo and the tip
       image,
-      tip,
+      description,
+      id,
       ...inspiredMeal
     } = meal
 
-    const newMeal = {
-      ...inspiredMeal,
+    /* TODO
+    const newMeal: InProgressMeal = {
       image: photo,
     }
 
     await InProgressMealModel.save(newMeal)
 
     navigation.navigate('/cook/progress')
+    */
   }
 
   const onAddNewMeal = async () => {
@@ -70,7 +72,7 @@ const ChooseMeal = props => {
       }],
       ingredients: null,
       steps: [],
-    } as Meal)
+    } as InProgressMeal)
 
     navigation.navigate('/cook/progress')
   }

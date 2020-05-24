@@ -14,7 +14,12 @@ class Meals {
     }
 
     public async create(meal: CreateMealInput) {
-        return create(meal)
+        const currentUser = await UserModel.getCurrentUser()
+
+        return create({
+            mealCreatedById: currentUser.id,
+            ...meal,
+        })
     }
 
     public async like(meal: Meal) {

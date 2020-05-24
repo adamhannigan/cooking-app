@@ -4,6 +4,8 @@ import { Meal } from '../../constants/dummyData'
 
 const STORAGE_KEY = '@inProgressMeal'
 
+export { Meal as InProgressMeal }
+
 class InProgressMeal {
     public async get(): Promise<Meal> {
         const inProgressMeal = await AsyncStorage.getItem(STORAGE_KEY)

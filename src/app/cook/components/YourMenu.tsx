@@ -7,21 +7,15 @@ import {
   Dimensions,
 } from 'react-native';
 
-import { Text } from '@ui-kitten/components'
-import { useNavigation } from '@react-navigation/native'
-
-
-import MealBoardIcon from 'app/home/assets/menu.svg'
+import { Text, Spinner } from '@ui-kitten/components'
 
 // galio components
 import {
   Block, theme
 } from 'galio-framework';
 
-import { meals, Meal } from '../../../constants/dummyData'
-
 import { MealBox } from './MealBox'
-import { LikeModel } from 'domain/likes/model';
+import { MealsModel, Meal } from 'domain/meals/model';
 
 const { width } = Dimensions.get('screen');
 
@@ -34,10 +28,41 @@ export const YourMenu = ({
   onSelect,
   search,
 }: Props)  => {
+  const [meals, setMeals] = React.useState<Meal[]>([])
+  const [isLoading, setIsLoading] = React.useState(true)
+  const [error, setError] = React.useState(null)
+
+  React.useEffect(() => {
+    const load = async () => {
+      try {
+        const meals = await MealsModel.getAll()
+
+        setMeals(meals)
+      } catch(e) {
+        setError(e)
+      }
+
+      setIsLoading(false)
+    }
+
+    load()
+  }, [search])
   return (
     <Block>
         <Block style={styles.group}>
             <Block style={styles.meals}>
+                {
+                  isLoading && (
+                    <Spinner />
+                  )
+                }
+                {
+                  error && (
+                    <Text>
+                      {`Error: ${error}`}
+                    </Text>
+                  )
+                }
                 {
                     meals
                       .filter(meal => meal.title.toLowerCase().includes(search.toLowerCase()))

@@ -79,16 +79,20 @@ const TakePhoto: React.FC<Props> = ({
     if (!result.cancelled) {
       const url = result.uri
 
-      const { s3Path } = await upload({
-        fileName: 'mealIMage.jpg',
+      const uploaded = await upload({
+        fileName: 'mealImage.jpg',
         fileUrl: url,
       })
+
+
       await new Promise(res => setTimeout(res, 500))
 
-      onPhoto({
-        url,
-        s3Path,
-      })
+      if (uploaded) {
+        onPhoto({
+          url,
+          s3Path: uploaded.s3Path,
+        })
+      }
     }
 
     setIsLoading(false)
