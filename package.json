@@ -21,6 +21,7 @@
     "@ui-kitten/components": "^4.4.0",
     "@ui-kitten/eva-icons": "^4.4.0",
     "@use-expo/font": "^2.0.0",
+    "aws-amplify-react": "^4.1.11",
     "aws-amplify-react-native": "^3.2.2",
     "babel-plugin-inline-import": "^3.0.0",
     "expo": "~36.0.0",

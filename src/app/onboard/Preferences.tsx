@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {
   Image,
   StatusBar,
@@ -11,8 +11,6 @@ import {
 
 import { Text, Avatar, Button } from '@ui-kitten/components'
 
-import Constants from 'expo-constants';
-
 // galio components
 import {
   Block, Icon, NavBar, theme
@@ -22,30 +20,37 @@ const { width, height } = Dimensions.get('screen');
 
 import { useNavigation } from '@react-navigation/native';
 import { NavProp } from 'Navigation';
-import { UserModel } from 'domain/users/model';
+import { TagsModel, Tag } from 'domain/tags/model';
 
-const items = [{
-  name: 'Vegetarian',
-}, {
-  name: 'Fitness',
-}]
+
 const Preferences = () => {
-  const [selected, setSelected] = React.useState<string[]>([])
+  const [tags, setTags] = React.useState<Tag[]>([])
+  const [selected, setSelected] = React.useState<Tag[]>([])
   const navigation = useNavigation<NavProp>()
 
+  useEffect(() => {
+    const load = async () => {
+      const availableTags = await TagsModel.getAll()
+
+      setTags(availableTags)
+    }
+
+    load()
+  })
+
   const onNext = async () => {
-    // TODO Add preferences locally for search on next screen
+    await TagsModel.setPreferences(selected)
 
     navigation.navigate('/onboard/follow')
   }
 
-  const onSelect = (name: string) => {
-    const alreadyExists = selected.includes(name)
+  const onSelect = (tag: Tag) => {
+    const alreadyExists = selected.find(item => item.name === tag.name)
 
     if (alreadyExists) {
-      setSelected(selected.filter(item => item !== name))
+      setSelected(selected.filter(item => item.name !== name))
     } else {
-      setSelected([...selected, name])
+      setSelected([...selected, tag])
     }
   }
 
@@ -63,8 +68,8 @@ const Preferences = () => {
           </Block>
           <Block style={styles.tags}>
               {
-                items.map(item => {
-                  const isSelected = selected.includes(item.name)
+                tags.map(tag => {
+                  const isSelected = selected.find(item => item.name === tag.name)
 
                   return (
                     <Button
@@ -74,49 +79,14 @@ const Preferences = () => {
                       }}
                       appearance={'outline' }
                       status='primary'
-                      onPress={() => onSelect(item.name)}
+                      onPress={() => onSelect(tag)}
                     >
-                        {item.name}
+                        {tag.name}
                       </Button>
                   )
                 })
               }
           </Block>
-          
-          {
-            /*
-            tagGroups.map(group => (
-              <Block style={styles.group}>
-                  <Block>
-                      <Text category='h5' style={styles.title}>
-                        {group.name}
-                      </Text>
-                  </Block>
-                  <Block style={styles.tags}>
-                      {
-                        group.items.map(item => {
-                          const isSelected = selected.includes(item.name)
-
-                          return (
-                            <Button
-                              style={{
-                                ...styles.tag,
-                                backgroundColor: isSelected ? '#fe9b0040' : 'white'
-                              }}
-                              appearance={'outline' }
-                              status='primary'
-                              onPress={() => onSelect(item.name)}
-                            >
-                                {item.name}
-                              </Button>
-                          )
-                        })
-                      }
-                  </Block>
-              </Block>
-            ))
-            */
-          }
         </Block>
       </ScrollView>
       <Block style={styles.bottomBar}>

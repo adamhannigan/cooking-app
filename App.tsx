@@ -15,6 +15,7 @@ import {
   withGalio,
 } from 'galio-framework';
 
+import 'domain'
 
 import { useFonts } from '@use-expo/font'
 import { AppLoading } from 'expo'
@@ -24,7 +25,7 @@ import Navigation from './src/Navigation'
 Amplify.configure(amplify);
 
 function App() {
-
+  // TODO: AppLoading for auth
 
   return (
     <React.Fragment>

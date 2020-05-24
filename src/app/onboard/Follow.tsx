@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {
   Image,
   StatusBar,
@@ -9,7 +9,12 @@ import {
   TouchableOpacity
 } from 'react-native';
 
-import { Text, Button, List } from '@ui-kitten/components'
+import {
+  Text,
+  Button, 
+  List,
+  Spinner,
+} from '@ui-kitten/components'
 
 import Constants from 'expo-constants';
 
@@ -22,23 +27,54 @@ import {
 } from 'galio-framework';
 
 import PersonItem, { Person } from 'components/PersonItem'
-import { groups } from 'constants/dummyData'
+import { User, UserModel } from 'domain/users/model';
 
 const { width, height } = Dimensions.get('screen');
 
 const Follow = ({ navigation }) => {
-  const [followed, setFollowed] = React.useState([])
+  const [isLoading, setIsLoading] = React.useState(true)
+  const [users, setUsers] = React.useState<User[]>([])
+  const [followed, setFollowed] = React.useState<User[]>([])
 
-  const onFollow = (name: string) => {
-    const alreadyExists = followed.includes(name)
+  useEffect(() => {
+    const load = async () => {
+      const suggestedUsers = await UserModel.listUsers()
+      setUsers(suggestedUsers)
+
+      setIsLoading(false)
+    }
+
+    load()
+  })
+
+
+  const onFollow = (user: User) => {
+    const alreadyExists = followed.find(follow => follow.id === user.id)
 
     if (alreadyExists) {
-        setFollowed(followed.filter(item => item !== name))
+        setFollowed(followed.filter(item => item.id !== user.id))
     } else {
-        setFollowed([...followed, name])
+        setFollowed([...followed, user])
     }
   }
 
+  const onNext = async () => {
+    const followPromises = followed.map(UserModel.follow)
+
+    await Promise.all(followPromises)
+
+    // TODO save followers
+    navigation.navigate('/onboard/meals')
+  }
+
+  const listItems = users.map(person => ({
+    primary: person.username,
+    action: {
+      primary: followed.find(user => user.id === person.id) ? 'Following' : 'Follow',
+      onClick: () => onFollow(person),
+    },
+    isSelected: followed.find(user => user.id === person.id),
+  }))
 
   return (
     <View style={{ flex: 1 }}>
@@ -52,34 +88,18 @@ const Follow = ({ navigation }) => {
               When you follow someone you will see their favourite recipes and what they are cooking tonight!
             </Text>
           </Block>
-          
-            {
-                groups.map(group => {
-
-                const data = group.people.map(person => ({
-                  primary: person.name,
-                  secondary: person.preferences.map(({ name}) => name).join(' - '),
-                  action: {
-                    primary: followed.includes(person.name) ? 'Following' : 'Follow',
-                    onClick: () => onFollow(person.name),
-                  },
-                  isSelected: followed.includes(person.name)
-                }))
-
-                return (
-                  <Block style={styles.group}>
-                      <Text category='h4' style={styles.title}>
-                          {group.preference.name}
-                      </Text>
-                      <List
-                        data={data}
-                        renderItem={PersonItem}
-                        style={styles.group}
-                      />
-                  </Block>
-                )
-              })
-            }
+          {
+            isLoading && (
+              <Spinner size='large' />
+            )
+          }
+          <Block style={styles.group}>
+              <List
+                data={listItems}
+                renderItem={PersonItem}
+                style={styles.group}
+              />
+          </Block>
         </Block>
       </ScrollView>
       <Block style={styles.bottomBar}>
@@ -87,7 +107,7 @@ const Follow = ({ navigation }) => {
             size='medium'
             appearance='ghost'
             status='primary'
-            onPress={() => navigation.navigate('/onboard/meals')}
+            onPress={onNext}
           >
             Skip for now
           </Button>
@@ -95,7 +115,7 @@ const Follow = ({ navigation }) => {
             size='medium'
             status='primary'
             disabled={followed.length === 0}
-            onPress={() => navigation.navigate('/onboard/meals')}
+            onPress={onNext}
           >
             Next
           </Button>

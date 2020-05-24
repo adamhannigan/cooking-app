@@ -1,6 +1,6 @@
 {
-    "identityPoolName": "cookingaca957bc_identitypool_aca957bc",
-    "allowUnauthenticatedIdentities": true,
+    "identityPoolName": "cooking_meals57b4f95c_identitypool_57b4f95c",
+    "allowUnauthenticatedIdentities": false,
     "resourceNameTruncated": "cookinaca957bc",
     "userPoolName": "cookingaca957bc_userpool_aca957bc",
     "autoVerifiedAttributes": [
@@ -14,7 +14,7 @@
     "smsVerificationMessage": "Your verification code is {####}",
     "emailVerificationSubject": "Your verification code",
     "emailVerificationMessage": "Your verification code is {####}",
-    "defaultPasswordPolicy": false,
+    "defaultPasswordPolicy": true,
     "passwordPolicyMinLength": 8,
     "passwordPolicyCharacters": [],
     "requiredAttributes": [
@@ -44,7 +44,16 @@
             "Arn"
         ]
     },
-    "useDefault": "default",
+    "useDefault": "manual",
     "userPoolGroupList": [],
-    "dependsOn": []
+    "dependsOn": [],
+    "userPoolGroups": false,
+    "adminQueries": false,
+    "triggers": "{}",
+    "hostedUI": false,
+    "parentStack": {
+        "Ref": "AWS::StackId"
+    },
+    "permissions": [],
+    "thirdPartyAuth": false
 }

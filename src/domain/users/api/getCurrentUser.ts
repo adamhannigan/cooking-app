@@ -62,6 +62,11 @@ export async function getCurrentUser() {
     }
 
     console.log('incognitoUser', incognitoUser)
+    if (!incognitoUser) {
+        console.error('No incognito user')
+
+        return
+    }
 
     let user: User
 

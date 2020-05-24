@@ -34,5 +34,23 @@
                 "cookingaca957bc": {}
             }
         }
+    },
+    "drooling": {
+        "awscloudformation": {
+            "AuthRoleName": "amplify-cooking-meals-drooling-104811-authRole",
+            "UnauthRoleArn": "arn:aws:iam::811819597125:role/amplify-cooking-meals-drooling-104811-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::811819597125:role/amplify-cooking-meals-drooling-104811-authRole",
+            "Region": "ap-southeast-2",
+            "DeploymentBucketName": "amplify-cooking-meals-drooling-104811-deployment",
+            "UnauthRoleName": "amplify-cooking-meals-drooling-104811-unauthRole",
+            "StackName": "amplify-cooking-meals-drooling-104811",
+            "StackId": "arn:aws:cloudformation:ap-southeast-2:811819597125:stack/amplify-cooking-meals-drooling-104811/5d5313f0-9d58-11ea-ae74-02d4e302d85c",
+            "AmplifyAppId": "d1qssflyb1gwph"
+        },
+        "categories": {
+            "auth": {
+                "cookingaca957bc": {}
+            }
+        }
     }
 }

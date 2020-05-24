@@ -5,6 +5,7 @@ import getUserList from './api/getUserList'
 import { authEventHandler } from 'domain/auth/events'
 
 import { getCurrentUser } from './api/getCurrentUser'
+import { follow } from './api/follow'
 
 export type User = Omit<Exclude<GetUserQuery['getUser'], null>, '__typename'>;
 
@@ -29,6 +30,10 @@ class Users {
 
     public getCurrentUser(): User {
         return this.currentUser
+    }
+
+    public async follow(user: User): Promise<User> {
+        return follow(user)
     }
 }
 

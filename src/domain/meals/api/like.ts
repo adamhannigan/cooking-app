@@ -4,11 +4,18 @@ import { CreateLikeInput } from 'API'
 
 import { createLike } from 'graphql/mutations'
 
-export default async function like(mealId: number){
+interface Options {
+    userId: string
+    mealId: string
+}
+
+export default async function like({
+    userId,
+    mealId,
+}: Options){
     const input: CreateLikeInput = {
-        likeMealId: mealId.toString(),
-        // TODO - how do we get the current user ID?
-        likeLikedById: '22',
+        likeMealId: mealId,
+        likeLikedById: userId,
     }
 
     await API.graphql(graphqlOperation(createLike, input))

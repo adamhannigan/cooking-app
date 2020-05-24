@@ -76,7 +76,7 @@ function Navigation() {
     },
   }
 
-  const routes: RouteConfig<Routes, keyof Routes, object>[] = [{
+  const routes = [{
     name: '/login',
     component: Login,
     options: headerOptions,
@@ -160,7 +160,7 @@ function Navigation() {
     <NavigationContainer>
         <Stack.Navigator>
             {
-              routes.map(route => (<Stack.Screen {...route} />))
+              routes.map(route => (<Stack.Screen key={route.name} {...route} />))
             }
         </Stack.Navigator>
     </NavigationContainer>

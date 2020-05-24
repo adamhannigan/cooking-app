@@ -27,6 +27,15 @@ type Like @model @auth(rules: [{
   likedBy: User @connection(name: "UserLike")
 }
 
+type Follower @model @auth(rules: [{
+  allow: owner,
+  operations: [create, update, delete]
+}]) {
+  id: ID!
+  user: User @connection(name: "UserFollowing")
+  followedBy: User @connection(name: "UserFollowers")
+}
+
 type Meal @model @auth(rules: [{
   allow: owner,
   operations: [create, update, delete]
@@ -73,4 +82,7 @@ type User @model @auth(rules: [{
   meals: [Meal] @connection(name: "UserMeal")
   menuItems: [MenuItem] @connection(name: "UserMenuItem")
   likes: [Like] @connection(name: "UserLike")
+
+  followers: [Follower] @connection(name: "UserFollowers")
+  following: [Follower] @connection(name: "UserFollowing")
 }

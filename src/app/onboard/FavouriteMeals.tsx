@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {
   Image,
   StatusBar,
@@ -10,34 +10,61 @@ import {
   ImageBackground,
 } from 'react-native';
 
+import API from '@aws-amplify/storage'
+
+import { S3Image } from 'aws-amplify-react'
+
 import { Text, Avatar, Button } from '@ui-kitten/components'
 
 import Constants from 'expo-constants';
 
 const { statusBarHeight } = Constants;
 
-
 // galio components
 import {
   Block, Icon, NavBar, theme, Input,
 } from 'galio-framework';
 
-import { meals } from '../../constants/dummyData'
 import { useNavigation } from '@react-navigation/native';
+import { MealsModel, Meal } from 'domain/meals/model';
+import { UserModel } from 'domain/users/model';
 
 const { width, height } = Dimensions.get('screen');
 
 const Menu = ({ }) => {
   const navigation = useNavigation()
-  const [selected, setSelected] = React.useState([])
+  const [selected, setSelected] = React.useState<Meal[]>([])
+  const [meals, setMeals] = React.useState<Meal[]>([])
+  const [isLoading, setIsLoading] = React.useState(true)
 
-  const onSelect = (name: string) => {
+  useEffect(() => {
+    const load = async () => {
+      const meals = await MealsModel.getAll()
+
+      setMeals(meals)
+      setIsLoading(false)
+    }
+
+    load()
+  })
+
+  const onNext = async () => {
+    const menuItemPromises = selected.map(MealsModel.addToMenu)
+
+    await Promise.all(menuItemPromises)
+
+    navigation.navigate('/home', {
+      screen: '/feed'
+    })
+  }
+
+  const onSelect = (meal: Meal) => {
     const alreadyExists = selected.includes(name)
 
     if (alreadyExists) {
-      setSelected(selected.filter(item => item !== name))
+      setSelected(selected.filter(item => item.id !== meal.id))
     } else {
-      setSelected([...selected, name])
+      setSelected([...selected, meal])
     }
   }
 
@@ -67,13 +94,14 @@ const Menu = ({ }) => {
           <Block>
             {
               meals.map(meal => {
-                  const isSelected = selected.includes(meal.title)
+                  const isSelected = selected.find(item => item.id === meal.id)
 
                   return (
                       <Block row style={styles.meal}>
-                        <Image
-                            source={{ uri: meal.image }}
-                            style={styles.image}
+                        <S3Image
+                          imgKey={meal.image.file.key}
+                          level="private"
+                          style={styles.image}
                         />
                         <Block style={styles.mealContent} flex row space='between'>
                             <Text category='h5' style={styles.mealTitle} numberOfLines={2}>
@@ -83,7 +111,7 @@ const Menu = ({ }) => {
                                 <Button
                                     appearance='outline'
                                     status='primary'
-                                    onPress={() => onSelect(meal.title)}
+                                    onPress={() => onSelect(meal)}
                                     style={{
                                         backgroundColor: isSelected ? '#fe9b0040' : 'white'
                                     }}
@@ -107,18 +135,14 @@ const Menu = ({ }) => {
             size='medium'
             appearance='ghost'
             status='primary'
-            onPress={() => navigation.navigate('/home', {
-              screen: '/feed'
-            })}
+            onPress={onNext}
           >
             Skip for now
           </Button>
           <Button
             size='medium'
             status='primary'
-            onPress={() => navigation.navigate('/home', {
-              screen: '/feed'
-            })}
+            onPress={onNext}
             disabled={selected.length === 0}
           >
             Next

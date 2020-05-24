@@ -15,11 +15,11 @@ import {
 import { useNavigation } from '@react-navigation/native';
 import { NavProp } from 'Navigation';
 import { AuthModel } from 'domain/auth/model';
-import { UserModel } from 'domain/users/model';
+import 'domain/users/model';
 
 const { height, width } = Dimensions.get('window');
 
-const Login = () => {
+const Register = () => {
   const [username, setUsername] = React.useState<string>('')
   const [password, setPassword] = React.useState<string>('')
   const [email, setEmail] = React.useState<string>('')
@@ -29,6 +29,8 @@ const Login = () => {
   const navigation = useNavigation<NavProp>()
 
   const onSignUp = async () => {
+    console.log('Load it up!')
+
     setIsLoading(true)
 
     try {
@@ -122,4 +124,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Login;
+export default Register;
