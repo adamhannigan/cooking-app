@@ -39,6 +39,7 @@ const Feed = props => {
       const load = async () => {
         try {
           const storedMeals = await MealsModel.getAll()
+          console.log('Use meals', storedMeals)
           setMeals(storedMeals)
         } catch (e) {
           setError(e)
@@ -54,7 +55,6 @@ const Feed = props => {
   return (
     <View style={{ flex: 1 }}>
       <ScrollView style={{ flex: 1 }}>
-          <InProgressMeal />
           <Block flex style={styles.header}>
             {
               isLoading && (

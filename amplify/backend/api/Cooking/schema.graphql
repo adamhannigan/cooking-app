@@ -5,7 +5,7 @@ type S3Object {
 }
 
 type Media {
-    file: S3Object
+    file: S3Object!
 }
 
 type Ingredients {
@@ -23,8 +23,8 @@ type Like @model @auth(rules: [{
   operations: [create, update, delete]
 }]) {
   id: ID!
-  meal: Meal @connection(name: "MealLike")
-  likedBy: User @connection(name: "UserLike")
+  meal: Meal! @connection(name: "MealLike")
+  likedBy: User! @connection(name: "UserLike")
 }
 
 type Follower @model @auth(rules: [{
@@ -32,8 +32,8 @@ type Follower @model @auth(rules: [{
   operations: [create, update, delete]
 }]) {
   id: ID!
-  user: User @connection(name: "UserFollowing")
-  followedBy: User @connection(name: "UserFollowers")
+  user: User! @connection(name: "UserFollowing")
+  followedBy: User! @connection(name: "UserFollowers")
 }
 
 type Meal @model @auth(rules: [{
@@ -42,13 +42,13 @@ type Meal @model @auth(rules: [{
 }]) {
   id: ID!
   title: String!
-  image: Media
+  image: Media!
   description: String
 
   likes: [Like] @connection(name: "MealLike")
   inspiredBy: Meal @connection
   menuItem: MenuItem @connection(name: "MenuMeal")
-  createdBy: User @connection(name: "UserMeal")
+  createdBy: User! @connection(name: "UserMeal")
 
   recipe: String
   ingredients: [Ingredients]
@@ -63,8 +63,8 @@ type MenuItem @model @auth(rules: [{
   id: ID!
   order: Int!
 
-  meal: Meal @connection(name: "MenuMeal")
-  createdBy: User @connection(name: "UserMenuItem")
+  meal: Meal! @connection(name: "MenuMeal")
+  createdBy: User! @connection(name: "UserMenuItem")
 }
 
 type User @model @auth(rules: [{

@@ -5,6 +5,10 @@ import {
   Dimensions,
 } from 'react-native';
 
+import Storage from '@aws-amplify/storage'
+
+import { S3Image } from 'aws-amplify-react'
+
 import { useNavigation } from '@react-navigation/native'
 
 import { Text, useTheme } from '@ui-kitten/components'
@@ -52,6 +56,17 @@ const Meal = (meal: Props) => {
     const onFocusedItemChange = (imageIndexInView: number) => {
       setImageInViewIndex(imageIndexInView)
     }
+
+    const [signedImageUrl, setSignedImageUrl] = React.useState()
+    React.useEffect(() => {
+      const load = async () => {
+        const signed = await Storage.get(meal.image.file.key)
+        console.log('signed', signed)
+        setSignedImageUrl(signed)
+      }
+
+      load()
+    }, [])
 
     /*
     const stepsWithMedia = meal.steps
@@ -171,6 +186,23 @@ const Meal = (meal: Props) => {
                   />
                   */}
 
+                {
+                  signedImageUrl && (
+                    <Image
+                      source={{
+                        uri: signedImageUrl,
+                      }}
+                      style={{
+                        width: '100%',
+                        height: 300,
+                        borderRadius: 5,
+                      }}
+                    />
+                  )
+                }
+                
+
+                  {/*}
                   <Carousel
                     style={styles.image}
                     ref={(c) => { carouselRef.current = c; }}
@@ -181,7 +213,7 @@ const Meal = (meal: Props) => {
                     itemWidth={width - theme.SIZES.BASE * 4}
                     layout={'default'}
                     firstItem={0}
-                  />
+                />*/}
 
                 </Block>
             </Block>

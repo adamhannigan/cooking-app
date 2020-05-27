@@ -49,6 +49,14 @@ class Auth {
     }
 
     public async getCurrentUser() {
+        try {
+            const user = (await AwsAuth.currentAuthenticatedUser())
+            console.log('currentAuthenticatedUser', user)
+
+            return user
+        } catch (e) {
+            console.log('currentAuthenticatedUser', e)
+        }
     }
 }
 

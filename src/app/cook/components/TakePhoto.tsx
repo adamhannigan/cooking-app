@@ -73,7 +73,7 @@ const TakePhoto: React.FC<Props> = ({
 
     let result = await launchCameraAsync({
       mediaTypes: MediaTypeOptions.Images,
-      quality: 1
+      quality: 0.1,
     });
 
     if (!result.cancelled) {

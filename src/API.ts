@@ -4,8 +4,8 @@
 
 export type CreateLikeInput = {
   id?: string | null,
-  likeMealId?: string | null,
-  likeLikedById?: string | null,
+  likeMealId: string,
+  likeLikedById: string,
 };
 
 export type ModelLikeConditionInput = {
@@ -26,8 +26,8 @@ export type DeleteLikeInput = {
 
 export type CreateFollowerInput = {
   id?: string | null,
-  followerUserId?: string | null,
-  followerFollowedById?: string | null,
+  followerUserId: string,
+  followerFollowedById: string,
 };
 
 export type ModelFollowerConditionInput = {
@@ -49,7 +49,7 @@ export type DeleteFollowerInput = {
 export type CreateMealInput = {
   id?: string | null,
   title: string,
-  image?: MediaInput | null,
+  image: MediaInput,
   description?: string | null,
   recipe?: string | null,
   ingredients?: Array< IngredientsInput | null > | null,
@@ -57,11 +57,11 @@ export type CreateMealInput = {
   tags?: Array< string > | null,
   mealInspiredById?: string | null,
   mealMenuItemId?: string | null,
-  mealCreatedById?: string | null,
+  mealCreatedById: string,
 };
 
 export type MediaInput = {
-  file?: S3ObjectInput | null,
+  file: S3ObjectInput,
 };
 
 export type S3ObjectInput = {
@@ -151,8 +151,8 @@ export type DeleteMealInput = {
 export type CreateMenuItemInput = {
   id?: string | null,
   order: number,
-  menuItemMealId?: string | null,
-  menuItemCreatedById?: string | null,
+  menuItemMealId: string,
+  menuItemCreatedById: string,
 };
 
 export type ModelMenuItemConditionInput = {
@@ -323,7 +323,7 @@ export type CreateLikeMutation = {
         lastName: string | null,
         bio: string | null,
         owner: string | null,
-      } | null,
+      },
       recipe: string | null,
       ingredients:  Array< {
         __typename: "Ingredients",
@@ -335,7 +335,7 @@ export type CreateLikeMutation = {
       } | null > | null,
       tags: Array< string > | null,
       owner: string | null,
-    } | null,
+    },
     likedBy:  {
       __typename: "User",
       id: string,
@@ -365,7 +365,7 @@ export type CreateLikeMutation = {
         nextToken: string | null,
       } | null,
       owner: string | null,
-    } | null,
+    },
     owner: string | null,
   } | null,
 };
@@ -412,7 +412,7 @@ export type UpdateLikeMutation = {
         lastName: string | null,
         bio: string | null,
         owner: string | null,
-      } | null,
+      },
       recipe: string | null,
       ingredients:  Array< {
         __typename: "Ingredients",
@@ -424,7 +424,7 @@ export type UpdateLikeMutation = {
       } | null > | null,
       tags: Array< string > | null,
       owner: string | null,
-    } | null,
+    },
     likedBy:  {
       __typename: "User",
       id: string,
@@ -454,7 +454,7 @@ export type UpdateLikeMutation = {
         nextToken: string | null,
       } | null,
       owner: string | null,
-    } | null,
+    },
     owner: string | null,
   } | null,
 };
@@ -501,7 +501,7 @@ export type DeleteLikeMutation = {
         lastName: string | null,
         bio: string | null,
         owner: string | null,
-      } | null,
+      },
       recipe: string | null,
       ingredients:  Array< {
         __typename: "Ingredients",
@@ -513,7 +513,7 @@ export type DeleteLikeMutation = {
       } | null > | null,
       tags: Array< string > | null,
       owner: string | null,
-    } | null,
+    },
     likedBy:  {
       __typename: "User",
       id: string,
@@ -543,7 +543,7 @@ export type DeleteLikeMutation = {
         nextToken: string | null,
       } | null,
       owner: string | null,
-    } | null,
+    },
     owner: string | null,
   } | null,
 };
@@ -586,7 +586,7 @@ export type CreateFollowerMutation = {
         nextToken: string | null,
       } | null,
       owner: string | null,
-    } | null,
+    },
     followedBy:  {
       __typename: "User",
       id: string,
@@ -616,7 +616,7 @@ export type CreateFollowerMutation = {
         nextToken: string | null,
       } | null,
       owner: string | null,
-    } | null,
+    },
     owner: string | null,
   } | null,
 };
@@ -659,7 +659,7 @@ export type UpdateFollowerMutation = {
         nextToken: string | null,
       } | null,
       owner: string | null,
-    } | null,
+    },
     followedBy:  {
       __typename: "User",
       id: string,
@@ -689,7 +689,7 @@ export type UpdateFollowerMutation = {
         nextToken: string | null,
       } | null,
       owner: string | null,
-    } | null,
+    },
     owner: string | null,
   } | null,
 };
@@ -732,7 +732,7 @@ export type DeleteFollowerMutation = {
         nextToken: string | null,
       } | null,
       owner: string | null,
-    } | null,
+    },
     followedBy:  {
       __typename: "User",
       id: string,
@@ -762,7 +762,7 @@ export type DeleteFollowerMutation = {
         nextToken: string | null,
       } | null,
       owner: string | null,
-    } | null,
+    },
     owner: string | null,
   } | null,
 };
@@ -784,8 +784,8 @@ export type CreateMealMutation = {
         bucket: string | null,
         region: string | null,
         key: string,
-      } | null,
-    } | null,
+      },
+    },
     description: string | null,
     likes:  {
       __typename: "ModelLikeConnection",
@@ -829,7 +829,7 @@ export type CreateMealMutation = {
         lastName: string | null,
         bio: string | null,
         owner: string | null,
-      } | null,
+      },
       recipe: string | null,
       ingredients:  Array< {
         __typename: "Ingredients",
@@ -854,7 +854,7 @@ export type CreateMealMutation = {
         recipe: string | null,
         tags: Array< string > | null,
         owner: string | null,
-      } | null,
+      },
       createdBy:  {
         __typename: "User",
         id: string,
@@ -864,7 +864,7 @@ export type CreateMealMutation = {
         lastName: string | null,
         bio: string | null,
         owner: string | null,
-      } | null,
+      },
       owner: string | null,
     } | null,
     createdBy:  {
@@ -896,7 +896,7 @@ export type CreateMealMutation = {
         nextToken: string | null,
       } | null,
       owner: string | null,
-    } | null,
+    },
     recipe: string | null,
     ingredients:  Array< {
       __typename: "Ingredients",
@@ -928,8 +928,8 @@ export type UpdateMealMutation = {
         bucket: string | null,
         region: string | null,
         key: string,
-      } | null,
-    } | null,
+      },
+    },
     description: string | null,
     likes:  {
       __typename: "ModelLikeConnection",
@@ -973,7 +973,7 @@ export type UpdateMealMutation = {
         lastName: string | null,
         bio: string | null,
         owner: string | null,
-      } | null,
+      },
       recipe: string | null,
       ingredients:  Array< {
         __typename: "Ingredients",
@@ -998,7 +998,7 @@ export type UpdateMealMutation = {
         recipe: string | null,
         tags: Array< string > | null,
         owner: string | null,
-      } | null,
+      },
       createdBy:  {
         __typename: "User",
         id: string,
@@ -1008,7 +1008,7 @@ export type UpdateMealMutation = {
         lastName: string | null,
         bio: string | null,
         owner: string | null,
-      } | null,
+      },
       owner: string | null,
     } | null,
     createdBy:  {
@@ -1040,7 +1040,7 @@ export type UpdateMealMutation = {
         nextToken: string | null,
       } | null,
       owner: string | null,
-    } | null,
+    },
     recipe: string | null,
     ingredients:  Array< {
       __typename: "Ingredients",
@@ -1072,8 +1072,8 @@ export type DeleteMealMutation = {
         bucket: string | null,
         region: string | null,
         key: string,
-      } | null,
-    } | null,
+      },
+    },
     description: string | null,
     likes:  {
       __typename: "ModelLikeConnection",
@@ -1117,7 +1117,7 @@ export type DeleteMealMutation = {
         lastName: string | null,
         bio: string | null,
         owner: string | null,
-      } | null,
+      },
       recipe: string | null,
       ingredients:  Array< {
         __typename: "Ingredients",
@@ -1142,7 +1142,7 @@ export type DeleteMealMutation = {
         recipe: string | null,
         tags: Array< string > | null,
         owner: string | null,
-      } | null,
+      },
       createdBy:  {
         __typename: "User",
         id: string,
@@ -1152,7 +1152,7 @@ export type DeleteMealMutation = {
         lastName: string | null,
         bio: string | null,
         owner: string | null,
-      } | null,
+      },
       owner: string | null,
     } | null,
     createdBy:  {
@@ -1184,7 +1184,7 @@ export type DeleteMealMutation = {
         nextToken: string | null,
       } | null,
       owner: string | null,
-    } | null,
+    },
     recipe: string | null,
     ingredients:  Array< {
       __typename: "Ingredients",
@@ -1242,7 +1242,7 @@ export type CreateMenuItemMutation = {
         lastName: string | null,
         bio: string | null,
         owner: string | null,
-      } | null,
+      },
       recipe: string | null,
       ingredients:  Array< {
         __typename: "Ingredients",
@@ -1254,7 +1254,7 @@ export type CreateMenuItemMutation = {
       } | null > | null,
       tags: Array< string > | null,
       owner: string | null,
-    } | null,
+    },
     createdBy:  {
       __typename: "User",
       id: string,
@@ -1284,7 +1284,7 @@ export type CreateMenuItemMutation = {
         nextToken: string | null,
       } | null,
       owner: string | null,
-    } | null,
+    },
     owner: string | null,
   } | null,
 };
@@ -1332,7 +1332,7 @@ export type UpdateMenuItemMutation = {
         lastName: string | null,
         bio: string | null,
         owner: string | null,
-      } | null,
+      },
       recipe: string | null,
       ingredients:  Array< {
         __typename: "Ingredients",
@@ -1344,7 +1344,7 @@ export type UpdateMenuItemMutation = {
       } | null > | null,
       tags: Array< string > | null,
       owner: string | null,
-    } | null,
+    },
     createdBy:  {
       __typename: "User",
       id: string,
@@ -1374,7 +1374,7 @@ export type UpdateMenuItemMutation = {
         nextToken: string | null,
       } | null,
       owner: string | null,
-    } | null,
+    },
     owner: string | null,
   } | null,
 };
@@ -1422,7 +1422,7 @@ export type DeleteMenuItemMutation = {
         lastName: string | null,
         bio: string | null,
         owner: string | null,
-      } | null,
+      },
       recipe: string | null,
       ingredients:  Array< {
         __typename: "Ingredients",
@@ -1434,7 +1434,7 @@ export type DeleteMenuItemMutation = {
       } | null > | null,
       tags: Array< string > | null,
       owner: string | null,
-    } | null,
+    },
     createdBy:  {
       __typename: "User",
       id: string,
@@ -1464,7 +1464,7 @@ export type DeleteMenuItemMutation = {
         nextToken: string | null,
       } | null,
       owner: string | null,
-    } | null,
+    },
     owner: string | null,
   } | null,
 };
@@ -1490,7 +1490,7 @@ export type CreateUserMutation = {
         bucket: string | null,
         region: string | null,
         key: string,
-      } | null,
+      },
     } | null,
     meals:  {
       __typename: "ModelMealConnection",
@@ -1567,7 +1567,7 @@ export type UpdateUserMutation = {
         bucket: string | null,
         region: string | null,
         key: string,
-      } | null,
+      },
     } | null,
     meals:  {
       __typename: "ModelMealConnection",
@@ -1644,7 +1644,7 @@ export type DeleteUserMutation = {
         bucket: string | null,
         region: string | null,
         key: string,
-      } | null,
+      },
     } | null,
     meals:  {
       __typename: "ModelMealConnection",
@@ -1741,7 +1741,7 @@ export type GetLikeQuery = {
         lastName: string | null,
         bio: string | null,
         owner: string | null,
-      } | null,
+      },
       recipe: string | null,
       ingredients:  Array< {
         __typename: "Ingredients",
@@ -1753,7 +1753,7 @@ export type GetLikeQuery = {
       } | null > | null,
       tags: Array< string > | null,
       owner: string | null,
-    } | null,
+    },
     likedBy:  {
       __typename: "User",
       id: string,
@@ -1783,7 +1783,7 @@ export type GetLikeQuery = {
         nextToken: string | null,
       } | null,
       owner: string | null,
-    } | null,
+    },
     owner: string | null,
   } | null,
 };
@@ -1808,7 +1808,7 @@ export type ListLikesQuery = {
         recipe: string | null,
         tags: Array< string > | null,
         owner: string | null,
-      } | null,
+      },
       likedBy:  {
         __typename: "User",
         id: string,
@@ -1818,7 +1818,7 @@ export type ListLikesQuery = {
         lastName: string | null,
         bio: string | null,
         owner: string | null,
-      } | null,
+      },
       owner: string | null,
     } | null > | null,
     nextToken: string | null,
@@ -1862,7 +1862,7 @@ export type GetFollowerQuery = {
         nextToken: string | null,
       } | null,
       owner: string | null,
-    } | null,
+    },
     followedBy:  {
       __typename: "User",
       id: string,
@@ -1892,7 +1892,7 @@ export type GetFollowerQuery = {
         nextToken: string | null,
       } | null,
       owner: string | null,
-    } | null,
+    },
     owner: string | null,
   } | null,
 };
@@ -1918,7 +1918,7 @@ export type ListFollowersQuery = {
         lastName: string | null,
         bio: string | null,
         owner: string | null,
-      } | null,
+      },
       followedBy:  {
         __typename: "User",
         id: string,
@@ -1928,7 +1928,7 @@ export type ListFollowersQuery = {
         lastName: string | null,
         bio: string | null,
         owner: string | null,
-      } | null,
+      },
       owner: string | null,
     } | null > | null,
     nextToken: string | null,
@@ -1951,8 +1951,8 @@ export type GetMealQuery = {
         bucket: string | null,
         region: string | null,
         key: string,
-      } | null,
-    } | null,
+      },
+    },
     description: string | null,
     likes:  {
       __typename: "ModelLikeConnection",
@@ -1996,7 +1996,7 @@ export type GetMealQuery = {
         lastName: string | null,
         bio: string | null,
         owner: string | null,
-      } | null,
+      },
       recipe: string | null,
       ingredients:  Array< {
         __typename: "Ingredients",
@@ -2021,7 +2021,7 @@ export type GetMealQuery = {
         recipe: string | null,
         tags: Array< string > | null,
         owner: string | null,
-      } | null,
+      },
       createdBy:  {
         __typename: "User",
         id: string,
@@ -2031,7 +2031,7 @@ export type GetMealQuery = {
         lastName: string | null,
         bio: string | null,
         owner: string | null,
-      } | null,
+      },
       owner: string | null,
     } | null,
     createdBy:  {
@@ -2063,7 +2063,7 @@ export type GetMealQuery = {
         nextToken: string | null,
       } | null,
       owner: string | null,
-    } | null,
+    },
     recipe: string | null,
     ingredients:  Array< {
       __typename: "Ingredients",
@@ -2120,7 +2120,7 @@ export type ListMealsQuery = {
         lastName: string | null,
         bio: string | null,
         owner: string | null,
-      } | null,
+      },
       recipe: string | null,
       ingredients:  Array< {
         __typename: "Ingredients",
@@ -2179,7 +2179,7 @@ export type GetMenuItemQuery = {
         lastName: string | null,
         bio: string | null,
         owner: string | null,
-      } | null,
+      },
       recipe: string | null,
       ingredients:  Array< {
         __typename: "Ingredients",
@@ -2191,7 +2191,7 @@ export type GetMenuItemQuery = {
       } | null > | null,
       tags: Array< string > | null,
       owner: string | null,
-    } | null,
+    },
     createdBy:  {
       __typename: "User",
       id: string,
@@ -2221,7 +2221,7 @@ export type GetMenuItemQuery = {
         nextToken: string | null,
       } | null,
       owner: string | null,
-    } | null,
+    },
     owner: string | null,
   } | null,
 };
@@ -2247,7 +2247,7 @@ export type ListMenuItemsQuery = {
         recipe: string | null,
         tags: Array< string > | null,
         owner: string | null,
-      } | null,
+      },
       createdBy:  {
         __typename: "User",
         id: string,
@@ -2257,7 +2257,7 @@ export type ListMenuItemsQuery = {
         lastName: string | null,
         bio: string | null,
         owner: string | null,
-      } | null,
+      },
       owner: string | null,
     } | null > | null,
     nextToken: string | null,
@@ -2284,7 +2284,7 @@ export type GetUserQuery = {
         bucket: string | null,
         region: string | null,
         key: string,
-      } | null,
+      },
     } | null,
     meals:  {
       __typename: "ModelMealConnection",
@@ -2424,7 +2424,7 @@ export type OnCreateLikeSubscription = {
         lastName: string | null,
         bio: string | null,
         owner: string | null,
-      } | null,
+      },
       recipe: string | null,
       ingredients:  Array< {
         __typename: "Ingredients",
@@ -2436,7 +2436,7 @@ export type OnCreateLikeSubscription = {
       } | null > | null,
       tags: Array< string > | null,
       owner: string | null,
-    } | null,
+    },
     likedBy:  {
       __typename: "User",
       id: string,
@@ -2466,7 +2466,7 @@ export type OnCreateLikeSubscription = {
         nextToken: string | null,
       } | null,
       owner: string | null,
-    } | null,
+    },
     owner: string | null,
   } | null,
 };
@@ -2512,7 +2512,7 @@ export type OnUpdateLikeSubscription = {
         lastName: string | null,
         bio: string | null,
         owner: string | null,
-      } | null,
+      },
       recipe: string | null,
       ingredients:  Array< {
         __typename: "Ingredients",
@@ -2524,7 +2524,7 @@ export type OnUpdateLikeSubscription = {
       } | null > | null,
       tags: Array< string > | null,
       owner: string | null,
-    } | null,
+    },
     likedBy:  {
       __typename: "User",
       id: string,
@@ -2554,7 +2554,7 @@ export type OnUpdateLikeSubscription = {
         nextToken: string | null,
       } | null,
       owner: string | null,
-    } | null,
+    },
     owner: string | null,
   } | null,
 };
@@ -2600,7 +2600,7 @@ export type OnDeleteLikeSubscription = {
         lastName: string | null,
         bio: string | null,
         owner: string | null,
-      } | null,
+      },
       recipe: string | null,
       ingredients:  Array< {
         __typename: "Ingredients",
@@ -2612,7 +2612,7 @@ export type OnDeleteLikeSubscription = {
       } | null > | null,
       tags: Array< string > | null,
       owner: string | null,
-    } | null,
+    },
     likedBy:  {
       __typename: "User",
       id: string,
@@ -2642,7 +2642,7 @@ export type OnDeleteLikeSubscription = {
         nextToken: string | null,
       } | null,
       owner: string | null,
-    } | null,
+    },
     owner: string | null,
   } | null,
 };
@@ -2684,7 +2684,7 @@ export type OnCreateFollowerSubscription = {
         nextToken: string | null,
       } | null,
       owner: string | null,
-    } | null,
+    },
     followedBy:  {
       __typename: "User",
       id: string,
@@ -2714,7 +2714,7 @@ export type OnCreateFollowerSubscription = {
         nextToken: string | null,
       } | null,
       owner: string | null,
-    } | null,
+    },
     owner: string | null,
   } | null,
 };
@@ -2756,7 +2756,7 @@ export type OnUpdateFollowerSubscription = {
         nextToken: string | null,
       } | null,
       owner: string | null,
-    } | null,
+    },
     followedBy:  {
       __typename: "User",
       id: string,
@@ -2786,7 +2786,7 @@ export type OnUpdateFollowerSubscription = {
         nextToken: string | null,
       } | null,
       owner: string | null,
-    } | null,
+    },
     owner: string | null,
   } | null,
 };
@@ -2828,7 +2828,7 @@ export type OnDeleteFollowerSubscription = {
         nextToken: string | null,
       } | null,
       owner: string | null,
-    } | null,
+    },
     followedBy:  {
       __typename: "User",
       id: string,
@@ -2858,7 +2858,7 @@ export type OnDeleteFollowerSubscription = {
         nextToken: string | null,
       } | null,
       owner: string | null,
-    } | null,
+    },
     owner: string | null,
   } | null,
 };
@@ -2879,8 +2879,8 @@ export type OnCreateMealSubscription = {
         bucket: string | null,
         region: string | null,
         key: string,
-      } | null,
-    } | null,
+      },
+    },
     description: string | null,
     likes:  {
       __typename: "ModelLikeConnection",
@@ -2924,7 +2924,7 @@ export type OnCreateMealSubscription = {
         lastName: string | null,
         bio: string | null,
         owner: string | null,
-      } | null,
+      },
       recipe: string | null,
       ingredients:  Array< {
         __typename: "Ingredients",
@@ -2949,7 +2949,7 @@ export type OnCreateMealSubscription = {
         recipe: string | null,
         tags: Array< string > | null,
         owner: string | null,
-      } | null,
+      },
       createdBy:  {
         __typename: "User",
         id: string,
@@ -2959,7 +2959,7 @@ export type OnCreateMealSubscription = {
         lastName: string | null,
         bio: string | null,
         owner: string | null,
-      } | null,
+      },
       owner: string | null,
     } | null,
     createdBy:  {
@@ -2991,7 +2991,7 @@ export type OnCreateMealSubscription = {
         nextToken: string | null,
       } | null,
       owner: string | null,
-    } | null,
+    },
     recipe: string | null,
     ingredients:  Array< {
       __typename: "Ingredients",
@@ -3022,8 +3022,8 @@ export type OnUpdateMealSubscription = {
         bucket: string | null,
         region: string | null,
         key: string,
-      } | null,
-    } | null,
+      },
+    },
     description: string | null,
     likes:  {
       __typename: "ModelLikeConnection",
@@ -3067,7 +3067,7 @@ export type OnUpdateMealSubscription = {
         lastName: string | null,
         bio: string | null,
         owner: string | null,
-      } | null,
+      },
       recipe: string | null,
       ingredients:  Array< {
         __typename: "Ingredients",
@@ -3092,7 +3092,7 @@ export type OnUpdateMealSubscription = {
         recipe: string | null,
         tags: Array< string > | null,
         owner: string | null,
-      } | null,
+      },
       createdBy:  {
         __typename: "User",
         id: string,
@@ -3102,7 +3102,7 @@ export type OnUpdateMealSubscription = {
         lastName: string | null,
         bio: string | null,
         owner: string | null,
-      } | null,
+      },
       owner: string | null,
     } | null,
     createdBy:  {
@@ -3134,7 +3134,7 @@ export type OnUpdateMealSubscription = {
         nextToken: string | null,
       } | null,
       owner: string | null,
-    } | null,
+    },
     recipe: string | null,
     ingredients:  Array< {
       __typename: "Ingredients",
@@ -3165,8 +3165,8 @@ export type OnDeleteMealSubscription = {
         bucket: string | null,
         region: string | null,
         key: string,
-      } | null,
-    } | null,
+      },
+    },
     description: string | null,
     likes:  {
       __typename: "ModelLikeConnection",
@@ -3210,7 +3210,7 @@ export type OnDeleteMealSubscription = {
         lastName: string | null,
         bio: string | null,
         owner: string | null,
-      } | null,
+      },
       recipe: string | null,
       ingredients:  Array< {
         __typename: "Ingredients",
@@ -3235,7 +3235,7 @@ export type OnDeleteMealSubscription = {
         recipe: string | null,
         tags: Array< string > | null,
         owner: string | null,
-      } | null,
+      },
       createdBy:  {
         __typename: "User",
         id: string,
@@ -3245,7 +3245,7 @@ export type OnDeleteMealSubscription = {
         lastName: string | null,
         bio: string | null,
         owner: string | null,
-      } | null,
+      },
       owner: string | null,
     } | null,
     createdBy:  {
@@ -3277,7 +3277,7 @@ export type OnDeleteMealSubscription = {
         nextToken: string | null,
       } | null,
       owner: string | null,
-    } | null,
+    },
     recipe: string | null,
     ingredients:  Array< {
       __typename: "Ingredients",
@@ -3334,7 +3334,7 @@ export type OnCreateMenuItemSubscription = {
         lastName: string | null,
         bio: string | null,
         owner: string | null,
-      } | null,
+      },
       recipe: string | null,
       ingredients:  Array< {
         __typename: "Ingredients",
@@ -3346,7 +3346,7 @@ export type OnCreateMenuItemSubscription = {
       } | null > | null,
       tags: Array< string > | null,
       owner: string | null,
-    } | null,
+    },
     createdBy:  {
       __typename: "User",
       id: string,
@@ -3376,7 +3376,7 @@ export type OnCreateMenuItemSubscription = {
         nextToken: string | null,
       } | null,
       owner: string | null,
-    } | null,
+    },
     owner: string | null,
   } | null,
 };
@@ -3423,7 +3423,7 @@ export type OnUpdateMenuItemSubscription = {
         lastName: string | null,
         bio: string | null,
         owner: string | null,
-      } | null,
+      },
       recipe: string | null,
       ingredients:  Array< {
         __typename: "Ingredients",
@@ -3435,7 +3435,7 @@ export type OnUpdateMenuItemSubscription = {
       } | null > | null,
       tags: Array< string > | null,
       owner: string | null,
-    } | null,
+    },
     createdBy:  {
       __typename: "User",
       id: string,
@@ -3465,7 +3465,7 @@ export type OnUpdateMenuItemSubscription = {
         nextToken: string | null,
       } | null,
       owner: string | null,
-    } | null,
+    },
     owner: string | null,
   } | null,
 };
@@ -3512,7 +3512,7 @@ export type OnDeleteMenuItemSubscription = {
         lastName: string | null,
         bio: string | null,
         owner: string | null,
-      } | null,
+      },
       recipe: string | null,
       ingredients:  Array< {
         __typename: "Ingredients",
@@ -3524,7 +3524,7 @@ export type OnDeleteMenuItemSubscription = {
       } | null > | null,
       tags: Array< string > | null,
       owner: string | null,
-    } | null,
+    },
     createdBy:  {
       __typename: "User",
       id: string,
@@ -3554,7 +3554,7 @@ export type OnDeleteMenuItemSubscription = {
         nextToken: string | null,
       } | null,
       owner: string | null,
-    } | null,
+    },
     owner: string | null,
   } | null,
 };
@@ -3579,7 +3579,7 @@ export type OnCreateUserSubscription = {
         bucket: string | null,
         region: string | null,
         key: string,
-      } | null,
+      },
     } | null,
     meals:  {
       __typename: "ModelMealConnection",
@@ -3655,7 +3655,7 @@ export type OnUpdateUserSubscription = {
         bucket: string | null,
         region: string | null,
         key: string,
-      } | null,
+      },
     } | null,
     meals:  {
       __typename: "ModelMealConnection",
@@ -3731,7 +3731,7 @@ export type OnDeleteUserSubscription = {
         bucket: string | null,
         region: string | null,
         key: string,
-      } | null,
+      },
     } | null,
     meals:  {
       __typename: "ModelMealConnection",

@@ -76,6 +76,11 @@ const Cooker: React.FC<Props> = ({
     await MealsModel.create({
       title: meal.title,
       description: meal.tip,
+      image: {
+        file: {
+          key: photo.s3Path,
+        },
+      },
       // TODO - image
     })
 

@@ -324,6 +324,11 @@ export const listMeals = /* GraphQL */ `
         likes {
           nextToken
         }
+        image {
+          file {
+            key
+          }
+        }
         inspiredBy {
           id
           title

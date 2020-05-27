@@ -28,6 +28,10 @@ import InProgress from 'app/cook/InProgress'
 import Tags from './app/cook/Tags'
 
 import Favourites from 'app/recipeBook/RecipeBook'
+import { UserModel } from 'domain/users/model';
+import { AuthModel } from 'domain/auth/model';
+
+import ErrorCatcher from './ErrorCatcher'
 
 const Stack = createStackNavigator()
 
@@ -60,7 +64,8 @@ export type Routes = {
   '/cook/tags'
 }
 
-export type Route<T extends keyof Routes> = RouteProp<Routes, T>
+type RouteName = keyof Routes
+export type Route<T extends RouteName> = RouteProp<Routes, T>
 export type NavProp = NavigationProp<Routes>
 
 function Navigation() {
@@ -74,6 +79,29 @@ function Navigation() {
     headerTitleStyle: {
       fontWeight: 'bold' as 'bold',
     },
+  }
+
+  const [initialRoute, setInitialRoute] = React.useState<RouteName>(null)
+  React.useEffect(() => {
+    const load = async () => {
+      const authenticatedUser = await AuthModel.getCurrentUser()
+
+      if (authenticatedUser) {
+        setInitialRoute('/home')
+      } else {
+        setInitialRoute('/login')
+      }
+    }
+
+    load()
+    // Check authentication
+  }, [])
+
+  console.log('Hello!')
+
+  if (!initialRoute) {
+    // Return loader
+    return null
   }
 
   const routes = [{
@@ -157,13 +185,15 @@ function Navigation() {
   }]
 
   return (
-    <NavigationContainer>
-        <Stack.Navigator>
-            {
-              routes.map(route => (<Stack.Screen key={route.name} {...route} />))
-            }
-        </Stack.Navigator>
-    </NavigationContainer>
+    <ErrorCatcher>
+      <NavigationContainer>
+          <Stack.Navigator initialRouteName={initialRoute}>
+              {
+                routes.map(route => (<Stack.Screen key={route.name} {...route} />))
+              }
+          </Stack.Navigator>
+      </NavigationContainer>
+    </ErrorCatcher>
   );
 }
 
