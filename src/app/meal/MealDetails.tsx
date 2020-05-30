@@ -9,7 +9,7 @@ import {
   Dimensions,
 } from 'react-native';
 
-import { Text, useTheme, Button } from '@ui-kitten/components'
+import { Text, useTheme, Button, Spinner } from '@ui-kitten/components'
 import {
     useNavigation,
     useRoute,
@@ -33,27 +33,38 @@ import {
 } from 'galio-framework';
 
 import { meals } from 'constants/dummyData'
+
 import Meal from 'app/home/feed/components/Meal';
 
 import InfoBlock from './components/InfoBlock'
 import Steps from './components/Steps'
 import IngredientList from './components/IngredientList'
 import { InProgressMealModel } from 'domain/inProgressMeals/model';
+import { Meal as IMeal, MealsModel } from 'domain/meals/model';
 
 const { width, height } = Dimensions.get('screen');
 
 const MealDetails = () => {
   const navigation = useNavigation<NavProp>()
   const route = useRoute<Route<'/meal/:id'>>()
-
-  const meal = meals.find(meal => meal.id === route.params.id)
-
   const kittenTheme = useTheme()
 
+  const [meal, setMeal] = React.useState<IMeal>(null)
+  const [isLoading, setIsLoading] = React.useState(true)
   React.useEffect(() => {
-    navigation.setOptions({
-      title: meal.title,
-    })
+    const load = async () => {
+      const mealDetails = await MealsModel.find(route.params.id)
+
+      setMeal(mealDetails)
+      setIsLoading(false)
+
+      navigation.setOptions({
+        title: mealDetails.title,
+      })
+    }
+
+    load()
+
   }, [])
   
   const onOpenRecipe = () => {
@@ -63,6 +74,7 @@ const MealDetails = () => {
   const onCookIt = async () => {
     await InProgressMealModel.save({
       ...meal,
+      user: meal.createdBy,
       // We want users to add their own photo!
       image: null,
     })
@@ -73,86 +85,76 @@ const MealDetails = () => {
   return (
     <View style={{ flex: 1 }}>
       <ScrollView style={{ flex: 1 }}>
-        <Block>
-            <Block style={styles.mealContainer}>
-              <Meal {...meal} />
-            </Block>
-
-              <Button
-                style={{ margin: theme.SIZES.BASE / 2 }}
-                status='info'
-                onPress={onCookIt}
-              >
-                Cook it tonight
-              </Button>
-
-
             {
-              meal.recipe && (
-                <Text
-                  style={{
-                    marginHorizontal: theme.SIZES.BASE,
-                    marginTop: theme.SIZES.BASE * 2,
-                    fontSize: 14,
-                  }}
-                  onPress={onOpenRecipe}
-                  status='info'
-                  category='label'
-                  numberOfLines={1}
-                >
-                  {meal.recipe}
-                </Text>
+              isLoading && (
+                <Spinner />
               )
             }
+            {
+              !isLoading && (
+                <Block>
+                  <Block style={styles.mealContainer}>
+                      <Meal {...meal} />
+                    </Block>
+
+                      <Button
+                        style={{ margin: theme.SIZES.BASE / 2 }}
+                        status='info'
+                        onPress={onCookIt}
+                      >
+                        Cook it tonight
+                      </Button>
 
 
-            {
-              meal.ingredients && (
-                <IngredientList {...meal.ingredients} />
-              )
-            }
-            
-            {
-              meal.steps.length > 0 && (
-                <Steps steps={meal.steps} />
-              )
-            }
+                    {
+                      meal.recipe && (
+                        <Text
+                          style={{
+                            marginHorizontal: theme.SIZES.BASE,
+                            marginTop: theme.SIZES.BASE * 2,
+                            fontSize: 14,
+                          }}
+                          onPress={onOpenRecipe}
+                          status='info'
+                          category='label'
+                          numberOfLines={1}
+                        >
+                          {meal.recipe}
+                        </Text>
+                      )
+                    }
 
-            {
-              meal.steps.length === 0 && !meal.recipe && (
-                <Block center middle style={{ marginTop: theme.SIZES.BASE }}>
-                  <Text appearance='hint'>
-                    No recipe has been added yet.
-                  </Text>
-                  <CryingSVG 
-                    width={100}
-                    height={100}
-                  />
+
+                    {
+                      meal.ingredients && (
+                        <IngredientList {...meal.ingredients} />
+                      )
+                    }
+                    
+                    {
+                      meal.steps && meal.steps.length > 0 && false && (
+                        <Steps steps={meal.steps} />
+                      )
+                    }
+
+                    {
+                      meal.steps && meal.steps.length === 0 && !meal.recipe && (
+                        <Block center middle style={{ marginTop: theme.SIZES.BASE }}>
+                          <Text appearance='hint'>
+                            No recipe has been added yet.
+                          </Text>
+                          <CryingSVG 
+                            width={100}
+                            height={100}
+                          />
+                        </Block>
+                      )
+                    }
+                    {/*<Others />*/}
                 </Block>
               )
             }
-
-            
-            {
-              /*
-              meal.recipe && (
-                <TouchableOpacity >
-                  <InfoBlock
-                    title='Recipe'
-                    icon='link'
-                    text={meal.recipe}
-                    status='info'
-                  />
-                </TouchableOpacity>
-              )
-              */
-            }
-
-
-
-            <Others />
-            
-        </Block>
+           
       </ScrollView>
     </View>
   )

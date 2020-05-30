@@ -1,6 +1,7 @@
 import { GetMealQuery } from 'API';
 
 import getMealList from './api/getMealList'
+import getMeal from './api/getMeal'
 import create, { CreateMealInput } from './api/create'
 import like from './api/like'
 import addToMenu from './api/addToMenu'
@@ -11,6 +12,10 @@ export type Meal = Omit<Exclude<GetMealQuery['getMeal'], null>, '__typename'>;
 class Meals {
     public async getAll(): Promise<Meal[]> {
         return getMealList()
+    }
+
+    public async find(id: string): Promise<Meal> {
+        return getMeal(id)
     }
 
     public async create(meal: CreateMealInput) {

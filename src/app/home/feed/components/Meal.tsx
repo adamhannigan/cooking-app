@@ -60,122 +60,24 @@ const Meal = (meal: Props) => {
     const [signedImageUrl, setSignedImageUrl] = React.useState()
     React.useEffect(() => {
       const load = async () => {
-        const signed = await Storage.get(meal.image.file.key)
-        console.log('signed', signed)
-        setSignedImageUrl(signed)
+        const signed = Storage.get(meal.image.file.key)
+          .then(image => {
+            console.log('Signed image: ', image)
+            setSignedImageUrl(image)
+
+          })
+          .catch(console.error)
       }
 
       load()
     }, [])
 
-    /*
-    const stepsWithMedia = meal.steps
-      .filter(step => step.photo || step.video)
-      .map(step => step.photo ? {
-        type: 'image',
-        url: step.photo.url
-      }: {
-        type: 'video',
-        url: step.video.url,
-      }) as Media[]
-      */
-
-
-    const images: Media[] = [
-      {
-        type: 'image' as 'image',
-        url: meal.image.file.key,
-      },
-      /*...(meal.ingredients ? [{
-        type: 'image'as 'image',
-        url: meal.ingredients.photo.url
-      }] : []),
-      ...stepsWithMedia,*/
-    ]
-
-    // const getStepNumber = (url: string) => meal.steps.findIndex(step => step.photo.url === url) + 1
-
-    const carouselRef = React.useRef(null)
-
-    const CarouselItem = ( {item, index, ...reset }: { item: Media, index: number}) => {
-      return (
-          <TouchableOpacity
-            onPress={onClick}
-           
-          >
-            {
-              /*
-                    meal.steps.length > 0 && (
-                      <Block style={{
-                        ...styles.tag,
-                        backgroundColor: kittenTheme['color-info-default'],
-                        left: imageInViewIndex * (width / images.length),
-                      }}>
-                        <Text style={styles.tagText}>
-                          {
-                            imageInViewIndex === 0 && `${meal.steps.length} steps`
-                          }
-                          {
-                            imageInViewIndex === 1 && meal.ingredients && 'Ingredients'
-                          }
-                          {
-                            imageInViewIndex > 1 && meal.ingredients
-                              && `Step ${getStepNumber(images[imageInViewIndex])}`
-                          }
-                          {
-                            imageInViewIndex > 0 && !meal.ingredients
-                              && `Step ${getStepNumber(images[imageInViewIndex])}`
-                          }
-                        </Text>
-                      </Block>
-                    )
-                        */}
-            {
-              item.type === 'image' && (
-                <Image
-                  source={{
-                    uri: item.url,
-                  }}
-                  style={{
-                    width: '100%',
-                    height: 300,
-                    borderRadius: 5,
-                  }}
-                />
-              )
-            }
-            {
-              item.type === 'video' && (
-                <Video
-                  source={{
-                    uri: item.url,
-                  }}
-                  style={{
-                    width: '100%',
-                    height: 300,
-                    borderRadius: 5,
-                  }}
-                  rate={1.0}
-                  volume={1.0}
-                  isMuted={false}
-                  resizeMode="cover"
-                  shouldPlay={imageInViewIndex === index}
-                  isLooping
-                />
-              )
-            }
-            
-          </TouchableOpacity>
-      );
-    }
-
     return (
         <Block>
             <Block>
-                <Block style={styles.imageContainer}>
-                  
-
-
+                <TouchableOpacity
+                  onPress={onClick} style={styles.imageContainer}
+                >
                   {/*
                   <SliderBox
                     images={images}
@@ -215,7 +117,7 @@ const Meal = (meal: Props) => {
                     firstItem={0}
                 />*/}
 
-                </Block>
+                </TouchableOpacity>
             </Block>
 
             <Block style={styles.content}>

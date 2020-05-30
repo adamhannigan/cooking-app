@@ -13,7 +13,7 @@ import {
 
 import { Button, Spinner } from '@ui-kitten/components'
 
-import { Media } from 'constants/dummyData'
+import { Media, meals } from 'constants/dummyData'
 
 // galio components
 import {
@@ -80,12 +80,9 @@ const TakePhoto: React.FC<Props> = ({
       const url = result.uri
 
       const uploaded = await upload({
-        fileName: 'mealImage.jpg',
         fileUrl: url,
       })
 
-
-      await new Promise(res => setTimeout(res, 500))
 
       if (uploaded) {
         onPhoto({

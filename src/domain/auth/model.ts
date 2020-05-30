@@ -23,18 +23,15 @@ class Auth {
 
         try {
             const user = (await AwsAuth.currentAuthenticatedUser())
-            console.log('currentAuthenticatedUser', user)
         } catch (e) {
             console.log('currentAuthenticatedUser', e)
         }
 
         try {
             const user = (await AwsAuth.currentCredentials())
-            console.log('currentCredentials', user)
         } catch (e) {
             console.log('currentCredentials', e)
         }
-        console.log('Registered')
     }
 
     public async login(user: {
@@ -51,7 +48,6 @@ class Auth {
     public async getCurrentUser() {
         try {
             const user = (await AwsAuth.currentAuthenticatedUser())
-            console.log('currentAuthenticatedUser', user)
 
             return user
         } catch (e) {

@@ -31,8 +31,6 @@ import Favourites from 'app/recipeBook/RecipeBook'
 import { UserModel } from 'domain/users/model';
 import { AuthModel } from 'domain/auth/model';
 
-import ErrorCatcher from './ErrorCatcher'
-
 const Stack = createStackNavigator()
 
 console.disableYellowBox = true
@@ -185,15 +183,13 @@ function Navigation() {
   }]
 
   return (
-    <ErrorCatcher>
-      <NavigationContainer>
-          <Stack.Navigator initialRouteName={initialRoute}>
-              {
-                routes.map(route => (<Stack.Screen key={route.name} {...route} />))
-              }
-          </Stack.Navigator>
-      </NavigationContainer>
-    </ErrorCatcher>
+    <NavigationContainer>
+        <Stack.Navigator initialRouteName={initialRoute}>
+            {
+              routes.map(route => (<Stack.Screen key={route.name} {...route} />))
+            }
+        </Stack.Navigator>
+    </NavigationContainer>
   );
 }
 

@@ -3852,9 +3852,9 @@ growly@^1.3.0:
   resolved "https://registry.yarnpkg.com/growly/-/growly-1.3.0.tgz#f10748cbe76af964b7c96c93c6bcc28af120c081"
   integrity sha1-8QdIy+dq+WS3yWyTxrzCivEgwIE=
 
-"hammerjs@git+https://github.com/naver/hammer.js.git":
+"hammerjs@https://github.com/naver/hammer.js.git":
   version "2.0.17-snapshot"
-  resolved "git+https://github.com/naver/hammer.js.git#54bc698b25edd6e1b76ca975ebaced5ce0467d51"
+  resolved "https://github.com/naver/hammer.js.git#54bc698b25edd6e1b76ca975ebaced5ce0467d51"
   dependencies:
     "@types/hammerjs" "^2.0.36"
 
@@ -5779,6 +5779,11 @@ react-native-gesture-handler@~1.5.0:
     hoist-non-react-statics "^2.3.1"
     invariant "^2.2.4"
     prop-types "^15.7.2"
+
+react-native-image-resizer@^1.2.2:
+  version "1.2.2"
+  resolved "https://registry.yarnpkg.com/react-native-image-resizer/-/react-native-image-resizer-1.2.2.tgz#fb17d136c03b1f3eb646dc778f1128f6008880a4"
+  integrity sha512-zTS/jERFqLQ669uu+wzsVtIv1gxCeODLIVC5O5zsN7Iqwc5TuTLqBdNb890grrlrwHSPq/md3y7oAU6tRbpFfA==
 
 react-native-image-slider-box@^1.0.12:
   version "1.0.12"

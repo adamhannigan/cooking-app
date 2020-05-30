@@ -4,10 +4,11 @@ import {
   ScrollView,
   View,
   Dimensions,
+  RefreshControl,
 } from 'react-native';
 
 
-import { Text, Spinner } from '@ui-kitten/components'
+import { Text, Spinner,  } from '@ui-kitten/components'
 
 // galio components
 import {
@@ -34,27 +35,33 @@ const Feed = props => {
 
   const isFocused = useIsFocused()
 
+  const load = async () => {
+    setIsLoading(true)
+    try {
+      const storedMeals = await MealsModel.getAll()
+      console.log('Use meals', storedMeals)
+      setMeals(storedMeals)
+    } catch (e) {
+      setError(e)
+    }
+
+    setIsLoading(false)
+  }
+
   React.useEffect(() => {
     if (isFocused) {
-      const load = async () => {
-        try {
-          const storedMeals = await MealsModel.getAll()
-          console.log('Use meals', storedMeals)
-          setMeals(storedMeals)
-        } catch (e) {
-          setError(e)
-        }
-
-        setIsLoading(false)
-      }
-
       load()
     }
   }, [isFocused])
 
+
   return (
     <View style={{ flex: 1 }}>
-      <ScrollView style={{ flex: 1 }}>
+      <ScrollView
+        style={{ flex: 1 }}
+        refreshControl={
+          <RefreshControl refreshing={isLoading} onRefresh={load} />
+        }>
           <Block flex style={styles.header}>
             {
               isLoading && (
@@ -76,8 +83,8 @@ const Feed = props => {
               )
             }
             {
-              meals.map((meal, idx) => (
-                  idx % 2 === 0 ? (
+              !isLoading && meals.map((meal, idx) => (
+                  true || idx % 2 === 0 ? (
                     <Block style={styles.item}>
                       <AvatarHeader
                         avatarUrl=''
