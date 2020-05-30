@@ -1,20 +1,15 @@
 import React from 'react';
 import {
-  Image,
   StyleSheet,
   Dimensions,
 } from 'react-native';
 
-import Storage from '@aws-amplify/storage'
-
-import { S3Image } from 'aws-amplify-react'
 
 import { useNavigation } from '@react-navigation/native'
 
 import { Text, useTheme } from '@ui-kitten/components'
 
-import Carousel from 'react-native-snap-carousel'
-import { Video } from 'expo-av'
+import S3Image from 'components/S3Image'
 
 import { NavProp } from 'Navigation'
 
@@ -53,25 +48,6 @@ const Meal = (meal: Props) => {
       })
     }
 
-    const onFocusedItemChange = (imageIndexInView: number) => {
-      setImageInViewIndex(imageIndexInView)
-    }
-
-    const [signedImageUrl, setSignedImageUrl] = React.useState()
-    React.useEffect(() => {
-      const load = async () => {
-        const signed = Storage.get(meal.image.file.key)
-          .then(image => {
-            console.log('Signed image: ', image)
-            setSignedImageUrl(image)
-
-          })
-          .catch(console.error)
-      }
-
-      load()
-    }, [])
-
     return (
         <Block>
             <Block>
@@ -88,20 +64,14 @@ const Meal = (meal: Props) => {
                   />
                   */}
 
-                {
-                  signedImageUrl && (
-                    <Image
-                      source={{
-                        uri: signedImageUrl,
-                      }}
-                      style={{
-                        width: '100%',
-                        height: 300,
-                        borderRadius: 5,
-                      }}
-                    />
-                  )
-                }
+                  <S3Image
+                    key={meal.image.file.key}
+                    style={{
+                      width: '100%',
+                      height: 300,
+                      borderRadius: 5,
+                    }}
+                  />
                 
 
                   {/*}
