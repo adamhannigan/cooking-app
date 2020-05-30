@@ -21,6 +21,7 @@ import { NavProp } from 'Navigation';
 import { Meal } from 'domain/meals/model';
 
 import TrophySVG from '../../home/feed/components/assets/cup.svg'
+import S3Image from 'components/S3Image';
 
 const { width } = Dimensions.get('screen');
 
@@ -37,8 +38,8 @@ const MealSummary = (meal: Meal) => {
           onPress={onClick}
         >
             <Block style={styles.imageContainer}>
-                <Image
-                    source={{ uri: meal.image.file.key }}
+                <S3Image
+                    s3Key={meal.image.file.key}
                     style={styles.image}
                 />
                     

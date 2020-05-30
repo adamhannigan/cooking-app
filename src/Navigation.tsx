@@ -16,6 +16,8 @@ import Register from './app/register/Register'
 import Preferences from './app/onboard/Preferences'
 import Follow from './app/onboard/Follow'
 import OnboardMeals from './app/onboard/FavouriteMeals'
+
+import BookmarkButton from './app/home/components/BookmarkButton'
 import Home from './app/home/Home'
 import MealDetails from './app/meal/MealDetails'
 import Profile from './app/profile/Profile'
@@ -26,6 +28,7 @@ import Recipe from 'app/cook/Recipe'
 import { CookHeaderButton } from 'app/cook/components/Cooker'
 import InProgress from 'app/cook/InProgress'
 import Tags from './app/cook/Tags'
+
 
 import Favourites from 'app/recipeBook/RecipeBook'
 import { UserModel } from 'domain/users/model';
@@ -95,7 +98,6 @@ function Navigation() {
     // Check authentication
   }, [])
 
-  console.log('Hello!')
 
   if (!initialRoute) {
     // Return loader
@@ -128,6 +130,9 @@ function Navigation() {
     options: {
         ...headerOptions,
         title: 'Home',
+        headerRight: () => (
+          <BookmarkButton />
+        ),
     }
   }, {
     name: '/meal/:id',

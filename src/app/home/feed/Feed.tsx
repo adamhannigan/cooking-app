@@ -39,7 +39,6 @@ const Feed = props => {
     setIsLoading(true)
     try {
       const storedMeals = await MealsModel.getAll()
-      console.log('Use meals', storedMeals)
       setMeals(storedMeals)
     } catch (e) {
       setError(e)
@@ -64,11 +63,6 @@ const Feed = props => {
         }>
           <Block flex style={styles.header}>
             {
-              isLoading && (
-                <Spinner />
-              )
-            }
-            {
               error && (
                 <Text>
                   {`Error: ${error}`}
@@ -76,7 +70,7 @@ const Feed = props => {
               )
             }
             {
-              meals.length === 0 && (
+              !isLoading && meals.length === 0 && (
                 <Text>
                   No meals yet.
                 </Text>

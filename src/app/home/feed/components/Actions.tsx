@@ -27,15 +27,15 @@ const { width, height } = Dimensions.get('screen');
 const Actions = (meal: Meal) => {
     const [isDrooling, setIsDrooling] = React.useState(false)
 
-    // Hack to remember drools
     React.useEffect(() => {
       const fetchIsDrooling = async () => {
-        const drools = await LikesModel.getAll()
+        const user = await UserModel.getCurrentUser()
 
-        const drooledMeal = drools.find(droolMeal => droolMeal.id === meal.id)
-        if (drooledMeal) {
-          setIsDrooling(true)
-        }
+        console.log('User', user.username)
+        console.log('meal.likes.items', meal.likes.items)
+        const userLike = meal.likes.items.find(item => item.owner === user.username)
+        console.log('userLike', userLike)
+        setIsDrooling(!!userLike)
       }
 
       fetchIsDrooling()

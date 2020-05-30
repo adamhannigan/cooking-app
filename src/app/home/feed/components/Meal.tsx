@@ -48,6 +48,7 @@ const Meal = (meal: Props) => {
       })
     }
 
+
     return (
         <Block>
             <Block>
@@ -65,7 +66,7 @@ const Meal = (meal: Props) => {
                   */}
 
                   <S3Image
-                    key={meal.image.file.key}
+                    s3Key={meal.image.file.key}
                     style={{
                       width: '100%',
                       height: 300,
@@ -148,7 +149,7 @@ const Meal = (meal: Props) => {
                     }}
                   />
                   <Text appearance='hint'>
-                    25
+                    {`${meal.likes.items.length}`}
                   </Text>
                 </Block>
               </Block>

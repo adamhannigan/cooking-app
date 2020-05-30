@@ -37,7 +37,7 @@ const AvatarHeader = ({
     const navigation = useNavigation<NavProp>()
     const onClick = () => {
         navigation.navigate('/profile/:id', {
-            id: Number(userId),
+            id: userId,
         })
     }
 

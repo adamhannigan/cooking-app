@@ -7,7 +7,10 @@ import { authEventHandler } from 'domain/auth/events'
 import { getCurrentUser } from './api/getCurrentUser'
 import { follow } from './api/follow'
 import { createNewUser } from './api/create'
+import getUser from './api/getUser'
+import getMenuItemList, { MenuItem } from './api/getMenuItemList'
 
+export { MenuItem }
 export type User = Omit<Exclude<ListUsersQuery['listUsers']['items'][0], null>, '__typename'>;
 
 class Users {
@@ -27,6 +30,10 @@ class Users {
         }
 
         return this.currentUser
+    }
+
+    public async find(id: string): Promise<User> {
+        return getUser(id)
     }
 
     public async createNewUser(): Promise<User> {
@@ -49,6 +56,10 @@ class Users {
             followerId: currentUser.id,
             userId: user.id,
         })
+    }
+
+    public async getMenuItems(userId: string) {
+        return await getMenuItemList(userId)
     }
 }
 

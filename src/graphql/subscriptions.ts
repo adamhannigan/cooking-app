@@ -8,21 +8,552 @@ export const onCreateLike = /* GraphQL */ `
       meal {
         id
         title
+        image {
+          file {
+            bucket
+            region
+            key
+          }
+        }
         description
         likes {
+          items {
+            id
+            meal {
+              id
+              title
+              description
+              likes {
+                nextToken
+              }
+              inspiredBy {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              menuItem {
+                id
+                order
+                owner
+              }
+              createdBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              recipe
+              ingredients {
+                items
+              }
+              steps {
+                description
+              }
+              tags
+              owner
+            }
+            likedBy {
+              id
+              username
+              email
+              firstName
+              lastName
+              bio
+              meals {
+                nextToken
+              }
+              menuItems {
+                nextToken
+              }
+              likes {
+                nextToken
+              }
+              followers {
+                nextToken
+              }
+              following {
+                nextToken
+              }
+              owner
+            }
+            owner
+          }
           nextToken
         }
         inspiredBy {
           id
           title
+          image {
+            file {
+              bucket
+              region
+              key
+            }
+          }
           description
+          likes {
+            items {
+              id
+              meal {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              likedBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              owner
+            }
+            nextToken
+          }
+          inspiredBy {
+            id
+            title
+            image {
+              file {
+                bucket
+                region
+                key
+              }
+            }
+            description
+            likes {
+              items {
+                id
+                owner
+              }
+              nextToken
+            }
+            inspiredBy {
+              id
+              title
+              description
+              likes {
+                nextToken
+              }
+              inspiredBy {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              menuItem {
+                id
+                order
+                owner
+              }
+              createdBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              recipe
+              ingredients {
+                items
+              }
+              steps {
+                description
+              }
+              tags
+              owner
+            }
+            menuItem {
+              id
+              order
+              meal {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              createdBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              owner
+            }
+            createdBy {
+              id
+              username
+              email
+              firstName
+              lastName
+              bio
+              meals {
+                nextToken
+              }
+              menuItems {
+                nextToken
+              }
+              likes {
+                nextToken
+              }
+              followers {
+                nextToken
+              }
+              following {
+                nextToken
+              }
+              owner
+            }
+            recipe
+            ingredients {
+              items
+            }
+            steps {
+              description
+            }
+            tags
+            owner
+          }
+          menuItem {
+            id
+            order
+            meal {
+              id
+              title
+              description
+              likes {
+                nextToken
+              }
+              inspiredBy {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              menuItem {
+                id
+                order
+                owner
+              }
+              createdBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              recipe
+              ingredients {
+                items
+              }
+              steps {
+                description
+              }
+              tags
+              owner
+            }
+            createdBy {
+              id
+              username
+              email
+              firstName
+              lastName
+              bio
+              meals {
+                nextToken
+              }
+              menuItems {
+                nextToken
+              }
+              likes {
+                nextToken
+              }
+              followers {
+                nextToken
+              }
+              following {
+                nextToken
+              }
+              owner
+            }
+            owner
+          }
+          createdBy {
+            id
+            username
+            email
+            firstName
+            lastName
+            bio
+            image {
+              file {
+                bucket
+                region
+                key
+              }
+            }
+            meals {
+              items {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              nextToken
+            }
+            menuItems {
+              items {
+                id
+                order
+                owner
+              }
+              nextToken
+            }
+            likes {
+              items {
+                id
+                owner
+              }
+              nextToken
+            }
+            followers {
+              items {
+                id
+                owner
+              }
+              nextToken
+            }
+            following {
+              items {
+                id
+                owner
+              }
+              nextToken
+            }
+            owner
+          }
           recipe
+          ingredients {
+            image {
+              file {
+                bucket
+                region
+                key
+              }
+            }
+            items
+          }
+          steps {
+            image {
+              file {
+                bucket
+                region
+                key
+              }
+            }
+            description
+          }
           tags
           owner
         }
         menuItem {
           id
           order
+          meal {
+            id
+            title
+            image {
+              file {
+                bucket
+                region
+                key
+              }
+            }
+            description
+            likes {
+              items {
+                id
+                owner
+              }
+              nextToken
+            }
+            inspiredBy {
+              id
+              title
+              description
+              likes {
+                nextToken
+              }
+              inspiredBy {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              menuItem {
+                id
+                order
+                owner
+              }
+              createdBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              recipe
+              ingredients {
+                items
+              }
+              steps {
+                description
+              }
+              tags
+              owner
+            }
+            menuItem {
+              id
+              order
+              meal {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              createdBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              owner
+            }
+            createdBy {
+              id
+              username
+              email
+              firstName
+              lastName
+              bio
+              meals {
+                nextToken
+              }
+              menuItems {
+                nextToken
+              }
+              likes {
+                nextToken
+              }
+              followers {
+                nextToken
+              }
+              following {
+                nextToken
+              }
+              owner
+            }
+            recipe
+            ingredients {
+              items
+            }
+            steps {
+              description
+            }
+            tags
+            owner
+          }
+          createdBy {
+            id
+            username
+            email
+            firstName
+            lastName
+            bio
+            image {
+              file {
+                bucket
+                region
+                key
+              }
+            }
+            meals {
+              items {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              nextToken
+            }
+            menuItems {
+              items {
+                id
+                order
+                owner
+              }
+              nextToken
+            }
+            likes {
+              items {
+                id
+                owner
+              }
+              nextToken
+            }
+            followers {
+              items {
+                id
+                owner
+              }
+              nextToken
+            }
+            following {
+              items {
+                id
+                owner
+              }
+              nextToken
+            }
+            owner
+          }
           owner
         }
         createdBy {
@@ -32,13 +563,175 @@ export const onCreateLike = /* GraphQL */ `
           firstName
           lastName
           bio
+          image {
+            file {
+              bucket
+              region
+              key
+            }
+          }
+          meals {
+            items {
+              id
+              title
+              description
+              likes {
+                nextToken
+              }
+              inspiredBy {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              menuItem {
+                id
+                order
+                owner
+              }
+              createdBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              recipe
+              ingredients {
+                items
+              }
+              steps {
+                description
+              }
+              tags
+              owner
+            }
+            nextToken
+          }
+          menuItems {
+            items {
+              id
+              order
+              meal {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              createdBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              owner
+            }
+            nextToken
+          }
+          likes {
+            items {
+              id
+              meal {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              likedBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              owner
+            }
+            nextToken
+          }
+          followers {
+            items {
+              id
+              user {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              followedBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              owner
+            }
+            nextToken
+          }
+          following {
+            items {
+              id
+              user {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              followedBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              owner
+            }
+            nextToken
+          }
           owner
         }
         recipe
         ingredients {
+          image {
+            file {
+              bucket
+              region
+              key
+            }
+          }
           items
         }
         steps {
+          image {
+            file {
+              bucket
+              region
+              key
+            }
+          }
           description
         }
         tags
@@ -51,19 +744,378 @@ export const onCreateLike = /* GraphQL */ `
         firstName
         lastName
         bio
+        image {
+          file {
+            bucket
+            region
+            key
+          }
+        }
         meals {
+          items {
+            id
+            title
+            image {
+              file {
+                bucket
+                region
+                key
+              }
+            }
+            description
+            likes {
+              items {
+                id
+                owner
+              }
+              nextToken
+            }
+            inspiredBy {
+              id
+              title
+              description
+              likes {
+                nextToken
+              }
+              inspiredBy {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              menuItem {
+                id
+                order
+                owner
+              }
+              createdBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              recipe
+              ingredients {
+                items
+              }
+              steps {
+                description
+              }
+              tags
+              owner
+            }
+            menuItem {
+              id
+              order
+              meal {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              createdBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              owner
+            }
+            createdBy {
+              id
+              username
+              email
+              firstName
+              lastName
+              bio
+              meals {
+                nextToken
+              }
+              menuItems {
+                nextToken
+              }
+              likes {
+                nextToken
+              }
+              followers {
+                nextToken
+              }
+              following {
+                nextToken
+              }
+              owner
+            }
+            recipe
+            ingredients {
+              items
+            }
+            steps {
+              description
+            }
+            tags
+            owner
+          }
           nextToken
         }
         menuItems {
+          items {
+            id
+            order
+            meal {
+              id
+              title
+              description
+              likes {
+                nextToken
+              }
+              inspiredBy {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              menuItem {
+                id
+                order
+                owner
+              }
+              createdBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              recipe
+              ingredients {
+                items
+              }
+              steps {
+                description
+              }
+              tags
+              owner
+            }
+            createdBy {
+              id
+              username
+              email
+              firstName
+              lastName
+              bio
+              meals {
+                nextToken
+              }
+              menuItems {
+                nextToken
+              }
+              likes {
+                nextToken
+              }
+              followers {
+                nextToken
+              }
+              following {
+                nextToken
+              }
+              owner
+            }
+            owner
+          }
           nextToken
         }
         likes {
+          items {
+            id
+            meal {
+              id
+              title
+              description
+              likes {
+                nextToken
+              }
+              inspiredBy {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              menuItem {
+                id
+                order
+                owner
+              }
+              createdBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              recipe
+              ingredients {
+                items
+              }
+              steps {
+                description
+              }
+              tags
+              owner
+            }
+            likedBy {
+              id
+              username
+              email
+              firstName
+              lastName
+              bio
+              meals {
+                nextToken
+              }
+              menuItems {
+                nextToken
+              }
+              likes {
+                nextToken
+              }
+              followers {
+                nextToken
+              }
+              following {
+                nextToken
+              }
+              owner
+            }
+            owner
+          }
           nextToken
         }
         followers {
+          items {
+            id
+            user {
+              id
+              username
+              email
+              firstName
+              lastName
+              bio
+              meals {
+                nextToken
+              }
+              menuItems {
+                nextToken
+              }
+              likes {
+                nextToken
+              }
+              followers {
+                nextToken
+              }
+              following {
+                nextToken
+              }
+              owner
+            }
+            followedBy {
+              id
+              username
+              email
+              firstName
+              lastName
+              bio
+              meals {
+                nextToken
+              }
+              menuItems {
+                nextToken
+              }
+              likes {
+                nextToken
+              }
+              followers {
+                nextToken
+              }
+              following {
+                nextToken
+              }
+              owner
+            }
+            owner
+          }
           nextToken
         }
         following {
+          items {
+            id
+            user {
+              id
+              username
+              email
+              firstName
+              lastName
+              bio
+              meals {
+                nextToken
+              }
+              menuItems {
+                nextToken
+              }
+              likes {
+                nextToken
+              }
+              followers {
+                nextToken
+              }
+              following {
+                nextToken
+              }
+              owner
+            }
+            followedBy {
+              id
+              username
+              email
+              firstName
+              lastName
+              bio
+              meals {
+                nextToken
+              }
+              menuItems {
+                nextToken
+              }
+              likes {
+                nextToken
+              }
+              followers {
+                nextToken
+              }
+              following {
+                nextToken
+              }
+              owner
+            }
+            owner
+          }
           nextToken
         }
         owner
@@ -79,21 +1131,552 @@ export const onUpdateLike = /* GraphQL */ `
       meal {
         id
         title
+        image {
+          file {
+            bucket
+            region
+            key
+          }
+        }
         description
         likes {
+          items {
+            id
+            meal {
+              id
+              title
+              description
+              likes {
+                nextToken
+              }
+              inspiredBy {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              menuItem {
+                id
+                order
+                owner
+              }
+              createdBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              recipe
+              ingredients {
+                items
+              }
+              steps {
+                description
+              }
+              tags
+              owner
+            }
+            likedBy {
+              id
+              username
+              email
+              firstName
+              lastName
+              bio
+              meals {
+                nextToken
+              }
+              menuItems {
+                nextToken
+              }
+              likes {
+                nextToken
+              }
+              followers {
+                nextToken
+              }
+              following {
+                nextToken
+              }
+              owner
+            }
+            owner
+          }
           nextToken
         }
         inspiredBy {
           id
           title
+          image {
+            file {
+              bucket
+              region
+              key
+            }
+          }
           description
+          likes {
+            items {
+              id
+              meal {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              likedBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              owner
+            }
+            nextToken
+          }
+          inspiredBy {
+            id
+            title
+            image {
+              file {
+                bucket
+                region
+                key
+              }
+            }
+            description
+            likes {
+              items {
+                id
+                owner
+              }
+              nextToken
+            }
+            inspiredBy {
+              id
+              title
+              description
+              likes {
+                nextToken
+              }
+              inspiredBy {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              menuItem {
+                id
+                order
+                owner
+              }
+              createdBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              recipe
+              ingredients {
+                items
+              }
+              steps {
+                description
+              }
+              tags
+              owner
+            }
+            menuItem {
+              id
+              order
+              meal {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              createdBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              owner
+            }
+            createdBy {
+              id
+              username
+              email
+              firstName
+              lastName
+              bio
+              meals {
+                nextToken
+              }
+              menuItems {
+                nextToken
+              }
+              likes {
+                nextToken
+              }
+              followers {
+                nextToken
+              }
+              following {
+                nextToken
+              }
+              owner
+            }
+            recipe
+            ingredients {
+              items
+            }
+            steps {
+              description
+            }
+            tags
+            owner
+          }
+          menuItem {
+            id
+            order
+            meal {
+              id
+              title
+              description
+              likes {
+                nextToken
+              }
+              inspiredBy {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              menuItem {
+                id
+                order
+                owner
+              }
+              createdBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              recipe
+              ingredients {
+                items
+              }
+              steps {
+                description
+              }
+              tags
+              owner
+            }
+            createdBy {
+              id
+              username
+              email
+              firstName
+              lastName
+              bio
+              meals {
+                nextToken
+              }
+              menuItems {
+                nextToken
+              }
+              likes {
+                nextToken
+              }
+              followers {
+                nextToken
+              }
+              following {
+                nextToken
+              }
+              owner
+            }
+            owner
+          }
+          createdBy {
+            id
+            username
+            email
+            firstName
+            lastName
+            bio
+            image {
+              file {
+                bucket
+                region
+                key
+              }
+            }
+            meals {
+              items {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              nextToken
+            }
+            menuItems {
+              items {
+                id
+                order
+                owner
+              }
+              nextToken
+            }
+            likes {
+              items {
+                id
+                owner
+              }
+              nextToken
+            }
+            followers {
+              items {
+                id
+                owner
+              }
+              nextToken
+            }
+            following {
+              items {
+                id
+                owner
+              }
+              nextToken
+            }
+            owner
+          }
           recipe
+          ingredients {
+            image {
+              file {
+                bucket
+                region
+                key
+              }
+            }
+            items
+          }
+          steps {
+            image {
+              file {
+                bucket
+                region
+                key
+              }
+            }
+            description
+          }
           tags
           owner
         }
         menuItem {
           id
           order
+          meal {
+            id
+            title
+            image {
+              file {
+                bucket
+                region
+                key
+              }
+            }
+            description
+            likes {
+              items {
+                id
+                owner
+              }
+              nextToken
+            }
+            inspiredBy {
+              id
+              title
+              description
+              likes {
+                nextToken
+              }
+              inspiredBy {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              menuItem {
+                id
+                order
+                owner
+              }
+              createdBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              recipe
+              ingredients {
+                items
+              }
+              steps {
+                description
+              }
+              tags
+              owner
+            }
+            menuItem {
+              id
+              order
+              meal {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              createdBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              owner
+            }
+            createdBy {
+              id
+              username
+              email
+              firstName
+              lastName
+              bio
+              meals {
+                nextToken
+              }
+              menuItems {
+                nextToken
+              }
+              likes {
+                nextToken
+              }
+              followers {
+                nextToken
+              }
+              following {
+                nextToken
+              }
+              owner
+            }
+            recipe
+            ingredients {
+              items
+            }
+            steps {
+              description
+            }
+            tags
+            owner
+          }
+          createdBy {
+            id
+            username
+            email
+            firstName
+            lastName
+            bio
+            image {
+              file {
+                bucket
+                region
+                key
+              }
+            }
+            meals {
+              items {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              nextToken
+            }
+            menuItems {
+              items {
+                id
+                order
+                owner
+              }
+              nextToken
+            }
+            likes {
+              items {
+                id
+                owner
+              }
+              nextToken
+            }
+            followers {
+              items {
+                id
+                owner
+              }
+              nextToken
+            }
+            following {
+              items {
+                id
+                owner
+              }
+              nextToken
+            }
+            owner
+          }
           owner
         }
         createdBy {
@@ -103,13 +1686,175 @@ export const onUpdateLike = /* GraphQL */ `
           firstName
           lastName
           bio
+          image {
+            file {
+              bucket
+              region
+              key
+            }
+          }
+          meals {
+            items {
+              id
+              title
+              description
+              likes {
+                nextToken
+              }
+              inspiredBy {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              menuItem {
+                id
+                order
+                owner
+              }
+              createdBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              recipe
+              ingredients {
+                items
+              }
+              steps {
+                description
+              }
+              tags
+              owner
+            }
+            nextToken
+          }
+          menuItems {
+            items {
+              id
+              order
+              meal {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              createdBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              owner
+            }
+            nextToken
+          }
+          likes {
+            items {
+              id
+              meal {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              likedBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              owner
+            }
+            nextToken
+          }
+          followers {
+            items {
+              id
+              user {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              followedBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              owner
+            }
+            nextToken
+          }
+          following {
+            items {
+              id
+              user {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              followedBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              owner
+            }
+            nextToken
+          }
           owner
         }
         recipe
         ingredients {
+          image {
+            file {
+              bucket
+              region
+              key
+            }
+          }
           items
         }
         steps {
+          image {
+            file {
+              bucket
+              region
+              key
+            }
+          }
           description
         }
         tags
@@ -122,19 +1867,378 @@ export const onUpdateLike = /* GraphQL */ `
         firstName
         lastName
         bio
+        image {
+          file {
+            bucket
+            region
+            key
+          }
+        }
         meals {
+          items {
+            id
+            title
+            image {
+              file {
+                bucket
+                region
+                key
+              }
+            }
+            description
+            likes {
+              items {
+                id
+                owner
+              }
+              nextToken
+            }
+            inspiredBy {
+              id
+              title
+              description
+              likes {
+                nextToken
+              }
+              inspiredBy {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              menuItem {
+                id
+                order
+                owner
+              }
+              createdBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              recipe
+              ingredients {
+                items
+              }
+              steps {
+                description
+              }
+              tags
+              owner
+            }
+            menuItem {
+              id
+              order
+              meal {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              createdBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              owner
+            }
+            createdBy {
+              id
+              username
+              email
+              firstName
+              lastName
+              bio
+              meals {
+                nextToken
+              }
+              menuItems {
+                nextToken
+              }
+              likes {
+                nextToken
+              }
+              followers {
+                nextToken
+              }
+              following {
+                nextToken
+              }
+              owner
+            }
+            recipe
+            ingredients {
+              items
+            }
+            steps {
+              description
+            }
+            tags
+            owner
+          }
           nextToken
         }
         menuItems {
+          items {
+            id
+            order
+            meal {
+              id
+              title
+              description
+              likes {
+                nextToken
+              }
+              inspiredBy {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              menuItem {
+                id
+                order
+                owner
+              }
+              createdBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              recipe
+              ingredients {
+                items
+              }
+              steps {
+                description
+              }
+              tags
+              owner
+            }
+            createdBy {
+              id
+              username
+              email
+              firstName
+              lastName
+              bio
+              meals {
+                nextToken
+              }
+              menuItems {
+                nextToken
+              }
+              likes {
+                nextToken
+              }
+              followers {
+                nextToken
+              }
+              following {
+                nextToken
+              }
+              owner
+            }
+            owner
+          }
           nextToken
         }
         likes {
+          items {
+            id
+            meal {
+              id
+              title
+              description
+              likes {
+                nextToken
+              }
+              inspiredBy {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              menuItem {
+                id
+                order
+                owner
+              }
+              createdBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              recipe
+              ingredients {
+                items
+              }
+              steps {
+                description
+              }
+              tags
+              owner
+            }
+            likedBy {
+              id
+              username
+              email
+              firstName
+              lastName
+              bio
+              meals {
+                nextToken
+              }
+              menuItems {
+                nextToken
+              }
+              likes {
+                nextToken
+              }
+              followers {
+                nextToken
+              }
+              following {
+                nextToken
+              }
+              owner
+            }
+            owner
+          }
           nextToken
         }
         followers {
+          items {
+            id
+            user {
+              id
+              username
+              email
+              firstName
+              lastName
+              bio
+              meals {
+                nextToken
+              }
+              menuItems {
+                nextToken
+              }
+              likes {
+                nextToken
+              }
+              followers {
+                nextToken
+              }
+              following {
+                nextToken
+              }
+              owner
+            }
+            followedBy {
+              id
+              username
+              email
+              firstName
+              lastName
+              bio
+              meals {
+                nextToken
+              }
+              menuItems {
+                nextToken
+              }
+              likes {
+                nextToken
+              }
+              followers {
+                nextToken
+              }
+              following {
+                nextToken
+              }
+              owner
+            }
+            owner
+          }
           nextToken
         }
         following {
+          items {
+            id
+            user {
+              id
+              username
+              email
+              firstName
+              lastName
+              bio
+              meals {
+                nextToken
+              }
+              menuItems {
+                nextToken
+              }
+              likes {
+                nextToken
+              }
+              followers {
+                nextToken
+              }
+              following {
+                nextToken
+              }
+              owner
+            }
+            followedBy {
+              id
+              username
+              email
+              firstName
+              lastName
+              bio
+              meals {
+                nextToken
+              }
+              menuItems {
+                nextToken
+              }
+              likes {
+                nextToken
+              }
+              followers {
+                nextToken
+              }
+              following {
+                nextToken
+              }
+              owner
+            }
+            owner
+          }
           nextToken
         }
         owner
@@ -150,21 +2254,552 @@ export const onDeleteLike = /* GraphQL */ `
       meal {
         id
         title
+        image {
+          file {
+            bucket
+            region
+            key
+          }
+        }
         description
         likes {
+          items {
+            id
+            meal {
+              id
+              title
+              description
+              likes {
+                nextToken
+              }
+              inspiredBy {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              menuItem {
+                id
+                order
+                owner
+              }
+              createdBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              recipe
+              ingredients {
+                items
+              }
+              steps {
+                description
+              }
+              tags
+              owner
+            }
+            likedBy {
+              id
+              username
+              email
+              firstName
+              lastName
+              bio
+              meals {
+                nextToken
+              }
+              menuItems {
+                nextToken
+              }
+              likes {
+                nextToken
+              }
+              followers {
+                nextToken
+              }
+              following {
+                nextToken
+              }
+              owner
+            }
+            owner
+          }
           nextToken
         }
         inspiredBy {
           id
           title
+          image {
+            file {
+              bucket
+              region
+              key
+            }
+          }
           description
+          likes {
+            items {
+              id
+              meal {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              likedBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              owner
+            }
+            nextToken
+          }
+          inspiredBy {
+            id
+            title
+            image {
+              file {
+                bucket
+                region
+                key
+              }
+            }
+            description
+            likes {
+              items {
+                id
+                owner
+              }
+              nextToken
+            }
+            inspiredBy {
+              id
+              title
+              description
+              likes {
+                nextToken
+              }
+              inspiredBy {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              menuItem {
+                id
+                order
+                owner
+              }
+              createdBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              recipe
+              ingredients {
+                items
+              }
+              steps {
+                description
+              }
+              tags
+              owner
+            }
+            menuItem {
+              id
+              order
+              meal {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              createdBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              owner
+            }
+            createdBy {
+              id
+              username
+              email
+              firstName
+              lastName
+              bio
+              meals {
+                nextToken
+              }
+              menuItems {
+                nextToken
+              }
+              likes {
+                nextToken
+              }
+              followers {
+                nextToken
+              }
+              following {
+                nextToken
+              }
+              owner
+            }
+            recipe
+            ingredients {
+              items
+            }
+            steps {
+              description
+            }
+            tags
+            owner
+          }
+          menuItem {
+            id
+            order
+            meal {
+              id
+              title
+              description
+              likes {
+                nextToken
+              }
+              inspiredBy {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              menuItem {
+                id
+                order
+                owner
+              }
+              createdBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              recipe
+              ingredients {
+                items
+              }
+              steps {
+                description
+              }
+              tags
+              owner
+            }
+            createdBy {
+              id
+              username
+              email
+              firstName
+              lastName
+              bio
+              meals {
+                nextToken
+              }
+              menuItems {
+                nextToken
+              }
+              likes {
+                nextToken
+              }
+              followers {
+                nextToken
+              }
+              following {
+                nextToken
+              }
+              owner
+            }
+            owner
+          }
+          createdBy {
+            id
+            username
+            email
+            firstName
+            lastName
+            bio
+            image {
+              file {
+                bucket
+                region
+                key
+              }
+            }
+            meals {
+              items {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              nextToken
+            }
+            menuItems {
+              items {
+                id
+                order
+                owner
+              }
+              nextToken
+            }
+            likes {
+              items {
+                id
+                owner
+              }
+              nextToken
+            }
+            followers {
+              items {
+                id
+                owner
+              }
+              nextToken
+            }
+            following {
+              items {
+                id
+                owner
+              }
+              nextToken
+            }
+            owner
+          }
           recipe
+          ingredients {
+            image {
+              file {
+                bucket
+                region
+                key
+              }
+            }
+            items
+          }
+          steps {
+            image {
+              file {
+                bucket
+                region
+                key
+              }
+            }
+            description
+          }
           tags
           owner
         }
         menuItem {
           id
           order
+          meal {
+            id
+            title
+            image {
+              file {
+                bucket
+                region
+                key
+              }
+            }
+            description
+            likes {
+              items {
+                id
+                owner
+              }
+              nextToken
+            }
+            inspiredBy {
+              id
+              title
+              description
+              likes {
+                nextToken
+              }
+              inspiredBy {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              menuItem {
+                id
+                order
+                owner
+              }
+              createdBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              recipe
+              ingredients {
+                items
+              }
+              steps {
+                description
+              }
+              tags
+              owner
+            }
+            menuItem {
+              id
+              order
+              meal {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              createdBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              owner
+            }
+            createdBy {
+              id
+              username
+              email
+              firstName
+              lastName
+              bio
+              meals {
+                nextToken
+              }
+              menuItems {
+                nextToken
+              }
+              likes {
+                nextToken
+              }
+              followers {
+                nextToken
+              }
+              following {
+                nextToken
+              }
+              owner
+            }
+            recipe
+            ingredients {
+              items
+            }
+            steps {
+              description
+            }
+            tags
+            owner
+          }
+          createdBy {
+            id
+            username
+            email
+            firstName
+            lastName
+            bio
+            image {
+              file {
+                bucket
+                region
+                key
+              }
+            }
+            meals {
+              items {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              nextToken
+            }
+            menuItems {
+              items {
+                id
+                order
+                owner
+              }
+              nextToken
+            }
+            likes {
+              items {
+                id
+                owner
+              }
+              nextToken
+            }
+            followers {
+              items {
+                id
+                owner
+              }
+              nextToken
+            }
+            following {
+              items {
+                id
+                owner
+              }
+              nextToken
+            }
+            owner
+          }
           owner
         }
         createdBy {
@@ -174,13 +2809,175 @@ export const onDeleteLike = /* GraphQL */ `
           firstName
           lastName
           bio
+          image {
+            file {
+              bucket
+              region
+              key
+            }
+          }
+          meals {
+            items {
+              id
+              title
+              description
+              likes {
+                nextToken
+              }
+              inspiredBy {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              menuItem {
+                id
+                order
+                owner
+              }
+              createdBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              recipe
+              ingredients {
+                items
+              }
+              steps {
+                description
+              }
+              tags
+              owner
+            }
+            nextToken
+          }
+          menuItems {
+            items {
+              id
+              order
+              meal {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              createdBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              owner
+            }
+            nextToken
+          }
+          likes {
+            items {
+              id
+              meal {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              likedBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              owner
+            }
+            nextToken
+          }
+          followers {
+            items {
+              id
+              user {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              followedBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              owner
+            }
+            nextToken
+          }
+          following {
+            items {
+              id
+              user {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              followedBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              owner
+            }
+            nextToken
+          }
           owner
         }
         recipe
         ingredients {
+          image {
+            file {
+              bucket
+              region
+              key
+            }
+          }
           items
         }
         steps {
+          image {
+            file {
+              bucket
+              region
+              key
+            }
+          }
           description
         }
         tags
@@ -193,19 +2990,378 @@ export const onDeleteLike = /* GraphQL */ `
         firstName
         lastName
         bio
+        image {
+          file {
+            bucket
+            region
+            key
+          }
+        }
         meals {
+          items {
+            id
+            title
+            image {
+              file {
+                bucket
+                region
+                key
+              }
+            }
+            description
+            likes {
+              items {
+                id
+                owner
+              }
+              nextToken
+            }
+            inspiredBy {
+              id
+              title
+              description
+              likes {
+                nextToken
+              }
+              inspiredBy {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              menuItem {
+                id
+                order
+                owner
+              }
+              createdBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              recipe
+              ingredients {
+                items
+              }
+              steps {
+                description
+              }
+              tags
+              owner
+            }
+            menuItem {
+              id
+              order
+              meal {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              createdBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              owner
+            }
+            createdBy {
+              id
+              username
+              email
+              firstName
+              lastName
+              bio
+              meals {
+                nextToken
+              }
+              menuItems {
+                nextToken
+              }
+              likes {
+                nextToken
+              }
+              followers {
+                nextToken
+              }
+              following {
+                nextToken
+              }
+              owner
+            }
+            recipe
+            ingredients {
+              items
+            }
+            steps {
+              description
+            }
+            tags
+            owner
+          }
           nextToken
         }
         menuItems {
+          items {
+            id
+            order
+            meal {
+              id
+              title
+              description
+              likes {
+                nextToken
+              }
+              inspiredBy {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              menuItem {
+                id
+                order
+                owner
+              }
+              createdBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              recipe
+              ingredients {
+                items
+              }
+              steps {
+                description
+              }
+              tags
+              owner
+            }
+            createdBy {
+              id
+              username
+              email
+              firstName
+              lastName
+              bio
+              meals {
+                nextToken
+              }
+              menuItems {
+                nextToken
+              }
+              likes {
+                nextToken
+              }
+              followers {
+                nextToken
+              }
+              following {
+                nextToken
+              }
+              owner
+            }
+            owner
+          }
           nextToken
         }
         likes {
+          items {
+            id
+            meal {
+              id
+              title
+              description
+              likes {
+                nextToken
+              }
+              inspiredBy {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              menuItem {
+                id
+                order
+                owner
+              }
+              createdBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              recipe
+              ingredients {
+                items
+              }
+              steps {
+                description
+              }
+              tags
+              owner
+            }
+            likedBy {
+              id
+              username
+              email
+              firstName
+              lastName
+              bio
+              meals {
+                nextToken
+              }
+              menuItems {
+                nextToken
+              }
+              likes {
+                nextToken
+              }
+              followers {
+                nextToken
+              }
+              following {
+                nextToken
+              }
+              owner
+            }
+            owner
+          }
           nextToken
         }
         followers {
+          items {
+            id
+            user {
+              id
+              username
+              email
+              firstName
+              lastName
+              bio
+              meals {
+                nextToken
+              }
+              menuItems {
+                nextToken
+              }
+              likes {
+                nextToken
+              }
+              followers {
+                nextToken
+              }
+              following {
+                nextToken
+              }
+              owner
+            }
+            followedBy {
+              id
+              username
+              email
+              firstName
+              lastName
+              bio
+              meals {
+                nextToken
+              }
+              menuItems {
+                nextToken
+              }
+              likes {
+                nextToken
+              }
+              followers {
+                nextToken
+              }
+              following {
+                nextToken
+              }
+              owner
+            }
+            owner
+          }
           nextToken
         }
         following {
+          items {
+            id
+            user {
+              id
+              username
+              email
+              firstName
+              lastName
+              bio
+              meals {
+                nextToken
+              }
+              menuItems {
+                nextToken
+              }
+              likes {
+                nextToken
+              }
+              followers {
+                nextToken
+              }
+              following {
+                nextToken
+              }
+              owner
+            }
+            followedBy {
+              id
+              username
+              email
+              firstName
+              lastName
+              bio
+              meals {
+                nextToken
+              }
+              menuItems {
+                nextToken
+              }
+              likes {
+                nextToken
+              }
+              followers {
+                nextToken
+              }
+              following {
+                nextToken
+              }
+              owner
+            }
+            owner
+          }
           nextToken
         }
         owner
@@ -225,19 +3381,378 @@ export const onCreateFollower = /* GraphQL */ `
         firstName
         lastName
         bio
+        image {
+          file {
+            bucket
+            region
+            key
+          }
+        }
         meals {
+          items {
+            id
+            title
+            image {
+              file {
+                bucket
+                region
+                key
+              }
+            }
+            description
+            likes {
+              items {
+                id
+                owner
+              }
+              nextToken
+            }
+            inspiredBy {
+              id
+              title
+              description
+              likes {
+                nextToken
+              }
+              inspiredBy {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              menuItem {
+                id
+                order
+                owner
+              }
+              createdBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              recipe
+              ingredients {
+                items
+              }
+              steps {
+                description
+              }
+              tags
+              owner
+            }
+            menuItem {
+              id
+              order
+              meal {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              createdBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              owner
+            }
+            createdBy {
+              id
+              username
+              email
+              firstName
+              lastName
+              bio
+              meals {
+                nextToken
+              }
+              menuItems {
+                nextToken
+              }
+              likes {
+                nextToken
+              }
+              followers {
+                nextToken
+              }
+              following {
+                nextToken
+              }
+              owner
+            }
+            recipe
+            ingredients {
+              items
+            }
+            steps {
+              description
+            }
+            tags
+            owner
+          }
           nextToken
         }
         menuItems {
+          items {
+            id
+            order
+            meal {
+              id
+              title
+              description
+              likes {
+                nextToken
+              }
+              inspiredBy {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              menuItem {
+                id
+                order
+                owner
+              }
+              createdBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              recipe
+              ingredients {
+                items
+              }
+              steps {
+                description
+              }
+              tags
+              owner
+            }
+            createdBy {
+              id
+              username
+              email
+              firstName
+              lastName
+              bio
+              meals {
+                nextToken
+              }
+              menuItems {
+                nextToken
+              }
+              likes {
+                nextToken
+              }
+              followers {
+                nextToken
+              }
+              following {
+                nextToken
+              }
+              owner
+            }
+            owner
+          }
           nextToken
         }
         likes {
+          items {
+            id
+            meal {
+              id
+              title
+              description
+              likes {
+                nextToken
+              }
+              inspiredBy {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              menuItem {
+                id
+                order
+                owner
+              }
+              createdBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              recipe
+              ingredients {
+                items
+              }
+              steps {
+                description
+              }
+              tags
+              owner
+            }
+            likedBy {
+              id
+              username
+              email
+              firstName
+              lastName
+              bio
+              meals {
+                nextToken
+              }
+              menuItems {
+                nextToken
+              }
+              likes {
+                nextToken
+              }
+              followers {
+                nextToken
+              }
+              following {
+                nextToken
+              }
+              owner
+            }
+            owner
+          }
           nextToken
         }
         followers {
+          items {
+            id
+            user {
+              id
+              username
+              email
+              firstName
+              lastName
+              bio
+              meals {
+                nextToken
+              }
+              menuItems {
+                nextToken
+              }
+              likes {
+                nextToken
+              }
+              followers {
+                nextToken
+              }
+              following {
+                nextToken
+              }
+              owner
+            }
+            followedBy {
+              id
+              username
+              email
+              firstName
+              lastName
+              bio
+              meals {
+                nextToken
+              }
+              menuItems {
+                nextToken
+              }
+              likes {
+                nextToken
+              }
+              followers {
+                nextToken
+              }
+              following {
+                nextToken
+              }
+              owner
+            }
+            owner
+          }
           nextToken
         }
         following {
+          items {
+            id
+            user {
+              id
+              username
+              email
+              firstName
+              lastName
+              bio
+              meals {
+                nextToken
+              }
+              menuItems {
+                nextToken
+              }
+              likes {
+                nextToken
+              }
+              followers {
+                nextToken
+              }
+              following {
+                nextToken
+              }
+              owner
+            }
+            followedBy {
+              id
+              username
+              email
+              firstName
+              lastName
+              bio
+              meals {
+                nextToken
+              }
+              menuItems {
+                nextToken
+              }
+              likes {
+                nextToken
+              }
+              followers {
+                nextToken
+              }
+              following {
+                nextToken
+              }
+              owner
+            }
+            owner
+          }
           nextToken
         }
         owner
@@ -249,19 +3764,378 @@ export const onCreateFollower = /* GraphQL */ `
         firstName
         lastName
         bio
+        image {
+          file {
+            bucket
+            region
+            key
+          }
+        }
         meals {
+          items {
+            id
+            title
+            image {
+              file {
+                bucket
+                region
+                key
+              }
+            }
+            description
+            likes {
+              items {
+                id
+                owner
+              }
+              nextToken
+            }
+            inspiredBy {
+              id
+              title
+              description
+              likes {
+                nextToken
+              }
+              inspiredBy {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              menuItem {
+                id
+                order
+                owner
+              }
+              createdBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              recipe
+              ingredients {
+                items
+              }
+              steps {
+                description
+              }
+              tags
+              owner
+            }
+            menuItem {
+              id
+              order
+              meal {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              createdBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              owner
+            }
+            createdBy {
+              id
+              username
+              email
+              firstName
+              lastName
+              bio
+              meals {
+                nextToken
+              }
+              menuItems {
+                nextToken
+              }
+              likes {
+                nextToken
+              }
+              followers {
+                nextToken
+              }
+              following {
+                nextToken
+              }
+              owner
+            }
+            recipe
+            ingredients {
+              items
+            }
+            steps {
+              description
+            }
+            tags
+            owner
+          }
           nextToken
         }
         menuItems {
+          items {
+            id
+            order
+            meal {
+              id
+              title
+              description
+              likes {
+                nextToken
+              }
+              inspiredBy {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              menuItem {
+                id
+                order
+                owner
+              }
+              createdBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              recipe
+              ingredients {
+                items
+              }
+              steps {
+                description
+              }
+              tags
+              owner
+            }
+            createdBy {
+              id
+              username
+              email
+              firstName
+              lastName
+              bio
+              meals {
+                nextToken
+              }
+              menuItems {
+                nextToken
+              }
+              likes {
+                nextToken
+              }
+              followers {
+                nextToken
+              }
+              following {
+                nextToken
+              }
+              owner
+            }
+            owner
+          }
           nextToken
         }
         likes {
+          items {
+            id
+            meal {
+              id
+              title
+              description
+              likes {
+                nextToken
+              }
+              inspiredBy {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              menuItem {
+                id
+                order
+                owner
+              }
+              createdBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              recipe
+              ingredients {
+                items
+              }
+              steps {
+                description
+              }
+              tags
+              owner
+            }
+            likedBy {
+              id
+              username
+              email
+              firstName
+              lastName
+              bio
+              meals {
+                nextToken
+              }
+              menuItems {
+                nextToken
+              }
+              likes {
+                nextToken
+              }
+              followers {
+                nextToken
+              }
+              following {
+                nextToken
+              }
+              owner
+            }
+            owner
+          }
           nextToken
         }
         followers {
+          items {
+            id
+            user {
+              id
+              username
+              email
+              firstName
+              lastName
+              bio
+              meals {
+                nextToken
+              }
+              menuItems {
+                nextToken
+              }
+              likes {
+                nextToken
+              }
+              followers {
+                nextToken
+              }
+              following {
+                nextToken
+              }
+              owner
+            }
+            followedBy {
+              id
+              username
+              email
+              firstName
+              lastName
+              bio
+              meals {
+                nextToken
+              }
+              menuItems {
+                nextToken
+              }
+              likes {
+                nextToken
+              }
+              followers {
+                nextToken
+              }
+              following {
+                nextToken
+              }
+              owner
+            }
+            owner
+          }
           nextToken
         }
         following {
+          items {
+            id
+            user {
+              id
+              username
+              email
+              firstName
+              lastName
+              bio
+              meals {
+                nextToken
+              }
+              menuItems {
+                nextToken
+              }
+              likes {
+                nextToken
+              }
+              followers {
+                nextToken
+              }
+              following {
+                nextToken
+              }
+              owner
+            }
+            followedBy {
+              id
+              username
+              email
+              firstName
+              lastName
+              bio
+              meals {
+                nextToken
+              }
+              menuItems {
+                nextToken
+              }
+              likes {
+                nextToken
+              }
+              followers {
+                nextToken
+              }
+              following {
+                nextToken
+              }
+              owner
+            }
+            owner
+          }
           nextToken
         }
         owner
@@ -281,19 +4155,378 @@ export const onUpdateFollower = /* GraphQL */ `
         firstName
         lastName
         bio
+        image {
+          file {
+            bucket
+            region
+            key
+          }
+        }
         meals {
+          items {
+            id
+            title
+            image {
+              file {
+                bucket
+                region
+                key
+              }
+            }
+            description
+            likes {
+              items {
+                id
+                owner
+              }
+              nextToken
+            }
+            inspiredBy {
+              id
+              title
+              description
+              likes {
+                nextToken
+              }
+              inspiredBy {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              menuItem {
+                id
+                order
+                owner
+              }
+              createdBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              recipe
+              ingredients {
+                items
+              }
+              steps {
+                description
+              }
+              tags
+              owner
+            }
+            menuItem {
+              id
+              order
+              meal {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              createdBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              owner
+            }
+            createdBy {
+              id
+              username
+              email
+              firstName
+              lastName
+              bio
+              meals {
+                nextToken
+              }
+              menuItems {
+                nextToken
+              }
+              likes {
+                nextToken
+              }
+              followers {
+                nextToken
+              }
+              following {
+                nextToken
+              }
+              owner
+            }
+            recipe
+            ingredients {
+              items
+            }
+            steps {
+              description
+            }
+            tags
+            owner
+          }
           nextToken
         }
         menuItems {
+          items {
+            id
+            order
+            meal {
+              id
+              title
+              description
+              likes {
+                nextToken
+              }
+              inspiredBy {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              menuItem {
+                id
+                order
+                owner
+              }
+              createdBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              recipe
+              ingredients {
+                items
+              }
+              steps {
+                description
+              }
+              tags
+              owner
+            }
+            createdBy {
+              id
+              username
+              email
+              firstName
+              lastName
+              bio
+              meals {
+                nextToken
+              }
+              menuItems {
+                nextToken
+              }
+              likes {
+                nextToken
+              }
+              followers {
+                nextToken
+              }
+              following {
+                nextToken
+              }
+              owner
+            }
+            owner
+          }
           nextToken
         }
         likes {
+          items {
+            id
+            meal {
+              id
+              title
+              description
+              likes {
+                nextToken
+              }
+              inspiredBy {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              menuItem {
+                id
+                order
+                owner
+              }
+              createdBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              recipe
+              ingredients {
+                items
+              }
+              steps {
+                description
+              }
+              tags
+              owner
+            }
+            likedBy {
+              id
+              username
+              email
+              firstName
+              lastName
+              bio
+              meals {
+                nextToken
+              }
+              menuItems {
+                nextToken
+              }
+              likes {
+                nextToken
+              }
+              followers {
+                nextToken
+              }
+              following {
+                nextToken
+              }
+              owner
+            }
+            owner
+          }
           nextToken
         }
         followers {
+          items {
+            id
+            user {
+              id
+              username
+              email
+              firstName
+              lastName
+              bio
+              meals {
+                nextToken
+              }
+              menuItems {
+                nextToken
+              }
+              likes {
+                nextToken
+              }
+              followers {
+                nextToken
+              }
+              following {
+                nextToken
+              }
+              owner
+            }
+            followedBy {
+              id
+              username
+              email
+              firstName
+              lastName
+              bio
+              meals {
+                nextToken
+              }
+              menuItems {
+                nextToken
+              }
+              likes {
+                nextToken
+              }
+              followers {
+                nextToken
+              }
+              following {
+                nextToken
+              }
+              owner
+            }
+            owner
+          }
           nextToken
         }
         following {
+          items {
+            id
+            user {
+              id
+              username
+              email
+              firstName
+              lastName
+              bio
+              meals {
+                nextToken
+              }
+              menuItems {
+                nextToken
+              }
+              likes {
+                nextToken
+              }
+              followers {
+                nextToken
+              }
+              following {
+                nextToken
+              }
+              owner
+            }
+            followedBy {
+              id
+              username
+              email
+              firstName
+              lastName
+              bio
+              meals {
+                nextToken
+              }
+              menuItems {
+                nextToken
+              }
+              likes {
+                nextToken
+              }
+              followers {
+                nextToken
+              }
+              following {
+                nextToken
+              }
+              owner
+            }
+            owner
+          }
           nextToken
         }
         owner
@@ -305,19 +4538,378 @@ export const onUpdateFollower = /* GraphQL */ `
         firstName
         lastName
         bio
+        image {
+          file {
+            bucket
+            region
+            key
+          }
+        }
         meals {
+          items {
+            id
+            title
+            image {
+              file {
+                bucket
+                region
+                key
+              }
+            }
+            description
+            likes {
+              items {
+                id
+                owner
+              }
+              nextToken
+            }
+            inspiredBy {
+              id
+              title
+              description
+              likes {
+                nextToken
+              }
+              inspiredBy {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              menuItem {
+                id
+                order
+                owner
+              }
+              createdBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              recipe
+              ingredients {
+                items
+              }
+              steps {
+                description
+              }
+              tags
+              owner
+            }
+            menuItem {
+              id
+              order
+              meal {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              createdBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              owner
+            }
+            createdBy {
+              id
+              username
+              email
+              firstName
+              lastName
+              bio
+              meals {
+                nextToken
+              }
+              menuItems {
+                nextToken
+              }
+              likes {
+                nextToken
+              }
+              followers {
+                nextToken
+              }
+              following {
+                nextToken
+              }
+              owner
+            }
+            recipe
+            ingredients {
+              items
+            }
+            steps {
+              description
+            }
+            tags
+            owner
+          }
           nextToken
         }
         menuItems {
+          items {
+            id
+            order
+            meal {
+              id
+              title
+              description
+              likes {
+                nextToken
+              }
+              inspiredBy {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              menuItem {
+                id
+                order
+                owner
+              }
+              createdBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              recipe
+              ingredients {
+                items
+              }
+              steps {
+                description
+              }
+              tags
+              owner
+            }
+            createdBy {
+              id
+              username
+              email
+              firstName
+              lastName
+              bio
+              meals {
+                nextToken
+              }
+              menuItems {
+                nextToken
+              }
+              likes {
+                nextToken
+              }
+              followers {
+                nextToken
+              }
+              following {
+                nextToken
+              }
+              owner
+            }
+            owner
+          }
           nextToken
         }
         likes {
+          items {
+            id
+            meal {
+              id
+              title
+              description
+              likes {
+                nextToken
+              }
+              inspiredBy {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              menuItem {
+                id
+                order
+                owner
+              }
+              createdBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              recipe
+              ingredients {
+                items
+              }
+              steps {
+                description
+              }
+              tags
+              owner
+            }
+            likedBy {
+              id
+              username
+              email
+              firstName
+              lastName
+              bio
+              meals {
+                nextToken
+              }
+              menuItems {
+                nextToken
+              }
+              likes {
+                nextToken
+              }
+              followers {
+                nextToken
+              }
+              following {
+                nextToken
+              }
+              owner
+            }
+            owner
+          }
           nextToken
         }
         followers {
+          items {
+            id
+            user {
+              id
+              username
+              email
+              firstName
+              lastName
+              bio
+              meals {
+                nextToken
+              }
+              menuItems {
+                nextToken
+              }
+              likes {
+                nextToken
+              }
+              followers {
+                nextToken
+              }
+              following {
+                nextToken
+              }
+              owner
+            }
+            followedBy {
+              id
+              username
+              email
+              firstName
+              lastName
+              bio
+              meals {
+                nextToken
+              }
+              menuItems {
+                nextToken
+              }
+              likes {
+                nextToken
+              }
+              followers {
+                nextToken
+              }
+              following {
+                nextToken
+              }
+              owner
+            }
+            owner
+          }
           nextToken
         }
         following {
+          items {
+            id
+            user {
+              id
+              username
+              email
+              firstName
+              lastName
+              bio
+              meals {
+                nextToken
+              }
+              menuItems {
+                nextToken
+              }
+              likes {
+                nextToken
+              }
+              followers {
+                nextToken
+              }
+              following {
+                nextToken
+              }
+              owner
+            }
+            followedBy {
+              id
+              username
+              email
+              firstName
+              lastName
+              bio
+              meals {
+                nextToken
+              }
+              menuItems {
+                nextToken
+              }
+              likes {
+                nextToken
+              }
+              followers {
+                nextToken
+              }
+              following {
+                nextToken
+              }
+              owner
+            }
+            owner
+          }
           nextToken
         }
         owner
@@ -337,19 +4929,378 @@ export const onDeleteFollower = /* GraphQL */ `
         firstName
         lastName
         bio
+        image {
+          file {
+            bucket
+            region
+            key
+          }
+        }
         meals {
+          items {
+            id
+            title
+            image {
+              file {
+                bucket
+                region
+                key
+              }
+            }
+            description
+            likes {
+              items {
+                id
+                owner
+              }
+              nextToken
+            }
+            inspiredBy {
+              id
+              title
+              description
+              likes {
+                nextToken
+              }
+              inspiredBy {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              menuItem {
+                id
+                order
+                owner
+              }
+              createdBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              recipe
+              ingredients {
+                items
+              }
+              steps {
+                description
+              }
+              tags
+              owner
+            }
+            menuItem {
+              id
+              order
+              meal {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              createdBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              owner
+            }
+            createdBy {
+              id
+              username
+              email
+              firstName
+              lastName
+              bio
+              meals {
+                nextToken
+              }
+              menuItems {
+                nextToken
+              }
+              likes {
+                nextToken
+              }
+              followers {
+                nextToken
+              }
+              following {
+                nextToken
+              }
+              owner
+            }
+            recipe
+            ingredients {
+              items
+            }
+            steps {
+              description
+            }
+            tags
+            owner
+          }
           nextToken
         }
         menuItems {
+          items {
+            id
+            order
+            meal {
+              id
+              title
+              description
+              likes {
+                nextToken
+              }
+              inspiredBy {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              menuItem {
+                id
+                order
+                owner
+              }
+              createdBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              recipe
+              ingredients {
+                items
+              }
+              steps {
+                description
+              }
+              tags
+              owner
+            }
+            createdBy {
+              id
+              username
+              email
+              firstName
+              lastName
+              bio
+              meals {
+                nextToken
+              }
+              menuItems {
+                nextToken
+              }
+              likes {
+                nextToken
+              }
+              followers {
+                nextToken
+              }
+              following {
+                nextToken
+              }
+              owner
+            }
+            owner
+          }
           nextToken
         }
         likes {
+          items {
+            id
+            meal {
+              id
+              title
+              description
+              likes {
+                nextToken
+              }
+              inspiredBy {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              menuItem {
+                id
+                order
+                owner
+              }
+              createdBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              recipe
+              ingredients {
+                items
+              }
+              steps {
+                description
+              }
+              tags
+              owner
+            }
+            likedBy {
+              id
+              username
+              email
+              firstName
+              lastName
+              bio
+              meals {
+                nextToken
+              }
+              menuItems {
+                nextToken
+              }
+              likes {
+                nextToken
+              }
+              followers {
+                nextToken
+              }
+              following {
+                nextToken
+              }
+              owner
+            }
+            owner
+          }
           nextToken
         }
         followers {
+          items {
+            id
+            user {
+              id
+              username
+              email
+              firstName
+              lastName
+              bio
+              meals {
+                nextToken
+              }
+              menuItems {
+                nextToken
+              }
+              likes {
+                nextToken
+              }
+              followers {
+                nextToken
+              }
+              following {
+                nextToken
+              }
+              owner
+            }
+            followedBy {
+              id
+              username
+              email
+              firstName
+              lastName
+              bio
+              meals {
+                nextToken
+              }
+              menuItems {
+                nextToken
+              }
+              likes {
+                nextToken
+              }
+              followers {
+                nextToken
+              }
+              following {
+                nextToken
+              }
+              owner
+            }
+            owner
+          }
           nextToken
         }
         following {
+          items {
+            id
+            user {
+              id
+              username
+              email
+              firstName
+              lastName
+              bio
+              meals {
+                nextToken
+              }
+              menuItems {
+                nextToken
+              }
+              likes {
+                nextToken
+              }
+              followers {
+                nextToken
+              }
+              following {
+                nextToken
+              }
+              owner
+            }
+            followedBy {
+              id
+              username
+              email
+              firstName
+              lastName
+              bio
+              meals {
+                nextToken
+              }
+              menuItems {
+                nextToken
+              }
+              likes {
+                nextToken
+              }
+              followers {
+                nextToken
+              }
+              following {
+                nextToken
+              }
+              owner
+            }
+            owner
+          }
           nextToken
         }
         owner
@@ -361,19 +5312,378 @@ export const onDeleteFollower = /* GraphQL */ `
         firstName
         lastName
         bio
+        image {
+          file {
+            bucket
+            region
+            key
+          }
+        }
         meals {
+          items {
+            id
+            title
+            image {
+              file {
+                bucket
+                region
+                key
+              }
+            }
+            description
+            likes {
+              items {
+                id
+                owner
+              }
+              nextToken
+            }
+            inspiredBy {
+              id
+              title
+              description
+              likes {
+                nextToken
+              }
+              inspiredBy {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              menuItem {
+                id
+                order
+                owner
+              }
+              createdBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              recipe
+              ingredients {
+                items
+              }
+              steps {
+                description
+              }
+              tags
+              owner
+            }
+            menuItem {
+              id
+              order
+              meal {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              createdBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              owner
+            }
+            createdBy {
+              id
+              username
+              email
+              firstName
+              lastName
+              bio
+              meals {
+                nextToken
+              }
+              menuItems {
+                nextToken
+              }
+              likes {
+                nextToken
+              }
+              followers {
+                nextToken
+              }
+              following {
+                nextToken
+              }
+              owner
+            }
+            recipe
+            ingredients {
+              items
+            }
+            steps {
+              description
+            }
+            tags
+            owner
+          }
           nextToken
         }
         menuItems {
+          items {
+            id
+            order
+            meal {
+              id
+              title
+              description
+              likes {
+                nextToken
+              }
+              inspiredBy {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              menuItem {
+                id
+                order
+                owner
+              }
+              createdBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              recipe
+              ingredients {
+                items
+              }
+              steps {
+                description
+              }
+              tags
+              owner
+            }
+            createdBy {
+              id
+              username
+              email
+              firstName
+              lastName
+              bio
+              meals {
+                nextToken
+              }
+              menuItems {
+                nextToken
+              }
+              likes {
+                nextToken
+              }
+              followers {
+                nextToken
+              }
+              following {
+                nextToken
+              }
+              owner
+            }
+            owner
+          }
           nextToken
         }
         likes {
+          items {
+            id
+            meal {
+              id
+              title
+              description
+              likes {
+                nextToken
+              }
+              inspiredBy {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              menuItem {
+                id
+                order
+                owner
+              }
+              createdBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              recipe
+              ingredients {
+                items
+              }
+              steps {
+                description
+              }
+              tags
+              owner
+            }
+            likedBy {
+              id
+              username
+              email
+              firstName
+              lastName
+              bio
+              meals {
+                nextToken
+              }
+              menuItems {
+                nextToken
+              }
+              likes {
+                nextToken
+              }
+              followers {
+                nextToken
+              }
+              following {
+                nextToken
+              }
+              owner
+            }
+            owner
+          }
           nextToken
         }
         followers {
+          items {
+            id
+            user {
+              id
+              username
+              email
+              firstName
+              lastName
+              bio
+              meals {
+                nextToken
+              }
+              menuItems {
+                nextToken
+              }
+              likes {
+                nextToken
+              }
+              followers {
+                nextToken
+              }
+              following {
+                nextToken
+              }
+              owner
+            }
+            followedBy {
+              id
+              username
+              email
+              firstName
+              lastName
+              bio
+              meals {
+                nextToken
+              }
+              menuItems {
+                nextToken
+              }
+              likes {
+                nextToken
+              }
+              followers {
+                nextToken
+              }
+              following {
+                nextToken
+              }
+              owner
+            }
+            owner
+          }
           nextToken
         }
         following {
+          items {
+            id
+            user {
+              id
+              username
+              email
+              firstName
+              lastName
+              bio
+              meals {
+                nextToken
+              }
+              menuItems {
+                nextToken
+              }
+              likes {
+                nextToken
+              }
+              followers {
+                nextToken
+              }
+              following {
+                nextToken
+              }
+              owner
+            }
+            followedBy {
+              id
+              username
+              email
+              firstName
+              lastName
+              bio
+              meals {
+                nextToken
+              }
+              menuItems {
+                nextToken
+              }
+              likes {
+                nextToken
+              }
+              followers {
+                nextToken
+              }
+              following {
+                nextToken
+              }
+              owner
+            }
+            owner
+          }
           nextToken
         }
         owner
@@ -398,6 +5708,175 @@ export const onCreateMeal = /* GraphQL */ `
       likes {
         items {
           id
+          meal {
+            id
+            title
+            image {
+              file {
+                bucket
+                region
+                key
+              }
+            }
+            description
+            likes {
+              items {
+                id
+                owner
+              }
+              nextToken
+            }
+            inspiredBy {
+              id
+              title
+              description
+              likes {
+                nextToken
+              }
+              inspiredBy {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              menuItem {
+                id
+                order
+                owner
+              }
+              createdBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              recipe
+              ingredients {
+                items
+              }
+              steps {
+                description
+              }
+              tags
+              owner
+            }
+            menuItem {
+              id
+              order
+              meal {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              createdBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              owner
+            }
+            createdBy {
+              id
+              username
+              email
+              firstName
+              lastName
+              bio
+              meals {
+                nextToken
+              }
+              menuItems {
+                nextToken
+              }
+              likes {
+                nextToken
+              }
+              followers {
+                nextToken
+              }
+              following {
+                nextToken
+              }
+              owner
+            }
+            recipe
+            ingredients {
+              items
+            }
+            steps {
+              description
+            }
+            tags
+            owner
+          }
+          likedBy {
+            id
+            username
+            email
+            firstName
+            lastName
+            bio
+            image {
+              file {
+                bucket
+                region
+                key
+              }
+            }
+            meals {
+              items {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              nextToken
+            }
+            menuItems {
+              items {
+                id
+                order
+                owner
+              }
+              nextToken
+            }
+            likes {
+              items {
+                id
+                owner
+              }
+              nextToken
+            }
+            followers {
+              items {
+                id
+                owner
+              }
+              nextToken
+            }
+            following {
+              items {
+                id
+                owner
+              }
+              nextToken
+            }
+            owner
+          }
           owner
         }
         nextToken
@@ -405,21 +5884,552 @@ export const onCreateMeal = /* GraphQL */ `
       inspiredBy {
         id
         title
+        image {
+          file {
+            bucket
+            region
+            key
+          }
+        }
         description
         likes {
+          items {
+            id
+            meal {
+              id
+              title
+              description
+              likes {
+                nextToken
+              }
+              inspiredBy {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              menuItem {
+                id
+                order
+                owner
+              }
+              createdBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              recipe
+              ingredients {
+                items
+              }
+              steps {
+                description
+              }
+              tags
+              owner
+            }
+            likedBy {
+              id
+              username
+              email
+              firstName
+              lastName
+              bio
+              meals {
+                nextToken
+              }
+              menuItems {
+                nextToken
+              }
+              likes {
+                nextToken
+              }
+              followers {
+                nextToken
+              }
+              following {
+                nextToken
+              }
+              owner
+            }
+            owner
+          }
           nextToken
         }
         inspiredBy {
           id
           title
+          image {
+            file {
+              bucket
+              region
+              key
+            }
+          }
           description
+          likes {
+            items {
+              id
+              meal {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              likedBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              owner
+            }
+            nextToken
+          }
+          inspiredBy {
+            id
+            title
+            image {
+              file {
+                bucket
+                region
+                key
+              }
+            }
+            description
+            likes {
+              items {
+                id
+                owner
+              }
+              nextToken
+            }
+            inspiredBy {
+              id
+              title
+              description
+              likes {
+                nextToken
+              }
+              inspiredBy {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              menuItem {
+                id
+                order
+                owner
+              }
+              createdBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              recipe
+              ingredients {
+                items
+              }
+              steps {
+                description
+              }
+              tags
+              owner
+            }
+            menuItem {
+              id
+              order
+              meal {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              createdBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              owner
+            }
+            createdBy {
+              id
+              username
+              email
+              firstName
+              lastName
+              bio
+              meals {
+                nextToken
+              }
+              menuItems {
+                nextToken
+              }
+              likes {
+                nextToken
+              }
+              followers {
+                nextToken
+              }
+              following {
+                nextToken
+              }
+              owner
+            }
+            recipe
+            ingredients {
+              items
+            }
+            steps {
+              description
+            }
+            tags
+            owner
+          }
+          menuItem {
+            id
+            order
+            meal {
+              id
+              title
+              description
+              likes {
+                nextToken
+              }
+              inspiredBy {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              menuItem {
+                id
+                order
+                owner
+              }
+              createdBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              recipe
+              ingredients {
+                items
+              }
+              steps {
+                description
+              }
+              tags
+              owner
+            }
+            createdBy {
+              id
+              username
+              email
+              firstName
+              lastName
+              bio
+              meals {
+                nextToken
+              }
+              menuItems {
+                nextToken
+              }
+              likes {
+                nextToken
+              }
+              followers {
+                nextToken
+              }
+              following {
+                nextToken
+              }
+              owner
+            }
+            owner
+          }
+          createdBy {
+            id
+            username
+            email
+            firstName
+            lastName
+            bio
+            image {
+              file {
+                bucket
+                region
+                key
+              }
+            }
+            meals {
+              items {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              nextToken
+            }
+            menuItems {
+              items {
+                id
+                order
+                owner
+              }
+              nextToken
+            }
+            likes {
+              items {
+                id
+                owner
+              }
+              nextToken
+            }
+            followers {
+              items {
+                id
+                owner
+              }
+              nextToken
+            }
+            following {
+              items {
+                id
+                owner
+              }
+              nextToken
+            }
+            owner
+          }
           recipe
+          ingredients {
+            image {
+              file {
+                bucket
+                region
+                key
+              }
+            }
+            items
+          }
+          steps {
+            image {
+              file {
+                bucket
+                region
+                key
+              }
+            }
+            description
+          }
           tags
           owner
         }
         menuItem {
           id
           order
+          meal {
+            id
+            title
+            image {
+              file {
+                bucket
+                region
+                key
+              }
+            }
+            description
+            likes {
+              items {
+                id
+                owner
+              }
+              nextToken
+            }
+            inspiredBy {
+              id
+              title
+              description
+              likes {
+                nextToken
+              }
+              inspiredBy {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              menuItem {
+                id
+                order
+                owner
+              }
+              createdBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              recipe
+              ingredients {
+                items
+              }
+              steps {
+                description
+              }
+              tags
+              owner
+            }
+            menuItem {
+              id
+              order
+              meal {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              createdBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              owner
+            }
+            createdBy {
+              id
+              username
+              email
+              firstName
+              lastName
+              bio
+              meals {
+                nextToken
+              }
+              menuItems {
+                nextToken
+              }
+              likes {
+                nextToken
+              }
+              followers {
+                nextToken
+              }
+              following {
+                nextToken
+              }
+              owner
+            }
+            recipe
+            ingredients {
+              items
+            }
+            steps {
+              description
+            }
+            tags
+            owner
+          }
+          createdBy {
+            id
+            username
+            email
+            firstName
+            lastName
+            bio
+            image {
+              file {
+                bucket
+                region
+                key
+              }
+            }
+            meals {
+              items {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              nextToken
+            }
+            menuItems {
+              items {
+                id
+                order
+                owner
+              }
+              nextToken
+            }
+            likes {
+              items {
+                id
+                owner
+              }
+              nextToken
+            }
+            followers {
+              items {
+                id
+                owner
+              }
+              nextToken
+            }
+            following {
+              items {
+                id
+                owner
+              }
+              nextToken
+            }
+            owner
+          }
           owner
         }
         createdBy {
@@ -429,13 +6439,175 @@ export const onCreateMeal = /* GraphQL */ `
           firstName
           lastName
           bio
+          image {
+            file {
+              bucket
+              region
+              key
+            }
+          }
+          meals {
+            items {
+              id
+              title
+              description
+              likes {
+                nextToken
+              }
+              inspiredBy {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              menuItem {
+                id
+                order
+                owner
+              }
+              createdBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              recipe
+              ingredients {
+                items
+              }
+              steps {
+                description
+              }
+              tags
+              owner
+            }
+            nextToken
+          }
+          menuItems {
+            items {
+              id
+              order
+              meal {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              createdBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              owner
+            }
+            nextToken
+          }
+          likes {
+            items {
+              id
+              meal {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              likedBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              owner
+            }
+            nextToken
+          }
+          followers {
+            items {
+              id
+              user {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              followedBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              owner
+            }
+            nextToken
+          }
+          following {
+            items {
+              id
+              user {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              followedBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              owner
+            }
+            nextToken
+          }
           owner
         }
         recipe
         ingredients {
+          image {
+            file {
+              bucket
+              region
+              key
+            }
+          }
           items
         }
         steps {
+          image {
+            file {
+              bucket
+              region
+              key
+            }
+          }
           description
         }
         tags
@@ -447,8 +6619,296 @@ export const onCreateMeal = /* GraphQL */ `
         meal {
           id
           title
+          image {
+            file {
+              bucket
+              region
+              key
+            }
+          }
           description
+          likes {
+            items {
+              id
+              meal {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              likedBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              owner
+            }
+            nextToken
+          }
+          inspiredBy {
+            id
+            title
+            image {
+              file {
+                bucket
+                region
+                key
+              }
+            }
+            description
+            likes {
+              items {
+                id
+                owner
+              }
+              nextToken
+            }
+            inspiredBy {
+              id
+              title
+              description
+              likes {
+                nextToken
+              }
+              inspiredBy {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              menuItem {
+                id
+                order
+                owner
+              }
+              createdBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              recipe
+              ingredients {
+                items
+              }
+              steps {
+                description
+              }
+              tags
+              owner
+            }
+            menuItem {
+              id
+              order
+              meal {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              createdBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              owner
+            }
+            createdBy {
+              id
+              username
+              email
+              firstName
+              lastName
+              bio
+              meals {
+                nextToken
+              }
+              menuItems {
+                nextToken
+              }
+              likes {
+                nextToken
+              }
+              followers {
+                nextToken
+              }
+              following {
+                nextToken
+              }
+              owner
+            }
+            recipe
+            ingredients {
+              items
+            }
+            steps {
+              description
+            }
+            tags
+            owner
+          }
+          menuItem {
+            id
+            order
+            meal {
+              id
+              title
+              description
+              likes {
+                nextToken
+              }
+              inspiredBy {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              menuItem {
+                id
+                order
+                owner
+              }
+              createdBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              recipe
+              ingredients {
+                items
+              }
+              steps {
+                description
+              }
+              tags
+              owner
+            }
+            createdBy {
+              id
+              username
+              email
+              firstName
+              lastName
+              bio
+              meals {
+                nextToken
+              }
+              menuItems {
+                nextToken
+              }
+              likes {
+                nextToken
+              }
+              followers {
+                nextToken
+              }
+              following {
+                nextToken
+              }
+              owner
+            }
+            owner
+          }
+          createdBy {
+            id
+            username
+            email
+            firstName
+            lastName
+            bio
+            image {
+              file {
+                bucket
+                region
+                key
+              }
+            }
+            meals {
+              items {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              nextToken
+            }
+            menuItems {
+              items {
+                id
+                order
+                owner
+              }
+              nextToken
+            }
+            likes {
+              items {
+                id
+                owner
+              }
+              nextToken
+            }
+            followers {
+              items {
+                id
+                owner
+              }
+              nextToken
+            }
+            following {
+              items {
+                id
+                owner
+              }
+              nextToken
+            }
+            owner
+          }
           recipe
+          ingredients {
+            image {
+              file {
+                bucket
+                region
+                key
+              }
+            }
+            items
+          }
+          steps {
+            image {
+              file {
+                bucket
+                region
+                key
+              }
+            }
+            description
+          }
           tags
           owner
         }
@@ -459,6 +6919,154 @@ export const onCreateMeal = /* GraphQL */ `
           firstName
           lastName
           bio
+          image {
+            file {
+              bucket
+              region
+              key
+            }
+          }
+          meals {
+            items {
+              id
+              title
+              description
+              likes {
+                nextToken
+              }
+              inspiredBy {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              menuItem {
+                id
+                order
+                owner
+              }
+              createdBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              recipe
+              ingredients {
+                items
+              }
+              steps {
+                description
+              }
+              tags
+              owner
+            }
+            nextToken
+          }
+          menuItems {
+            items {
+              id
+              order
+              meal {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              createdBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              owner
+            }
+            nextToken
+          }
+          likes {
+            items {
+              id
+              meal {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              likedBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              owner
+            }
+            nextToken
+          }
+          followers {
+            items {
+              id
+              user {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              followedBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              owner
+            }
+            nextToken
+          }
+          following {
+            items {
+              id
+              user {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              followedBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              owner
+            }
+            nextToken
+          }
           owner
         }
         owner
@@ -470,28 +7078,401 @@ export const onCreateMeal = /* GraphQL */ `
         firstName
         lastName
         bio
+        image {
+          file {
+            bucket
+            region
+            key
+          }
+        }
         meals {
+          items {
+            id
+            title
+            image {
+              file {
+                bucket
+                region
+                key
+              }
+            }
+            description
+            likes {
+              items {
+                id
+                owner
+              }
+              nextToken
+            }
+            inspiredBy {
+              id
+              title
+              description
+              likes {
+                nextToken
+              }
+              inspiredBy {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              menuItem {
+                id
+                order
+                owner
+              }
+              createdBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              recipe
+              ingredients {
+                items
+              }
+              steps {
+                description
+              }
+              tags
+              owner
+            }
+            menuItem {
+              id
+              order
+              meal {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              createdBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              owner
+            }
+            createdBy {
+              id
+              username
+              email
+              firstName
+              lastName
+              bio
+              meals {
+                nextToken
+              }
+              menuItems {
+                nextToken
+              }
+              likes {
+                nextToken
+              }
+              followers {
+                nextToken
+              }
+              following {
+                nextToken
+              }
+              owner
+            }
+            recipe
+            ingredients {
+              items
+            }
+            steps {
+              description
+            }
+            tags
+            owner
+          }
           nextToken
         }
         menuItems {
+          items {
+            id
+            order
+            meal {
+              id
+              title
+              description
+              likes {
+                nextToken
+              }
+              inspiredBy {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              menuItem {
+                id
+                order
+                owner
+              }
+              createdBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              recipe
+              ingredients {
+                items
+              }
+              steps {
+                description
+              }
+              tags
+              owner
+            }
+            createdBy {
+              id
+              username
+              email
+              firstName
+              lastName
+              bio
+              meals {
+                nextToken
+              }
+              menuItems {
+                nextToken
+              }
+              likes {
+                nextToken
+              }
+              followers {
+                nextToken
+              }
+              following {
+                nextToken
+              }
+              owner
+            }
+            owner
+          }
           nextToken
         }
         likes {
+          items {
+            id
+            meal {
+              id
+              title
+              description
+              likes {
+                nextToken
+              }
+              inspiredBy {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              menuItem {
+                id
+                order
+                owner
+              }
+              createdBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              recipe
+              ingredients {
+                items
+              }
+              steps {
+                description
+              }
+              tags
+              owner
+            }
+            likedBy {
+              id
+              username
+              email
+              firstName
+              lastName
+              bio
+              meals {
+                nextToken
+              }
+              menuItems {
+                nextToken
+              }
+              likes {
+                nextToken
+              }
+              followers {
+                nextToken
+              }
+              following {
+                nextToken
+              }
+              owner
+            }
+            owner
+          }
           nextToken
         }
         followers {
+          items {
+            id
+            user {
+              id
+              username
+              email
+              firstName
+              lastName
+              bio
+              meals {
+                nextToken
+              }
+              menuItems {
+                nextToken
+              }
+              likes {
+                nextToken
+              }
+              followers {
+                nextToken
+              }
+              following {
+                nextToken
+              }
+              owner
+            }
+            followedBy {
+              id
+              username
+              email
+              firstName
+              lastName
+              bio
+              meals {
+                nextToken
+              }
+              menuItems {
+                nextToken
+              }
+              likes {
+                nextToken
+              }
+              followers {
+                nextToken
+              }
+              following {
+                nextToken
+              }
+              owner
+            }
+            owner
+          }
           nextToken
         }
         following {
+          items {
+            id
+            user {
+              id
+              username
+              email
+              firstName
+              lastName
+              bio
+              meals {
+                nextToken
+              }
+              menuItems {
+                nextToken
+              }
+              likes {
+                nextToken
+              }
+              followers {
+                nextToken
+              }
+              following {
+                nextToken
+              }
+              owner
+            }
+            followedBy {
+              id
+              username
+              email
+              firstName
+              lastName
+              bio
+              meals {
+                nextToken
+              }
+              menuItems {
+                nextToken
+              }
+              likes {
+                nextToken
+              }
+              followers {
+                nextToken
+              }
+              following {
+                nextToken
+              }
+              owner
+            }
+            owner
+          }
           nextToken
         }
         owner
       }
       recipe
       ingredients {
+        image {
+          file {
+            bucket
+            region
+            key
+          }
+        }
         items
       }
       steps {
+        image {
+          file {
+            bucket
+            region
+            key
+          }
+        }
         description
       }
       tags
@@ -515,6 +7496,175 @@ export const onUpdateMeal = /* GraphQL */ `
       likes {
         items {
           id
+          meal {
+            id
+            title
+            image {
+              file {
+                bucket
+                region
+                key
+              }
+            }
+            description
+            likes {
+              items {
+                id
+                owner
+              }
+              nextToken
+            }
+            inspiredBy {
+              id
+              title
+              description
+              likes {
+                nextToken
+              }
+              inspiredBy {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              menuItem {
+                id
+                order
+                owner
+              }
+              createdBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              recipe
+              ingredients {
+                items
+              }
+              steps {
+                description
+              }
+              tags
+              owner
+            }
+            menuItem {
+              id
+              order
+              meal {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              createdBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              owner
+            }
+            createdBy {
+              id
+              username
+              email
+              firstName
+              lastName
+              bio
+              meals {
+                nextToken
+              }
+              menuItems {
+                nextToken
+              }
+              likes {
+                nextToken
+              }
+              followers {
+                nextToken
+              }
+              following {
+                nextToken
+              }
+              owner
+            }
+            recipe
+            ingredients {
+              items
+            }
+            steps {
+              description
+            }
+            tags
+            owner
+          }
+          likedBy {
+            id
+            username
+            email
+            firstName
+            lastName
+            bio
+            image {
+              file {
+                bucket
+                region
+                key
+              }
+            }
+            meals {
+              items {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              nextToken
+            }
+            menuItems {
+              items {
+                id
+                order
+                owner
+              }
+              nextToken
+            }
+            likes {
+              items {
+                id
+                owner
+              }
+              nextToken
+            }
+            followers {
+              items {
+                id
+                owner
+              }
+              nextToken
+            }
+            following {
+              items {
+                id
+                owner
+              }
+              nextToken
+            }
+            owner
+          }
           owner
         }
         nextToken
@@ -522,21 +7672,552 @@ export const onUpdateMeal = /* GraphQL */ `
       inspiredBy {
         id
         title
+        image {
+          file {
+            bucket
+            region
+            key
+          }
+        }
         description
         likes {
+          items {
+            id
+            meal {
+              id
+              title
+              description
+              likes {
+                nextToken
+              }
+              inspiredBy {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              menuItem {
+                id
+                order
+                owner
+              }
+              createdBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              recipe
+              ingredients {
+                items
+              }
+              steps {
+                description
+              }
+              tags
+              owner
+            }
+            likedBy {
+              id
+              username
+              email
+              firstName
+              lastName
+              bio
+              meals {
+                nextToken
+              }
+              menuItems {
+                nextToken
+              }
+              likes {
+                nextToken
+              }
+              followers {
+                nextToken
+              }
+              following {
+                nextToken
+              }
+              owner
+            }
+            owner
+          }
           nextToken
         }
         inspiredBy {
           id
           title
+          image {
+            file {
+              bucket
+              region
+              key
+            }
+          }
           description
+          likes {
+            items {
+              id
+              meal {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              likedBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              owner
+            }
+            nextToken
+          }
+          inspiredBy {
+            id
+            title
+            image {
+              file {
+                bucket
+                region
+                key
+              }
+            }
+            description
+            likes {
+              items {
+                id
+                owner
+              }
+              nextToken
+            }
+            inspiredBy {
+              id
+              title
+              description
+              likes {
+                nextToken
+              }
+              inspiredBy {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              menuItem {
+                id
+                order
+                owner
+              }
+              createdBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              recipe
+              ingredients {
+                items
+              }
+              steps {
+                description
+              }
+              tags
+              owner
+            }
+            menuItem {
+              id
+              order
+              meal {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              createdBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              owner
+            }
+            createdBy {
+              id
+              username
+              email
+              firstName
+              lastName
+              bio
+              meals {
+                nextToken
+              }
+              menuItems {
+                nextToken
+              }
+              likes {
+                nextToken
+              }
+              followers {
+                nextToken
+              }
+              following {
+                nextToken
+              }
+              owner
+            }
+            recipe
+            ingredients {
+              items
+            }
+            steps {
+              description
+            }
+            tags
+            owner
+          }
+          menuItem {
+            id
+            order
+            meal {
+              id
+              title
+              description
+              likes {
+                nextToken
+              }
+              inspiredBy {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              menuItem {
+                id
+                order
+                owner
+              }
+              createdBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              recipe
+              ingredients {
+                items
+              }
+              steps {
+                description
+              }
+              tags
+              owner
+            }
+            createdBy {
+              id
+              username
+              email
+              firstName
+              lastName
+              bio
+              meals {
+                nextToken
+              }
+              menuItems {
+                nextToken
+              }
+              likes {
+                nextToken
+              }
+              followers {
+                nextToken
+              }
+              following {
+                nextToken
+              }
+              owner
+            }
+            owner
+          }
+          createdBy {
+            id
+            username
+            email
+            firstName
+            lastName
+            bio
+            image {
+              file {
+                bucket
+                region
+                key
+              }
+            }
+            meals {
+              items {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              nextToken
+            }
+            menuItems {
+              items {
+                id
+                order
+                owner
+              }
+              nextToken
+            }
+            likes {
+              items {
+                id
+                owner
+              }
+              nextToken
+            }
+            followers {
+              items {
+                id
+                owner
+              }
+              nextToken
+            }
+            following {
+              items {
+                id
+                owner
+              }
+              nextToken
+            }
+            owner
+          }
           recipe
+          ingredients {
+            image {
+              file {
+                bucket
+                region
+                key
+              }
+            }
+            items
+          }
+          steps {
+            image {
+              file {
+                bucket
+                region
+                key
+              }
+            }
+            description
+          }
           tags
           owner
         }
         menuItem {
           id
           order
+          meal {
+            id
+            title
+            image {
+              file {
+                bucket
+                region
+                key
+              }
+            }
+            description
+            likes {
+              items {
+                id
+                owner
+              }
+              nextToken
+            }
+            inspiredBy {
+              id
+              title
+              description
+              likes {
+                nextToken
+              }
+              inspiredBy {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              menuItem {
+                id
+                order
+                owner
+              }
+              createdBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              recipe
+              ingredients {
+                items
+              }
+              steps {
+                description
+              }
+              tags
+              owner
+            }
+            menuItem {
+              id
+              order
+              meal {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              createdBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              owner
+            }
+            createdBy {
+              id
+              username
+              email
+              firstName
+              lastName
+              bio
+              meals {
+                nextToken
+              }
+              menuItems {
+                nextToken
+              }
+              likes {
+                nextToken
+              }
+              followers {
+                nextToken
+              }
+              following {
+                nextToken
+              }
+              owner
+            }
+            recipe
+            ingredients {
+              items
+            }
+            steps {
+              description
+            }
+            tags
+            owner
+          }
+          createdBy {
+            id
+            username
+            email
+            firstName
+            lastName
+            bio
+            image {
+              file {
+                bucket
+                region
+                key
+              }
+            }
+            meals {
+              items {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              nextToken
+            }
+            menuItems {
+              items {
+                id
+                order
+                owner
+              }
+              nextToken
+            }
+            likes {
+              items {
+                id
+                owner
+              }
+              nextToken
+            }
+            followers {
+              items {
+                id
+                owner
+              }
+              nextToken
+            }
+            following {
+              items {
+                id
+                owner
+              }
+              nextToken
+            }
+            owner
+          }
           owner
         }
         createdBy {
@@ -546,13 +8227,175 @@ export const onUpdateMeal = /* GraphQL */ `
           firstName
           lastName
           bio
+          image {
+            file {
+              bucket
+              region
+              key
+            }
+          }
+          meals {
+            items {
+              id
+              title
+              description
+              likes {
+                nextToken
+              }
+              inspiredBy {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              menuItem {
+                id
+                order
+                owner
+              }
+              createdBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              recipe
+              ingredients {
+                items
+              }
+              steps {
+                description
+              }
+              tags
+              owner
+            }
+            nextToken
+          }
+          menuItems {
+            items {
+              id
+              order
+              meal {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              createdBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              owner
+            }
+            nextToken
+          }
+          likes {
+            items {
+              id
+              meal {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              likedBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              owner
+            }
+            nextToken
+          }
+          followers {
+            items {
+              id
+              user {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              followedBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              owner
+            }
+            nextToken
+          }
+          following {
+            items {
+              id
+              user {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              followedBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              owner
+            }
+            nextToken
+          }
           owner
         }
         recipe
         ingredients {
+          image {
+            file {
+              bucket
+              region
+              key
+            }
+          }
           items
         }
         steps {
+          image {
+            file {
+              bucket
+              region
+              key
+            }
+          }
           description
         }
         tags
@@ -564,8 +8407,296 @@ export const onUpdateMeal = /* GraphQL */ `
         meal {
           id
           title
+          image {
+            file {
+              bucket
+              region
+              key
+            }
+          }
           description
+          likes {
+            items {
+              id
+              meal {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              likedBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              owner
+            }
+            nextToken
+          }
+          inspiredBy {
+            id
+            title
+            image {
+              file {
+                bucket
+                region
+                key
+              }
+            }
+            description
+            likes {
+              items {
+                id
+                owner
+              }
+              nextToken
+            }
+            inspiredBy {
+              id
+              title
+              description
+              likes {
+                nextToken
+              }
+              inspiredBy {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              menuItem {
+                id
+                order
+                owner
+              }
+              createdBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              recipe
+              ingredients {
+                items
+              }
+              steps {
+                description
+              }
+              tags
+              owner
+            }
+            menuItem {
+              id
+              order
+              meal {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              createdBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              owner
+            }
+            createdBy {
+              id
+              username
+              email
+              firstName
+              lastName
+              bio
+              meals {
+                nextToken
+              }
+              menuItems {
+                nextToken
+              }
+              likes {
+                nextToken
+              }
+              followers {
+                nextToken
+              }
+              following {
+                nextToken
+              }
+              owner
+            }
+            recipe
+            ingredients {
+              items
+            }
+            steps {
+              description
+            }
+            tags
+            owner
+          }
+          menuItem {
+            id
+            order
+            meal {
+              id
+              title
+              description
+              likes {
+                nextToken
+              }
+              inspiredBy {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              menuItem {
+                id
+                order
+                owner
+              }
+              createdBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              recipe
+              ingredients {
+                items
+              }
+              steps {
+                description
+              }
+              tags
+              owner
+            }
+            createdBy {
+              id
+              username
+              email
+              firstName
+              lastName
+              bio
+              meals {
+                nextToken
+              }
+              menuItems {
+                nextToken
+              }
+              likes {
+                nextToken
+              }
+              followers {
+                nextToken
+              }
+              following {
+                nextToken
+              }
+              owner
+            }
+            owner
+          }
+          createdBy {
+            id
+            username
+            email
+            firstName
+            lastName
+            bio
+            image {
+              file {
+                bucket
+                region
+                key
+              }
+            }
+            meals {
+              items {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              nextToken
+            }
+            menuItems {
+              items {
+                id
+                order
+                owner
+              }
+              nextToken
+            }
+            likes {
+              items {
+                id
+                owner
+              }
+              nextToken
+            }
+            followers {
+              items {
+                id
+                owner
+              }
+              nextToken
+            }
+            following {
+              items {
+                id
+                owner
+              }
+              nextToken
+            }
+            owner
+          }
           recipe
+          ingredients {
+            image {
+              file {
+                bucket
+                region
+                key
+              }
+            }
+            items
+          }
+          steps {
+            image {
+              file {
+                bucket
+                region
+                key
+              }
+            }
+            description
+          }
           tags
           owner
         }
@@ -576,6 +8707,154 @@ export const onUpdateMeal = /* GraphQL */ `
           firstName
           lastName
           bio
+          image {
+            file {
+              bucket
+              region
+              key
+            }
+          }
+          meals {
+            items {
+              id
+              title
+              description
+              likes {
+                nextToken
+              }
+              inspiredBy {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              menuItem {
+                id
+                order
+                owner
+              }
+              createdBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              recipe
+              ingredients {
+                items
+              }
+              steps {
+                description
+              }
+              tags
+              owner
+            }
+            nextToken
+          }
+          menuItems {
+            items {
+              id
+              order
+              meal {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              createdBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              owner
+            }
+            nextToken
+          }
+          likes {
+            items {
+              id
+              meal {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              likedBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              owner
+            }
+            nextToken
+          }
+          followers {
+            items {
+              id
+              user {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              followedBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              owner
+            }
+            nextToken
+          }
+          following {
+            items {
+              id
+              user {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              followedBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              owner
+            }
+            nextToken
+          }
           owner
         }
         owner
@@ -587,28 +8866,401 @@ export const onUpdateMeal = /* GraphQL */ `
         firstName
         lastName
         bio
+        image {
+          file {
+            bucket
+            region
+            key
+          }
+        }
         meals {
+          items {
+            id
+            title
+            image {
+              file {
+                bucket
+                region
+                key
+              }
+            }
+            description
+            likes {
+              items {
+                id
+                owner
+              }
+              nextToken
+            }
+            inspiredBy {
+              id
+              title
+              description
+              likes {
+                nextToken
+              }
+              inspiredBy {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              menuItem {
+                id
+                order
+                owner
+              }
+              createdBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              recipe
+              ingredients {
+                items
+              }
+              steps {
+                description
+              }
+              tags
+              owner
+            }
+            menuItem {
+              id
+              order
+              meal {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              createdBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              owner
+            }
+            createdBy {
+              id
+              username
+              email
+              firstName
+              lastName
+              bio
+              meals {
+                nextToken
+              }
+              menuItems {
+                nextToken
+              }
+              likes {
+                nextToken
+              }
+              followers {
+                nextToken
+              }
+              following {
+                nextToken
+              }
+              owner
+            }
+            recipe
+            ingredients {
+              items
+            }
+            steps {
+              description
+            }
+            tags
+            owner
+          }
           nextToken
         }
         menuItems {
+          items {
+            id
+            order
+            meal {
+              id
+              title
+              description
+              likes {
+                nextToken
+              }
+              inspiredBy {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              menuItem {
+                id
+                order
+                owner
+              }
+              createdBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              recipe
+              ingredients {
+                items
+              }
+              steps {
+                description
+              }
+              tags
+              owner
+            }
+            createdBy {
+              id
+              username
+              email
+              firstName
+              lastName
+              bio
+              meals {
+                nextToken
+              }
+              menuItems {
+                nextToken
+              }
+              likes {
+                nextToken
+              }
+              followers {
+                nextToken
+              }
+              following {
+                nextToken
+              }
+              owner
+            }
+            owner
+          }
           nextToken
         }
         likes {
+          items {
+            id
+            meal {
+              id
+              title
+              description
+              likes {
+                nextToken
+              }
+              inspiredBy {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              menuItem {
+                id
+                order
+                owner
+              }
+              createdBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              recipe
+              ingredients {
+                items
+              }
+              steps {
+                description
+              }
+              tags
+              owner
+            }
+            likedBy {
+              id
+              username
+              email
+              firstName
+              lastName
+              bio
+              meals {
+                nextToken
+              }
+              menuItems {
+                nextToken
+              }
+              likes {
+                nextToken
+              }
+              followers {
+                nextToken
+              }
+              following {
+                nextToken
+              }
+              owner
+            }
+            owner
+          }
           nextToken
         }
         followers {
+          items {
+            id
+            user {
+              id
+              username
+              email
+              firstName
+              lastName
+              bio
+              meals {
+                nextToken
+              }
+              menuItems {
+                nextToken
+              }
+              likes {
+                nextToken
+              }
+              followers {
+                nextToken
+              }
+              following {
+                nextToken
+              }
+              owner
+            }
+            followedBy {
+              id
+              username
+              email
+              firstName
+              lastName
+              bio
+              meals {
+                nextToken
+              }
+              menuItems {
+                nextToken
+              }
+              likes {
+                nextToken
+              }
+              followers {
+                nextToken
+              }
+              following {
+                nextToken
+              }
+              owner
+            }
+            owner
+          }
           nextToken
         }
         following {
+          items {
+            id
+            user {
+              id
+              username
+              email
+              firstName
+              lastName
+              bio
+              meals {
+                nextToken
+              }
+              menuItems {
+                nextToken
+              }
+              likes {
+                nextToken
+              }
+              followers {
+                nextToken
+              }
+              following {
+                nextToken
+              }
+              owner
+            }
+            followedBy {
+              id
+              username
+              email
+              firstName
+              lastName
+              bio
+              meals {
+                nextToken
+              }
+              menuItems {
+                nextToken
+              }
+              likes {
+                nextToken
+              }
+              followers {
+                nextToken
+              }
+              following {
+                nextToken
+              }
+              owner
+            }
+            owner
+          }
           nextToken
         }
         owner
       }
       recipe
       ingredients {
+        image {
+          file {
+            bucket
+            region
+            key
+          }
+        }
         items
       }
       steps {
+        image {
+          file {
+            bucket
+            region
+            key
+          }
+        }
         description
       }
       tags
@@ -632,6 +9284,175 @@ export const onDeleteMeal = /* GraphQL */ `
       likes {
         items {
           id
+          meal {
+            id
+            title
+            image {
+              file {
+                bucket
+                region
+                key
+              }
+            }
+            description
+            likes {
+              items {
+                id
+                owner
+              }
+              nextToken
+            }
+            inspiredBy {
+              id
+              title
+              description
+              likes {
+                nextToken
+              }
+              inspiredBy {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              menuItem {
+                id
+                order
+                owner
+              }
+              createdBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              recipe
+              ingredients {
+                items
+              }
+              steps {
+                description
+              }
+              tags
+              owner
+            }
+            menuItem {
+              id
+              order
+              meal {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              createdBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              owner
+            }
+            createdBy {
+              id
+              username
+              email
+              firstName
+              lastName
+              bio
+              meals {
+                nextToken
+              }
+              menuItems {
+                nextToken
+              }
+              likes {
+                nextToken
+              }
+              followers {
+                nextToken
+              }
+              following {
+                nextToken
+              }
+              owner
+            }
+            recipe
+            ingredients {
+              items
+            }
+            steps {
+              description
+            }
+            tags
+            owner
+          }
+          likedBy {
+            id
+            username
+            email
+            firstName
+            lastName
+            bio
+            image {
+              file {
+                bucket
+                region
+                key
+              }
+            }
+            meals {
+              items {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              nextToken
+            }
+            menuItems {
+              items {
+                id
+                order
+                owner
+              }
+              nextToken
+            }
+            likes {
+              items {
+                id
+                owner
+              }
+              nextToken
+            }
+            followers {
+              items {
+                id
+                owner
+              }
+              nextToken
+            }
+            following {
+              items {
+                id
+                owner
+              }
+              nextToken
+            }
+            owner
+          }
           owner
         }
         nextToken
@@ -639,21 +9460,552 @@ export const onDeleteMeal = /* GraphQL */ `
       inspiredBy {
         id
         title
+        image {
+          file {
+            bucket
+            region
+            key
+          }
+        }
         description
         likes {
+          items {
+            id
+            meal {
+              id
+              title
+              description
+              likes {
+                nextToken
+              }
+              inspiredBy {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              menuItem {
+                id
+                order
+                owner
+              }
+              createdBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              recipe
+              ingredients {
+                items
+              }
+              steps {
+                description
+              }
+              tags
+              owner
+            }
+            likedBy {
+              id
+              username
+              email
+              firstName
+              lastName
+              bio
+              meals {
+                nextToken
+              }
+              menuItems {
+                nextToken
+              }
+              likes {
+                nextToken
+              }
+              followers {
+                nextToken
+              }
+              following {
+                nextToken
+              }
+              owner
+            }
+            owner
+          }
           nextToken
         }
         inspiredBy {
           id
           title
+          image {
+            file {
+              bucket
+              region
+              key
+            }
+          }
           description
+          likes {
+            items {
+              id
+              meal {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              likedBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              owner
+            }
+            nextToken
+          }
+          inspiredBy {
+            id
+            title
+            image {
+              file {
+                bucket
+                region
+                key
+              }
+            }
+            description
+            likes {
+              items {
+                id
+                owner
+              }
+              nextToken
+            }
+            inspiredBy {
+              id
+              title
+              description
+              likes {
+                nextToken
+              }
+              inspiredBy {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              menuItem {
+                id
+                order
+                owner
+              }
+              createdBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              recipe
+              ingredients {
+                items
+              }
+              steps {
+                description
+              }
+              tags
+              owner
+            }
+            menuItem {
+              id
+              order
+              meal {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              createdBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              owner
+            }
+            createdBy {
+              id
+              username
+              email
+              firstName
+              lastName
+              bio
+              meals {
+                nextToken
+              }
+              menuItems {
+                nextToken
+              }
+              likes {
+                nextToken
+              }
+              followers {
+                nextToken
+              }
+              following {
+                nextToken
+              }
+              owner
+            }
+            recipe
+            ingredients {
+              items
+            }
+            steps {
+              description
+            }
+            tags
+            owner
+          }
+          menuItem {
+            id
+            order
+            meal {
+              id
+              title
+              description
+              likes {
+                nextToken
+              }
+              inspiredBy {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              menuItem {
+                id
+                order
+                owner
+              }
+              createdBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              recipe
+              ingredients {
+                items
+              }
+              steps {
+                description
+              }
+              tags
+              owner
+            }
+            createdBy {
+              id
+              username
+              email
+              firstName
+              lastName
+              bio
+              meals {
+                nextToken
+              }
+              menuItems {
+                nextToken
+              }
+              likes {
+                nextToken
+              }
+              followers {
+                nextToken
+              }
+              following {
+                nextToken
+              }
+              owner
+            }
+            owner
+          }
+          createdBy {
+            id
+            username
+            email
+            firstName
+            lastName
+            bio
+            image {
+              file {
+                bucket
+                region
+                key
+              }
+            }
+            meals {
+              items {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              nextToken
+            }
+            menuItems {
+              items {
+                id
+                order
+                owner
+              }
+              nextToken
+            }
+            likes {
+              items {
+                id
+                owner
+              }
+              nextToken
+            }
+            followers {
+              items {
+                id
+                owner
+              }
+              nextToken
+            }
+            following {
+              items {
+                id
+                owner
+              }
+              nextToken
+            }
+            owner
+          }
           recipe
+          ingredients {
+            image {
+              file {
+                bucket
+                region
+                key
+              }
+            }
+            items
+          }
+          steps {
+            image {
+              file {
+                bucket
+                region
+                key
+              }
+            }
+            description
+          }
           tags
           owner
         }
         menuItem {
           id
           order
+          meal {
+            id
+            title
+            image {
+              file {
+                bucket
+                region
+                key
+              }
+            }
+            description
+            likes {
+              items {
+                id
+                owner
+              }
+              nextToken
+            }
+            inspiredBy {
+              id
+              title
+              description
+              likes {
+                nextToken
+              }
+              inspiredBy {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              menuItem {
+                id
+                order
+                owner
+              }
+              createdBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              recipe
+              ingredients {
+                items
+              }
+              steps {
+                description
+              }
+              tags
+              owner
+            }
+            menuItem {
+              id
+              order
+              meal {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              createdBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              owner
+            }
+            createdBy {
+              id
+              username
+              email
+              firstName
+              lastName
+              bio
+              meals {
+                nextToken
+              }
+              menuItems {
+                nextToken
+              }
+              likes {
+                nextToken
+              }
+              followers {
+                nextToken
+              }
+              following {
+                nextToken
+              }
+              owner
+            }
+            recipe
+            ingredients {
+              items
+            }
+            steps {
+              description
+            }
+            tags
+            owner
+          }
+          createdBy {
+            id
+            username
+            email
+            firstName
+            lastName
+            bio
+            image {
+              file {
+                bucket
+                region
+                key
+              }
+            }
+            meals {
+              items {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              nextToken
+            }
+            menuItems {
+              items {
+                id
+                order
+                owner
+              }
+              nextToken
+            }
+            likes {
+              items {
+                id
+                owner
+              }
+              nextToken
+            }
+            followers {
+              items {
+                id
+                owner
+              }
+              nextToken
+            }
+            following {
+              items {
+                id
+                owner
+              }
+              nextToken
+            }
+            owner
+          }
           owner
         }
         createdBy {
@@ -663,13 +10015,175 @@ export const onDeleteMeal = /* GraphQL */ `
           firstName
           lastName
           bio
+          image {
+            file {
+              bucket
+              region
+              key
+            }
+          }
+          meals {
+            items {
+              id
+              title
+              description
+              likes {
+                nextToken
+              }
+              inspiredBy {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              menuItem {
+                id
+                order
+                owner
+              }
+              createdBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              recipe
+              ingredients {
+                items
+              }
+              steps {
+                description
+              }
+              tags
+              owner
+            }
+            nextToken
+          }
+          menuItems {
+            items {
+              id
+              order
+              meal {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              createdBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              owner
+            }
+            nextToken
+          }
+          likes {
+            items {
+              id
+              meal {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              likedBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              owner
+            }
+            nextToken
+          }
+          followers {
+            items {
+              id
+              user {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              followedBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              owner
+            }
+            nextToken
+          }
+          following {
+            items {
+              id
+              user {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              followedBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              owner
+            }
+            nextToken
+          }
           owner
         }
         recipe
         ingredients {
+          image {
+            file {
+              bucket
+              region
+              key
+            }
+          }
           items
         }
         steps {
+          image {
+            file {
+              bucket
+              region
+              key
+            }
+          }
           description
         }
         tags
@@ -681,8 +10195,296 @@ export const onDeleteMeal = /* GraphQL */ `
         meal {
           id
           title
+          image {
+            file {
+              bucket
+              region
+              key
+            }
+          }
           description
+          likes {
+            items {
+              id
+              meal {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              likedBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              owner
+            }
+            nextToken
+          }
+          inspiredBy {
+            id
+            title
+            image {
+              file {
+                bucket
+                region
+                key
+              }
+            }
+            description
+            likes {
+              items {
+                id
+                owner
+              }
+              nextToken
+            }
+            inspiredBy {
+              id
+              title
+              description
+              likes {
+                nextToken
+              }
+              inspiredBy {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              menuItem {
+                id
+                order
+                owner
+              }
+              createdBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              recipe
+              ingredients {
+                items
+              }
+              steps {
+                description
+              }
+              tags
+              owner
+            }
+            menuItem {
+              id
+              order
+              meal {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              createdBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              owner
+            }
+            createdBy {
+              id
+              username
+              email
+              firstName
+              lastName
+              bio
+              meals {
+                nextToken
+              }
+              menuItems {
+                nextToken
+              }
+              likes {
+                nextToken
+              }
+              followers {
+                nextToken
+              }
+              following {
+                nextToken
+              }
+              owner
+            }
+            recipe
+            ingredients {
+              items
+            }
+            steps {
+              description
+            }
+            tags
+            owner
+          }
+          menuItem {
+            id
+            order
+            meal {
+              id
+              title
+              description
+              likes {
+                nextToken
+              }
+              inspiredBy {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              menuItem {
+                id
+                order
+                owner
+              }
+              createdBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              recipe
+              ingredients {
+                items
+              }
+              steps {
+                description
+              }
+              tags
+              owner
+            }
+            createdBy {
+              id
+              username
+              email
+              firstName
+              lastName
+              bio
+              meals {
+                nextToken
+              }
+              menuItems {
+                nextToken
+              }
+              likes {
+                nextToken
+              }
+              followers {
+                nextToken
+              }
+              following {
+                nextToken
+              }
+              owner
+            }
+            owner
+          }
+          createdBy {
+            id
+            username
+            email
+            firstName
+            lastName
+            bio
+            image {
+              file {
+                bucket
+                region
+                key
+              }
+            }
+            meals {
+              items {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              nextToken
+            }
+            menuItems {
+              items {
+                id
+                order
+                owner
+              }
+              nextToken
+            }
+            likes {
+              items {
+                id
+                owner
+              }
+              nextToken
+            }
+            followers {
+              items {
+                id
+                owner
+              }
+              nextToken
+            }
+            following {
+              items {
+                id
+                owner
+              }
+              nextToken
+            }
+            owner
+          }
           recipe
+          ingredients {
+            image {
+              file {
+                bucket
+                region
+                key
+              }
+            }
+            items
+          }
+          steps {
+            image {
+              file {
+                bucket
+                region
+                key
+              }
+            }
+            description
+          }
           tags
           owner
         }
@@ -693,6 +10495,154 @@ export const onDeleteMeal = /* GraphQL */ `
           firstName
           lastName
           bio
+          image {
+            file {
+              bucket
+              region
+              key
+            }
+          }
+          meals {
+            items {
+              id
+              title
+              description
+              likes {
+                nextToken
+              }
+              inspiredBy {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              menuItem {
+                id
+                order
+                owner
+              }
+              createdBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              recipe
+              ingredients {
+                items
+              }
+              steps {
+                description
+              }
+              tags
+              owner
+            }
+            nextToken
+          }
+          menuItems {
+            items {
+              id
+              order
+              meal {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              createdBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              owner
+            }
+            nextToken
+          }
+          likes {
+            items {
+              id
+              meal {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              likedBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              owner
+            }
+            nextToken
+          }
+          followers {
+            items {
+              id
+              user {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              followedBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              owner
+            }
+            nextToken
+          }
+          following {
+            items {
+              id
+              user {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              followedBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              owner
+            }
+            nextToken
+          }
           owner
         }
         owner
@@ -704,28 +10654,401 @@ export const onDeleteMeal = /* GraphQL */ `
         firstName
         lastName
         bio
+        image {
+          file {
+            bucket
+            region
+            key
+          }
+        }
         meals {
+          items {
+            id
+            title
+            image {
+              file {
+                bucket
+                region
+                key
+              }
+            }
+            description
+            likes {
+              items {
+                id
+                owner
+              }
+              nextToken
+            }
+            inspiredBy {
+              id
+              title
+              description
+              likes {
+                nextToken
+              }
+              inspiredBy {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              menuItem {
+                id
+                order
+                owner
+              }
+              createdBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              recipe
+              ingredients {
+                items
+              }
+              steps {
+                description
+              }
+              tags
+              owner
+            }
+            menuItem {
+              id
+              order
+              meal {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              createdBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              owner
+            }
+            createdBy {
+              id
+              username
+              email
+              firstName
+              lastName
+              bio
+              meals {
+                nextToken
+              }
+              menuItems {
+                nextToken
+              }
+              likes {
+                nextToken
+              }
+              followers {
+                nextToken
+              }
+              following {
+                nextToken
+              }
+              owner
+            }
+            recipe
+            ingredients {
+              items
+            }
+            steps {
+              description
+            }
+            tags
+            owner
+          }
           nextToken
         }
         menuItems {
+          items {
+            id
+            order
+            meal {
+              id
+              title
+              description
+              likes {
+                nextToken
+              }
+              inspiredBy {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              menuItem {
+                id
+                order
+                owner
+              }
+              createdBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              recipe
+              ingredients {
+                items
+              }
+              steps {
+                description
+              }
+              tags
+              owner
+            }
+            createdBy {
+              id
+              username
+              email
+              firstName
+              lastName
+              bio
+              meals {
+                nextToken
+              }
+              menuItems {
+                nextToken
+              }
+              likes {
+                nextToken
+              }
+              followers {
+                nextToken
+              }
+              following {
+                nextToken
+              }
+              owner
+            }
+            owner
+          }
           nextToken
         }
         likes {
+          items {
+            id
+            meal {
+              id
+              title
+              description
+              likes {
+                nextToken
+              }
+              inspiredBy {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              menuItem {
+                id
+                order
+                owner
+              }
+              createdBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              recipe
+              ingredients {
+                items
+              }
+              steps {
+                description
+              }
+              tags
+              owner
+            }
+            likedBy {
+              id
+              username
+              email
+              firstName
+              lastName
+              bio
+              meals {
+                nextToken
+              }
+              menuItems {
+                nextToken
+              }
+              likes {
+                nextToken
+              }
+              followers {
+                nextToken
+              }
+              following {
+                nextToken
+              }
+              owner
+            }
+            owner
+          }
           nextToken
         }
         followers {
+          items {
+            id
+            user {
+              id
+              username
+              email
+              firstName
+              lastName
+              bio
+              meals {
+                nextToken
+              }
+              menuItems {
+                nextToken
+              }
+              likes {
+                nextToken
+              }
+              followers {
+                nextToken
+              }
+              following {
+                nextToken
+              }
+              owner
+            }
+            followedBy {
+              id
+              username
+              email
+              firstName
+              lastName
+              bio
+              meals {
+                nextToken
+              }
+              menuItems {
+                nextToken
+              }
+              likes {
+                nextToken
+              }
+              followers {
+                nextToken
+              }
+              following {
+                nextToken
+              }
+              owner
+            }
+            owner
+          }
           nextToken
         }
         following {
+          items {
+            id
+            user {
+              id
+              username
+              email
+              firstName
+              lastName
+              bio
+              meals {
+                nextToken
+              }
+              menuItems {
+                nextToken
+              }
+              likes {
+                nextToken
+              }
+              followers {
+                nextToken
+              }
+              following {
+                nextToken
+              }
+              owner
+            }
+            followedBy {
+              id
+              username
+              email
+              firstName
+              lastName
+              bio
+              meals {
+                nextToken
+              }
+              menuItems {
+                nextToken
+              }
+              likes {
+                nextToken
+              }
+              followers {
+                nextToken
+              }
+              following {
+                nextToken
+              }
+              owner
+            }
+            owner
+          }
           nextToken
         }
         owner
       }
       recipe
       ingredients {
+        image {
+          file {
+            bucket
+            region
+            key
+          }
+        }
         items
       }
       steps {
+        image {
+          file {
+            bucket
+            region
+            key
+          }
+        }
         description
       }
       tags
@@ -741,21 +11064,552 @@ export const onCreateMenuItem = /* GraphQL */ `
       meal {
         id
         title
+        image {
+          file {
+            bucket
+            region
+            key
+          }
+        }
         description
         likes {
+          items {
+            id
+            meal {
+              id
+              title
+              description
+              likes {
+                nextToken
+              }
+              inspiredBy {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              menuItem {
+                id
+                order
+                owner
+              }
+              createdBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              recipe
+              ingredients {
+                items
+              }
+              steps {
+                description
+              }
+              tags
+              owner
+            }
+            likedBy {
+              id
+              username
+              email
+              firstName
+              lastName
+              bio
+              meals {
+                nextToken
+              }
+              menuItems {
+                nextToken
+              }
+              likes {
+                nextToken
+              }
+              followers {
+                nextToken
+              }
+              following {
+                nextToken
+              }
+              owner
+            }
+            owner
+          }
           nextToken
         }
         inspiredBy {
           id
           title
+          image {
+            file {
+              bucket
+              region
+              key
+            }
+          }
           description
+          likes {
+            items {
+              id
+              meal {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              likedBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              owner
+            }
+            nextToken
+          }
+          inspiredBy {
+            id
+            title
+            image {
+              file {
+                bucket
+                region
+                key
+              }
+            }
+            description
+            likes {
+              items {
+                id
+                owner
+              }
+              nextToken
+            }
+            inspiredBy {
+              id
+              title
+              description
+              likes {
+                nextToken
+              }
+              inspiredBy {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              menuItem {
+                id
+                order
+                owner
+              }
+              createdBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              recipe
+              ingredients {
+                items
+              }
+              steps {
+                description
+              }
+              tags
+              owner
+            }
+            menuItem {
+              id
+              order
+              meal {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              createdBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              owner
+            }
+            createdBy {
+              id
+              username
+              email
+              firstName
+              lastName
+              bio
+              meals {
+                nextToken
+              }
+              menuItems {
+                nextToken
+              }
+              likes {
+                nextToken
+              }
+              followers {
+                nextToken
+              }
+              following {
+                nextToken
+              }
+              owner
+            }
+            recipe
+            ingredients {
+              items
+            }
+            steps {
+              description
+            }
+            tags
+            owner
+          }
+          menuItem {
+            id
+            order
+            meal {
+              id
+              title
+              description
+              likes {
+                nextToken
+              }
+              inspiredBy {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              menuItem {
+                id
+                order
+                owner
+              }
+              createdBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              recipe
+              ingredients {
+                items
+              }
+              steps {
+                description
+              }
+              tags
+              owner
+            }
+            createdBy {
+              id
+              username
+              email
+              firstName
+              lastName
+              bio
+              meals {
+                nextToken
+              }
+              menuItems {
+                nextToken
+              }
+              likes {
+                nextToken
+              }
+              followers {
+                nextToken
+              }
+              following {
+                nextToken
+              }
+              owner
+            }
+            owner
+          }
+          createdBy {
+            id
+            username
+            email
+            firstName
+            lastName
+            bio
+            image {
+              file {
+                bucket
+                region
+                key
+              }
+            }
+            meals {
+              items {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              nextToken
+            }
+            menuItems {
+              items {
+                id
+                order
+                owner
+              }
+              nextToken
+            }
+            likes {
+              items {
+                id
+                owner
+              }
+              nextToken
+            }
+            followers {
+              items {
+                id
+                owner
+              }
+              nextToken
+            }
+            following {
+              items {
+                id
+                owner
+              }
+              nextToken
+            }
+            owner
+          }
           recipe
+          ingredients {
+            image {
+              file {
+                bucket
+                region
+                key
+              }
+            }
+            items
+          }
+          steps {
+            image {
+              file {
+                bucket
+                region
+                key
+              }
+            }
+            description
+          }
           tags
           owner
         }
         menuItem {
           id
           order
+          meal {
+            id
+            title
+            image {
+              file {
+                bucket
+                region
+                key
+              }
+            }
+            description
+            likes {
+              items {
+                id
+                owner
+              }
+              nextToken
+            }
+            inspiredBy {
+              id
+              title
+              description
+              likes {
+                nextToken
+              }
+              inspiredBy {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              menuItem {
+                id
+                order
+                owner
+              }
+              createdBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              recipe
+              ingredients {
+                items
+              }
+              steps {
+                description
+              }
+              tags
+              owner
+            }
+            menuItem {
+              id
+              order
+              meal {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              createdBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              owner
+            }
+            createdBy {
+              id
+              username
+              email
+              firstName
+              lastName
+              bio
+              meals {
+                nextToken
+              }
+              menuItems {
+                nextToken
+              }
+              likes {
+                nextToken
+              }
+              followers {
+                nextToken
+              }
+              following {
+                nextToken
+              }
+              owner
+            }
+            recipe
+            ingredients {
+              items
+            }
+            steps {
+              description
+            }
+            tags
+            owner
+          }
+          createdBy {
+            id
+            username
+            email
+            firstName
+            lastName
+            bio
+            image {
+              file {
+                bucket
+                region
+                key
+              }
+            }
+            meals {
+              items {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              nextToken
+            }
+            menuItems {
+              items {
+                id
+                order
+                owner
+              }
+              nextToken
+            }
+            likes {
+              items {
+                id
+                owner
+              }
+              nextToken
+            }
+            followers {
+              items {
+                id
+                owner
+              }
+              nextToken
+            }
+            following {
+              items {
+                id
+                owner
+              }
+              nextToken
+            }
+            owner
+          }
           owner
         }
         createdBy {
@@ -765,13 +11619,175 @@ export const onCreateMenuItem = /* GraphQL */ `
           firstName
           lastName
           bio
+          image {
+            file {
+              bucket
+              region
+              key
+            }
+          }
+          meals {
+            items {
+              id
+              title
+              description
+              likes {
+                nextToken
+              }
+              inspiredBy {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              menuItem {
+                id
+                order
+                owner
+              }
+              createdBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              recipe
+              ingredients {
+                items
+              }
+              steps {
+                description
+              }
+              tags
+              owner
+            }
+            nextToken
+          }
+          menuItems {
+            items {
+              id
+              order
+              meal {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              createdBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              owner
+            }
+            nextToken
+          }
+          likes {
+            items {
+              id
+              meal {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              likedBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              owner
+            }
+            nextToken
+          }
+          followers {
+            items {
+              id
+              user {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              followedBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              owner
+            }
+            nextToken
+          }
+          following {
+            items {
+              id
+              user {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              followedBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              owner
+            }
+            nextToken
+          }
           owner
         }
         recipe
         ingredients {
+          image {
+            file {
+              bucket
+              region
+              key
+            }
+          }
           items
         }
         steps {
+          image {
+            file {
+              bucket
+              region
+              key
+            }
+          }
           description
         }
         tags
@@ -784,19 +11800,378 @@ export const onCreateMenuItem = /* GraphQL */ `
         firstName
         lastName
         bio
+        image {
+          file {
+            bucket
+            region
+            key
+          }
+        }
         meals {
+          items {
+            id
+            title
+            image {
+              file {
+                bucket
+                region
+                key
+              }
+            }
+            description
+            likes {
+              items {
+                id
+                owner
+              }
+              nextToken
+            }
+            inspiredBy {
+              id
+              title
+              description
+              likes {
+                nextToken
+              }
+              inspiredBy {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              menuItem {
+                id
+                order
+                owner
+              }
+              createdBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              recipe
+              ingredients {
+                items
+              }
+              steps {
+                description
+              }
+              tags
+              owner
+            }
+            menuItem {
+              id
+              order
+              meal {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              createdBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              owner
+            }
+            createdBy {
+              id
+              username
+              email
+              firstName
+              lastName
+              bio
+              meals {
+                nextToken
+              }
+              menuItems {
+                nextToken
+              }
+              likes {
+                nextToken
+              }
+              followers {
+                nextToken
+              }
+              following {
+                nextToken
+              }
+              owner
+            }
+            recipe
+            ingredients {
+              items
+            }
+            steps {
+              description
+            }
+            tags
+            owner
+          }
           nextToken
         }
         menuItems {
+          items {
+            id
+            order
+            meal {
+              id
+              title
+              description
+              likes {
+                nextToken
+              }
+              inspiredBy {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              menuItem {
+                id
+                order
+                owner
+              }
+              createdBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              recipe
+              ingredients {
+                items
+              }
+              steps {
+                description
+              }
+              tags
+              owner
+            }
+            createdBy {
+              id
+              username
+              email
+              firstName
+              lastName
+              bio
+              meals {
+                nextToken
+              }
+              menuItems {
+                nextToken
+              }
+              likes {
+                nextToken
+              }
+              followers {
+                nextToken
+              }
+              following {
+                nextToken
+              }
+              owner
+            }
+            owner
+          }
           nextToken
         }
         likes {
+          items {
+            id
+            meal {
+              id
+              title
+              description
+              likes {
+                nextToken
+              }
+              inspiredBy {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              menuItem {
+                id
+                order
+                owner
+              }
+              createdBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              recipe
+              ingredients {
+                items
+              }
+              steps {
+                description
+              }
+              tags
+              owner
+            }
+            likedBy {
+              id
+              username
+              email
+              firstName
+              lastName
+              bio
+              meals {
+                nextToken
+              }
+              menuItems {
+                nextToken
+              }
+              likes {
+                nextToken
+              }
+              followers {
+                nextToken
+              }
+              following {
+                nextToken
+              }
+              owner
+            }
+            owner
+          }
           nextToken
         }
         followers {
+          items {
+            id
+            user {
+              id
+              username
+              email
+              firstName
+              lastName
+              bio
+              meals {
+                nextToken
+              }
+              menuItems {
+                nextToken
+              }
+              likes {
+                nextToken
+              }
+              followers {
+                nextToken
+              }
+              following {
+                nextToken
+              }
+              owner
+            }
+            followedBy {
+              id
+              username
+              email
+              firstName
+              lastName
+              bio
+              meals {
+                nextToken
+              }
+              menuItems {
+                nextToken
+              }
+              likes {
+                nextToken
+              }
+              followers {
+                nextToken
+              }
+              following {
+                nextToken
+              }
+              owner
+            }
+            owner
+          }
           nextToken
         }
         following {
+          items {
+            id
+            user {
+              id
+              username
+              email
+              firstName
+              lastName
+              bio
+              meals {
+                nextToken
+              }
+              menuItems {
+                nextToken
+              }
+              likes {
+                nextToken
+              }
+              followers {
+                nextToken
+              }
+              following {
+                nextToken
+              }
+              owner
+            }
+            followedBy {
+              id
+              username
+              email
+              firstName
+              lastName
+              bio
+              meals {
+                nextToken
+              }
+              menuItems {
+                nextToken
+              }
+              likes {
+                nextToken
+              }
+              followers {
+                nextToken
+              }
+              following {
+                nextToken
+              }
+              owner
+            }
+            owner
+          }
           nextToken
         }
         owner
@@ -813,21 +12188,552 @@ export const onUpdateMenuItem = /* GraphQL */ `
       meal {
         id
         title
+        image {
+          file {
+            bucket
+            region
+            key
+          }
+        }
         description
         likes {
+          items {
+            id
+            meal {
+              id
+              title
+              description
+              likes {
+                nextToken
+              }
+              inspiredBy {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              menuItem {
+                id
+                order
+                owner
+              }
+              createdBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              recipe
+              ingredients {
+                items
+              }
+              steps {
+                description
+              }
+              tags
+              owner
+            }
+            likedBy {
+              id
+              username
+              email
+              firstName
+              lastName
+              bio
+              meals {
+                nextToken
+              }
+              menuItems {
+                nextToken
+              }
+              likes {
+                nextToken
+              }
+              followers {
+                nextToken
+              }
+              following {
+                nextToken
+              }
+              owner
+            }
+            owner
+          }
           nextToken
         }
         inspiredBy {
           id
           title
+          image {
+            file {
+              bucket
+              region
+              key
+            }
+          }
           description
+          likes {
+            items {
+              id
+              meal {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              likedBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              owner
+            }
+            nextToken
+          }
+          inspiredBy {
+            id
+            title
+            image {
+              file {
+                bucket
+                region
+                key
+              }
+            }
+            description
+            likes {
+              items {
+                id
+                owner
+              }
+              nextToken
+            }
+            inspiredBy {
+              id
+              title
+              description
+              likes {
+                nextToken
+              }
+              inspiredBy {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              menuItem {
+                id
+                order
+                owner
+              }
+              createdBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              recipe
+              ingredients {
+                items
+              }
+              steps {
+                description
+              }
+              tags
+              owner
+            }
+            menuItem {
+              id
+              order
+              meal {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              createdBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              owner
+            }
+            createdBy {
+              id
+              username
+              email
+              firstName
+              lastName
+              bio
+              meals {
+                nextToken
+              }
+              menuItems {
+                nextToken
+              }
+              likes {
+                nextToken
+              }
+              followers {
+                nextToken
+              }
+              following {
+                nextToken
+              }
+              owner
+            }
+            recipe
+            ingredients {
+              items
+            }
+            steps {
+              description
+            }
+            tags
+            owner
+          }
+          menuItem {
+            id
+            order
+            meal {
+              id
+              title
+              description
+              likes {
+                nextToken
+              }
+              inspiredBy {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              menuItem {
+                id
+                order
+                owner
+              }
+              createdBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              recipe
+              ingredients {
+                items
+              }
+              steps {
+                description
+              }
+              tags
+              owner
+            }
+            createdBy {
+              id
+              username
+              email
+              firstName
+              lastName
+              bio
+              meals {
+                nextToken
+              }
+              menuItems {
+                nextToken
+              }
+              likes {
+                nextToken
+              }
+              followers {
+                nextToken
+              }
+              following {
+                nextToken
+              }
+              owner
+            }
+            owner
+          }
+          createdBy {
+            id
+            username
+            email
+            firstName
+            lastName
+            bio
+            image {
+              file {
+                bucket
+                region
+                key
+              }
+            }
+            meals {
+              items {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              nextToken
+            }
+            menuItems {
+              items {
+                id
+                order
+                owner
+              }
+              nextToken
+            }
+            likes {
+              items {
+                id
+                owner
+              }
+              nextToken
+            }
+            followers {
+              items {
+                id
+                owner
+              }
+              nextToken
+            }
+            following {
+              items {
+                id
+                owner
+              }
+              nextToken
+            }
+            owner
+          }
           recipe
+          ingredients {
+            image {
+              file {
+                bucket
+                region
+                key
+              }
+            }
+            items
+          }
+          steps {
+            image {
+              file {
+                bucket
+                region
+                key
+              }
+            }
+            description
+          }
           tags
           owner
         }
         menuItem {
           id
           order
+          meal {
+            id
+            title
+            image {
+              file {
+                bucket
+                region
+                key
+              }
+            }
+            description
+            likes {
+              items {
+                id
+                owner
+              }
+              nextToken
+            }
+            inspiredBy {
+              id
+              title
+              description
+              likes {
+                nextToken
+              }
+              inspiredBy {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              menuItem {
+                id
+                order
+                owner
+              }
+              createdBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              recipe
+              ingredients {
+                items
+              }
+              steps {
+                description
+              }
+              tags
+              owner
+            }
+            menuItem {
+              id
+              order
+              meal {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              createdBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              owner
+            }
+            createdBy {
+              id
+              username
+              email
+              firstName
+              lastName
+              bio
+              meals {
+                nextToken
+              }
+              menuItems {
+                nextToken
+              }
+              likes {
+                nextToken
+              }
+              followers {
+                nextToken
+              }
+              following {
+                nextToken
+              }
+              owner
+            }
+            recipe
+            ingredients {
+              items
+            }
+            steps {
+              description
+            }
+            tags
+            owner
+          }
+          createdBy {
+            id
+            username
+            email
+            firstName
+            lastName
+            bio
+            image {
+              file {
+                bucket
+                region
+                key
+              }
+            }
+            meals {
+              items {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              nextToken
+            }
+            menuItems {
+              items {
+                id
+                order
+                owner
+              }
+              nextToken
+            }
+            likes {
+              items {
+                id
+                owner
+              }
+              nextToken
+            }
+            followers {
+              items {
+                id
+                owner
+              }
+              nextToken
+            }
+            following {
+              items {
+                id
+                owner
+              }
+              nextToken
+            }
+            owner
+          }
           owner
         }
         createdBy {
@@ -837,13 +12743,175 @@ export const onUpdateMenuItem = /* GraphQL */ `
           firstName
           lastName
           bio
+          image {
+            file {
+              bucket
+              region
+              key
+            }
+          }
+          meals {
+            items {
+              id
+              title
+              description
+              likes {
+                nextToken
+              }
+              inspiredBy {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              menuItem {
+                id
+                order
+                owner
+              }
+              createdBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              recipe
+              ingredients {
+                items
+              }
+              steps {
+                description
+              }
+              tags
+              owner
+            }
+            nextToken
+          }
+          menuItems {
+            items {
+              id
+              order
+              meal {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              createdBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              owner
+            }
+            nextToken
+          }
+          likes {
+            items {
+              id
+              meal {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              likedBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              owner
+            }
+            nextToken
+          }
+          followers {
+            items {
+              id
+              user {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              followedBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              owner
+            }
+            nextToken
+          }
+          following {
+            items {
+              id
+              user {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              followedBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              owner
+            }
+            nextToken
+          }
           owner
         }
         recipe
         ingredients {
+          image {
+            file {
+              bucket
+              region
+              key
+            }
+          }
           items
         }
         steps {
+          image {
+            file {
+              bucket
+              region
+              key
+            }
+          }
           description
         }
         tags
@@ -856,19 +12924,378 @@ export const onUpdateMenuItem = /* GraphQL */ `
         firstName
         lastName
         bio
+        image {
+          file {
+            bucket
+            region
+            key
+          }
+        }
         meals {
+          items {
+            id
+            title
+            image {
+              file {
+                bucket
+                region
+                key
+              }
+            }
+            description
+            likes {
+              items {
+                id
+                owner
+              }
+              nextToken
+            }
+            inspiredBy {
+              id
+              title
+              description
+              likes {
+                nextToken
+              }
+              inspiredBy {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              menuItem {
+                id
+                order
+                owner
+              }
+              createdBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              recipe
+              ingredients {
+                items
+              }
+              steps {
+                description
+              }
+              tags
+              owner
+            }
+            menuItem {
+              id
+              order
+              meal {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              createdBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              owner
+            }
+            createdBy {
+              id
+              username
+              email
+              firstName
+              lastName
+              bio
+              meals {
+                nextToken
+              }
+              menuItems {
+                nextToken
+              }
+              likes {
+                nextToken
+              }
+              followers {
+                nextToken
+              }
+              following {
+                nextToken
+              }
+              owner
+            }
+            recipe
+            ingredients {
+              items
+            }
+            steps {
+              description
+            }
+            tags
+            owner
+          }
           nextToken
         }
         menuItems {
+          items {
+            id
+            order
+            meal {
+              id
+              title
+              description
+              likes {
+                nextToken
+              }
+              inspiredBy {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              menuItem {
+                id
+                order
+                owner
+              }
+              createdBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              recipe
+              ingredients {
+                items
+              }
+              steps {
+                description
+              }
+              tags
+              owner
+            }
+            createdBy {
+              id
+              username
+              email
+              firstName
+              lastName
+              bio
+              meals {
+                nextToken
+              }
+              menuItems {
+                nextToken
+              }
+              likes {
+                nextToken
+              }
+              followers {
+                nextToken
+              }
+              following {
+                nextToken
+              }
+              owner
+            }
+            owner
+          }
           nextToken
         }
         likes {
+          items {
+            id
+            meal {
+              id
+              title
+              description
+              likes {
+                nextToken
+              }
+              inspiredBy {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              menuItem {
+                id
+                order
+                owner
+              }
+              createdBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              recipe
+              ingredients {
+                items
+              }
+              steps {
+                description
+              }
+              tags
+              owner
+            }
+            likedBy {
+              id
+              username
+              email
+              firstName
+              lastName
+              bio
+              meals {
+                nextToken
+              }
+              menuItems {
+                nextToken
+              }
+              likes {
+                nextToken
+              }
+              followers {
+                nextToken
+              }
+              following {
+                nextToken
+              }
+              owner
+            }
+            owner
+          }
           nextToken
         }
         followers {
+          items {
+            id
+            user {
+              id
+              username
+              email
+              firstName
+              lastName
+              bio
+              meals {
+                nextToken
+              }
+              menuItems {
+                nextToken
+              }
+              likes {
+                nextToken
+              }
+              followers {
+                nextToken
+              }
+              following {
+                nextToken
+              }
+              owner
+            }
+            followedBy {
+              id
+              username
+              email
+              firstName
+              lastName
+              bio
+              meals {
+                nextToken
+              }
+              menuItems {
+                nextToken
+              }
+              likes {
+                nextToken
+              }
+              followers {
+                nextToken
+              }
+              following {
+                nextToken
+              }
+              owner
+            }
+            owner
+          }
           nextToken
         }
         following {
+          items {
+            id
+            user {
+              id
+              username
+              email
+              firstName
+              lastName
+              bio
+              meals {
+                nextToken
+              }
+              menuItems {
+                nextToken
+              }
+              likes {
+                nextToken
+              }
+              followers {
+                nextToken
+              }
+              following {
+                nextToken
+              }
+              owner
+            }
+            followedBy {
+              id
+              username
+              email
+              firstName
+              lastName
+              bio
+              meals {
+                nextToken
+              }
+              menuItems {
+                nextToken
+              }
+              likes {
+                nextToken
+              }
+              followers {
+                nextToken
+              }
+              following {
+                nextToken
+              }
+              owner
+            }
+            owner
+          }
           nextToken
         }
         owner
@@ -885,21 +13312,552 @@ export const onDeleteMenuItem = /* GraphQL */ `
       meal {
         id
         title
+        image {
+          file {
+            bucket
+            region
+            key
+          }
+        }
         description
         likes {
+          items {
+            id
+            meal {
+              id
+              title
+              description
+              likes {
+                nextToken
+              }
+              inspiredBy {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              menuItem {
+                id
+                order
+                owner
+              }
+              createdBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              recipe
+              ingredients {
+                items
+              }
+              steps {
+                description
+              }
+              tags
+              owner
+            }
+            likedBy {
+              id
+              username
+              email
+              firstName
+              lastName
+              bio
+              meals {
+                nextToken
+              }
+              menuItems {
+                nextToken
+              }
+              likes {
+                nextToken
+              }
+              followers {
+                nextToken
+              }
+              following {
+                nextToken
+              }
+              owner
+            }
+            owner
+          }
           nextToken
         }
         inspiredBy {
           id
           title
+          image {
+            file {
+              bucket
+              region
+              key
+            }
+          }
           description
+          likes {
+            items {
+              id
+              meal {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              likedBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              owner
+            }
+            nextToken
+          }
+          inspiredBy {
+            id
+            title
+            image {
+              file {
+                bucket
+                region
+                key
+              }
+            }
+            description
+            likes {
+              items {
+                id
+                owner
+              }
+              nextToken
+            }
+            inspiredBy {
+              id
+              title
+              description
+              likes {
+                nextToken
+              }
+              inspiredBy {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              menuItem {
+                id
+                order
+                owner
+              }
+              createdBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              recipe
+              ingredients {
+                items
+              }
+              steps {
+                description
+              }
+              tags
+              owner
+            }
+            menuItem {
+              id
+              order
+              meal {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              createdBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              owner
+            }
+            createdBy {
+              id
+              username
+              email
+              firstName
+              lastName
+              bio
+              meals {
+                nextToken
+              }
+              menuItems {
+                nextToken
+              }
+              likes {
+                nextToken
+              }
+              followers {
+                nextToken
+              }
+              following {
+                nextToken
+              }
+              owner
+            }
+            recipe
+            ingredients {
+              items
+            }
+            steps {
+              description
+            }
+            tags
+            owner
+          }
+          menuItem {
+            id
+            order
+            meal {
+              id
+              title
+              description
+              likes {
+                nextToken
+              }
+              inspiredBy {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              menuItem {
+                id
+                order
+                owner
+              }
+              createdBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              recipe
+              ingredients {
+                items
+              }
+              steps {
+                description
+              }
+              tags
+              owner
+            }
+            createdBy {
+              id
+              username
+              email
+              firstName
+              lastName
+              bio
+              meals {
+                nextToken
+              }
+              menuItems {
+                nextToken
+              }
+              likes {
+                nextToken
+              }
+              followers {
+                nextToken
+              }
+              following {
+                nextToken
+              }
+              owner
+            }
+            owner
+          }
+          createdBy {
+            id
+            username
+            email
+            firstName
+            lastName
+            bio
+            image {
+              file {
+                bucket
+                region
+                key
+              }
+            }
+            meals {
+              items {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              nextToken
+            }
+            menuItems {
+              items {
+                id
+                order
+                owner
+              }
+              nextToken
+            }
+            likes {
+              items {
+                id
+                owner
+              }
+              nextToken
+            }
+            followers {
+              items {
+                id
+                owner
+              }
+              nextToken
+            }
+            following {
+              items {
+                id
+                owner
+              }
+              nextToken
+            }
+            owner
+          }
           recipe
+          ingredients {
+            image {
+              file {
+                bucket
+                region
+                key
+              }
+            }
+            items
+          }
+          steps {
+            image {
+              file {
+                bucket
+                region
+                key
+              }
+            }
+            description
+          }
           tags
           owner
         }
         menuItem {
           id
           order
+          meal {
+            id
+            title
+            image {
+              file {
+                bucket
+                region
+                key
+              }
+            }
+            description
+            likes {
+              items {
+                id
+                owner
+              }
+              nextToken
+            }
+            inspiredBy {
+              id
+              title
+              description
+              likes {
+                nextToken
+              }
+              inspiredBy {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              menuItem {
+                id
+                order
+                owner
+              }
+              createdBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              recipe
+              ingredients {
+                items
+              }
+              steps {
+                description
+              }
+              tags
+              owner
+            }
+            menuItem {
+              id
+              order
+              meal {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              createdBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              owner
+            }
+            createdBy {
+              id
+              username
+              email
+              firstName
+              lastName
+              bio
+              meals {
+                nextToken
+              }
+              menuItems {
+                nextToken
+              }
+              likes {
+                nextToken
+              }
+              followers {
+                nextToken
+              }
+              following {
+                nextToken
+              }
+              owner
+            }
+            recipe
+            ingredients {
+              items
+            }
+            steps {
+              description
+            }
+            tags
+            owner
+          }
+          createdBy {
+            id
+            username
+            email
+            firstName
+            lastName
+            bio
+            image {
+              file {
+                bucket
+                region
+                key
+              }
+            }
+            meals {
+              items {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              nextToken
+            }
+            menuItems {
+              items {
+                id
+                order
+                owner
+              }
+              nextToken
+            }
+            likes {
+              items {
+                id
+                owner
+              }
+              nextToken
+            }
+            followers {
+              items {
+                id
+                owner
+              }
+              nextToken
+            }
+            following {
+              items {
+                id
+                owner
+              }
+              nextToken
+            }
+            owner
+          }
           owner
         }
         createdBy {
@@ -909,13 +13867,175 @@ export const onDeleteMenuItem = /* GraphQL */ `
           firstName
           lastName
           bio
+          image {
+            file {
+              bucket
+              region
+              key
+            }
+          }
+          meals {
+            items {
+              id
+              title
+              description
+              likes {
+                nextToken
+              }
+              inspiredBy {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              menuItem {
+                id
+                order
+                owner
+              }
+              createdBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              recipe
+              ingredients {
+                items
+              }
+              steps {
+                description
+              }
+              tags
+              owner
+            }
+            nextToken
+          }
+          menuItems {
+            items {
+              id
+              order
+              meal {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              createdBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              owner
+            }
+            nextToken
+          }
+          likes {
+            items {
+              id
+              meal {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              likedBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              owner
+            }
+            nextToken
+          }
+          followers {
+            items {
+              id
+              user {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              followedBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              owner
+            }
+            nextToken
+          }
+          following {
+            items {
+              id
+              user {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              followedBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              owner
+            }
+            nextToken
+          }
           owner
         }
         recipe
         ingredients {
+          image {
+            file {
+              bucket
+              region
+              key
+            }
+          }
           items
         }
         steps {
+          image {
+            file {
+              bucket
+              region
+              key
+            }
+          }
           description
         }
         tags
@@ -928,19 +14048,378 @@ export const onDeleteMenuItem = /* GraphQL */ `
         firstName
         lastName
         bio
+        image {
+          file {
+            bucket
+            region
+            key
+          }
+        }
         meals {
+          items {
+            id
+            title
+            image {
+              file {
+                bucket
+                region
+                key
+              }
+            }
+            description
+            likes {
+              items {
+                id
+                owner
+              }
+              nextToken
+            }
+            inspiredBy {
+              id
+              title
+              description
+              likes {
+                nextToken
+              }
+              inspiredBy {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              menuItem {
+                id
+                order
+                owner
+              }
+              createdBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              recipe
+              ingredients {
+                items
+              }
+              steps {
+                description
+              }
+              tags
+              owner
+            }
+            menuItem {
+              id
+              order
+              meal {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              createdBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              owner
+            }
+            createdBy {
+              id
+              username
+              email
+              firstName
+              lastName
+              bio
+              meals {
+                nextToken
+              }
+              menuItems {
+                nextToken
+              }
+              likes {
+                nextToken
+              }
+              followers {
+                nextToken
+              }
+              following {
+                nextToken
+              }
+              owner
+            }
+            recipe
+            ingredients {
+              items
+            }
+            steps {
+              description
+            }
+            tags
+            owner
+          }
           nextToken
         }
         menuItems {
+          items {
+            id
+            order
+            meal {
+              id
+              title
+              description
+              likes {
+                nextToken
+              }
+              inspiredBy {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              menuItem {
+                id
+                order
+                owner
+              }
+              createdBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              recipe
+              ingredients {
+                items
+              }
+              steps {
+                description
+              }
+              tags
+              owner
+            }
+            createdBy {
+              id
+              username
+              email
+              firstName
+              lastName
+              bio
+              meals {
+                nextToken
+              }
+              menuItems {
+                nextToken
+              }
+              likes {
+                nextToken
+              }
+              followers {
+                nextToken
+              }
+              following {
+                nextToken
+              }
+              owner
+            }
+            owner
+          }
           nextToken
         }
         likes {
+          items {
+            id
+            meal {
+              id
+              title
+              description
+              likes {
+                nextToken
+              }
+              inspiredBy {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              menuItem {
+                id
+                order
+                owner
+              }
+              createdBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              recipe
+              ingredients {
+                items
+              }
+              steps {
+                description
+              }
+              tags
+              owner
+            }
+            likedBy {
+              id
+              username
+              email
+              firstName
+              lastName
+              bio
+              meals {
+                nextToken
+              }
+              menuItems {
+                nextToken
+              }
+              likes {
+                nextToken
+              }
+              followers {
+                nextToken
+              }
+              following {
+                nextToken
+              }
+              owner
+            }
+            owner
+          }
           nextToken
         }
         followers {
+          items {
+            id
+            user {
+              id
+              username
+              email
+              firstName
+              lastName
+              bio
+              meals {
+                nextToken
+              }
+              menuItems {
+                nextToken
+              }
+              likes {
+                nextToken
+              }
+              followers {
+                nextToken
+              }
+              following {
+                nextToken
+              }
+              owner
+            }
+            followedBy {
+              id
+              username
+              email
+              firstName
+              lastName
+              bio
+              meals {
+                nextToken
+              }
+              menuItems {
+                nextToken
+              }
+              likes {
+                nextToken
+              }
+              followers {
+                nextToken
+              }
+              following {
+                nextToken
+              }
+              owner
+            }
+            owner
+          }
           nextToken
         }
         following {
+          items {
+            id
+            user {
+              id
+              username
+              email
+              firstName
+              lastName
+              bio
+              meals {
+                nextToken
+              }
+              menuItems {
+                nextToken
+              }
+              likes {
+                nextToken
+              }
+              followers {
+                nextToken
+              }
+              following {
+                nextToken
+              }
+              owner
+            }
+            followedBy {
+              id
+              username
+              email
+              firstName
+              lastName
+              bio
+              meals {
+                nextToken
+              }
+              menuItems {
+                nextToken
+              }
+              likes {
+                nextToken
+              }
+              followers {
+                nextToken
+              }
+              following {
+                nextToken
+              }
+              owner
+            }
+            owner
+          }
           nextToken
         }
         owner
@@ -969,8 +14448,296 @@ export const onCreateUser = /* GraphQL */ `
         items {
           id
           title
+          image {
+            file {
+              bucket
+              region
+              key
+            }
+          }
           description
+          likes {
+            items {
+              id
+              meal {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              likedBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              owner
+            }
+            nextToken
+          }
+          inspiredBy {
+            id
+            title
+            image {
+              file {
+                bucket
+                region
+                key
+              }
+            }
+            description
+            likes {
+              items {
+                id
+                owner
+              }
+              nextToken
+            }
+            inspiredBy {
+              id
+              title
+              description
+              likes {
+                nextToken
+              }
+              inspiredBy {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              menuItem {
+                id
+                order
+                owner
+              }
+              createdBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              recipe
+              ingredients {
+                items
+              }
+              steps {
+                description
+              }
+              tags
+              owner
+            }
+            menuItem {
+              id
+              order
+              meal {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              createdBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              owner
+            }
+            createdBy {
+              id
+              username
+              email
+              firstName
+              lastName
+              bio
+              meals {
+                nextToken
+              }
+              menuItems {
+                nextToken
+              }
+              likes {
+                nextToken
+              }
+              followers {
+                nextToken
+              }
+              following {
+                nextToken
+              }
+              owner
+            }
+            recipe
+            ingredients {
+              items
+            }
+            steps {
+              description
+            }
+            tags
+            owner
+          }
+          menuItem {
+            id
+            order
+            meal {
+              id
+              title
+              description
+              likes {
+                nextToken
+              }
+              inspiredBy {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              menuItem {
+                id
+                order
+                owner
+              }
+              createdBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              recipe
+              ingredients {
+                items
+              }
+              steps {
+                description
+              }
+              tags
+              owner
+            }
+            createdBy {
+              id
+              username
+              email
+              firstName
+              lastName
+              bio
+              meals {
+                nextToken
+              }
+              menuItems {
+                nextToken
+              }
+              likes {
+                nextToken
+              }
+              followers {
+                nextToken
+              }
+              following {
+                nextToken
+              }
+              owner
+            }
+            owner
+          }
+          createdBy {
+            id
+            username
+            email
+            firstName
+            lastName
+            bio
+            image {
+              file {
+                bucket
+                region
+                key
+              }
+            }
+            meals {
+              items {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              nextToken
+            }
+            menuItems {
+              items {
+                id
+                order
+                owner
+              }
+              nextToken
+            }
+            likes {
+              items {
+                id
+                owner
+              }
+              nextToken
+            }
+            followers {
+              items {
+                id
+                owner
+              }
+              nextToken
+            }
+            following {
+              items {
+                id
+                owner
+              }
+              nextToken
+            }
+            owner
+          }
           recipe
+          ingredients {
+            image {
+              file {
+                bucket
+                region
+                key
+              }
+            }
+            items
+          }
+          steps {
+            image {
+              file {
+                bucket
+                region
+                key
+              }
+            }
+            description
+          }
           tags
           owner
         }
@@ -980,6 +14747,175 @@ export const onCreateUser = /* GraphQL */ `
         items {
           id
           order
+          meal {
+            id
+            title
+            image {
+              file {
+                bucket
+                region
+                key
+              }
+            }
+            description
+            likes {
+              items {
+                id
+                owner
+              }
+              nextToken
+            }
+            inspiredBy {
+              id
+              title
+              description
+              likes {
+                nextToken
+              }
+              inspiredBy {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              menuItem {
+                id
+                order
+                owner
+              }
+              createdBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              recipe
+              ingredients {
+                items
+              }
+              steps {
+                description
+              }
+              tags
+              owner
+            }
+            menuItem {
+              id
+              order
+              meal {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              createdBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              owner
+            }
+            createdBy {
+              id
+              username
+              email
+              firstName
+              lastName
+              bio
+              meals {
+                nextToken
+              }
+              menuItems {
+                nextToken
+              }
+              likes {
+                nextToken
+              }
+              followers {
+                nextToken
+              }
+              following {
+                nextToken
+              }
+              owner
+            }
+            recipe
+            ingredients {
+              items
+            }
+            steps {
+              description
+            }
+            tags
+            owner
+          }
+          createdBy {
+            id
+            username
+            email
+            firstName
+            lastName
+            bio
+            image {
+              file {
+                bucket
+                region
+                key
+              }
+            }
+            meals {
+              items {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              nextToken
+            }
+            menuItems {
+              items {
+                id
+                order
+                owner
+              }
+              nextToken
+            }
+            likes {
+              items {
+                id
+                owner
+              }
+              nextToken
+            }
+            followers {
+              items {
+                id
+                owner
+              }
+              nextToken
+            }
+            following {
+              items {
+                id
+                owner
+              }
+              nextToken
+            }
+            owner
+          }
           owner
         }
         nextToken
@@ -987,6 +14923,175 @@ export const onCreateUser = /* GraphQL */ `
       likes {
         items {
           id
+          meal {
+            id
+            title
+            image {
+              file {
+                bucket
+                region
+                key
+              }
+            }
+            description
+            likes {
+              items {
+                id
+                owner
+              }
+              nextToken
+            }
+            inspiredBy {
+              id
+              title
+              description
+              likes {
+                nextToken
+              }
+              inspiredBy {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              menuItem {
+                id
+                order
+                owner
+              }
+              createdBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              recipe
+              ingredients {
+                items
+              }
+              steps {
+                description
+              }
+              tags
+              owner
+            }
+            menuItem {
+              id
+              order
+              meal {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              createdBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              owner
+            }
+            createdBy {
+              id
+              username
+              email
+              firstName
+              lastName
+              bio
+              meals {
+                nextToken
+              }
+              menuItems {
+                nextToken
+              }
+              likes {
+                nextToken
+              }
+              followers {
+                nextToken
+              }
+              following {
+                nextToken
+              }
+              owner
+            }
+            recipe
+            ingredients {
+              items
+            }
+            steps {
+              description
+            }
+            tags
+            owner
+          }
+          likedBy {
+            id
+            username
+            email
+            firstName
+            lastName
+            bio
+            image {
+              file {
+                bucket
+                region
+                key
+              }
+            }
+            meals {
+              items {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              nextToken
+            }
+            menuItems {
+              items {
+                id
+                order
+                owner
+              }
+              nextToken
+            }
+            likes {
+              items {
+                id
+                owner
+              }
+              nextToken
+            }
+            followers {
+              items {
+                id
+                owner
+              }
+              nextToken
+            }
+            following {
+              items {
+                id
+                owner
+              }
+              nextToken
+            }
+            owner
+          }
           owner
         }
         nextToken
@@ -994,6 +15099,118 @@ export const onCreateUser = /* GraphQL */ `
       followers {
         items {
           id
+          user {
+            id
+            username
+            email
+            firstName
+            lastName
+            bio
+            image {
+              file {
+                bucket
+                region
+                key
+              }
+            }
+            meals {
+              items {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              nextToken
+            }
+            menuItems {
+              items {
+                id
+                order
+                owner
+              }
+              nextToken
+            }
+            likes {
+              items {
+                id
+                owner
+              }
+              nextToken
+            }
+            followers {
+              items {
+                id
+                owner
+              }
+              nextToken
+            }
+            following {
+              items {
+                id
+                owner
+              }
+              nextToken
+            }
+            owner
+          }
+          followedBy {
+            id
+            username
+            email
+            firstName
+            lastName
+            bio
+            image {
+              file {
+                bucket
+                region
+                key
+              }
+            }
+            meals {
+              items {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              nextToken
+            }
+            menuItems {
+              items {
+                id
+                order
+                owner
+              }
+              nextToken
+            }
+            likes {
+              items {
+                id
+                owner
+              }
+              nextToken
+            }
+            followers {
+              items {
+                id
+                owner
+              }
+              nextToken
+            }
+            following {
+              items {
+                id
+                owner
+              }
+              nextToken
+            }
+            owner
+          }
           owner
         }
         nextToken
@@ -1001,6 +15218,118 @@ export const onCreateUser = /* GraphQL */ `
       following {
         items {
           id
+          user {
+            id
+            username
+            email
+            firstName
+            lastName
+            bio
+            image {
+              file {
+                bucket
+                region
+                key
+              }
+            }
+            meals {
+              items {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              nextToken
+            }
+            menuItems {
+              items {
+                id
+                order
+                owner
+              }
+              nextToken
+            }
+            likes {
+              items {
+                id
+                owner
+              }
+              nextToken
+            }
+            followers {
+              items {
+                id
+                owner
+              }
+              nextToken
+            }
+            following {
+              items {
+                id
+                owner
+              }
+              nextToken
+            }
+            owner
+          }
+          followedBy {
+            id
+            username
+            email
+            firstName
+            lastName
+            bio
+            image {
+              file {
+                bucket
+                region
+                key
+              }
+            }
+            meals {
+              items {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              nextToken
+            }
+            menuItems {
+              items {
+                id
+                order
+                owner
+              }
+              nextToken
+            }
+            likes {
+              items {
+                id
+                owner
+              }
+              nextToken
+            }
+            followers {
+              items {
+                id
+                owner
+              }
+              nextToken
+            }
+            following {
+              items {
+                id
+                owner
+              }
+              nextToken
+            }
+            owner
+          }
           owner
         }
         nextToken
@@ -1029,8 +15358,296 @@ export const onUpdateUser = /* GraphQL */ `
         items {
           id
           title
+          image {
+            file {
+              bucket
+              region
+              key
+            }
+          }
           description
+          likes {
+            items {
+              id
+              meal {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              likedBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              owner
+            }
+            nextToken
+          }
+          inspiredBy {
+            id
+            title
+            image {
+              file {
+                bucket
+                region
+                key
+              }
+            }
+            description
+            likes {
+              items {
+                id
+                owner
+              }
+              nextToken
+            }
+            inspiredBy {
+              id
+              title
+              description
+              likes {
+                nextToken
+              }
+              inspiredBy {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              menuItem {
+                id
+                order
+                owner
+              }
+              createdBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              recipe
+              ingredients {
+                items
+              }
+              steps {
+                description
+              }
+              tags
+              owner
+            }
+            menuItem {
+              id
+              order
+              meal {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              createdBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              owner
+            }
+            createdBy {
+              id
+              username
+              email
+              firstName
+              lastName
+              bio
+              meals {
+                nextToken
+              }
+              menuItems {
+                nextToken
+              }
+              likes {
+                nextToken
+              }
+              followers {
+                nextToken
+              }
+              following {
+                nextToken
+              }
+              owner
+            }
+            recipe
+            ingredients {
+              items
+            }
+            steps {
+              description
+            }
+            tags
+            owner
+          }
+          menuItem {
+            id
+            order
+            meal {
+              id
+              title
+              description
+              likes {
+                nextToken
+              }
+              inspiredBy {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              menuItem {
+                id
+                order
+                owner
+              }
+              createdBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              recipe
+              ingredients {
+                items
+              }
+              steps {
+                description
+              }
+              tags
+              owner
+            }
+            createdBy {
+              id
+              username
+              email
+              firstName
+              lastName
+              bio
+              meals {
+                nextToken
+              }
+              menuItems {
+                nextToken
+              }
+              likes {
+                nextToken
+              }
+              followers {
+                nextToken
+              }
+              following {
+                nextToken
+              }
+              owner
+            }
+            owner
+          }
+          createdBy {
+            id
+            username
+            email
+            firstName
+            lastName
+            bio
+            image {
+              file {
+                bucket
+                region
+                key
+              }
+            }
+            meals {
+              items {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              nextToken
+            }
+            menuItems {
+              items {
+                id
+                order
+                owner
+              }
+              nextToken
+            }
+            likes {
+              items {
+                id
+                owner
+              }
+              nextToken
+            }
+            followers {
+              items {
+                id
+                owner
+              }
+              nextToken
+            }
+            following {
+              items {
+                id
+                owner
+              }
+              nextToken
+            }
+            owner
+          }
           recipe
+          ingredients {
+            image {
+              file {
+                bucket
+                region
+                key
+              }
+            }
+            items
+          }
+          steps {
+            image {
+              file {
+                bucket
+                region
+                key
+              }
+            }
+            description
+          }
           tags
           owner
         }
@@ -1040,6 +15657,175 @@ export const onUpdateUser = /* GraphQL */ `
         items {
           id
           order
+          meal {
+            id
+            title
+            image {
+              file {
+                bucket
+                region
+                key
+              }
+            }
+            description
+            likes {
+              items {
+                id
+                owner
+              }
+              nextToken
+            }
+            inspiredBy {
+              id
+              title
+              description
+              likes {
+                nextToken
+              }
+              inspiredBy {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              menuItem {
+                id
+                order
+                owner
+              }
+              createdBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              recipe
+              ingredients {
+                items
+              }
+              steps {
+                description
+              }
+              tags
+              owner
+            }
+            menuItem {
+              id
+              order
+              meal {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              createdBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              owner
+            }
+            createdBy {
+              id
+              username
+              email
+              firstName
+              lastName
+              bio
+              meals {
+                nextToken
+              }
+              menuItems {
+                nextToken
+              }
+              likes {
+                nextToken
+              }
+              followers {
+                nextToken
+              }
+              following {
+                nextToken
+              }
+              owner
+            }
+            recipe
+            ingredients {
+              items
+            }
+            steps {
+              description
+            }
+            tags
+            owner
+          }
+          createdBy {
+            id
+            username
+            email
+            firstName
+            lastName
+            bio
+            image {
+              file {
+                bucket
+                region
+                key
+              }
+            }
+            meals {
+              items {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              nextToken
+            }
+            menuItems {
+              items {
+                id
+                order
+                owner
+              }
+              nextToken
+            }
+            likes {
+              items {
+                id
+                owner
+              }
+              nextToken
+            }
+            followers {
+              items {
+                id
+                owner
+              }
+              nextToken
+            }
+            following {
+              items {
+                id
+                owner
+              }
+              nextToken
+            }
+            owner
+          }
           owner
         }
         nextToken
@@ -1047,6 +15833,175 @@ export const onUpdateUser = /* GraphQL */ `
       likes {
         items {
           id
+          meal {
+            id
+            title
+            image {
+              file {
+                bucket
+                region
+                key
+              }
+            }
+            description
+            likes {
+              items {
+                id
+                owner
+              }
+              nextToken
+            }
+            inspiredBy {
+              id
+              title
+              description
+              likes {
+                nextToken
+              }
+              inspiredBy {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              menuItem {
+                id
+                order
+                owner
+              }
+              createdBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              recipe
+              ingredients {
+                items
+              }
+              steps {
+                description
+              }
+              tags
+              owner
+            }
+            menuItem {
+              id
+              order
+              meal {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              createdBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              owner
+            }
+            createdBy {
+              id
+              username
+              email
+              firstName
+              lastName
+              bio
+              meals {
+                nextToken
+              }
+              menuItems {
+                nextToken
+              }
+              likes {
+                nextToken
+              }
+              followers {
+                nextToken
+              }
+              following {
+                nextToken
+              }
+              owner
+            }
+            recipe
+            ingredients {
+              items
+            }
+            steps {
+              description
+            }
+            tags
+            owner
+          }
+          likedBy {
+            id
+            username
+            email
+            firstName
+            lastName
+            bio
+            image {
+              file {
+                bucket
+                region
+                key
+              }
+            }
+            meals {
+              items {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              nextToken
+            }
+            menuItems {
+              items {
+                id
+                order
+                owner
+              }
+              nextToken
+            }
+            likes {
+              items {
+                id
+                owner
+              }
+              nextToken
+            }
+            followers {
+              items {
+                id
+                owner
+              }
+              nextToken
+            }
+            following {
+              items {
+                id
+                owner
+              }
+              nextToken
+            }
+            owner
+          }
           owner
         }
         nextToken
@@ -1054,6 +16009,118 @@ export const onUpdateUser = /* GraphQL */ `
       followers {
         items {
           id
+          user {
+            id
+            username
+            email
+            firstName
+            lastName
+            bio
+            image {
+              file {
+                bucket
+                region
+                key
+              }
+            }
+            meals {
+              items {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              nextToken
+            }
+            menuItems {
+              items {
+                id
+                order
+                owner
+              }
+              nextToken
+            }
+            likes {
+              items {
+                id
+                owner
+              }
+              nextToken
+            }
+            followers {
+              items {
+                id
+                owner
+              }
+              nextToken
+            }
+            following {
+              items {
+                id
+                owner
+              }
+              nextToken
+            }
+            owner
+          }
+          followedBy {
+            id
+            username
+            email
+            firstName
+            lastName
+            bio
+            image {
+              file {
+                bucket
+                region
+                key
+              }
+            }
+            meals {
+              items {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              nextToken
+            }
+            menuItems {
+              items {
+                id
+                order
+                owner
+              }
+              nextToken
+            }
+            likes {
+              items {
+                id
+                owner
+              }
+              nextToken
+            }
+            followers {
+              items {
+                id
+                owner
+              }
+              nextToken
+            }
+            following {
+              items {
+                id
+                owner
+              }
+              nextToken
+            }
+            owner
+          }
           owner
         }
         nextToken
@@ -1061,6 +16128,118 @@ export const onUpdateUser = /* GraphQL */ `
       following {
         items {
           id
+          user {
+            id
+            username
+            email
+            firstName
+            lastName
+            bio
+            image {
+              file {
+                bucket
+                region
+                key
+              }
+            }
+            meals {
+              items {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              nextToken
+            }
+            menuItems {
+              items {
+                id
+                order
+                owner
+              }
+              nextToken
+            }
+            likes {
+              items {
+                id
+                owner
+              }
+              nextToken
+            }
+            followers {
+              items {
+                id
+                owner
+              }
+              nextToken
+            }
+            following {
+              items {
+                id
+                owner
+              }
+              nextToken
+            }
+            owner
+          }
+          followedBy {
+            id
+            username
+            email
+            firstName
+            lastName
+            bio
+            image {
+              file {
+                bucket
+                region
+                key
+              }
+            }
+            meals {
+              items {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              nextToken
+            }
+            menuItems {
+              items {
+                id
+                order
+                owner
+              }
+              nextToken
+            }
+            likes {
+              items {
+                id
+                owner
+              }
+              nextToken
+            }
+            followers {
+              items {
+                id
+                owner
+              }
+              nextToken
+            }
+            following {
+              items {
+                id
+                owner
+              }
+              nextToken
+            }
+            owner
+          }
           owner
         }
         nextToken
@@ -1089,8 +16268,296 @@ export const onDeleteUser = /* GraphQL */ `
         items {
           id
           title
+          image {
+            file {
+              bucket
+              region
+              key
+            }
+          }
           description
+          likes {
+            items {
+              id
+              meal {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              likedBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              owner
+            }
+            nextToken
+          }
+          inspiredBy {
+            id
+            title
+            image {
+              file {
+                bucket
+                region
+                key
+              }
+            }
+            description
+            likes {
+              items {
+                id
+                owner
+              }
+              nextToken
+            }
+            inspiredBy {
+              id
+              title
+              description
+              likes {
+                nextToken
+              }
+              inspiredBy {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              menuItem {
+                id
+                order
+                owner
+              }
+              createdBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              recipe
+              ingredients {
+                items
+              }
+              steps {
+                description
+              }
+              tags
+              owner
+            }
+            menuItem {
+              id
+              order
+              meal {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              createdBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              owner
+            }
+            createdBy {
+              id
+              username
+              email
+              firstName
+              lastName
+              bio
+              meals {
+                nextToken
+              }
+              menuItems {
+                nextToken
+              }
+              likes {
+                nextToken
+              }
+              followers {
+                nextToken
+              }
+              following {
+                nextToken
+              }
+              owner
+            }
+            recipe
+            ingredients {
+              items
+            }
+            steps {
+              description
+            }
+            tags
+            owner
+          }
+          menuItem {
+            id
+            order
+            meal {
+              id
+              title
+              description
+              likes {
+                nextToken
+              }
+              inspiredBy {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              menuItem {
+                id
+                order
+                owner
+              }
+              createdBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              recipe
+              ingredients {
+                items
+              }
+              steps {
+                description
+              }
+              tags
+              owner
+            }
+            createdBy {
+              id
+              username
+              email
+              firstName
+              lastName
+              bio
+              meals {
+                nextToken
+              }
+              menuItems {
+                nextToken
+              }
+              likes {
+                nextToken
+              }
+              followers {
+                nextToken
+              }
+              following {
+                nextToken
+              }
+              owner
+            }
+            owner
+          }
+          createdBy {
+            id
+            username
+            email
+            firstName
+            lastName
+            bio
+            image {
+              file {
+                bucket
+                region
+                key
+              }
+            }
+            meals {
+              items {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              nextToken
+            }
+            menuItems {
+              items {
+                id
+                order
+                owner
+              }
+              nextToken
+            }
+            likes {
+              items {
+                id
+                owner
+              }
+              nextToken
+            }
+            followers {
+              items {
+                id
+                owner
+              }
+              nextToken
+            }
+            following {
+              items {
+                id
+                owner
+              }
+              nextToken
+            }
+            owner
+          }
           recipe
+          ingredients {
+            image {
+              file {
+                bucket
+                region
+                key
+              }
+            }
+            items
+          }
+          steps {
+            image {
+              file {
+                bucket
+                region
+                key
+              }
+            }
+            description
+          }
           tags
           owner
         }
@@ -1100,6 +16567,175 @@ export const onDeleteUser = /* GraphQL */ `
         items {
           id
           order
+          meal {
+            id
+            title
+            image {
+              file {
+                bucket
+                region
+                key
+              }
+            }
+            description
+            likes {
+              items {
+                id
+                owner
+              }
+              nextToken
+            }
+            inspiredBy {
+              id
+              title
+              description
+              likes {
+                nextToken
+              }
+              inspiredBy {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              menuItem {
+                id
+                order
+                owner
+              }
+              createdBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              recipe
+              ingredients {
+                items
+              }
+              steps {
+                description
+              }
+              tags
+              owner
+            }
+            menuItem {
+              id
+              order
+              meal {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              createdBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              owner
+            }
+            createdBy {
+              id
+              username
+              email
+              firstName
+              lastName
+              bio
+              meals {
+                nextToken
+              }
+              menuItems {
+                nextToken
+              }
+              likes {
+                nextToken
+              }
+              followers {
+                nextToken
+              }
+              following {
+                nextToken
+              }
+              owner
+            }
+            recipe
+            ingredients {
+              items
+            }
+            steps {
+              description
+            }
+            tags
+            owner
+          }
+          createdBy {
+            id
+            username
+            email
+            firstName
+            lastName
+            bio
+            image {
+              file {
+                bucket
+                region
+                key
+              }
+            }
+            meals {
+              items {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              nextToken
+            }
+            menuItems {
+              items {
+                id
+                order
+                owner
+              }
+              nextToken
+            }
+            likes {
+              items {
+                id
+                owner
+              }
+              nextToken
+            }
+            followers {
+              items {
+                id
+                owner
+              }
+              nextToken
+            }
+            following {
+              items {
+                id
+                owner
+              }
+              nextToken
+            }
+            owner
+          }
           owner
         }
         nextToken
@@ -1107,6 +16743,175 @@ export const onDeleteUser = /* GraphQL */ `
       likes {
         items {
           id
+          meal {
+            id
+            title
+            image {
+              file {
+                bucket
+                region
+                key
+              }
+            }
+            description
+            likes {
+              items {
+                id
+                owner
+              }
+              nextToken
+            }
+            inspiredBy {
+              id
+              title
+              description
+              likes {
+                nextToken
+              }
+              inspiredBy {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              menuItem {
+                id
+                order
+                owner
+              }
+              createdBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              recipe
+              ingredients {
+                items
+              }
+              steps {
+                description
+              }
+              tags
+              owner
+            }
+            menuItem {
+              id
+              order
+              meal {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              createdBy {
+                id
+                username
+                email
+                firstName
+                lastName
+                bio
+                owner
+              }
+              owner
+            }
+            createdBy {
+              id
+              username
+              email
+              firstName
+              lastName
+              bio
+              meals {
+                nextToken
+              }
+              menuItems {
+                nextToken
+              }
+              likes {
+                nextToken
+              }
+              followers {
+                nextToken
+              }
+              following {
+                nextToken
+              }
+              owner
+            }
+            recipe
+            ingredients {
+              items
+            }
+            steps {
+              description
+            }
+            tags
+            owner
+          }
+          likedBy {
+            id
+            username
+            email
+            firstName
+            lastName
+            bio
+            image {
+              file {
+                bucket
+                region
+                key
+              }
+            }
+            meals {
+              items {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              nextToken
+            }
+            menuItems {
+              items {
+                id
+                order
+                owner
+              }
+              nextToken
+            }
+            likes {
+              items {
+                id
+                owner
+              }
+              nextToken
+            }
+            followers {
+              items {
+                id
+                owner
+              }
+              nextToken
+            }
+            following {
+              items {
+                id
+                owner
+              }
+              nextToken
+            }
+            owner
+          }
           owner
         }
         nextToken
@@ -1114,6 +16919,118 @@ export const onDeleteUser = /* GraphQL */ `
       followers {
         items {
           id
+          user {
+            id
+            username
+            email
+            firstName
+            lastName
+            bio
+            image {
+              file {
+                bucket
+                region
+                key
+              }
+            }
+            meals {
+              items {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              nextToken
+            }
+            menuItems {
+              items {
+                id
+                order
+                owner
+              }
+              nextToken
+            }
+            likes {
+              items {
+                id
+                owner
+              }
+              nextToken
+            }
+            followers {
+              items {
+                id
+                owner
+              }
+              nextToken
+            }
+            following {
+              items {
+                id
+                owner
+              }
+              nextToken
+            }
+            owner
+          }
+          followedBy {
+            id
+            username
+            email
+            firstName
+            lastName
+            bio
+            image {
+              file {
+                bucket
+                region
+                key
+              }
+            }
+            meals {
+              items {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              nextToken
+            }
+            menuItems {
+              items {
+                id
+                order
+                owner
+              }
+              nextToken
+            }
+            likes {
+              items {
+                id
+                owner
+              }
+              nextToken
+            }
+            followers {
+              items {
+                id
+                owner
+              }
+              nextToken
+            }
+            following {
+              items {
+                id
+                owner
+              }
+              nextToken
+            }
+            owner
+          }
           owner
         }
         nextToken
@@ -1121,6 +17038,118 @@ export const onDeleteUser = /* GraphQL */ `
       following {
         items {
           id
+          user {
+            id
+            username
+            email
+            firstName
+            lastName
+            bio
+            image {
+              file {
+                bucket
+                region
+                key
+              }
+            }
+            meals {
+              items {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              nextToken
+            }
+            menuItems {
+              items {
+                id
+                order
+                owner
+              }
+              nextToken
+            }
+            likes {
+              items {
+                id
+                owner
+              }
+              nextToken
+            }
+            followers {
+              items {
+                id
+                owner
+              }
+              nextToken
+            }
+            following {
+              items {
+                id
+                owner
+              }
+              nextToken
+            }
+            owner
+          }
+          followedBy {
+            id
+            username
+            email
+            firstName
+            lastName
+            bio
+            image {
+              file {
+                bucket
+                region
+                key
+              }
+            }
+            meals {
+              items {
+                id
+                title
+                description
+                recipe
+                tags
+                owner
+              }
+              nextToken
+            }
+            menuItems {
+              items {
+                id
+                order
+                owner
+              }
+              nextToken
+            }
+            likes {
+              items {
+                id
+                owner
+              }
+              nextToken
+            }
+            followers {
+              items {
+                id
+                owner
+              }
+              nextToken
+            }
+            following {
+              items {
+                id
+                owner
+              }
+              nextToken
+            }
+            owner
+          }
           owner
         }
         nextToken

@@ -1,6 +1,5 @@
 import React from 'react';
 import {
-  Image,
   StyleSheet,
   Dimensions,
   TouchableOpacity,
@@ -18,6 +17,8 @@ import {
 import HeartSVG from 'app/home/feed/components/assets/smile.svg'
 import MenuSVG from 'app/home/assets/menu.svg'
 import { Meal } from 'domain/meals/model';
+
+import S3Image from 'components/S3Image'
 
 const { width, height } = Dimensions.get('screen');
 
@@ -87,8 +88,8 @@ export const MealBox = ({
             
             
           </Block>
-            <Image
-                source={{ uri: meal.image.file.key }}
+            <S3Image
+                s3Key={meal.image.file.key}
                 style={{
                   ...styles.image,
                   height: mealWidth,

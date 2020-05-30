@@ -7,7 +7,7 @@ import {
   Dimensions,
 } from 'react-native';
 
-import { Text } from '@ui-kitten/components'
+import { Text, Spinner } from '@ui-kitten/components'
 import { useNavigation } from '@react-navigation/native'
 
 
@@ -20,10 +20,9 @@ import {
   Block, theme
 } from 'galio-framework';
 
-import { meals, Meal } from '../../../constants/dummyData'
-
 import { MealBox } from '../../cook/components/MealBox'
-import { LikeModel } from 'domain/likes/model';
+import { LikesModel } from 'domain/likes/model';
+import { Meal } from 'domain/meals/model';
 
 const { width } = Dimensions.get('screen');
 
@@ -36,19 +35,24 @@ export const Recommendations = ({
   onSelect,
   hideCooked,
 }: Props)  => {
+  const [isLoading, setIsLoading] = React.useState(true)
   const [droolingMeals, setDroolingMeals] = React.useState<Meal[]>([])
 
   React.useEffect(() => {
     const loadDrools = async () => {
-      const meals = await LikeModel.getDrools()
+      const likes = await LikesModel.getAll()
+      console.log('likes are: ', likes)
+      const meals = likes.map(({ meal }) => meal)
+
       setDroolingMeals(meals)
+      setIsLoading(false)
     }
 
     loadDrools()
   }, [])
 
   return (
-    <Block>
+    <Block style={styles.container}>
         {
           // TODO - separate components
           !hideCooked && (
@@ -65,11 +69,11 @@ export const Recommendations = ({
               <Block style={styles.meals}>
                   <ScrollView horizontal>
                   {
-                      meals.map(meal => (
-                      <MealBox
-                          {...meal}
-                          onClick={() => onSelect(meal)}
-                      />
+                      droolingMeals.map(meal => (
+                        <MealBox
+                            {...meal}
+                            onClick={() => onSelect(meal)}
+                        />
                       ))
                   }
                   </ScrollView>
@@ -92,6 +96,11 @@ export const Recommendations = ({
             
             <Block style={styles.meals}>
                 {
+                  isLoading && (
+                    <Spinner />
+                  )
+                }
+                {
                     droolingMeals.map(meal => (
                       <MealBox
                           {...meal}
@@ -101,7 +110,7 @@ export const Recommendations = ({
                     ))
                 }
                 {
-                    droolingMeals.length === 0 && (
+                    !isLoading && droolingMeals.length === 0 && (
                       <Text category='s1' appearance='hint'>
                         You have not drooled over any meals yet
                       </Text>
@@ -123,6 +132,11 @@ const styles = StyleSheet.create({
     borderTopColor: '#e3e3e3',
     borderBottomWidth: 1,
     borderBottomColor: '#e3e3e3',
+  },
+
+  container: {
+      display: 'flex',
+      alignItems: 'center',
   },
 
   heading: {

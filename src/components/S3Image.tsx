@@ -15,11 +15,11 @@ import {
 } from 'galio-framework';
 
 interface Props extends Omit<ImageProps, 'source'> {
-  key: string
+  s3Key: string
 }
 
 const S3Image: React.FC<Props> = ({
-    key,
+    s3Key,
     ...imageProps
 }) => {
     const [isLoading, setIsLoading] = React.useState(true)
@@ -27,34 +27,46 @@ const S3Image: React.FC<Props> = ({
 
     React.useEffect(() => {
       const load = async () => {
-        const signed = Storage.get(key)
+        const signed = Storage.get(s3Key)
           .then(image => {
-            console.log('Signed image: ', image)
+            // console.log('Signed image: ', image)
             setSignedImageUrl(image)
           })
-          .catch(console.error)
-
-            .finally(() => {
-                setIsLoading(false)
-            })
+          .catch((e) => {
+              console.log('S3Image: ', e)
+          })
+        .finally(() => {
+            // setIsLoading(false)
+        })
       }
 
-      load()
-    }, [key])
-
-    console.log('S3 load wirh: ', signedImageUrl)
+      if (s3Key) {
+        load()
+      }
+    }, [s3Key])
 
     return (
-        <Block style={imageProps.style}>
-            <Image
-                source={{
-                    uri: signedImageUrl,
-                }}
-                style={styles.image}
-            />
+        <Block style={{
+            ...(imageProps.style as object),
+            ...styles.container,
+        }}>
             {
-                isLoading && (
-                    <Spinner />
+                signedImageUrl && (
+                    <Image
+                        source={{
+                            uri: signedImageUrl,
+                        }}
+                        style={styles.image}
+                        loadingIndicatorSource={{
+                            uri: require('../assets/loadingImagePlaceholder.png')
+                        }}
+
+                    />
+                )
+            }
+            {
+                true && (
+                    <Spinner style={styles.spinner}/>
                 )
             }
         </Block>
@@ -62,10 +74,20 @@ const S3Image: React.FC<Props> = ({
 }
 
 const styles = StyleSheet.create({
+  container: {
+      position: 'relative',
+      backgroundColor: '#f0f0f0',
+  },
   image: {
     width: '100%',
     height: '100%',
   },
+  spinner: {
+      position: 'absolute',
+      left: 50,
+      top: 50,
+
+  }
 });
 
 export default S3Image;
