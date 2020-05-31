@@ -21,7 +21,6 @@ import MealSummary from 'app/profile/components/MealSummary'
 import MealBoardIcon from 'app/home/assets/menu.svg'
 
 import MealCard from './components/MealCard'
-import AvatarHeader from './components/AvatarHeader'
 
 import InProgressMeal from './components/InProgressMeal';
 import { MealsModel, Meal } from 'domain/meals/model';

@@ -24,6 +24,7 @@
     "aws-amplify-react": "^4.1.11",
     "aws-amplify-react-native": "^3.2.2",
     "babel-plugin-inline-import": "^3.0.0",
+    "date-fns": "^2.14.0",
     "expo": "~36.0.0",
     "expo-av": "~8.0.0",
     "expo-camera": "^8.2.0",

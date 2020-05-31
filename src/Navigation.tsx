@@ -140,7 +140,9 @@ function Navigation() {
     options: {
       ...headerOptions,
       headerBackTitle: 'Back',
-
+      headerRight: () => (
+        <BookmarkButton />
+      ),
     },
     initialParams: {
       // Hot reload testing

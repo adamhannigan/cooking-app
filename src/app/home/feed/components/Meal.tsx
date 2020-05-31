@@ -4,6 +4,7 @@ import {
   Dimensions,
 } from 'react-native';
 
+import { format, formatDistance, formatRelative, subDays } from 'date-fns'
 
 import { useNavigation } from '@react-navigation/native'
 
@@ -16,8 +17,10 @@ import { NavProp } from 'Navigation'
 import { Meal as IMeal, MealsModel } from 'domain/meals/model';
 
 import BookmarkOutlineSVG from 'assets/icons/bookmarks/outline.svg'
-import ClappingSVG from 'assets/icons/clap/clapping.svg'
+import BookmarkFilledSVG from 'assets/icons/bookmarks/filled.svg'
 import CommentSVG from 'assets/icons/comment/comment.svg'
+
+import Heart from './Heart'
 
 // galio components
 import {
@@ -51,33 +54,31 @@ const Meal = (meal: Props) => {
       })
     }
 
-    const [isDrooling, setIsDrooling] = React.useState(false)
+    const [isSaved, setIsSaved] = React.useState(false)
+    const [currentLikes, setCurrentLikes] = React.useState(0)
 
     React.useEffect(() => {
       const fetchIsDrooling = async () => {
         const user = await UserModel.getCurrentUser()
 
         const userLike = meal.likes.items.find(item => item.owner === user.username)
-        setIsDrooling(!!userLike)
+        
+        setIsSaved(!!userLike)
       }
 
       fetchIsDrooling()
     }, [])
 
-    const onLike = () => {
+    const onSave = () => {
+      setIsSaved(true)
       MealsModel.like(meal)
-
-      setIsDrooling(true)
     }
 
-    const [claps, setClaps] = React.useState(0)
-
-    const onClap = () => {
-      if (claps < 3) {
-        setClaps(claps + 1)
-      }
+    const onLike = () => {
+      setCurrentLikes(currentLikes + 1)
     }
 
+    const dateTime = formatDistance(new Date(meal.createdAt), new Date())
 
     return (
         <Block>
@@ -86,9 +87,9 @@ const Meal = (meal: Props) => {
                   <AvatarHeader
                     avatarUrl=''
                     name={meal.createdBy.username}
-                    time='10 hrs ago'
+                    time={dateTime}
                     userId={meal.createdBy.id}
-                    isSaved={isDrooling}
+                    isSaved={isSaved}
                     onSave={onLike}
                   />
                 </Block>
@@ -96,7 +97,7 @@ const Meal = (meal: Props) => {
                   onPress={onClick} style={styles.imageContainer}
                 >
                   {
-                    isDrooling && (
+                    isSaved && (
                       <HangingBookmarkSVG
                         width={50}
                         height={50}
@@ -121,63 +122,55 @@ const Meal = (meal: Props) => {
             <Block style={styles.content}>
               <Block row space='between'>
                 <Block style={{
-                  backgroundColor: kittenTheme['color-info-default'],
-                  paddingHorizontal: theme.SIZES.BASE,
-                  maxWidth: 300,
-                  borderRadius: 2,
+                  ...styles.title,
                 }}>
                   <Text category='h5' numberOfLines={2} style={{
-                    color: 'white',
                     lineHeight: 26,
                   }}>
                     {meal.title}
                   </Text>
-                  <Text category='label' style={{ color: 'white' }}>
+                  <Text category='label' style={{ 
+                    paddingBottom: 4,
+                  }}>
                     tasty.com
                   </Text>
                 </Block>
-                <Block row middle>
-                  <Button
-                      status='basic'
-                      appearance='ghost'
-                      style={{
-                        height: 16,
-                      }}
-                      onPress={onLike}
-                      icon={() => (
-                        <BookmarkOutlineSVG
-                          width={25}
-                          height={25}
-                          fill={isDrooling ? kittenTheme['color-info-default'] : '#babbbb'}
-                        />
-                      )}/>
-                  
-                  <Block middle row>
-                    <Button
-                      status='basic'
-                      appearance='ghost'
-                      disabled={claps >= 3}
-                      style={{
-                        height: 16,
-                      }}
-                      textStyle={{
-                        color: '#babbbb',
-                      }}
-                      onPress={onClap}
-                      icon={() => (
-                        <ClappingSVG
-                          width={25}
-                          height={25}
-                          fill='#babbbb'
+                <Block row middle style={styles.actions}>
+                  {
+                    (isSaved || currentLikes >= 3) && (
+                      <Button
+                          status='info'
+                          appearance='ghost'
                           style={{
-                            margin: 0,
-                            marginRight: 0,
+                            height: 16,
                           }}
-                        />
-                      )}>
-                        {(claps + meal.likes.items.length).toString()}
-                      </Button>
-                  </Block>
+                          onPress={onSave}
+                          icon={() => (
+                            isSaved
+                              ? (
+                                <BookmarkFilledSVG
+                                  width={30}
+                                  height={30}
+                                  fill={kittenTheme['color-primary-default']}
+                              />
+                              )
+                              : (
+                                <BookmarkOutlineSVG
+                                  width={30}
+                                  height={30}
+                                  fill={'#ddd'}
+                              />
+                              )
+                            
+                          )} />
+                      )
+                    }
+                  
+                  <Heart
+                    currentLikes={currentLikes}
+                    totalLikes={meal.likes.items.length + currentLikes}
+                    onClick={onLike}
+                  />
                   
                 </Block>
                 </Block>
@@ -239,11 +232,27 @@ const styles = StyleSheet.create({
     height: '100%',
     width: '100%',
   },
+  title: {
+      paddingHorizontal: theme.SIZES.BASE,
+      maxWidth: width - 120,
+      borderRadius: 2,
+  },
+  actions: {
+    width: 130,
+    alignSelf: 'flex-start',
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'flex-end',
+  },
   bookmark: {
     position: 'absolute',
     top: 0,
     right: 15,
     zIndex: 9999,
+
+    shadowOffset:{  width: 3,  height: 5,  },
+    shadowColor: '#777',
+    shadowOpacity: 0.7,
   },
   icon: {
     width: 20,

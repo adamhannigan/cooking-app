@@ -50,6 +50,8 @@ type Meal @model @auth(rules: [{
   menuItem: MenuItem @connection(name: "MenuMeal")
   createdBy: User! @connection(name: "UserMeal")
 
+  createdAt: AWSDateTime
+
   recipe: String
   ingredients: [Ingredients]
   steps: [Step]

@@ -6,6 +6,7 @@ import create, { CreateMealInput } from './api/create'
 import like from './api/like'
 import addToMenu from './api/addToMenu'
 import { UserModel } from 'domain/users/model';
+import { likeEventHandler } from 'domain/likes/events';
 
 export type Meal = Omit<Exclude<GetMealQuery['getMeal'], null>, '__typename'>;
 
@@ -30,10 +31,12 @@ class Meals {
     public async like(meal: Meal) {
         const currentUser = await UserModel.getCurrentUser()
 
-        return like({
+        likeEventHandler.onLike()
+        
+        /*return like({
             userId: currentUser.id,
             mealId: meal.id,
-        })
+        })*/
     }
 
     public async addToMenu(meal: Meal) {

@@ -68,7 +68,15 @@ const AvatarHeader = ({
                         <Text style={styles.text}>
                             { name }
                         </Text>
-                        <Tags />
+                        {
+                            /*<Tags />*/
+                        }
+                        <Text appearance='hint' style={{
+                            fontSize: 14,
+                            marginTop: -2,
+                        }}>
+                            {`${time} ago`}
+                        </Text>
                     </Block>
                 </TouchableOpacity>
          </Block>

@@ -229,6 +229,9 @@ const Cooker: React.FC<Props> = ({
             </Block>
 
             <Block style={styles.stats}>
+              {
+                /*
+                
                 <Block row space='between' middle style={{
                   marginBottom: theme.SIZES.BASE,
                   paddingBottom: theme.SIZES.BASE,
@@ -244,6 +247,8 @@ const Cooker: React.FC<Props> = ({
                     Change tags
                   </Button>
                 </Block>
+                */
+              }
                 {
                   hasRecipe && (
                     <Block row space='between' middle>

@@ -96,14 +96,6 @@ const MealDetails = () => {
                       <Meal {...meal} />
                     </Block>
 
-                      <Button
-                        style={{ margin: theme.SIZES.BASE / 2 }}
-                        status='info'
-                        onPress={onCookIt}
-                      >
-                        Cook it tonight
-                      </Button>
-
 
                     {
                       meal.recipe && (
