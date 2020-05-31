@@ -48,10 +48,8 @@ const Feed = props => {
   }
 
   React.useEffect(() => {
-    if (isFocused) {
-      load()
-    }
-  }, [isFocused])
+    load()
+  }, [])
 
 
   return (
@@ -78,42 +76,11 @@ const Feed = props => {
             }
             {
               !isLoading && meals.map((meal, idx) => (
-                  true || idx % 2 === 0 ? (
-                    <Block style={styles.item}>
-                      <AvatarHeader
-                        avatarUrl=''
-                        name={meal.createdBy.username}
-                        time='10 hrs ago'
-                        userId={meal.createdBy.id}
-                      />
-                      <MealCard
-                        {...meal}
-                      />
-                    </Block>
-                  )
-                  : idx % 2 === 1 && (
-                      <Block style={styles.item}>
-                        <Block style={styles.mealAddedContainer}>
-                          <MealBoardIcon width={30} height={30} />
-                          <Text
-                              appearance='hint'
-                              style={{
-                                marginLeft: theme.SIZES.BASE,
-                              }}
-                            >
-                              Recommended from their menu
-                          </Text>
-                        </Block>
-
-                        <AvatarHeader
-                          avatarUrl=''
-                          name={meal.createdBy.username}
-                          time='10 hrs ago'
-                          userId={meal.createdBy.id}
-                        />
-                        <MealSummary {...meal}/>
-                      </Block>
-                  )
+                  <Block style={styles.item}>
+                    <MealCard
+                      {...meal}
+                    />
+                  </Block>
                 )
               )
             }

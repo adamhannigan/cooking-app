@@ -74,7 +74,6 @@ const MealDetails = () => {
   const onCookIt = async () => {
     await InProgressMealModel.save({
       ...meal,
-      user: meal.createdBy,
       // We want users to add their own photo!
       image: null,
     })

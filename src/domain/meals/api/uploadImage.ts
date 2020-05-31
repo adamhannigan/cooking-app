@@ -1,4 +1,5 @@
 import Storage from '@aws-amplify/storage'
+import Predictions from '@aws-amplify/predictions'
 import ImageResizer from 'react-native-image-resizer';
 interface Options {
     fileUrl: string
@@ -6,6 +7,18 @@ interface Options {
 
 interface Response {
     s3Path: string
+}
+
+function predict(s3Key: string) {
+    Predictions.identify({
+        entities: {
+          source: {
+            key: s3Key,
+          },
+        }
+      })
+      .then((response) => console.log({ response }))
+      .catch(err => console.log({ err }));
 }
 
 
@@ -23,6 +36,7 @@ export async function upload(options: Options): Promise<Response> {
         })
 
         console.log('uploaded: ', stored.key)
+        // predict(stored.key)
         
         return {
             s3Path: stored.key

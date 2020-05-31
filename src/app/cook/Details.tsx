@@ -5,27 +5,45 @@ import {
 
 import { useRoute, useNavigation } from '@react-navigation/native'
 
-import { meals, Meal } from 'constants/dummyData'
+import { meals,  } from 'constants/dummyData'
 
 import { Route } from 'Navigation';
 
 import Cooker from './components/Cooker'
+import { MealsModel, Meal } from 'domain/meals/model';
+import { Spinner } from '@ui-kitten/components';
+
 const Details = props => {
   const route = useRoute<Route<'/cook/details/:id'>>()
   const { setOptions } = useNavigation()
 
-  const matchedMeal = meals.find(meal => !!route.params && route.params.id === meal.id)
+  const [meal, setMeal] = React.useState<Meal>()
+  const [isLoading, setIsLoading] = React.useState(true)
 
   React.useEffect(() => {
-    if (matchedMeal) {
+    const load = async () => {
+      const meal = await MealsModel.find(route.params.id)
+
       setOptions({
-          title: matchedMeal.title,
+        title: meal.title,
       })
+
+      setMeal(meal)
+
+      setIsLoading(false)
     }
+
+    load()
   }, [])
+
+  if (isLoading) {
+    return (
+      <Spinner />
+    )
+  }
   
   return (
-    <Cooker meal={matchedMeal} />
+    <Cooker meal={meal} />
   )
 };
 

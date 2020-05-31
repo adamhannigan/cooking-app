@@ -31,10 +31,7 @@ const Actions = (meal: Meal) => {
       const fetchIsDrooling = async () => {
         const user = await UserModel.getCurrentUser()
 
-        console.log('User', user.username)
-        console.log('meal.likes.items', meal.likes.items)
         const userLike = meal.likes.items.find(item => item.owner === user.username)
-        console.log('userLike', userLike)
         setIsDrooling(!!userLike)
       }
 

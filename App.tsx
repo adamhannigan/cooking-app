@@ -1,5 +1,6 @@
 import Amplify from 'aws-amplify';
 import amplify from './src/aws-exports';
+import Predictions, { AmazonAIPredictionsProvider } from '@aws-amplify/predictions';
 
 import 'react-native-gesture-handler'
 
@@ -23,6 +24,8 @@ import { AppLoading } from 'expo'
 import Navigation from './src/Navigation'
 
 Amplify.configure(amplify);
+
+Amplify.addPluggable(new AmazonAIPredictionsProvider());
 
 function App() {
   // TODO: AppLoading for auth

@@ -25,7 +25,7 @@ interface Props {
 const Recents = ({ id }: Props) => {
   const navigation = useNavigation<NavProp>()
   
-  const [meals, setMeals] = React.useState<Meal[]>()
+  const [meals, setMeals] = React.useState<Meal[]>([])
   const [isLoading, setIsLoading] = React.useState(true)
 
   React.useEffect(() => {
@@ -45,12 +45,6 @@ const Recents = ({ id }: Props) => {
     })
   }
 
-  if (isLoading) {
-    return (
-        <Spinner />
-    )
-  }
-
   return (
     <Block>
         <Block row middle space='between'  style={styles.menuTitle}>
@@ -58,6 +52,11 @@ const Recents = ({ id }: Props) => {
             Recent Activity
             </Text>
         </Block>
+        {
+          isLoading && (
+            <Spinner />
+          )
+        }
         <Block>
             {
                 meals.map(card => (

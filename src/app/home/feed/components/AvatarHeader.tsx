@@ -13,7 +13,7 @@ import {
   Block, theme
 } from 'galio-framework';
 
-import { Text, Avatar, useTheme } from '@ui-kitten/components'
+import { Text, Avatar, useTheme, Button } from '@ui-kitten/components'
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { NavProp } from 'Navigation';
 
@@ -26,6 +26,8 @@ interface Props {
     name: string
     time: string
     userId: string
+    onSave: () => void
+    isSaved: boolean
 }
 
 const AvatarHeader = ({
@@ -33,6 +35,8 @@ const AvatarHeader = ({
     name,
     time,
     userId,
+    onSave,
+    isSaved,
 }: Props) => {
     const navigation = useNavigation<NavProp>()
     const onClick = () => {
@@ -44,9 +48,11 @@ const AvatarHeader = ({
     const kittenTheme = useTheme()
 
     return (
-        <Block style={styles.container}>
-            <TouchableOpacity onPress={onClick}>
-                <Block row>
+        <Block
+            onPress={onClick} 
+            style={styles.container}
+        >
+                <TouchableOpacity onPress={onClick} style={styles.user}>
                     <Block style={{
                         ...styles.avatarCircle,
                         borderColor: kittenTheme['color-primary-default'],
@@ -64,16 +70,8 @@ const AvatarHeader = ({
                         </Text>
                         <Tags />
                     </Block>
-                </Block>
-            </TouchableOpacity>
-            {/*
-            <Block style={styles.timeContainer}>
-                <Text appearance='hint'>
-                    { time }
-                </Text>
-            </Block>
-            */}
-        </Block>
+                </TouchableOpacity>
+         </Block>
   )
 }
 
@@ -84,6 +82,10 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     width: '100%',
+  },
+  user: {
+      display: 'flex',
+      flexDirection: 'row',
   },
   avatar: {
     width: 40,

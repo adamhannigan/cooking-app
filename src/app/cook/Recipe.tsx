@@ -61,7 +61,7 @@ const Recipe: React.FC = ({
 
         setRecipe(inProgressMeal.recipe)
         setIngredients(inProgressMeal.ingredients)
-        setSteps(inProgressMeal.steps.length && inProgressMeal.steps)
+        setSteps(inProgressMeal.steps || [])
     }
 
     loadMeal()

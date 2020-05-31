@@ -41,7 +41,7 @@ export const Recommendations = ({
   React.useEffect(() => {
     const loadDrools = async () => {
       const likes = await LikesModel.getAll()
-      console.log('likes are: ', likes)
+      ('likes are: ', likes)
       const meals = likes.map(({ meal }) => meal)
 
       setDroolingMeals(meals)

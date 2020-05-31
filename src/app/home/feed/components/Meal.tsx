@@ -7,17 +7,20 @@ import {
 
 import { useNavigation } from '@react-navigation/native'
 
-import { Text, useTheme } from '@ui-kitten/components'
+import { Text, useTheme, Button } from '@ui-kitten/components'
 
 import S3Image from 'components/S3Image'
 
 import { NavProp } from 'Navigation'
 
-import { Meal as IMeal } from 'domain/meals/model';
+import { Meal as IMeal, MealsModel } from 'domain/meals/model';
 
-import AnnouncementSVG from './assets/announcement.svg'
-import HeartDroolSVG from './assets/smile.svg'
 import TrophySVG from './assets/cup.svg'
+import HeartDroolSVG from 'assets/icons/likes/drool.svg'
+import HeartDroolOutlineSVG from 'assets/icons/likes/outline.svg'
+import HeartOutlineSVG from 'assets/icons/likes/heartOutline.svg'
+import AddBookmarkOutlineSVG from 'assets/icons/bookmarks/addOutline.svg'
+import BookmarkOutlineSVG from 'assets/icons/bookmarks/outline.svg'
 
 import Actions from './Actions'
 
@@ -26,6 +29,10 @@ import {
   Block, theme, Icon
 } from 'galio-framework';
 import { TouchableOpacity } from 'react-native-gesture-handler';
+
+import HangingBookmarkSVG from 'assets/icons/bookmarks/hangingBookmark.svg'
+import { UserModel } from 'domain/users/model';
+import AvatarHeader from './AvatarHeader';
 
 const { width, height } = Dimensions.get('screen');
 
@@ -48,52 +55,76 @@ const Meal = (meal: Props) => {
       })
     }
 
+    const [isDrooling, setIsDrooling] = React.useState(false)
+
+    React.useEffect(() => {
+      const fetchIsDrooling = async () => {
+        const user = await UserModel.getCurrentUser()
+
+        const userLike = meal.likes.items.find(item => item.owner === user.username)
+        setIsDrooling(!!userLike)
+      }
+
+      fetchIsDrooling()
+    }, [])
+
+    const onLike = () => {
+      MealsModel.like(meal)
+
+      setIsDrooling(true)
+    }
+
 
     return (
         <Block>
             <Block>
+                <Block row space='between'>
+                  <AvatarHeader
+                    avatarUrl=''
+                    name={meal.createdBy.username}
+                    time='10 hrs ago'
+                    userId={meal.createdBy.id}
+                    isSaved={isDrooling}
+                    onSave={onLike}
+                  />
+                </Block>
                 <TouchableOpacity
                   onPress={onClick} style={styles.imageContainer}
                 >
-                  {/*
-                  <SliderBox
-                    images={images}
-                    onCurrentImagePressed={onClick}
-                    currentImageEmitter={onImageSlide}
-                    dotColor={kittenTheme['color-info-default']}
-                    imageLoadingColor={kittenTheme['color-primary-default']}
-                  />
-                  */}
+                  {
+                    isDrooling && (
+                      <HangingBookmarkSVG
+                        width={50}
+                        height={50}
+                        style={styles.bookmark}
+                      />
+                    )
+                  }
+                  
 
                   <S3Image
                     s3Key={meal.image.file.key}
                     style={{
                       width: '100%',
+                      paddingHorizontal: 10,
                       height: 300,
-                      borderRadius: 5,
+                      borderRadius: 20,
                     }}
                   />
-                
-
-                  {/*}
-                  <Carousel
-                    style={styles.image}
-                    ref={(c) => { carouselRef.current = c; }}
-                    data={images}
-                    renderItem={CarouselItem}
-                    onSnapToItem={onFocusedItemChange}
-                    sliderWidth={width}
-                    itemWidth={width - theme.SIZES.BASE * 4}
-                    layout={'default'}
-                    firstItem={0}
-                />*/}
-
                 </TouchableOpacity>
             </Block>
 
+
             <Block style={styles.content}>
-              <Block>
-                <Text category='h5'>
+              <Block style={{
+                backgroundColor: kittenTheme['color-info-default'],
+                paddingHorizontal: theme.SIZES.BASE,
+                width: 200,
+                borderRadius: 2,
+              }}>
+                <Text category='h5' numberOfLines={2} style={{
+                  color: 'white',
+                }}>
                   {meal.title}
                 </Text>
               </Block>
@@ -103,57 +134,17 @@ const Meal = (meal: Props) => {
                     width,
                     paddingRight: 10,
                   }}>
-                    <Block style={{
-                      marginRight: 0,
-                      width: 40,
-                    }}>
-                      <AnnouncementSVG
-                        width={35}
-                        height={35}
-                      />
-                    </Block>
-                    
-                    <Text style={{ flex: 1 }} numberOfLines={2}>
+                    <Text 
+                      appearance='hint'
+                      category='s1'
+                      style={{ flex: 1 }}
+                      numberOfLines={2}
+                    >
                       {meal.description}
                     </Text>
                   </Block>
                 )
               }
-             
-              <Block row style={{
-                padding: 5,
-                paddingTop: 10,
-                marginTop: 10,
-                borderTopWidth: 1,
-                borderTopColor: '#ddd',
-              }}>
-                <Block row>
-                  <TrophySVG
-                    width={20}
-                    height={20}
-                    style={{
-                      marginRight: 13,
-                    }}
-                  />
-                  <Text appearance='hint'>
-                    3 people have cooked this
-                  </Text>
-                </Block>
-                <Block row>
-                  <HeartDroolSVG
-                    width={20}
-                    height={20}
-                    style={{
-                      marginRight: 13,
-                      marginLeft: 15,
-                    }}
-                  />
-                  <Text appearance='hint'>
-                    {`${meal.likes.items.length}`}
-                  </Text>
-                </Block>
-              </Block>
-              <Actions {...meal} />
             </Block>
           </Block>
   )
@@ -181,6 +172,12 @@ const styles = StyleSheet.create({
   image: {
     height: '100%',
     width: '100%',
+  },
+  bookmark: {
+    position: 'absolute',
+    top: 0,
+    right: 15,
+    zIndex: 9999,
   },
   icon: {
     width: 20,

@@ -12,7 +12,6 @@ const MyMenu = () => {
     React.useEffect(() => {
       const load = async () => {
         let loadedUser =  await UserModel.getCurrentUser()
-        console.log('Got: ', loadedUser)
         setUser(loadedUser)
         setIsLoading(false)
       }

@@ -56,7 +56,10 @@ const S3Image: React.FC<Props> = ({
                         source={{
                             uri: signedImageUrl,
                         }}
-                        style={styles.image}
+                        style={{
+                          ...(imageProps.style as object),
+                          ...styles.image,
+                        }}
                         loadingIndicatorSource={{
                             uri: require('../assets/loadingImagePlaceholder.png')
                         }}
@@ -76,7 +79,6 @@ const S3Image: React.FC<Props> = ({
 const styles = StyleSheet.create({
   container: {
       position: 'relative',
-      backgroundColor: '#f0f0f0',
   },
   image: {
     width: '100%',
@@ -86,7 +88,6 @@ const styles = StyleSheet.create({
       position: 'absolute',
       left: 50,
       top: 50,
-
   }
 });
 

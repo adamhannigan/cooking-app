@@ -18,7 +18,7 @@ class Meals {
         return getMeal(id)
     }
 
-    public async create(meal: CreateMealInput) {
+    public async create(meal: Omit<CreateMealInput, 'mealCreatedById'>) {
         const currentUser = await UserModel.getCurrentUser()
 
         return create({

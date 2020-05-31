@@ -1,15 +1,12 @@
 import React from 'react';
 
-import { useRoute, useNavigation, useIsFocused } from '@react-navigation/native'
-
-import { Meal } from 'constants/dummyData'
-
-import { Route } from 'Navigation';
+import { useNavigation, useIsFocused } from '@react-navigation/native'
 
 import Cooker from './components/Cooker'
-import { InProgressMealModel } from 'domain/inProgressMeals/model';
+import { InProgressMealModel } from 'domain/inProgressMeals/model'
+import { Meal } from 'domain/meals/model'
 
-const InProgress = props => {
+const InProgress = () => {
   const { setOptions } = useNavigation()
 
   const [meal, setMeal] = React.useState<Meal>(null)

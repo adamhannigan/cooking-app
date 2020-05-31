@@ -1,30 +1,17 @@
 import React from 'react';
 import {
-  Image,
-  StatusBar,
   StyleSheet,
   ScrollView,
   View,
   Dimensions,
-  TouchableOpacity
 } from 'react-native';
 
-import { Text, List, Avatar, Button } from '@ui-kitten/components'
-
-import Constants from 'expo-constants';
-
-const { statusBarHeight } = Constants;
-
-import PersonItem, { Person } from 'components/PersonItem'
+import { Text } from '@ui-kitten/components'
 
 // galio components
 import {
   Block, Icon, NavBar, theme, Input
 } from 'galio-framework';
-
-import MealSummary from 'app/profile/components/MealSummary'
-
-import { groups, meals } from 'constants/dummyData'
 
 const { width, height } = Dimensions.get('screen');
 
@@ -58,39 +45,9 @@ const Search = ({ navigation }) => {
         />
       </Block>
         <Block>
-            {
-                groups.map(group => {
-                    const list: Person = group.people.map(person => ({
-                      primary: person.name,
-                      sasecondary: person.preferences.map(({ name}) => name).join(' - '),
-
-                      action: {
-                          primary: followed.includes(person.name) ? 'Following' : 'Follow',
-                          onClick: () => onFollow(person.name),
-                      },
-                      isSelected: followed.includes(person.name)
-                    }))
-
-                    return (
-                      <Block style={styles.group}>
-                          <Text category='h4' style={styles.title}>
-                              {group.preference.name}
-                          </Text>
-                          <List
-                            data={list}
-                            renderItem={PersonItem}
-                          />
-                      </Block>
-                    )
-                  })
-            }
-        </Block>
-        <Block>
-            <Block center>
-              {
-                meals.map(meal => <MealSummary {...meal}/>)
-              }
-            </Block>
+          <Text appearance='hint'>
+            Coming soon...
+          </Text>
         </Block>
       </ScrollView>
     </View>

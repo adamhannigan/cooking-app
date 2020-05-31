@@ -49,12 +49,6 @@ const Menu = ({ id, isCurrentUser }: Props) => {
     })
   }
 
-  if (isLoading) {
-      return (
-          <Spinner />
-      )
-  }
-
   return (
     <Block>
         <Block row middle space='between'  style={styles.menuTitle}>
@@ -71,32 +65,42 @@ const Menu = ({ id, isCurrentUser }: Props) => {
             </Text>
         </Block>
         <Text appearance='hint' >
-            {`${menuItems.length} menu items`}
+            {!isLoading && `${menuItems.length} menu items`}
         </Text>
         </Block>
-        <Block>
         {
-            menuItems.map(card => (
-                <TouchableOpacity
-                onPress={() => onClick(card.id)}
-                style={styles.item}
-                key={card.id}
-                >
-                    <MealSummary {...card}/>
-                </TouchableOpacity>
-            ))
+          isLoading && (
+            <Spinner />
+          )
         }
-        </Block>
         {
-        isCurrentUser && (
-            <Button
-            size='medium'
-            status='primary'
-            style={styles.addMenuButton}
-            >
-            Edit your menu
-            </Button>
-        )
+          !isLoading && (
+            <Block>
+              {
+                  menuItems.map(card => (
+                      <TouchableOpacity
+                      onPress={() => onClick(card.id)}
+                      style={styles.item}
+                      key={card.id}
+                      >
+                          <MealSummary {...card}/>
+                      </TouchableOpacity>
+                  ))
+              }
+            </Block>
+          )
+        }
+        
+        {
+          isCurrentUser && (
+              <Button
+              size='medium'
+              status='primary'
+              style={styles.addMenuButton}
+              >
+                Edit your menu
+              </Button>
+          )
         }
     </Block>
   )

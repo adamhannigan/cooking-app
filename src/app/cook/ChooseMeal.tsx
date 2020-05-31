@@ -24,6 +24,7 @@ import TakePhoto from './components/TakePhoto'
 
 import { InProgressMealModel, InProgressMeal } from 'domain/inProgressMeals/model';
 import { Meal } from 'domain/meals/model';
+import { Media } from 'constants/dummyData';
 
 const { width } = Dimensions.get('screen');
 
@@ -32,7 +33,7 @@ const ChooseMeal = props => {
   const kittenTheme = useTheme()
   const navigation = useNavigation<NavProp>()
   const [search, setSearch] = React.useState<string>('')
-  const [photo, setPhoto] = React.useState(null)
+  const [photo, setPhoto] = React.useState<Media>(null)
 
   const isFocused = useIsFocused()
 
@@ -45,33 +46,20 @@ const ChooseMeal = props => {
 
   const onSelect = async (meal: Meal) => {
     let {
-      // Do not copy the photo and the tip
-      image,
+      // Do not copy description
       description,
       id,
       ...inspiredMeal
     } = meal
 
-    /* TODO
-    const newMeal: InProgressMeal = {
-      image: photo,
-    }
-
-    await InProgressMealModel.save(newMeal)
+    await InProgressMealModel.save(inspiredMeal)
 
     navigation.navigate('/cook/progress')
-    */
   }
 
   const onAddNewMeal = async () => {
     await InProgressMealModel.save({
       title: search,
-      image: photo,
-      preferences: [{
-        name: 'Food',
-      }],
-      ingredients: null,
-      steps: [],
     } as InProgressMeal)
 
     navigation.navigate('/cook/progress')
@@ -83,6 +71,11 @@ const ChooseMeal = props => {
   const onFocus = () => {
     scrollViewRef.current.scrollTo(theme.SIZES.BASE * 21)
   }
+
+  const onPhoto = (photo: Media) => {
+    InProgressMealModel.setPhoto(photo)
+    setPhoto(photo)
+  }
   
   return (
     <View style={{ flex: 1 }}>
@@ -91,7 +84,7 @@ const ChooseMeal = props => {
           <Block flex style={styles.header}>
             <TakePhoto
               photo={photo}
-              onPhoto={setPhoto}
+              onPhoto={onPhoto}
             />
             <Text category='h5'>
               What did you cook?

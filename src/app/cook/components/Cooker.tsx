@@ -12,7 +12,7 @@ import { useNavigation, useRoute } from '@react-navigation/native'
 
 import { Text, Input, Button, Avatar } from '@ui-kitten/components'
 
-import { Meal, Media } from 'constants/dummyData'
+import { Media } from 'constants/dummyData'
 import { InProgressMealModel } from 'domain/inProgressMeals/model'
 
 // galio components
@@ -28,7 +28,8 @@ import Tags from 'app/home/feed/components/Tags'
 import IngredientSVG from '../assets/ingredients.svg'
 import TakePhoto from './TakePhoto';
 import { NavProp } from 'Navigation';
-import { MealsModel } from 'domain/meals/model';
+import { MealsModel, Meal } from 'domain/meals/model';
+import InProgressMeal from 'app/home/feed/components/InProgressMeal';
 
 export { CookHeaderButton } from '../CookHeaderButton'
 const { width } = Dimensions.get('screen');
@@ -67,21 +68,29 @@ interface Props {
 const Cooker: React.FC<Props> = ({
     meal,
 }) => {
-  const [photo, setPhoto] = React.useState<Media>(meal.image)
-  const [description, setDescription] = React.useState<string>(meal.tip || '')
+  const [photo, setPhoto] = React.useState<Media>(null)
+  const [description, setDescription] = React.useState<string>(meal.description || '')
 
   const { navigate, setOptions } = useNavigation<NavProp>()
+
+  React.useEffect(() => {
+    const loadImage = async () => {
+      const image = await InProgressMealModel.getPhoto()
+      setPhoto(image)
+    }
+
+    loadImage()
+  })
 
   const onDone = async () => {
     await MealsModel.create({
       title: meal.title,
-      description: meal.tip,
+      description,
       image: {
         file: {
           key: photo.s3Path,
         },
       },
-      // TODO - image
     })
 
     await InProgressMealModel.clear()
@@ -95,8 +104,12 @@ const Cooker: React.FC<Props> = ({
   const save = async () => {
     await InProgressMealModel.save({
       ...meal,
-      image: photo,
-      tip: description,
+      image: {
+        file: {
+          key: photo.s3Path,
+        },
+      },
+      description: description,
     } as Meal)
   }
 
@@ -112,14 +125,17 @@ const Cooker: React.FC<Props> = ({
     navigate('/cook/tags')
   }
 
-  const hasRecipe = meal.recipe || meal.steps.length > 0
+  const hasRecipe = meal.recipe || (meal.steps && meal.steps.length > 0)
 
   const scrollViewRef = React.useRef<ScrollView>(null)
   
   const onFocus = () => {
     scrollViewRef.current.scrollTo(theme.SIZES.BASE * 12)
   }
-  
+
+  const tags = meal.tags
+    ? meal.tags.map(( tag ) => ({ name: tag }))
+    : []
   
   return (
     <KeyboardAvoidingView
@@ -179,7 +195,7 @@ const Cooker: React.FC<Props> = ({
                           flex: 1,
                         }}
                       >
-                        Inspired by {meal.user.name}.
+                        Inspired by {meal.createdBy.username}.
 
                         What were your thoughts?
                       </Text>
@@ -219,7 +235,7 @@ const Cooker: React.FC<Props> = ({
                   borderBottomWidth: 1,
                   borderBottomColor: '#f0f0f0'
                 }}>
-                  <Tags tags={meal.preferences} />
+                  <Tags tags={tags} />
                   <Button
                     appearance='ghost'
                     style={{ marginRight: -theme.SIZES.BASE }}
