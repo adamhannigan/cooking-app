@@ -15,14 +15,9 @@ import { NavProp } from 'Navigation'
 
 import { Meal as IMeal, MealsModel } from 'domain/meals/model';
 
-import TrophySVG from './assets/cup.svg'
-import HeartDroolSVG from 'assets/icons/likes/drool.svg'
-import HeartDroolOutlineSVG from 'assets/icons/likes/outline.svg'
-import HeartOutlineSVG from 'assets/icons/likes/heartOutline.svg'
-import AddBookmarkOutlineSVG from 'assets/icons/bookmarks/addOutline.svg'
 import BookmarkOutlineSVG from 'assets/icons/bookmarks/outline.svg'
-
-import Actions from './Actions'
+import ClappingSVG from 'assets/icons/clap/clapping.svg'
+import CommentSVG from 'assets/icons/comment/comment.svg'
 
 // galio components
 import {
@@ -33,6 +28,7 @@ import { TouchableOpacity } from 'react-native-gesture-handler';
 import HangingBookmarkSVG from 'assets/icons/bookmarks/hangingBookmark.svg'
 import { UserModel } from 'domain/users/model';
 import AvatarHeader from './AvatarHeader';
+import Avatars from './Avatars';
 
 const { width, height } = Dimensions.get('screen');
 
@@ -74,6 +70,14 @@ const Meal = (meal: Props) => {
       setIsDrooling(true)
     }
 
+    const [claps, setClaps] = React.useState(0)
+
+    const onClap = () => {
+      if (claps < 3) {
+        setClaps(claps + 1)
+      }
+    }
+
 
     return (
         <Block>
@@ -101,7 +105,6 @@ const Meal = (meal: Props) => {
                     )
                   }
                   
-
                   <S3Image
                     s3Key={meal.image.file.key}
                     style={{
@@ -116,35 +119,98 @@ const Meal = (meal: Props) => {
 
 
             <Block style={styles.content}>
-              <Block style={{
-                backgroundColor: kittenTheme['color-info-default'],
-                paddingHorizontal: theme.SIZES.BASE,
-                width: 200,
-                borderRadius: 2,
-              }}>
-                <Text category='h5' numberOfLines={2} style={{
-                  color: 'white',
+              <Block row space='between'>
+                <Block style={{
+                  backgroundColor: kittenTheme['color-info-default'],
+                  paddingHorizontal: theme.SIZES.BASE,
+                  maxWidth: 300,
+                  borderRadius: 2,
                 }}>
-                  {meal.title}
-                </Text>
-              </Block>
+                  <Text category='h5' numberOfLines={2} style={{
+                    color: 'white',
+                    lineHeight: 26,
+                  }}>
+                    {meal.title}
+                  </Text>
+                  <Text category='label' style={{ color: 'white' }}>
+                    tasty.com
+                  </Text>
+                </Block>
+                <Block row middle>
+                  <Button
+                      status='basic'
+                      appearance='ghost'
+                      style={{
+                        height: 16,
+                      }}
+                      onPress={onLike}
+                      icon={() => (
+                        <BookmarkOutlineSVG
+                          width={25}
+                          height={25}
+                          fill={isDrooling ? kittenTheme['color-info-default'] : '#babbbb'}
+                        />
+                      )}/>
+                  
+                  <Block middle row>
+                    <Button
+                      status='basic'
+                      appearance='ghost'
+                      disabled={claps >= 3}
+                      style={{
+                        height: 16,
+                      }}
+                      textStyle={{
+                        color: '#babbbb',
+                      }}
+                      onPress={onClap}
+                      icon={() => (
+                        <ClappingSVG
+                          width={25}
+                          height={25}
+                          fill='#babbbb'
+                          style={{
+                            margin: 0,
+                            marginRight: 0,
+                          }}
+                        />
+                      )}>
+                        {(claps + meal.likes.items.length).toString()}
+                      </Button>
+                  </Block>
+                  
+                </Block>
+                </Block>
               {
                 meal.description && (
                   <Block row middle style={{
-                    width,
-                    paddingRight: 10,
+                    marginTop: theme.SIZES.BASE / 2,
+                    display: 'flex',
+                    alignItems: 'center',
                   }}>
+                    <CommentSVG
+                      width={25}
+                      height={25}
+                      fill='#babbbb'
+                      style={{
+                        marginRight: theme.SIZES.BASE / 2,
+                      }}
+                    />
                     <Text 
                       appearance='hint'
-                      category='s1'
-                      style={{ flex: 1 }}
+                      style={{
+                        fontSize: 16,
+                        flex: 1,
+                      }}
                       numberOfLines={2}
                     >
                       {meal.description}
                     </Text>
+
                   </Block>
                 )
               }
+              <Avatars avatars={['', '', '']} />
             </Block>
           </Block>
   )

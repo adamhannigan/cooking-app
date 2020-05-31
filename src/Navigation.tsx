@@ -155,7 +155,7 @@ function Navigation() {
     component: Favourites,
     options: {
       ...headerOptions,
-      title: 'Your recent likes',
+      title: 'Favourites',
     },
   }, {
     name: '/cook/details/:id',
