@@ -24,9 +24,15 @@ class Users {
         return getUserList()
     }
 
+    private userPromise: Promise<User> = null
+
     public async getCurrentUser(): Promise<User> {
         if (!this.currentUser) {
-            this.currentUser = await getCurrentUser()
+            if (!this.userPromise) {
+                this.userPromise = getCurrentUser()
+            }
+
+            return this.userPromise
         }
 
         return this.currentUser
@@ -60,6 +66,10 @@ class Users {
 
     public async getMenuItems(userId: string) {
         return await getMenuItemList(userId)
+    }
+
+    public clearCurrentUser() {
+        this.currentUser = null
     }
 }
 

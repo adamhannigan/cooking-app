@@ -140,6 +140,7 @@ const BookmarkButton: React.FC<Props> = ({
             disabled={!canLikeMore}
             style={{
                 height: 16,
+                width: 70,
             }}
             onPress={onLike}
             icon={() => (

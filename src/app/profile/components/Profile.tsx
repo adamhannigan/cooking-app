@@ -21,6 +21,7 @@ import { UserModel, User } from 'domain/users/model';
 
 import Menu from './Menu'
 import Recents from './Recents'
+import { AuthModel } from 'domain/auth/model';
 
 const { width, height } = Dimensions.get('screen');
 
@@ -49,11 +50,13 @@ const Profile = ({ id, isCurrentUser }: Props) => {
   }, [])
 
   // HACK to go back to start of onboarding
-  const onBackToStart = () => {
+  const onLogOut = () => {
     // LikeModel.reset()
     // InProgressMealModel.clear()
+    UserModel.clearCurrentUser()
+    AuthModel.logout()
 
-    navigation.navigate('/onboard/preferences')
+    navigation.navigate('/login')
   }
 
   return (
@@ -61,7 +64,7 @@ const Profile = ({ id, isCurrentUser }: Props) => {
       <ScrollView style={{ flex: 1 }}>
         <Block style={{ marginTop: - theme.SIZES.BASE * 2 }}>
           <Block center flex style={styles.header}>
-            <TouchableOpacity onPress={onBackToStart}>
+            <TouchableOpacity onPress={onLogOut}>
               <Avatar
                   style={styles.avatar}
                   source={{

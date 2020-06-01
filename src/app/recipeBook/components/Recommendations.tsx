@@ -41,7 +41,6 @@ export const Recommendations = ({
   React.useEffect(() => {
     const loadDrools = async () => {
       const likes = await LikesModel.getAll()
-      ('likes are: ', likes)
       const meals = likes.map(({ meal }) => meal)
 
       setDroolingMeals(meals)
@@ -83,17 +82,6 @@ export const Recommendations = ({
         }
 
         <Block style={styles.group}>
-          <Block style={styles.header}>
-            <Text category='h6' style={styles.heading} status='info'>
-                Recents
-            </Text>
-            <SmileSVG
-                style={styles.drool}
-                width={25}
-                height={25}
-            />
-          </Block>
-            
             <Block style={styles.meals}>
                 {
                   isLoading && (

@@ -3,6 +3,7 @@ import { Auth as AwsAuth } from 'aws-amplify'
 
 import register from './api/register'
 import login from './api/login'
+import logout from './api/logout'
 import { authEventHandler } from './events'
 
 class Auth {
@@ -43,6 +44,10 @@ class Auth {
 
         // TODO store session
         authEventHandler.onLogin()
+    }
+
+    public async logout() {
+        const loggedIn = await logout()
     }
 
     public async getCurrentUser() {

@@ -118,7 +118,6 @@ const Meal = (meal: Props) => {
                 </TouchableOpacity>
             </Block>
 
-
             <Block style={styles.content}>
               <Block row space='between'>
                 <Block style={{

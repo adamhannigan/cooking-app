@@ -88,10 +88,6 @@ const styles = StyleSheet.create({
     marginBottom: theme.SIZES.BASE / 2,
 
     backgroundColor: 'white',
-    borderTopWidth: 1,
-    borderTopColor: '#e3e3e3',
-    borderBottomWidth: 1,
-    borderBottomColor: '#e3e3e3',
   },
 
   heading: {

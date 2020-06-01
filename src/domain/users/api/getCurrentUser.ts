@@ -17,8 +17,6 @@ async function fetchUser(id: string) {
     console.log('Fetch with ID', input)
     const response = await API.graphql(graphqlOperation(getUser, input))
 
-    console.log('Response', response)
-
     return response
 }
 
@@ -63,8 +61,6 @@ export async function getCurrentUser() {
 
         return
     }
-
-    console.log('user', user)
 
     return user
 }

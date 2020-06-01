@@ -33,10 +33,10 @@ class Meals {
 
         likeEventHandler.onLike()
         
-        /*return like({
+        return like({
             userId: currentUser.id,
             mealId: meal.id,
-        })*/
+        })
     }
 
     public async addToMenu(meal: Meal) {

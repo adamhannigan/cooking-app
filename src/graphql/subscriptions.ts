@@ -19,71 +19,6 @@ export const onCreateLike = /* GraphQL */ `
         likes {
           items {
             id
-            meal {
-              id
-              title
-              description
-              likes {
-                nextToken
-              }
-              inspiredBy {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              menuItem {
-                id
-                order
-                owner
-              }
-              createdBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              createdAt
-              recipe
-              ingredients {
-                items
-              }
-              steps {
-                description
-              }
-              tags
-              owner
-            }
-            likedBy {
-              id
-              username
-              email
-              firstName
-              lastName
-              bio
-              meals {
-                nextToken
-              }
-              menuItems {
-                nextToken
-              }
-              likes {
-                nextToken
-              }
-              followers {
-                nextToken
-              }
-              following {
-                nextToken
-              }
-              owner
-            }
             owner
           }
           nextToken
@@ -91,224 +26,22 @@ export const onCreateLike = /* GraphQL */ `
         inspiredBy {
           id
           title
-          image {
-            file {
-              bucket
-              region
-              key
-            }
-          }
           description
           likes {
-            items {
-              id
-              meal {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              likedBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              owner
-            }
             nextToken
           }
           inspiredBy {
             id
             title
-            image {
-              file {
-                bucket
-                region
-                key
-              }
-            }
             description
-            likes {
-              items {
-                id
-                owner
-              }
-              nextToken
-            }
-            inspiredBy {
-              id
-              title
-              description
-              likes {
-                nextToken
-              }
-              inspiredBy {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              menuItem {
-                id
-                order
-                owner
-              }
-              createdBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              createdAt
-              recipe
-              ingredients {
-                items
-              }
-              steps {
-                description
-              }
-              tags
-              owner
-            }
-            menuItem {
-              id
-              order
-              meal {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              createdBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              owner
-            }
-            createdBy {
-              id
-              username
-              email
-              firstName
-              lastName
-              bio
-              meals {
-                nextToken
-              }
-              menuItems {
-                nextToken
-              }
-              likes {
-                nextToken
-              }
-              followers {
-                nextToken
-              }
-              following {
-                nextToken
-              }
-              owner
-            }
             createdAt
             recipe
-            ingredients {
-              items
-            }
-            steps {
-              description
-            }
             tags
             owner
           }
           menuItem {
             id
             order
-            meal {
-              id
-              title
-              description
-              likes {
-                nextToken
-              }
-              inspiredBy {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              menuItem {
-                id
-                order
-                owner
-              }
-              createdBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              createdAt
-              recipe
-              ingredients {
-                items
-              }
-              steps {
-                description
-              }
-              tags
-              owner
-            }
-            createdBy {
-              id
-              username
-              email
-              firstName
-              lastName
-              bio
-              meals {
-                nextToken
-              }
-              menuItems {
-                nextToken
-              }
-              likes {
-                nextToken
-              }
-              followers {
-                nextToken
-              }
-              following {
-                nextToken
-              }
-              owner
-            }
             owner
           }
           createdBy {
@@ -318,76 +51,14 @@ export const onCreateLike = /* GraphQL */ `
             firstName
             lastName
             bio
-            image {
-              file {
-                bucket
-                region
-                key
-              }
-            }
-            meals {
-              items {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              nextToken
-            }
-            menuItems {
-              items {
-                id
-                order
-                owner
-              }
-              nextToken
-            }
-            likes {
-              items {
-                id
-                owner
-              }
-              nextToken
-            }
-            followers {
-              items {
-                id
-                owner
-              }
-              nextToken
-            }
-            following {
-              items {
-                id
-                owner
-              }
-              nextToken
-            }
             owner
           }
           createdAt
           recipe
           ingredients {
-            image {
-              file {
-                bucket
-                region
-                key
-              }
-            }
             items
           }
           steps {
-            image {
-              file {
-                bucket
-                region
-                key
-              }
-            }
             description
           }
           tags
@@ -399,117 +70,9 @@ export const onCreateLike = /* GraphQL */ `
           meal {
             id
             title
-            image {
-              file {
-                bucket
-                region
-                key
-              }
-            }
             description
-            likes {
-              items {
-                id
-                owner
-              }
-              nextToken
-            }
-            inspiredBy {
-              id
-              title
-              description
-              likes {
-                nextToken
-              }
-              inspiredBy {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              menuItem {
-                id
-                order
-                owner
-              }
-              createdBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              createdAt
-              recipe
-              ingredients {
-                items
-              }
-              steps {
-                description
-              }
-              tags
-              owner
-            }
-            menuItem {
-              id
-              order
-              meal {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              createdBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              owner
-            }
-            createdBy {
-              id
-              username
-              email
-              firstName
-              lastName
-              bio
-              meals {
-                nextToken
-              }
-              menuItems {
-                nextToken
-              }
-              likes {
-                nextToken
-              }
-              followers {
-                nextToken
-              }
-              following {
-                nextToken
-              }
-              owner
-            }
             createdAt
             recipe
-            ingredients {
-              items
-            }
-            steps {
-              description
-            }
             tags
             owner
           }
@@ -520,54 +83,6 @@ export const onCreateLike = /* GraphQL */ `
             firstName
             lastName
             bio
-            image {
-              file {
-                bucket
-                region
-                key
-              }
-            }
-            meals {
-              items {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              nextToken
-            }
-            menuItems {
-              items {
-                id
-                order
-                owner
-              }
-              nextToken
-            }
-            likes {
-              items {
-                id
-                owner
-              }
-              nextToken
-            }
-            followers {
-              items {
-                id
-                owner
-              }
-              nextToken
-            }
-            following {
-              items {
-                id
-                owner
-              }
-              nextToken
-            }
             owner
           }
           owner
@@ -579,156 +94,19 @@ export const onCreateLike = /* GraphQL */ `
           firstName
           lastName
           bio
-          image {
-            file {
-              bucket
-              region
-              key
-            }
-          }
           meals {
-            items {
-              id
-              title
-              description
-              likes {
-                nextToken
-              }
-              inspiredBy {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              menuItem {
-                id
-                order
-                owner
-              }
-              createdBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              createdAt
-              recipe
-              ingredients {
-                items
-              }
-              steps {
-                description
-              }
-              tags
-              owner
-            }
             nextToken
           }
           menuItems {
-            items {
-              id
-              order
-              meal {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              createdBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              owner
-            }
             nextToken
           }
           likes {
-            items {
-              id
-              meal {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              likedBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              owner
-            }
             nextToken
           }
           followers {
-            items {
-              id
-              user {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              followedBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              owner
-            }
             nextToken
           }
           following {
-            items {
-              id
-              user {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              followedBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              owner
-            }
             nextToken
           }
           owner
@@ -736,23 +114,9 @@ export const onCreateLike = /* GraphQL */ `
         createdAt
         recipe
         ingredients {
-          image {
-            file {
-              bucket
-              region
-              key
-            }
-          }
           items
         }
         steps {
-          image {
-            file {
-              bucket
-              region
-              key
-            }
-          }
           description
         }
         tags
@@ -776,117 +140,9 @@ export const onCreateLike = /* GraphQL */ `
           items {
             id
             title
-            image {
-              file {
-                bucket
-                region
-                key
-              }
-            }
             description
-            likes {
-              items {
-                id
-                owner
-              }
-              nextToken
-            }
-            inspiredBy {
-              id
-              title
-              description
-              likes {
-                nextToken
-              }
-              inspiredBy {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              menuItem {
-                id
-                order
-                owner
-              }
-              createdBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              createdAt
-              recipe
-              ingredients {
-                items
-              }
-              steps {
-                description
-              }
-              tags
-              owner
-            }
-            menuItem {
-              id
-              order
-              meal {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              createdBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              owner
-            }
-            createdBy {
-              id
-              username
-              email
-              firstName
-              lastName
-              bio
-              meals {
-                nextToken
-              }
-              menuItems {
-                nextToken
-              }
-              likes {
-                nextToken
-              }
-              followers {
-                nextToken
-              }
-              following {
-                nextToken
-              }
-              owner
-            }
             createdAt
             recipe
-            ingredients {
-              items
-            }
-            steps {
-              description
-            }
             tags
             owner
           }
@@ -896,71 +152,6 @@ export const onCreateLike = /* GraphQL */ `
           items {
             id
             order
-            meal {
-              id
-              title
-              description
-              likes {
-                nextToken
-              }
-              inspiredBy {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              menuItem {
-                id
-                order
-                owner
-              }
-              createdBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              createdAt
-              recipe
-              ingredients {
-                items
-              }
-              steps {
-                description
-              }
-              tags
-              owner
-            }
-            createdBy {
-              id
-              username
-              email
-              firstName
-              lastName
-              bio
-              meals {
-                nextToken
-              }
-              menuItems {
-                nextToken
-              }
-              likes {
-                nextToken
-              }
-              followers {
-                nextToken
-              }
-              following {
-                nextToken
-              }
-              owner
-            }
             owner
           }
           nextToken
@@ -968,71 +159,6 @@ export const onCreateLike = /* GraphQL */ `
         likes {
           items {
             id
-            meal {
-              id
-              title
-              description
-              likes {
-                nextToken
-              }
-              inspiredBy {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              menuItem {
-                id
-                order
-                owner
-              }
-              createdBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              createdAt
-              recipe
-              ingredients {
-                items
-              }
-              steps {
-                description
-              }
-              tags
-              owner
-            }
-            likedBy {
-              id
-              username
-              email
-              firstName
-              lastName
-              bio
-              meals {
-                nextToken
-              }
-              menuItems {
-                nextToken
-              }
-              likes {
-                nextToken
-              }
-              followers {
-                nextToken
-              }
-              following {
-                nextToken
-              }
-              owner
-            }
             owner
           }
           nextToken
@@ -1040,54 +166,6 @@ export const onCreateLike = /* GraphQL */ `
         followers {
           items {
             id
-            user {
-              id
-              username
-              email
-              firstName
-              lastName
-              bio
-              meals {
-                nextToken
-              }
-              menuItems {
-                nextToken
-              }
-              likes {
-                nextToken
-              }
-              followers {
-                nextToken
-              }
-              following {
-                nextToken
-              }
-              owner
-            }
-            followedBy {
-              id
-              username
-              email
-              firstName
-              lastName
-              bio
-              meals {
-                nextToken
-              }
-              menuItems {
-                nextToken
-              }
-              likes {
-                nextToken
-              }
-              followers {
-                nextToken
-              }
-              following {
-                nextToken
-              }
-              owner
-            }
             owner
           }
           nextToken
@@ -1095,54 +173,6 @@ export const onCreateLike = /* GraphQL */ `
         following {
           items {
             id
-            user {
-              id
-              username
-              email
-              firstName
-              lastName
-              bio
-              meals {
-                nextToken
-              }
-              menuItems {
-                nextToken
-              }
-              likes {
-                nextToken
-              }
-              followers {
-                nextToken
-              }
-              following {
-                nextToken
-              }
-              owner
-            }
-            followedBy {
-              id
-              username
-              email
-              firstName
-              lastName
-              bio
-              meals {
-                nextToken
-              }
-              menuItems {
-                nextToken
-              }
-              likes {
-                nextToken
-              }
-              followers {
-                nextToken
-              }
-              following {
-                nextToken
-              }
-              owner
-            }
             owner
           }
           nextToken
@@ -1171,71 +201,6 @@ export const onUpdateLike = /* GraphQL */ `
         likes {
           items {
             id
-            meal {
-              id
-              title
-              description
-              likes {
-                nextToken
-              }
-              inspiredBy {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              menuItem {
-                id
-                order
-                owner
-              }
-              createdBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              createdAt
-              recipe
-              ingredients {
-                items
-              }
-              steps {
-                description
-              }
-              tags
-              owner
-            }
-            likedBy {
-              id
-              username
-              email
-              firstName
-              lastName
-              bio
-              meals {
-                nextToken
-              }
-              menuItems {
-                nextToken
-              }
-              likes {
-                nextToken
-              }
-              followers {
-                nextToken
-              }
-              following {
-                nextToken
-              }
-              owner
-            }
             owner
           }
           nextToken
@@ -1243,224 +208,22 @@ export const onUpdateLike = /* GraphQL */ `
         inspiredBy {
           id
           title
-          image {
-            file {
-              bucket
-              region
-              key
-            }
-          }
           description
           likes {
-            items {
-              id
-              meal {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              likedBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              owner
-            }
             nextToken
           }
           inspiredBy {
             id
             title
-            image {
-              file {
-                bucket
-                region
-                key
-              }
-            }
             description
-            likes {
-              items {
-                id
-                owner
-              }
-              nextToken
-            }
-            inspiredBy {
-              id
-              title
-              description
-              likes {
-                nextToken
-              }
-              inspiredBy {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              menuItem {
-                id
-                order
-                owner
-              }
-              createdBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              createdAt
-              recipe
-              ingredients {
-                items
-              }
-              steps {
-                description
-              }
-              tags
-              owner
-            }
-            menuItem {
-              id
-              order
-              meal {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              createdBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              owner
-            }
-            createdBy {
-              id
-              username
-              email
-              firstName
-              lastName
-              bio
-              meals {
-                nextToken
-              }
-              menuItems {
-                nextToken
-              }
-              likes {
-                nextToken
-              }
-              followers {
-                nextToken
-              }
-              following {
-                nextToken
-              }
-              owner
-            }
             createdAt
             recipe
-            ingredients {
-              items
-            }
-            steps {
-              description
-            }
             tags
             owner
           }
           menuItem {
             id
             order
-            meal {
-              id
-              title
-              description
-              likes {
-                nextToken
-              }
-              inspiredBy {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              menuItem {
-                id
-                order
-                owner
-              }
-              createdBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              createdAt
-              recipe
-              ingredients {
-                items
-              }
-              steps {
-                description
-              }
-              tags
-              owner
-            }
-            createdBy {
-              id
-              username
-              email
-              firstName
-              lastName
-              bio
-              meals {
-                nextToken
-              }
-              menuItems {
-                nextToken
-              }
-              likes {
-                nextToken
-              }
-              followers {
-                nextToken
-              }
-              following {
-                nextToken
-              }
-              owner
-            }
             owner
           }
           createdBy {
@@ -1470,76 +233,14 @@ export const onUpdateLike = /* GraphQL */ `
             firstName
             lastName
             bio
-            image {
-              file {
-                bucket
-                region
-                key
-              }
-            }
-            meals {
-              items {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              nextToken
-            }
-            menuItems {
-              items {
-                id
-                order
-                owner
-              }
-              nextToken
-            }
-            likes {
-              items {
-                id
-                owner
-              }
-              nextToken
-            }
-            followers {
-              items {
-                id
-                owner
-              }
-              nextToken
-            }
-            following {
-              items {
-                id
-                owner
-              }
-              nextToken
-            }
             owner
           }
           createdAt
           recipe
           ingredients {
-            image {
-              file {
-                bucket
-                region
-                key
-              }
-            }
             items
           }
           steps {
-            image {
-              file {
-                bucket
-                region
-                key
-              }
-            }
             description
           }
           tags
@@ -1551,117 +252,9 @@ export const onUpdateLike = /* GraphQL */ `
           meal {
             id
             title
-            image {
-              file {
-                bucket
-                region
-                key
-              }
-            }
             description
-            likes {
-              items {
-                id
-                owner
-              }
-              nextToken
-            }
-            inspiredBy {
-              id
-              title
-              description
-              likes {
-                nextToken
-              }
-              inspiredBy {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              menuItem {
-                id
-                order
-                owner
-              }
-              createdBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              createdAt
-              recipe
-              ingredients {
-                items
-              }
-              steps {
-                description
-              }
-              tags
-              owner
-            }
-            menuItem {
-              id
-              order
-              meal {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              createdBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              owner
-            }
-            createdBy {
-              id
-              username
-              email
-              firstName
-              lastName
-              bio
-              meals {
-                nextToken
-              }
-              menuItems {
-                nextToken
-              }
-              likes {
-                nextToken
-              }
-              followers {
-                nextToken
-              }
-              following {
-                nextToken
-              }
-              owner
-            }
             createdAt
             recipe
-            ingredients {
-              items
-            }
-            steps {
-              description
-            }
             tags
             owner
           }
@@ -1672,54 +265,6 @@ export const onUpdateLike = /* GraphQL */ `
             firstName
             lastName
             bio
-            image {
-              file {
-                bucket
-                region
-                key
-              }
-            }
-            meals {
-              items {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              nextToken
-            }
-            menuItems {
-              items {
-                id
-                order
-                owner
-              }
-              nextToken
-            }
-            likes {
-              items {
-                id
-                owner
-              }
-              nextToken
-            }
-            followers {
-              items {
-                id
-                owner
-              }
-              nextToken
-            }
-            following {
-              items {
-                id
-                owner
-              }
-              nextToken
-            }
             owner
           }
           owner
@@ -1731,156 +276,19 @@ export const onUpdateLike = /* GraphQL */ `
           firstName
           lastName
           bio
-          image {
-            file {
-              bucket
-              region
-              key
-            }
-          }
           meals {
-            items {
-              id
-              title
-              description
-              likes {
-                nextToken
-              }
-              inspiredBy {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              menuItem {
-                id
-                order
-                owner
-              }
-              createdBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              createdAt
-              recipe
-              ingredients {
-                items
-              }
-              steps {
-                description
-              }
-              tags
-              owner
-            }
             nextToken
           }
           menuItems {
-            items {
-              id
-              order
-              meal {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              createdBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              owner
-            }
             nextToken
           }
           likes {
-            items {
-              id
-              meal {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              likedBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              owner
-            }
             nextToken
           }
           followers {
-            items {
-              id
-              user {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              followedBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              owner
-            }
             nextToken
           }
           following {
-            items {
-              id
-              user {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              followedBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              owner
-            }
             nextToken
           }
           owner
@@ -1888,23 +296,9 @@ export const onUpdateLike = /* GraphQL */ `
         createdAt
         recipe
         ingredients {
-          image {
-            file {
-              bucket
-              region
-              key
-            }
-          }
           items
         }
         steps {
-          image {
-            file {
-              bucket
-              region
-              key
-            }
-          }
           description
         }
         tags
@@ -1928,117 +322,9 @@ export const onUpdateLike = /* GraphQL */ `
           items {
             id
             title
-            image {
-              file {
-                bucket
-                region
-                key
-              }
-            }
             description
-            likes {
-              items {
-                id
-                owner
-              }
-              nextToken
-            }
-            inspiredBy {
-              id
-              title
-              description
-              likes {
-                nextToken
-              }
-              inspiredBy {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              menuItem {
-                id
-                order
-                owner
-              }
-              createdBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              createdAt
-              recipe
-              ingredients {
-                items
-              }
-              steps {
-                description
-              }
-              tags
-              owner
-            }
-            menuItem {
-              id
-              order
-              meal {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              createdBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              owner
-            }
-            createdBy {
-              id
-              username
-              email
-              firstName
-              lastName
-              bio
-              meals {
-                nextToken
-              }
-              menuItems {
-                nextToken
-              }
-              likes {
-                nextToken
-              }
-              followers {
-                nextToken
-              }
-              following {
-                nextToken
-              }
-              owner
-            }
             createdAt
             recipe
-            ingredients {
-              items
-            }
-            steps {
-              description
-            }
             tags
             owner
           }
@@ -2048,71 +334,6 @@ export const onUpdateLike = /* GraphQL */ `
           items {
             id
             order
-            meal {
-              id
-              title
-              description
-              likes {
-                nextToken
-              }
-              inspiredBy {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              menuItem {
-                id
-                order
-                owner
-              }
-              createdBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              createdAt
-              recipe
-              ingredients {
-                items
-              }
-              steps {
-                description
-              }
-              tags
-              owner
-            }
-            createdBy {
-              id
-              username
-              email
-              firstName
-              lastName
-              bio
-              meals {
-                nextToken
-              }
-              menuItems {
-                nextToken
-              }
-              likes {
-                nextToken
-              }
-              followers {
-                nextToken
-              }
-              following {
-                nextToken
-              }
-              owner
-            }
             owner
           }
           nextToken
@@ -2120,71 +341,6 @@ export const onUpdateLike = /* GraphQL */ `
         likes {
           items {
             id
-            meal {
-              id
-              title
-              description
-              likes {
-                nextToken
-              }
-              inspiredBy {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              menuItem {
-                id
-                order
-                owner
-              }
-              createdBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              createdAt
-              recipe
-              ingredients {
-                items
-              }
-              steps {
-                description
-              }
-              tags
-              owner
-            }
-            likedBy {
-              id
-              username
-              email
-              firstName
-              lastName
-              bio
-              meals {
-                nextToken
-              }
-              menuItems {
-                nextToken
-              }
-              likes {
-                nextToken
-              }
-              followers {
-                nextToken
-              }
-              following {
-                nextToken
-              }
-              owner
-            }
             owner
           }
           nextToken
@@ -2192,54 +348,6 @@ export const onUpdateLike = /* GraphQL */ `
         followers {
           items {
             id
-            user {
-              id
-              username
-              email
-              firstName
-              lastName
-              bio
-              meals {
-                nextToken
-              }
-              menuItems {
-                nextToken
-              }
-              likes {
-                nextToken
-              }
-              followers {
-                nextToken
-              }
-              following {
-                nextToken
-              }
-              owner
-            }
-            followedBy {
-              id
-              username
-              email
-              firstName
-              lastName
-              bio
-              meals {
-                nextToken
-              }
-              menuItems {
-                nextToken
-              }
-              likes {
-                nextToken
-              }
-              followers {
-                nextToken
-              }
-              following {
-                nextToken
-              }
-              owner
-            }
             owner
           }
           nextToken
@@ -2247,54 +355,6 @@ export const onUpdateLike = /* GraphQL */ `
         following {
           items {
             id
-            user {
-              id
-              username
-              email
-              firstName
-              lastName
-              bio
-              meals {
-                nextToken
-              }
-              menuItems {
-                nextToken
-              }
-              likes {
-                nextToken
-              }
-              followers {
-                nextToken
-              }
-              following {
-                nextToken
-              }
-              owner
-            }
-            followedBy {
-              id
-              username
-              email
-              firstName
-              lastName
-              bio
-              meals {
-                nextToken
-              }
-              menuItems {
-                nextToken
-              }
-              likes {
-                nextToken
-              }
-              followers {
-                nextToken
-              }
-              following {
-                nextToken
-              }
-              owner
-            }
             owner
           }
           nextToken
@@ -2323,71 +383,6 @@ export const onDeleteLike = /* GraphQL */ `
         likes {
           items {
             id
-            meal {
-              id
-              title
-              description
-              likes {
-                nextToken
-              }
-              inspiredBy {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              menuItem {
-                id
-                order
-                owner
-              }
-              createdBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              createdAt
-              recipe
-              ingredients {
-                items
-              }
-              steps {
-                description
-              }
-              tags
-              owner
-            }
-            likedBy {
-              id
-              username
-              email
-              firstName
-              lastName
-              bio
-              meals {
-                nextToken
-              }
-              menuItems {
-                nextToken
-              }
-              likes {
-                nextToken
-              }
-              followers {
-                nextToken
-              }
-              following {
-                nextToken
-              }
-              owner
-            }
             owner
           }
           nextToken
@@ -2395,224 +390,22 @@ export const onDeleteLike = /* GraphQL */ `
         inspiredBy {
           id
           title
-          image {
-            file {
-              bucket
-              region
-              key
-            }
-          }
           description
           likes {
-            items {
-              id
-              meal {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              likedBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              owner
-            }
             nextToken
           }
           inspiredBy {
             id
             title
-            image {
-              file {
-                bucket
-                region
-                key
-              }
-            }
             description
-            likes {
-              items {
-                id
-                owner
-              }
-              nextToken
-            }
-            inspiredBy {
-              id
-              title
-              description
-              likes {
-                nextToken
-              }
-              inspiredBy {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              menuItem {
-                id
-                order
-                owner
-              }
-              createdBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              createdAt
-              recipe
-              ingredients {
-                items
-              }
-              steps {
-                description
-              }
-              tags
-              owner
-            }
-            menuItem {
-              id
-              order
-              meal {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              createdBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              owner
-            }
-            createdBy {
-              id
-              username
-              email
-              firstName
-              lastName
-              bio
-              meals {
-                nextToken
-              }
-              menuItems {
-                nextToken
-              }
-              likes {
-                nextToken
-              }
-              followers {
-                nextToken
-              }
-              following {
-                nextToken
-              }
-              owner
-            }
             createdAt
             recipe
-            ingredients {
-              items
-            }
-            steps {
-              description
-            }
             tags
             owner
           }
           menuItem {
             id
             order
-            meal {
-              id
-              title
-              description
-              likes {
-                nextToken
-              }
-              inspiredBy {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              menuItem {
-                id
-                order
-                owner
-              }
-              createdBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              createdAt
-              recipe
-              ingredients {
-                items
-              }
-              steps {
-                description
-              }
-              tags
-              owner
-            }
-            createdBy {
-              id
-              username
-              email
-              firstName
-              lastName
-              bio
-              meals {
-                nextToken
-              }
-              menuItems {
-                nextToken
-              }
-              likes {
-                nextToken
-              }
-              followers {
-                nextToken
-              }
-              following {
-                nextToken
-              }
-              owner
-            }
             owner
           }
           createdBy {
@@ -2622,76 +415,14 @@ export const onDeleteLike = /* GraphQL */ `
             firstName
             lastName
             bio
-            image {
-              file {
-                bucket
-                region
-                key
-              }
-            }
-            meals {
-              items {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              nextToken
-            }
-            menuItems {
-              items {
-                id
-                order
-                owner
-              }
-              nextToken
-            }
-            likes {
-              items {
-                id
-                owner
-              }
-              nextToken
-            }
-            followers {
-              items {
-                id
-                owner
-              }
-              nextToken
-            }
-            following {
-              items {
-                id
-                owner
-              }
-              nextToken
-            }
             owner
           }
           createdAt
           recipe
           ingredients {
-            image {
-              file {
-                bucket
-                region
-                key
-              }
-            }
             items
           }
           steps {
-            image {
-              file {
-                bucket
-                region
-                key
-              }
-            }
             description
           }
           tags
@@ -2703,117 +434,9 @@ export const onDeleteLike = /* GraphQL */ `
           meal {
             id
             title
-            image {
-              file {
-                bucket
-                region
-                key
-              }
-            }
             description
-            likes {
-              items {
-                id
-                owner
-              }
-              nextToken
-            }
-            inspiredBy {
-              id
-              title
-              description
-              likes {
-                nextToken
-              }
-              inspiredBy {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              menuItem {
-                id
-                order
-                owner
-              }
-              createdBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              createdAt
-              recipe
-              ingredients {
-                items
-              }
-              steps {
-                description
-              }
-              tags
-              owner
-            }
-            menuItem {
-              id
-              order
-              meal {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              createdBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              owner
-            }
-            createdBy {
-              id
-              username
-              email
-              firstName
-              lastName
-              bio
-              meals {
-                nextToken
-              }
-              menuItems {
-                nextToken
-              }
-              likes {
-                nextToken
-              }
-              followers {
-                nextToken
-              }
-              following {
-                nextToken
-              }
-              owner
-            }
             createdAt
             recipe
-            ingredients {
-              items
-            }
-            steps {
-              description
-            }
             tags
             owner
           }
@@ -2824,54 +447,6 @@ export const onDeleteLike = /* GraphQL */ `
             firstName
             lastName
             bio
-            image {
-              file {
-                bucket
-                region
-                key
-              }
-            }
-            meals {
-              items {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              nextToken
-            }
-            menuItems {
-              items {
-                id
-                order
-                owner
-              }
-              nextToken
-            }
-            likes {
-              items {
-                id
-                owner
-              }
-              nextToken
-            }
-            followers {
-              items {
-                id
-                owner
-              }
-              nextToken
-            }
-            following {
-              items {
-                id
-                owner
-              }
-              nextToken
-            }
             owner
           }
           owner
@@ -2883,156 +458,19 @@ export const onDeleteLike = /* GraphQL */ `
           firstName
           lastName
           bio
-          image {
-            file {
-              bucket
-              region
-              key
-            }
-          }
           meals {
-            items {
-              id
-              title
-              description
-              likes {
-                nextToken
-              }
-              inspiredBy {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              menuItem {
-                id
-                order
-                owner
-              }
-              createdBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              createdAt
-              recipe
-              ingredients {
-                items
-              }
-              steps {
-                description
-              }
-              tags
-              owner
-            }
             nextToken
           }
           menuItems {
-            items {
-              id
-              order
-              meal {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              createdBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              owner
-            }
             nextToken
           }
           likes {
-            items {
-              id
-              meal {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              likedBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              owner
-            }
             nextToken
           }
           followers {
-            items {
-              id
-              user {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              followedBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              owner
-            }
             nextToken
           }
           following {
-            items {
-              id
-              user {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              followedBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              owner
-            }
             nextToken
           }
           owner
@@ -3040,23 +478,9 @@ export const onDeleteLike = /* GraphQL */ `
         createdAt
         recipe
         ingredients {
-          image {
-            file {
-              bucket
-              region
-              key
-            }
-          }
           items
         }
         steps {
-          image {
-            file {
-              bucket
-              region
-              key
-            }
-          }
           description
         }
         tags
@@ -3080,117 +504,9 @@ export const onDeleteLike = /* GraphQL */ `
           items {
             id
             title
-            image {
-              file {
-                bucket
-                region
-                key
-              }
-            }
             description
-            likes {
-              items {
-                id
-                owner
-              }
-              nextToken
-            }
-            inspiredBy {
-              id
-              title
-              description
-              likes {
-                nextToken
-              }
-              inspiredBy {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              menuItem {
-                id
-                order
-                owner
-              }
-              createdBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              createdAt
-              recipe
-              ingredients {
-                items
-              }
-              steps {
-                description
-              }
-              tags
-              owner
-            }
-            menuItem {
-              id
-              order
-              meal {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              createdBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              owner
-            }
-            createdBy {
-              id
-              username
-              email
-              firstName
-              lastName
-              bio
-              meals {
-                nextToken
-              }
-              menuItems {
-                nextToken
-              }
-              likes {
-                nextToken
-              }
-              followers {
-                nextToken
-              }
-              following {
-                nextToken
-              }
-              owner
-            }
             createdAt
             recipe
-            ingredients {
-              items
-            }
-            steps {
-              description
-            }
             tags
             owner
           }
@@ -3200,71 +516,6 @@ export const onDeleteLike = /* GraphQL */ `
           items {
             id
             order
-            meal {
-              id
-              title
-              description
-              likes {
-                nextToken
-              }
-              inspiredBy {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              menuItem {
-                id
-                order
-                owner
-              }
-              createdBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              createdAt
-              recipe
-              ingredients {
-                items
-              }
-              steps {
-                description
-              }
-              tags
-              owner
-            }
-            createdBy {
-              id
-              username
-              email
-              firstName
-              lastName
-              bio
-              meals {
-                nextToken
-              }
-              menuItems {
-                nextToken
-              }
-              likes {
-                nextToken
-              }
-              followers {
-                nextToken
-              }
-              following {
-                nextToken
-              }
-              owner
-            }
             owner
           }
           nextToken
@@ -3272,71 +523,6 @@ export const onDeleteLike = /* GraphQL */ `
         likes {
           items {
             id
-            meal {
-              id
-              title
-              description
-              likes {
-                nextToken
-              }
-              inspiredBy {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              menuItem {
-                id
-                order
-                owner
-              }
-              createdBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              createdAt
-              recipe
-              ingredients {
-                items
-              }
-              steps {
-                description
-              }
-              tags
-              owner
-            }
-            likedBy {
-              id
-              username
-              email
-              firstName
-              lastName
-              bio
-              meals {
-                nextToken
-              }
-              menuItems {
-                nextToken
-              }
-              likes {
-                nextToken
-              }
-              followers {
-                nextToken
-              }
-              following {
-                nextToken
-              }
-              owner
-            }
             owner
           }
           nextToken
@@ -3344,54 +530,6 @@ export const onDeleteLike = /* GraphQL */ `
         followers {
           items {
             id
-            user {
-              id
-              username
-              email
-              firstName
-              lastName
-              bio
-              meals {
-                nextToken
-              }
-              menuItems {
-                nextToken
-              }
-              likes {
-                nextToken
-              }
-              followers {
-                nextToken
-              }
-              following {
-                nextToken
-              }
-              owner
-            }
-            followedBy {
-              id
-              username
-              email
-              firstName
-              lastName
-              bio
-              meals {
-                nextToken
-              }
-              menuItems {
-                nextToken
-              }
-              likes {
-                nextToken
-              }
-              followers {
-                nextToken
-              }
-              following {
-                nextToken
-              }
-              owner
-            }
             owner
           }
           nextToken
@@ -3399,54 +537,6 @@ export const onDeleteLike = /* GraphQL */ `
         following {
           items {
             id
-            user {
-              id
-              username
-              email
-              firstName
-              lastName
-              bio
-              meals {
-                nextToken
-              }
-              menuItems {
-                nextToken
-              }
-              likes {
-                nextToken
-              }
-              followers {
-                nextToken
-              }
-              following {
-                nextToken
-              }
-              owner
-            }
-            followedBy {
-              id
-              username
-              email
-              firstName
-              lastName
-              bio
-              meals {
-                nextToken
-              }
-              menuItems {
-                nextToken
-              }
-              likes {
-                nextToken
-              }
-              followers {
-                nextToken
-              }
-              following {
-                nextToken
-              }
-              owner
-            }
             owner
           }
           nextToken
@@ -3479,117 +569,9 @@ export const onCreateFollower = /* GraphQL */ `
           items {
             id
             title
-            image {
-              file {
-                bucket
-                region
-                key
-              }
-            }
             description
-            likes {
-              items {
-                id
-                owner
-              }
-              nextToken
-            }
-            inspiredBy {
-              id
-              title
-              description
-              likes {
-                nextToken
-              }
-              inspiredBy {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              menuItem {
-                id
-                order
-                owner
-              }
-              createdBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              createdAt
-              recipe
-              ingredients {
-                items
-              }
-              steps {
-                description
-              }
-              tags
-              owner
-            }
-            menuItem {
-              id
-              order
-              meal {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              createdBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              owner
-            }
-            createdBy {
-              id
-              username
-              email
-              firstName
-              lastName
-              bio
-              meals {
-                nextToken
-              }
-              menuItems {
-                nextToken
-              }
-              likes {
-                nextToken
-              }
-              followers {
-                nextToken
-              }
-              following {
-                nextToken
-              }
-              owner
-            }
             createdAt
             recipe
-            ingredients {
-              items
-            }
-            steps {
-              description
-            }
             tags
             owner
           }
@@ -3599,71 +581,6 @@ export const onCreateFollower = /* GraphQL */ `
           items {
             id
             order
-            meal {
-              id
-              title
-              description
-              likes {
-                nextToken
-              }
-              inspiredBy {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              menuItem {
-                id
-                order
-                owner
-              }
-              createdBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              createdAt
-              recipe
-              ingredients {
-                items
-              }
-              steps {
-                description
-              }
-              tags
-              owner
-            }
-            createdBy {
-              id
-              username
-              email
-              firstName
-              lastName
-              bio
-              meals {
-                nextToken
-              }
-              menuItems {
-                nextToken
-              }
-              likes {
-                nextToken
-              }
-              followers {
-                nextToken
-              }
-              following {
-                nextToken
-              }
-              owner
-            }
             owner
           }
           nextToken
@@ -3671,71 +588,6 @@ export const onCreateFollower = /* GraphQL */ `
         likes {
           items {
             id
-            meal {
-              id
-              title
-              description
-              likes {
-                nextToken
-              }
-              inspiredBy {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              menuItem {
-                id
-                order
-                owner
-              }
-              createdBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              createdAt
-              recipe
-              ingredients {
-                items
-              }
-              steps {
-                description
-              }
-              tags
-              owner
-            }
-            likedBy {
-              id
-              username
-              email
-              firstName
-              lastName
-              bio
-              meals {
-                nextToken
-              }
-              menuItems {
-                nextToken
-              }
-              likes {
-                nextToken
-              }
-              followers {
-                nextToken
-              }
-              following {
-                nextToken
-              }
-              owner
-            }
             owner
           }
           nextToken
@@ -3743,54 +595,6 @@ export const onCreateFollower = /* GraphQL */ `
         followers {
           items {
             id
-            user {
-              id
-              username
-              email
-              firstName
-              lastName
-              bio
-              meals {
-                nextToken
-              }
-              menuItems {
-                nextToken
-              }
-              likes {
-                nextToken
-              }
-              followers {
-                nextToken
-              }
-              following {
-                nextToken
-              }
-              owner
-            }
-            followedBy {
-              id
-              username
-              email
-              firstName
-              lastName
-              bio
-              meals {
-                nextToken
-              }
-              menuItems {
-                nextToken
-              }
-              likes {
-                nextToken
-              }
-              followers {
-                nextToken
-              }
-              following {
-                nextToken
-              }
-              owner
-            }
             owner
           }
           nextToken
@@ -3798,54 +602,6 @@ export const onCreateFollower = /* GraphQL */ `
         following {
           items {
             id
-            user {
-              id
-              username
-              email
-              firstName
-              lastName
-              bio
-              meals {
-                nextToken
-              }
-              menuItems {
-                nextToken
-              }
-              likes {
-                nextToken
-              }
-              followers {
-                nextToken
-              }
-              following {
-                nextToken
-              }
-              owner
-            }
-            followedBy {
-              id
-              username
-              email
-              firstName
-              lastName
-              bio
-              meals {
-                nextToken
-              }
-              menuItems {
-                nextToken
-              }
-              likes {
-                nextToken
-              }
-              followers {
-                nextToken
-              }
-              following {
-                nextToken
-              }
-              owner
-            }
             owner
           }
           nextToken
@@ -3870,117 +626,9 @@ export const onCreateFollower = /* GraphQL */ `
           items {
             id
             title
-            image {
-              file {
-                bucket
-                region
-                key
-              }
-            }
             description
-            likes {
-              items {
-                id
-                owner
-              }
-              nextToken
-            }
-            inspiredBy {
-              id
-              title
-              description
-              likes {
-                nextToken
-              }
-              inspiredBy {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              menuItem {
-                id
-                order
-                owner
-              }
-              createdBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              createdAt
-              recipe
-              ingredients {
-                items
-              }
-              steps {
-                description
-              }
-              tags
-              owner
-            }
-            menuItem {
-              id
-              order
-              meal {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              createdBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              owner
-            }
-            createdBy {
-              id
-              username
-              email
-              firstName
-              lastName
-              bio
-              meals {
-                nextToken
-              }
-              menuItems {
-                nextToken
-              }
-              likes {
-                nextToken
-              }
-              followers {
-                nextToken
-              }
-              following {
-                nextToken
-              }
-              owner
-            }
             createdAt
             recipe
-            ingredients {
-              items
-            }
-            steps {
-              description
-            }
             tags
             owner
           }
@@ -3990,71 +638,6 @@ export const onCreateFollower = /* GraphQL */ `
           items {
             id
             order
-            meal {
-              id
-              title
-              description
-              likes {
-                nextToken
-              }
-              inspiredBy {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              menuItem {
-                id
-                order
-                owner
-              }
-              createdBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              createdAt
-              recipe
-              ingredients {
-                items
-              }
-              steps {
-                description
-              }
-              tags
-              owner
-            }
-            createdBy {
-              id
-              username
-              email
-              firstName
-              lastName
-              bio
-              meals {
-                nextToken
-              }
-              menuItems {
-                nextToken
-              }
-              likes {
-                nextToken
-              }
-              followers {
-                nextToken
-              }
-              following {
-                nextToken
-              }
-              owner
-            }
             owner
           }
           nextToken
@@ -4062,71 +645,6 @@ export const onCreateFollower = /* GraphQL */ `
         likes {
           items {
             id
-            meal {
-              id
-              title
-              description
-              likes {
-                nextToken
-              }
-              inspiredBy {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              menuItem {
-                id
-                order
-                owner
-              }
-              createdBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              createdAt
-              recipe
-              ingredients {
-                items
-              }
-              steps {
-                description
-              }
-              tags
-              owner
-            }
-            likedBy {
-              id
-              username
-              email
-              firstName
-              lastName
-              bio
-              meals {
-                nextToken
-              }
-              menuItems {
-                nextToken
-              }
-              likes {
-                nextToken
-              }
-              followers {
-                nextToken
-              }
-              following {
-                nextToken
-              }
-              owner
-            }
             owner
           }
           nextToken
@@ -4134,54 +652,6 @@ export const onCreateFollower = /* GraphQL */ `
         followers {
           items {
             id
-            user {
-              id
-              username
-              email
-              firstName
-              lastName
-              bio
-              meals {
-                nextToken
-              }
-              menuItems {
-                nextToken
-              }
-              likes {
-                nextToken
-              }
-              followers {
-                nextToken
-              }
-              following {
-                nextToken
-              }
-              owner
-            }
-            followedBy {
-              id
-              username
-              email
-              firstName
-              lastName
-              bio
-              meals {
-                nextToken
-              }
-              menuItems {
-                nextToken
-              }
-              likes {
-                nextToken
-              }
-              followers {
-                nextToken
-              }
-              following {
-                nextToken
-              }
-              owner
-            }
             owner
           }
           nextToken
@@ -4189,54 +659,6 @@ export const onCreateFollower = /* GraphQL */ `
         following {
           items {
             id
-            user {
-              id
-              username
-              email
-              firstName
-              lastName
-              bio
-              meals {
-                nextToken
-              }
-              menuItems {
-                nextToken
-              }
-              likes {
-                nextToken
-              }
-              followers {
-                nextToken
-              }
-              following {
-                nextToken
-              }
-              owner
-            }
-            followedBy {
-              id
-              username
-              email
-              firstName
-              lastName
-              bio
-              meals {
-                nextToken
-              }
-              menuItems {
-                nextToken
-              }
-              likes {
-                nextToken
-              }
-              followers {
-                nextToken
-              }
-              following {
-                nextToken
-              }
-              owner
-            }
             owner
           }
           nextToken
@@ -4269,117 +691,9 @@ export const onUpdateFollower = /* GraphQL */ `
           items {
             id
             title
-            image {
-              file {
-                bucket
-                region
-                key
-              }
-            }
             description
-            likes {
-              items {
-                id
-                owner
-              }
-              nextToken
-            }
-            inspiredBy {
-              id
-              title
-              description
-              likes {
-                nextToken
-              }
-              inspiredBy {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              menuItem {
-                id
-                order
-                owner
-              }
-              createdBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              createdAt
-              recipe
-              ingredients {
-                items
-              }
-              steps {
-                description
-              }
-              tags
-              owner
-            }
-            menuItem {
-              id
-              order
-              meal {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              createdBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              owner
-            }
-            createdBy {
-              id
-              username
-              email
-              firstName
-              lastName
-              bio
-              meals {
-                nextToken
-              }
-              menuItems {
-                nextToken
-              }
-              likes {
-                nextToken
-              }
-              followers {
-                nextToken
-              }
-              following {
-                nextToken
-              }
-              owner
-            }
             createdAt
             recipe
-            ingredients {
-              items
-            }
-            steps {
-              description
-            }
             tags
             owner
           }
@@ -4389,71 +703,6 @@ export const onUpdateFollower = /* GraphQL */ `
           items {
             id
             order
-            meal {
-              id
-              title
-              description
-              likes {
-                nextToken
-              }
-              inspiredBy {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              menuItem {
-                id
-                order
-                owner
-              }
-              createdBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              createdAt
-              recipe
-              ingredients {
-                items
-              }
-              steps {
-                description
-              }
-              tags
-              owner
-            }
-            createdBy {
-              id
-              username
-              email
-              firstName
-              lastName
-              bio
-              meals {
-                nextToken
-              }
-              menuItems {
-                nextToken
-              }
-              likes {
-                nextToken
-              }
-              followers {
-                nextToken
-              }
-              following {
-                nextToken
-              }
-              owner
-            }
             owner
           }
           nextToken
@@ -4461,71 +710,6 @@ export const onUpdateFollower = /* GraphQL */ `
         likes {
           items {
             id
-            meal {
-              id
-              title
-              description
-              likes {
-                nextToken
-              }
-              inspiredBy {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              menuItem {
-                id
-                order
-                owner
-              }
-              createdBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              createdAt
-              recipe
-              ingredients {
-                items
-              }
-              steps {
-                description
-              }
-              tags
-              owner
-            }
-            likedBy {
-              id
-              username
-              email
-              firstName
-              lastName
-              bio
-              meals {
-                nextToken
-              }
-              menuItems {
-                nextToken
-              }
-              likes {
-                nextToken
-              }
-              followers {
-                nextToken
-              }
-              following {
-                nextToken
-              }
-              owner
-            }
             owner
           }
           nextToken
@@ -4533,54 +717,6 @@ export const onUpdateFollower = /* GraphQL */ `
         followers {
           items {
             id
-            user {
-              id
-              username
-              email
-              firstName
-              lastName
-              bio
-              meals {
-                nextToken
-              }
-              menuItems {
-                nextToken
-              }
-              likes {
-                nextToken
-              }
-              followers {
-                nextToken
-              }
-              following {
-                nextToken
-              }
-              owner
-            }
-            followedBy {
-              id
-              username
-              email
-              firstName
-              lastName
-              bio
-              meals {
-                nextToken
-              }
-              menuItems {
-                nextToken
-              }
-              likes {
-                nextToken
-              }
-              followers {
-                nextToken
-              }
-              following {
-                nextToken
-              }
-              owner
-            }
             owner
           }
           nextToken
@@ -4588,54 +724,6 @@ export const onUpdateFollower = /* GraphQL */ `
         following {
           items {
             id
-            user {
-              id
-              username
-              email
-              firstName
-              lastName
-              bio
-              meals {
-                nextToken
-              }
-              menuItems {
-                nextToken
-              }
-              likes {
-                nextToken
-              }
-              followers {
-                nextToken
-              }
-              following {
-                nextToken
-              }
-              owner
-            }
-            followedBy {
-              id
-              username
-              email
-              firstName
-              lastName
-              bio
-              meals {
-                nextToken
-              }
-              menuItems {
-                nextToken
-              }
-              likes {
-                nextToken
-              }
-              followers {
-                nextToken
-              }
-              following {
-                nextToken
-              }
-              owner
-            }
             owner
           }
           nextToken
@@ -4660,117 +748,9 @@ export const onUpdateFollower = /* GraphQL */ `
           items {
             id
             title
-            image {
-              file {
-                bucket
-                region
-                key
-              }
-            }
             description
-            likes {
-              items {
-                id
-                owner
-              }
-              nextToken
-            }
-            inspiredBy {
-              id
-              title
-              description
-              likes {
-                nextToken
-              }
-              inspiredBy {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              menuItem {
-                id
-                order
-                owner
-              }
-              createdBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              createdAt
-              recipe
-              ingredients {
-                items
-              }
-              steps {
-                description
-              }
-              tags
-              owner
-            }
-            menuItem {
-              id
-              order
-              meal {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              createdBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              owner
-            }
-            createdBy {
-              id
-              username
-              email
-              firstName
-              lastName
-              bio
-              meals {
-                nextToken
-              }
-              menuItems {
-                nextToken
-              }
-              likes {
-                nextToken
-              }
-              followers {
-                nextToken
-              }
-              following {
-                nextToken
-              }
-              owner
-            }
             createdAt
             recipe
-            ingredients {
-              items
-            }
-            steps {
-              description
-            }
             tags
             owner
           }
@@ -4780,71 +760,6 @@ export const onUpdateFollower = /* GraphQL */ `
           items {
             id
             order
-            meal {
-              id
-              title
-              description
-              likes {
-                nextToken
-              }
-              inspiredBy {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              menuItem {
-                id
-                order
-                owner
-              }
-              createdBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              createdAt
-              recipe
-              ingredients {
-                items
-              }
-              steps {
-                description
-              }
-              tags
-              owner
-            }
-            createdBy {
-              id
-              username
-              email
-              firstName
-              lastName
-              bio
-              meals {
-                nextToken
-              }
-              menuItems {
-                nextToken
-              }
-              likes {
-                nextToken
-              }
-              followers {
-                nextToken
-              }
-              following {
-                nextToken
-              }
-              owner
-            }
             owner
           }
           nextToken
@@ -4852,71 +767,6 @@ export const onUpdateFollower = /* GraphQL */ `
         likes {
           items {
             id
-            meal {
-              id
-              title
-              description
-              likes {
-                nextToken
-              }
-              inspiredBy {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              menuItem {
-                id
-                order
-                owner
-              }
-              createdBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              createdAt
-              recipe
-              ingredients {
-                items
-              }
-              steps {
-                description
-              }
-              tags
-              owner
-            }
-            likedBy {
-              id
-              username
-              email
-              firstName
-              lastName
-              bio
-              meals {
-                nextToken
-              }
-              menuItems {
-                nextToken
-              }
-              likes {
-                nextToken
-              }
-              followers {
-                nextToken
-              }
-              following {
-                nextToken
-              }
-              owner
-            }
             owner
           }
           nextToken
@@ -4924,54 +774,6 @@ export const onUpdateFollower = /* GraphQL */ `
         followers {
           items {
             id
-            user {
-              id
-              username
-              email
-              firstName
-              lastName
-              bio
-              meals {
-                nextToken
-              }
-              menuItems {
-                nextToken
-              }
-              likes {
-                nextToken
-              }
-              followers {
-                nextToken
-              }
-              following {
-                nextToken
-              }
-              owner
-            }
-            followedBy {
-              id
-              username
-              email
-              firstName
-              lastName
-              bio
-              meals {
-                nextToken
-              }
-              menuItems {
-                nextToken
-              }
-              likes {
-                nextToken
-              }
-              followers {
-                nextToken
-              }
-              following {
-                nextToken
-              }
-              owner
-            }
             owner
           }
           nextToken
@@ -4979,54 +781,6 @@ export const onUpdateFollower = /* GraphQL */ `
         following {
           items {
             id
-            user {
-              id
-              username
-              email
-              firstName
-              lastName
-              bio
-              meals {
-                nextToken
-              }
-              menuItems {
-                nextToken
-              }
-              likes {
-                nextToken
-              }
-              followers {
-                nextToken
-              }
-              following {
-                nextToken
-              }
-              owner
-            }
-            followedBy {
-              id
-              username
-              email
-              firstName
-              lastName
-              bio
-              meals {
-                nextToken
-              }
-              menuItems {
-                nextToken
-              }
-              likes {
-                nextToken
-              }
-              followers {
-                nextToken
-              }
-              following {
-                nextToken
-              }
-              owner
-            }
             owner
           }
           nextToken
@@ -5059,117 +813,9 @@ export const onDeleteFollower = /* GraphQL */ `
           items {
             id
             title
-            image {
-              file {
-                bucket
-                region
-                key
-              }
-            }
             description
-            likes {
-              items {
-                id
-                owner
-              }
-              nextToken
-            }
-            inspiredBy {
-              id
-              title
-              description
-              likes {
-                nextToken
-              }
-              inspiredBy {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              menuItem {
-                id
-                order
-                owner
-              }
-              createdBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              createdAt
-              recipe
-              ingredients {
-                items
-              }
-              steps {
-                description
-              }
-              tags
-              owner
-            }
-            menuItem {
-              id
-              order
-              meal {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              createdBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              owner
-            }
-            createdBy {
-              id
-              username
-              email
-              firstName
-              lastName
-              bio
-              meals {
-                nextToken
-              }
-              menuItems {
-                nextToken
-              }
-              likes {
-                nextToken
-              }
-              followers {
-                nextToken
-              }
-              following {
-                nextToken
-              }
-              owner
-            }
             createdAt
             recipe
-            ingredients {
-              items
-            }
-            steps {
-              description
-            }
             tags
             owner
           }
@@ -5179,71 +825,6 @@ export const onDeleteFollower = /* GraphQL */ `
           items {
             id
             order
-            meal {
-              id
-              title
-              description
-              likes {
-                nextToken
-              }
-              inspiredBy {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              menuItem {
-                id
-                order
-                owner
-              }
-              createdBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              createdAt
-              recipe
-              ingredients {
-                items
-              }
-              steps {
-                description
-              }
-              tags
-              owner
-            }
-            createdBy {
-              id
-              username
-              email
-              firstName
-              lastName
-              bio
-              meals {
-                nextToken
-              }
-              menuItems {
-                nextToken
-              }
-              likes {
-                nextToken
-              }
-              followers {
-                nextToken
-              }
-              following {
-                nextToken
-              }
-              owner
-            }
             owner
           }
           nextToken
@@ -5251,71 +832,6 @@ export const onDeleteFollower = /* GraphQL */ `
         likes {
           items {
             id
-            meal {
-              id
-              title
-              description
-              likes {
-                nextToken
-              }
-              inspiredBy {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              menuItem {
-                id
-                order
-                owner
-              }
-              createdBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              createdAt
-              recipe
-              ingredients {
-                items
-              }
-              steps {
-                description
-              }
-              tags
-              owner
-            }
-            likedBy {
-              id
-              username
-              email
-              firstName
-              lastName
-              bio
-              meals {
-                nextToken
-              }
-              menuItems {
-                nextToken
-              }
-              likes {
-                nextToken
-              }
-              followers {
-                nextToken
-              }
-              following {
-                nextToken
-              }
-              owner
-            }
             owner
           }
           nextToken
@@ -5323,54 +839,6 @@ export const onDeleteFollower = /* GraphQL */ `
         followers {
           items {
             id
-            user {
-              id
-              username
-              email
-              firstName
-              lastName
-              bio
-              meals {
-                nextToken
-              }
-              menuItems {
-                nextToken
-              }
-              likes {
-                nextToken
-              }
-              followers {
-                nextToken
-              }
-              following {
-                nextToken
-              }
-              owner
-            }
-            followedBy {
-              id
-              username
-              email
-              firstName
-              lastName
-              bio
-              meals {
-                nextToken
-              }
-              menuItems {
-                nextToken
-              }
-              likes {
-                nextToken
-              }
-              followers {
-                nextToken
-              }
-              following {
-                nextToken
-              }
-              owner
-            }
             owner
           }
           nextToken
@@ -5378,54 +846,6 @@ export const onDeleteFollower = /* GraphQL */ `
         following {
           items {
             id
-            user {
-              id
-              username
-              email
-              firstName
-              lastName
-              bio
-              meals {
-                nextToken
-              }
-              menuItems {
-                nextToken
-              }
-              likes {
-                nextToken
-              }
-              followers {
-                nextToken
-              }
-              following {
-                nextToken
-              }
-              owner
-            }
-            followedBy {
-              id
-              username
-              email
-              firstName
-              lastName
-              bio
-              meals {
-                nextToken
-              }
-              menuItems {
-                nextToken
-              }
-              likes {
-                nextToken
-              }
-              followers {
-                nextToken
-              }
-              following {
-                nextToken
-              }
-              owner
-            }
             owner
           }
           nextToken
@@ -5450,117 +870,9 @@ export const onDeleteFollower = /* GraphQL */ `
           items {
             id
             title
-            image {
-              file {
-                bucket
-                region
-                key
-              }
-            }
             description
-            likes {
-              items {
-                id
-                owner
-              }
-              nextToken
-            }
-            inspiredBy {
-              id
-              title
-              description
-              likes {
-                nextToken
-              }
-              inspiredBy {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              menuItem {
-                id
-                order
-                owner
-              }
-              createdBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              createdAt
-              recipe
-              ingredients {
-                items
-              }
-              steps {
-                description
-              }
-              tags
-              owner
-            }
-            menuItem {
-              id
-              order
-              meal {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              createdBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              owner
-            }
-            createdBy {
-              id
-              username
-              email
-              firstName
-              lastName
-              bio
-              meals {
-                nextToken
-              }
-              menuItems {
-                nextToken
-              }
-              likes {
-                nextToken
-              }
-              followers {
-                nextToken
-              }
-              following {
-                nextToken
-              }
-              owner
-            }
             createdAt
             recipe
-            ingredients {
-              items
-            }
-            steps {
-              description
-            }
             tags
             owner
           }
@@ -5570,71 +882,6 @@ export const onDeleteFollower = /* GraphQL */ `
           items {
             id
             order
-            meal {
-              id
-              title
-              description
-              likes {
-                nextToken
-              }
-              inspiredBy {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              menuItem {
-                id
-                order
-                owner
-              }
-              createdBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              createdAt
-              recipe
-              ingredients {
-                items
-              }
-              steps {
-                description
-              }
-              tags
-              owner
-            }
-            createdBy {
-              id
-              username
-              email
-              firstName
-              lastName
-              bio
-              meals {
-                nextToken
-              }
-              menuItems {
-                nextToken
-              }
-              likes {
-                nextToken
-              }
-              followers {
-                nextToken
-              }
-              following {
-                nextToken
-              }
-              owner
-            }
             owner
           }
           nextToken
@@ -5642,71 +889,6 @@ export const onDeleteFollower = /* GraphQL */ `
         likes {
           items {
             id
-            meal {
-              id
-              title
-              description
-              likes {
-                nextToken
-              }
-              inspiredBy {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              menuItem {
-                id
-                order
-                owner
-              }
-              createdBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              createdAt
-              recipe
-              ingredients {
-                items
-              }
-              steps {
-                description
-              }
-              tags
-              owner
-            }
-            likedBy {
-              id
-              username
-              email
-              firstName
-              lastName
-              bio
-              meals {
-                nextToken
-              }
-              menuItems {
-                nextToken
-              }
-              likes {
-                nextToken
-              }
-              followers {
-                nextToken
-              }
-              following {
-                nextToken
-              }
-              owner
-            }
             owner
           }
           nextToken
@@ -5714,54 +896,6 @@ export const onDeleteFollower = /* GraphQL */ `
         followers {
           items {
             id
-            user {
-              id
-              username
-              email
-              firstName
-              lastName
-              bio
-              meals {
-                nextToken
-              }
-              menuItems {
-                nextToken
-              }
-              likes {
-                nextToken
-              }
-              followers {
-                nextToken
-              }
-              following {
-                nextToken
-              }
-              owner
-            }
-            followedBy {
-              id
-              username
-              email
-              firstName
-              lastName
-              bio
-              meals {
-                nextToken
-              }
-              menuItems {
-                nextToken
-              }
-              likes {
-                nextToken
-              }
-              followers {
-                nextToken
-              }
-              following {
-                nextToken
-              }
-              owner
-            }
             owner
           }
           nextToken
@@ -5769,54 +903,6 @@ export const onDeleteFollower = /* GraphQL */ `
         following {
           items {
             id
-            user {
-              id
-              username
-              email
-              firstName
-              lastName
-              bio
-              meals {
-                nextToken
-              }
-              menuItems {
-                nextToken
-              }
-              likes {
-                nextToken
-              }
-              followers {
-                nextToken
-              }
-              following {
-                nextToken
-              }
-              owner
-            }
-            followedBy {
-              id
-              username
-              email
-              firstName
-              lastName
-              bio
-              meals {
-                nextToken
-              }
-              menuItems {
-                nextToken
-              }
-              likes {
-                nextToken
-              }
-              followers {
-                nextToken
-              }
-              following {
-                nextToken
-              }
-              owner
-            }
             owner
           }
           nextToken
@@ -5846,117 +932,9 @@ export const onCreateMeal = /* GraphQL */ `
           meal {
             id
             title
-            image {
-              file {
-                bucket
-                region
-                key
-              }
-            }
             description
-            likes {
-              items {
-                id
-                owner
-              }
-              nextToken
-            }
-            inspiredBy {
-              id
-              title
-              description
-              likes {
-                nextToken
-              }
-              inspiredBy {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              menuItem {
-                id
-                order
-                owner
-              }
-              createdBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              createdAt
-              recipe
-              ingredients {
-                items
-              }
-              steps {
-                description
-              }
-              tags
-              owner
-            }
-            menuItem {
-              id
-              order
-              meal {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              createdBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              owner
-            }
-            createdBy {
-              id
-              username
-              email
-              firstName
-              lastName
-              bio
-              meals {
-                nextToken
-              }
-              menuItems {
-                nextToken
-              }
-              likes {
-                nextToken
-              }
-              followers {
-                nextToken
-              }
-              following {
-                nextToken
-              }
-              owner
-            }
             createdAt
             recipe
-            ingredients {
-              items
-            }
-            steps {
-              description
-            }
             tags
             owner
           }
@@ -5967,54 +945,6 @@ export const onCreateMeal = /* GraphQL */ `
             firstName
             lastName
             bio
-            image {
-              file {
-                bucket
-                region
-                key
-              }
-            }
-            meals {
-              items {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              nextToken
-            }
-            menuItems {
-              items {
-                id
-                order
-                owner
-              }
-              nextToken
-            }
-            likes {
-              items {
-                id
-                owner
-              }
-              nextToken
-            }
-            followers {
-              items {
-                id
-                owner
-              }
-              nextToken
-            }
-            following {
-              items {
-                id
-                owner
-              }
-              nextToken
-            }
             owner
           }
           owner
@@ -6035,71 +965,6 @@ export const onCreateMeal = /* GraphQL */ `
         likes {
           items {
             id
-            meal {
-              id
-              title
-              description
-              likes {
-                nextToken
-              }
-              inspiredBy {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              menuItem {
-                id
-                order
-                owner
-              }
-              createdBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              createdAt
-              recipe
-              ingredients {
-                items
-              }
-              steps {
-                description
-              }
-              tags
-              owner
-            }
-            likedBy {
-              id
-              username
-              email
-              firstName
-              lastName
-              bio
-              meals {
-                nextToken
-              }
-              menuItems {
-                nextToken
-              }
-              likes {
-                nextToken
-              }
-              followers {
-                nextToken
-              }
-              following {
-                nextToken
-              }
-              owner
-            }
             owner
           }
           nextToken
@@ -6107,224 +972,22 @@ export const onCreateMeal = /* GraphQL */ `
         inspiredBy {
           id
           title
-          image {
-            file {
-              bucket
-              region
-              key
-            }
-          }
           description
           likes {
-            items {
-              id
-              meal {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              likedBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              owner
-            }
             nextToken
           }
           inspiredBy {
             id
             title
-            image {
-              file {
-                bucket
-                region
-                key
-              }
-            }
             description
-            likes {
-              items {
-                id
-                owner
-              }
-              nextToken
-            }
-            inspiredBy {
-              id
-              title
-              description
-              likes {
-                nextToken
-              }
-              inspiredBy {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              menuItem {
-                id
-                order
-                owner
-              }
-              createdBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              createdAt
-              recipe
-              ingredients {
-                items
-              }
-              steps {
-                description
-              }
-              tags
-              owner
-            }
-            menuItem {
-              id
-              order
-              meal {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              createdBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              owner
-            }
-            createdBy {
-              id
-              username
-              email
-              firstName
-              lastName
-              bio
-              meals {
-                nextToken
-              }
-              menuItems {
-                nextToken
-              }
-              likes {
-                nextToken
-              }
-              followers {
-                nextToken
-              }
-              following {
-                nextToken
-              }
-              owner
-            }
             createdAt
             recipe
-            ingredients {
-              items
-            }
-            steps {
-              description
-            }
             tags
             owner
           }
           menuItem {
             id
             order
-            meal {
-              id
-              title
-              description
-              likes {
-                nextToken
-              }
-              inspiredBy {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              menuItem {
-                id
-                order
-                owner
-              }
-              createdBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              createdAt
-              recipe
-              ingredients {
-                items
-              }
-              steps {
-                description
-              }
-              tags
-              owner
-            }
-            createdBy {
-              id
-              username
-              email
-              firstName
-              lastName
-              bio
-              meals {
-                nextToken
-              }
-              menuItems {
-                nextToken
-              }
-              likes {
-                nextToken
-              }
-              followers {
-                nextToken
-              }
-              following {
-                nextToken
-              }
-              owner
-            }
             owner
           }
           createdBy {
@@ -6334,76 +997,14 @@ export const onCreateMeal = /* GraphQL */ `
             firstName
             lastName
             bio
-            image {
-              file {
-                bucket
-                region
-                key
-              }
-            }
-            meals {
-              items {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              nextToken
-            }
-            menuItems {
-              items {
-                id
-                order
-                owner
-              }
-              nextToken
-            }
-            likes {
-              items {
-                id
-                owner
-              }
-              nextToken
-            }
-            followers {
-              items {
-                id
-                owner
-              }
-              nextToken
-            }
-            following {
-              items {
-                id
-                owner
-              }
-              nextToken
-            }
             owner
           }
           createdAt
           recipe
           ingredients {
-            image {
-              file {
-                bucket
-                region
-                key
-              }
-            }
             items
           }
           steps {
-            image {
-              file {
-                bucket
-                region
-                key
-              }
-            }
             description
           }
           tags
@@ -6415,117 +1016,9 @@ export const onCreateMeal = /* GraphQL */ `
           meal {
             id
             title
-            image {
-              file {
-                bucket
-                region
-                key
-              }
-            }
             description
-            likes {
-              items {
-                id
-                owner
-              }
-              nextToken
-            }
-            inspiredBy {
-              id
-              title
-              description
-              likes {
-                nextToken
-              }
-              inspiredBy {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              menuItem {
-                id
-                order
-                owner
-              }
-              createdBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              createdAt
-              recipe
-              ingredients {
-                items
-              }
-              steps {
-                description
-              }
-              tags
-              owner
-            }
-            menuItem {
-              id
-              order
-              meal {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              createdBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              owner
-            }
-            createdBy {
-              id
-              username
-              email
-              firstName
-              lastName
-              bio
-              meals {
-                nextToken
-              }
-              menuItems {
-                nextToken
-              }
-              likes {
-                nextToken
-              }
-              followers {
-                nextToken
-              }
-              following {
-                nextToken
-              }
-              owner
-            }
             createdAt
             recipe
-            ingredients {
-              items
-            }
-            steps {
-              description
-            }
             tags
             owner
           }
@@ -6536,54 +1029,6 @@ export const onCreateMeal = /* GraphQL */ `
             firstName
             lastName
             bio
-            image {
-              file {
-                bucket
-                region
-                key
-              }
-            }
-            meals {
-              items {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              nextToken
-            }
-            menuItems {
-              items {
-                id
-                order
-                owner
-              }
-              nextToken
-            }
-            likes {
-              items {
-                id
-                owner
-              }
-              nextToken
-            }
-            followers {
-              items {
-                id
-                owner
-              }
-              nextToken
-            }
-            following {
-              items {
-                id
-                owner
-              }
-              nextToken
-            }
             owner
           }
           owner
@@ -6595,156 +1040,19 @@ export const onCreateMeal = /* GraphQL */ `
           firstName
           lastName
           bio
-          image {
-            file {
-              bucket
-              region
-              key
-            }
-          }
           meals {
-            items {
-              id
-              title
-              description
-              likes {
-                nextToken
-              }
-              inspiredBy {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              menuItem {
-                id
-                order
-                owner
-              }
-              createdBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              createdAt
-              recipe
-              ingredients {
-                items
-              }
-              steps {
-                description
-              }
-              tags
-              owner
-            }
             nextToken
           }
           menuItems {
-            items {
-              id
-              order
-              meal {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              createdBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              owner
-            }
             nextToken
           }
           likes {
-            items {
-              id
-              meal {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              likedBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              owner
-            }
             nextToken
           }
           followers {
-            items {
-              id
-              user {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              followedBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              owner
-            }
             nextToken
           }
           following {
-            items {
-              id
-              user {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              followedBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              owner
-            }
             nextToken
           }
           owner
@@ -6752,23 +1060,9 @@ export const onCreateMeal = /* GraphQL */ `
         createdAt
         recipe
         ingredients {
-          image {
-            file {
-              bucket
-              region
-              key
-            }
-          }
           items
         }
         steps {
-          image {
-            file {
-              bucket
-              region
-              key
-            }
-          }
           description
         }
         tags
@@ -6780,224 +1074,22 @@ export const onCreateMeal = /* GraphQL */ `
         meal {
           id
           title
-          image {
-            file {
-              bucket
-              region
-              key
-            }
-          }
           description
           likes {
-            items {
-              id
-              meal {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              likedBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              owner
-            }
             nextToken
           }
           inspiredBy {
             id
             title
-            image {
-              file {
-                bucket
-                region
-                key
-              }
-            }
             description
-            likes {
-              items {
-                id
-                owner
-              }
-              nextToken
-            }
-            inspiredBy {
-              id
-              title
-              description
-              likes {
-                nextToken
-              }
-              inspiredBy {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              menuItem {
-                id
-                order
-                owner
-              }
-              createdBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              createdAt
-              recipe
-              ingredients {
-                items
-              }
-              steps {
-                description
-              }
-              tags
-              owner
-            }
-            menuItem {
-              id
-              order
-              meal {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              createdBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              owner
-            }
-            createdBy {
-              id
-              username
-              email
-              firstName
-              lastName
-              bio
-              meals {
-                nextToken
-              }
-              menuItems {
-                nextToken
-              }
-              likes {
-                nextToken
-              }
-              followers {
-                nextToken
-              }
-              following {
-                nextToken
-              }
-              owner
-            }
             createdAt
             recipe
-            ingredients {
-              items
-            }
-            steps {
-              description
-            }
             tags
             owner
           }
           menuItem {
             id
             order
-            meal {
-              id
-              title
-              description
-              likes {
-                nextToken
-              }
-              inspiredBy {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              menuItem {
-                id
-                order
-                owner
-              }
-              createdBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              createdAt
-              recipe
-              ingredients {
-                items
-              }
-              steps {
-                description
-              }
-              tags
-              owner
-            }
-            createdBy {
-              id
-              username
-              email
-              firstName
-              lastName
-              bio
-              meals {
-                nextToken
-              }
-              menuItems {
-                nextToken
-              }
-              likes {
-                nextToken
-              }
-              followers {
-                nextToken
-              }
-              following {
-                nextToken
-              }
-              owner
-            }
             owner
           }
           createdBy {
@@ -7007,76 +1099,14 @@ export const onCreateMeal = /* GraphQL */ `
             firstName
             lastName
             bio
-            image {
-              file {
-                bucket
-                region
-                key
-              }
-            }
-            meals {
-              items {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              nextToken
-            }
-            menuItems {
-              items {
-                id
-                order
-                owner
-              }
-              nextToken
-            }
-            likes {
-              items {
-                id
-                owner
-              }
-              nextToken
-            }
-            followers {
-              items {
-                id
-                owner
-              }
-              nextToken
-            }
-            following {
-              items {
-                id
-                owner
-              }
-              nextToken
-            }
             owner
           }
           createdAt
           recipe
           ingredients {
-            image {
-              file {
-                bucket
-                region
-                key
-              }
-            }
             items
           }
           steps {
-            image {
-              file {
-                bucket
-                region
-                key
-              }
-            }
             description
           }
           tags
@@ -7089,156 +1119,19 @@ export const onCreateMeal = /* GraphQL */ `
           firstName
           lastName
           bio
-          image {
-            file {
-              bucket
-              region
-              key
-            }
-          }
           meals {
-            items {
-              id
-              title
-              description
-              likes {
-                nextToken
-              }
-              inspiredBy {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              menuItem {
-                id
-                order
-                owner
-              }
-              createdBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              createdAt
-              recipe
-              ingredients {
-                items
-              }
-              steps {
-                description
-              }
-              tags
-              owner
-            }
             nextToken
           }
           menuItems {
-            items {
-              id
-              order
-              meal {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              createdBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              owner
-            }
             nextToken
           }
           likes {
-            items {
-              id
-              meal {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              likedBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              owner
-            }
             nextToken
           }
           followers {
-            items {
-              id
-              user {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              followedBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              owner
-            }
             nextToken
           }
           following {
-            items {
-              id
-              user {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              followedBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              owner
-            }
             nextToken
           }
           owner
@@ -7263,117 +1156,9 @@ export const onCreateMeal = /* GraphQL */ `
           items {
             id
             title
-            image {
-              file {
-                bucket
-                region
-                key
-              }
-            }
             description
-            likes {
-              items {
-                id
-                owner
-              }
-              nextToken
-            }
-            inspiredBy {
-              id
-              title
-              description
-              likes {
-                nextToken
-              }
-              inspiredBy {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              menuItem {
-                id
-                order
-                owner
-              }
-              createdBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              createdAt
-              recipe
-              ingredients {
-                items
-              }
-              steps {
-                description
-              }
-              tags
-              owner
-            }
-            menuItem {
-              id
-              order
-              meal {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              createdBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              owner
-            }
-            createdBy {
-              id
-              username
-              email
-              firstName
-              lastName
-              bio
-              meals {
-                nextToken
-              }
-              menuItems {
-                nextToken
-              }
-              likes {
-                nextToken
-              }
-              followers {
-                nextToken
-              }
-              following {
-                nextToken
-              }
-              owner
-            }
             createdAt
             recipe
-            ingredients {
-              items
-            }
-            steps {
-              description
-            }
             tags
             owner
           }
@@ -7383,71 +1168,6 @@ export const onCreateMeal = /* GraphQL */ `
           items {
             id
             order
-            meal {
-              id
-              title
-              description
-              likes {
-                nextToken
-              }
-              inspiredBy {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              menuItem {
-                id
-                order
-                owner
-              }
-              createdBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              createdAt
-              recipe
-              ingredients {
-                items
-              }
-              steps {
-                description
-              }
-              tags
-              owner
-            }
-            createdBy {
-              id
-              username
-              email
-              firstName
-              lastName
-              bio
-              meals {
-                nextToken
-              }
-              menuItems {
-                nextToken
-              }
-              likes {
-                nextToken
-              }
-              followers {
-                nextToken
-              }
-              following {
-                nextToken
-              }
-              owner
-            }
             owner
           }
           nextToken
@@ -7455,71 +1175,6 @@ export const onCreateMeal = /* GraphQL */ `
         likes {
           items {
             id
-            meal {
-              id
-              title
-              description
-              likes {
-                nextToken
-              }
-              inspiredBy {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              menuItem {
-                id
-                order
-                owner
-              }
-              createdBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              createdAt
-              recipe
-              ingredients {
-                items
-              }
-              steps {
-                description
-              }
-              tags
-              owner
-            }
-            likedBy {
-              id
-              username
-              email
-              firstName
-              lastName
-              bio
-              meals {
-                nextToken
-              }
-              menuItems {
-                nextToken
-              }
-              likes {
-                nextToken
-              }
-              followers {
-                nextToken
-              }
-              following {
-                nextToken
-              }
-              owner
-            }
             owner
           }
           nextToken
@@ -7527,54 +1182,6 @@ export const onCreateMeal = /* GraphQL */ `
         followers {
           items {
             id
-            user {
-              id
-              username
-              email
-              firstName
-              lastName
-              bio
-              meals {
-                nextToken
-              }
-              menuItems {
-                nextToken
-              }
-              likes {
-                nextToken
-              }
-              followers {
-                nextToken
-              }
-              following {
-                nextToken
-              }
-              owner
-            }
-            followedBy {
-              id
-              username
-              email
-              firstName
-              lastName
-              bio
-              meals {
-                nextToken
-              }
-              menuItems {
-                nextToken
-              }
-              likes {
-                nextToken
-              }
-              followers {
-                nextToken
-              }
-              following {
-                nextToken
-              }
-              owner
-            }
             owner
           }
           nextToken
@@ -7582,54 +1189,6 @@ export const onCreateMeal = /* GraphQL */ `
         following {
           items {
             id
-            user {
-              id
-              username
-              email
-              firstName
-              lastName
-              bio
-              meals {
-                nextToken
-              }
-              menuItems {
-                nextToken
-              }
-              likes {
-                nextToken
-              }
-              followers {
-                nextToken
-              }
-              following {
-                nextToken
-              }
-              owner
-            }
-            followedBy {
-              id
-              username
-              email
-              firstName
-              lastName
-              bio
-              meals {
-                nextToken
-              }
-              menuItems {
-                nextToken
-              }
-              likes {
-                nextToken
-              }
-              followers {
-                nextToken
-              }
-              following {
-                nextToken
-              }
-              owner
-            }
             owner
           }
           nextToken
@@ -7682,117 +1241,9 @@ export const onUpdateMeal = /* GraphQL */ `
           meal {
             id
             title
-            image {
-              file {
-                bucket
-                region
-                key
-              }
-            }
             description
-            likes {
-              items {
-                id
-                owner
-              }
-              nextToken
-            }
-            inspiredBy {
-              id
-              title
-              description
-              likes {
-                nextToken
-              }
-              inspiredBy {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              menuItem {
-                id
-                order
-                owner
-              }
-              createdBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              createdAt
-              recipe
-              ingredients {
-                items
-              }
-              steps {
-                description
-              }
-              tags
-              owner
-            }
-            menuItem {
-              id
-              order
-              meal {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              createdBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              owner
-            }
-            createdBy {
-              id
-              username
-              email
-              firstName
-              lastName
-              bio
-              meals {
-                nextToken
-              }
-              menuItems {
-                nextToken
-              }
-              likes {
-                nextToken
-              }
-              followers {
-                nextToken
-              }
-              following {
-                nextToken
-              }
-              owner
-            }
             createdAt
             recipe
-            ingredients {
-              items
-            }
-            steps {
-              description
-            }
             tags
             owner
           }
@@ -7803,54 +1254,6 @@ export const onUpdateMeal = /* GraphQL */ `
             firstName
             lastName
             bio
-            image {
-              file {
-                bucket
-                region
-                key
-              }
-            }
-            meals {
-              items {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              nextToken
-            }
-            menuItems {
-              items {
-                id
-                order
-                owner
-              }
-              nextToken
-            }
-            likes {
-              items {
-                id
-                owner
-              }
-              nextToken
-            }
-            followers {
-              items {
-                id
-                owner
-              }
-              nextToken
-            }
-            following {
-              items {
-                id
-                owner
-              }
-              nextToken
-            }
             owner
           }
           owner
@@ -7871,71 +1274,6 @@ export const onUpdateMeal = /* GraphQL */ `
         likes {
           items {
             id
-            meal {
-              id
-              title
-              description
-              likes {
-                nextToken
-              }
-              inspiredBy {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              menuItem {
-                id
-                order
-                owner
-              }
-              createdBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              createdAt
-              recipe
-              ingredients {
-                items
-              }
-              steps {
-                description
-              }
-              tags
-              owner
-            }
-            likedBy {
-              id
-              username
-              email
-              firstName
-              lastName
-              bio
-              meals {
-                nextToken
-              }
-              menuItems {
-                nextToken
-              }
-              likes {
-                nextToken
-              }
-              followers {
-                nextToken
-              }
-              following {
-                nextToken
-              }
-              owner
-            }
             owner
           }
           nextToken
@@ -7943,224 +1281,22 @@ export const onUpdateMeal = /* GraphQL */ `
         inspiredBy {
           id
           title
-          image {
-            file {
-              bucket
-              region
-              key
-            }
-          }
           description
           likes {
-            items {
-              id
-              meal {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              likedBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              owner
-            }
             nextToken
           }
           inspiredBy {
             id
             title
-            image {
-              file {
-                bucket
-                region
-                key
-              }
-            }
             description
-            likes {
-              items {
-                id
-                owner
-              }
-              nextToken
-            }
-            inspiredBy {
-              id
-              title
-              description
-              likes {
-                nextToken
-              }
-              inspiredBy {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              menuItem {
-                id
-                order
-                owner
-              }
-              createdBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              createdAt
-              recipe
-              ingredients {
-                items
-              }
-              steps {
-                description
-              }
-              tags
-              owner
-            }
-            menuItem {
-              id
-              order
-              meal {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              createdBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              owner
-            }
-            createdBy {
-              id
-              username
-              email
-              firstName
-              lastName
-              bio
-              meals {
-                nextToken
-              }
-              menuItems {
-                nextToken
-              }
-              likes {
-                nextToken
-              }
-              followers {
-                nextToken
-              }
-              following {
-                nextToken
-              }
-              owner
-            }
             createdAt
             recipe
-            ingredients {
-              items
-            }
-            steps {
-              description
-            }
             tags
             owner
           }
           menuItem {
             id
             order
-            meal {
-              id
-              title
-              description
-              likes {
-                nextToken
-              }
-              inspiredBy {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              menuItem {
-                id
-                order
-                owner
-              }
-              createdBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              createdAt
-              recipe
-              ingredients {
-                items
-              }
-              steps {
-                description
-              }
-              tags
-              owner
-            }
-            createdBy {
-              id
-              username
-              email
-              firstName
-              lastName
-              bio
-              meals {
-                nextToken
-              }
-              menuItems {
-                nextToken
-              }
-              likes {
-                nextToken
-              }
-              followers {
-                nextToken
-              }
-              following {
-                nextToken
-              }
-              owner
-            }
             owner
           }
           createdBy {
@@ -8170,76 +1306,14 @@ export const onUpdateMeal = /* GraphQL */ `
             firstName
             lastName
             bio
-            image {
-              file {
-                bucket
-                region
-                key
-              }
-            }
-            meals {
-              items {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              nextToken
-            }
-            menuItems {
-              items {
-                id
-                order
-                owner
-              }
-              nextToken
-            }
-            likes {
-              items {
-                id
-                owner
-              }
-              nextToken
-            }
-            followers {
-              items {
-                id
-                owner
-              }
-              nextToken
-            }
-            following {
-              items {
-                id
-                owner
-              }
-              nextToken
-            }
             owner
           }
           createdAt
           recipe
           ingredients {
-            image {
-              file {
-                bucket
-                region
-                key
-              }
-            }
             items
           }
           steps {
-            image {
-              file {
-                bucket
-                region
-                key
-              }
-            }
             description
           }
           tags
@@ -8251,117 +1325,9 @@ export const onUpdateMeal = /* GraphQL */ `
           meal {
             id
             title
-            image {
-              file {
-                bucket
-                region
-                key
-              }
-            }
             description
-            likes {
-              items {
-                id
-                owner
-              }
-              nextToken
-            }
-            inspiredBy {
-              id
-              title
-              description
-              likes {
-                nextToken
-              }
-              inspiredBy {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              menuItem {
-                id
-                order
-                owner
-              }
-              createdBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              createdAt
-              recipe
-              ingredients {
-                items
-              }
-              steps {
-                description
-              }
-              tags
-              owner
-            }
-            menuItem {
-              id
-              order
-              meal {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              createdBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              owner
-            }
-            createdBy {
-              id
-              username
-              email
-              firstName
-              lastName
-              bio
-              meals {
-                nextToken
-              }
-              menuItems {
-                nextToken
-              }
-              likes {
-                nextToken
-              }
-              followers {
-                nextToken
-              }
-              following {
-                nextToken
-              }
-              owner
-            }
             createdAt
             recipe
-            ingredients {
-              items
-            }
-            steps {
-              description
-            }
             tags
             owner
           }
@@ -8372,54 +1338,6 @@ export const onUpdateMeal = /* GraphQL */ `
             firstName
             lastName
             bio
-            image {
-              file {
-                bucket
-                region
-                key
-              }
-            }
-            meals {
-              items {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              nextToken
-            }
-            menuItems {
-              items {
-                id
-                order
-                owner
-              }
-              nextToken
-            }
-            likes {
-              items {
-                id
-                owner
-              }
-              nextToken
-            }
-            followers {
-              items {
-                id
-                owner
-              }
-              nextToken
-            }
-            following {
-              items {
-                id
-                owner
-              }
-              nextToken
-            }
             owner
           }
           owner
@@ -8431,156 +1349,19 @@ export const onUpdateMeal = /* GraphQL */ `
           firstName
           lastName
           bio
-          image {
-            file {
-              bucket
-              region
-              key
-            }
-          }
           meals {
-            items {
-              id
-              title
-              description
-              likes {
-                nextToken
-              }
-              inspiredBy {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              menuItem {
-                id
-                order
-                owner
-              }
-              createdBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              createdAt
-              recipe
-              ingredients {
-                items
-              }
-              steps {
-                description
-              }
-              tags
-              owner
-            }
             nextToken
           }
           menuItems {
-            items {
-              id
-              order
-              meal {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              createdBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              owner
-            }
             nextToken
           }
           likes {
-            items {
-              id
-              meal {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              likedBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              owner
-            }
             nextToken
           }
           followers {
-            items {
-              id
-              user {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              followedBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              owner
-            }
             nextToken
           }
           following {
-            items {
-              id
-              user {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              followedBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              owner
-            }
             nextToken
           }
           owner
@@ -8588,23 +1369,9 @@ export const onUpdateMeal = /* GraphQL */ `
         createdAt
         recipe
         ingredients {
-          image {
-            file {
-              bucket
-              region
-              key
-            }
-          }
           items
         }
         steps {
-          image {
-            file {
-              bucket
-              region
-              key
-            }
-          }
           description
         }
         tags
@@ -8616,224 +1383,22 @@ export const onUpdateMeal = /* GraphQL */ `
         meal {
           id
           title
-          image {
-            file {
-              bucket
-              region
-              key
-            }
-          }
           description
           likes {
-            items {
-              id
-              meal {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              likedBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              owner
-            }
             nextToken
           }
           inspiredBy {
             id
             title
-            image {
-              file {
-                bucket
-                region
-                key
-              }
-            }
             description
-            likes {
-              items {
-                id
-                owner
-              }
-              nextToken
-            }
-            inspiredBy {
-              id
-              title
-              description
-              likes {
-                nextToken
-              }
-              inspiredBy {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              menuItem {
-                id
-                order
-                owner
-              }
-              createdBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              createdAt
-              recipe
-              ingredients {
-                items
-              }
-              steps {
-                description
-              }
-              tags
-              owner
-            }
-            menuItem {
-              id
-              order
-              meal {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              createdBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              owner
-            }
-            createdBy {
-              id
-              username
-              email
-              firstName
-              lastName
-              bio
-              meals {
-                nextToken
-              }
-              menuItems {
-                nextToken
-              }
-              likes {
-                nextToken
-              }
-              followers {
-                nextToken
-              }
-              following {
-                nextToken
-              }
-              owner
-            }
             createdAt
             recipe
-            ingredients {
-              items
-            }
-            steps {
-              description
-            }
             tags
             owner
           }
           menuItem {
             id
             order
-            meal {
-              id
-              title
-              description
-              likes {
-                nextToken
-              }
-              inspiredBy {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              menuItem {
-                id
-                order
-                owner
-              }
-              createdBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              createdAt
-              recipe
-              ingredients {
-                items
-              }
-              steps {
-                description
-              }
-              tags
-              owner
-            }
-            createdBy {
-              id
-              username
-              email
-              firstName
-              lastName
-              bio
-              meals {
-                nextToken
-              }
-              menuItems {
-                nextToken
-              }
-              likes {
-                nextToken
-              }
-              followers {
-                nextToken
-              }
-              following {
-                nextToken
-              }
-              owner
-            }
             owner
           }
           createdBy {
@@ -8843,76 +1408,14 @@ export const onUpdateMeal = /* GraphQL */ `
             firstName
             lastName
             bio
-            image {
-              file {
-                bucket
-                region
-                key
-              }
-            }
-            meals {
-              items {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              nextToken
-            }
-            menuItems {
-              items {
-                id
-                order
-                owner
-              }
-              nextToken
-            }
-            likes {
-              items {
-                id
-                owner
-              }
-              nextToken
-            }
-            followers {
-              items {
-                id
-                owner
-              }
-              nextToken
-            }
-            following {
-              items {
-                id
-                owner
-              }
-              nextToken
-            }
             owner
           }
           createdAt
           recipe
           ingredients {
-            image {
-              file {
-                bucket
-                region
-                key
-              }
-            }
             items
           }
           steps {
-            image {
-              file {
-                bucket
-                region
-                key
-              }
-            }
             description
           }
           tags
@@ -8925,156 +1428,19 @@ export const onUpdateMeal = /* GraphQL */ `
           firstName
           lastName
           bio
-          image {
-            file {
-              bucket
-              region
-              key
-            }
-          }
           meals {
-            items {
-              id
-              title
-              description
-              likes {
-                nextToken
-              }
-              inspiredBy {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              menuItem {
-                id
-                order
-                owner
-              }
-              createdBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              createdAt
-              recipe
-              ingredients {
-                items
-              }
-              steps {
-                description
-              }
-              tags
-              owner
-            }
             nextToken
           }
           menuItems {
-            items {
-              id
-              order
-              meal {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              createdBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              owner
-            }
             nextToken
           }
           likes {
-            items {
-              id
-              meal {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              likedBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              owner
-            }
             nextToken
           }
           followers {
-            items {
-              id
-              user {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              followedBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              owner
-            }
             nextToken
           }
           following {
-            items {
-              id
-              user {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              followedBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              owner
-            }
             nextToken
           }
           owner
@@ -9099,117 +1465,9 @@ export const onUpdateMeal = /* GraphQL */ `
           items {
             id
             title
-            image {
-              file {
-                bucket
-                region
-                key
-              }
-            }
             description
-            likes {
-              items {
-                id
-                owner
-              }
-              nextToken
-            }
-            inspiredBy {
-              id
-              title
-              description
-              likes {
-                nextToken
-              }
-              inspiredBy {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              menuItem {
-                id
-                order
-                owner
-              }
-              createdBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              createdAt
-              recipe
-              ingredients {
-                items
-              }
-              steps {
-                description
-              }
-              tags
-              owner
-            }
-            menuItem {
-              id
-              order
-              meal {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              createdBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              owner
-            }
-            createdBy {
-              id
-              username
-              email
-              firstName
-              lastName
-              bio
-              meals {
-                nextToken
-              }
-              menuItems {
-                nextToken
-              }
-              likes {
-                nextToken
-              }
-              followers {
-                nextToken
-              }
-              following {
-                nextToken
-              }
-              owner
-            }
             createdAt
             recipe
-            ingredients {
-              items
-            }
-            steps {
-              description
-            }
             tags
             owner
           }
@@ -9219,71 +1477,6 @@ export const onUpdateMeal = /* GraphQL */ `
           items {
             id
             order
-            meal {
-              id
-              title
-              description
-              likes {
-                nextToken
-              }
-              inspiredBy {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              menuItem {
-                id
-                order
-                owner
-              }
-              createdBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              createdAt
-              recipe
-              ingredients {
-                items
-              }
-              steps {
-                description
-              }
-              tags
-              owner
-            }
-            createdBy {
-              id
-              username
-              email
-              firstName
-              lastName
-              bio
-              meals {
-                nextToken
-              }
-              menuItems {
-                nextToken
-              }
-              likes {
-                nextToken
-              }
-              followers {
-                nextToken
-              }
-              following {
-                nextToken
-              }
-              owner
-            }
             owner
           }
           nextToken
@@ -9291,71 +1484,6 @@ export const onUpdateMeal = /* GraphQL */ `
         likes {
           items {
             id
-            meal {
-              id
-              title
-              description
-              likes {
-                nextToken
-              }
-              inspiredBy {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              menuItem {
-                id
-                order
-                owner
-              }
-              createdBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              createdAt
-              recipe
-              ingredients {
-                items
-              }
-              steps {
-                description
-              }
-              tags
-              owner
-            }
-            likedBy {
-              id
-              username
-              email
-              firstName
-              lastName
-              bio
-              meals {
-                nextToken
-              }
-              menuItems {
-                nextToken
-              }
-              likes {
-                nextToken
-              }
-              followers {
-                nextToken
-              }
-              following {
-                nextToken
-              }
-              owner
-            }
             owner
           }
           nextToken
@@ -9363,54 +1491,6 @@ export const onUpdateMeal = /* GraphQL */ `
         followers {
           items {
             id
-            user {
-              id
-              username
-              email
-              firstName
-              lastName
-              bio
-              meals {
-                nextToken
-              }
-              menuItems {
-                nextToken
-              }
-              likes {
-                nextToken
-              }
-              followers {
-                nextToken
-              }
-              following {
-                nextToken
-              }
-              owner
-            }
-            followedBy {
-              id
-              username
-              email
-              firstName
-              lastName
-              bio
-              meals {
-                nextToken
-              }
-              menuItems {
-                nextToken
-              }
-              likes {
-                nextToken
-              }
-              followers {
-                nextToken
-              }
-              following {
-                nextToken
-              }
-              owner
-            }
             owner
           }
           nextToken
@@ -9418,54 +1498,6 @@ export const onUpdateMeal = /* GraphQL */ `
         following {
           items {
             id
-            user {
-              id
-              username
-              email
-              firstName
-              lastName
-              bio
-              meals {
-                nextToken
-              }
-              menuItems {
-                nextToken
-              }
-              likes {
-                nextToken
-              }
-              followers {
-                nextToken
-              }
-              following {
-                nextToken
-              }
-              owner
-            }
-            followedBy {
-              id
-              username
-              email
-              firstName
-              lastName
-              bio
-              meals {
-                nextToken
-              }
-              menuItems {
-                nextToken
-              }
-              likes {
-                nextToken
-              }
-              followers {
-                nextToken
-              }
-              following {
-                nextToken
-              }
-              owner
-            }
             owner
           }
           nextToken
@@ -9518,117 +1550,9 @@ export const onDeleteMeal = /* GraphQL */ `
           meal {
             id
             title
-            image {
-              file {
-                bucket
-                region
-                key
-              }
-            }
             description
-            likes {
-              items {
-                id
-                owner
-              }
-              nextToken
-            }
-            inspiredBy {
-              id
-              title
-              description
-              likes {
-                nextToken
-              }
-              inspiredBy {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              menuItem {
-                id
-                order
-                owner
-              }
-              createdBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              createdAt
-              recipe
-              ingredients {
-                items
-              }
-              steps {
-                description
-              }
-              tags
-              owner
-            }
-            menuItem {
-              id
-              order
-              meal {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              createdBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              owner
-            }
-            createdBy {
-              id
-              username
-              email
-              firstName
-              lastName
-              bio
-              meals {
-                nextToken
-              }
-              menuItems {
-                nextToken
-              }
-              likes {
-                nextToken
-              }
-              followers {
-                nextToken
-              }
-              following {
-                nextToken
-              }
-              owner
-            }
             createdAt
             recipe
-            ingredients {
-              items
-            }
-            steps {
-              description
-            }
             tags
             owner
           }
@@ -9639,54 +1563,6 @@ export const onDeleteMeal = /* GraphQL */ `
             firstName
             lastName
             bio
-            image {
-              file {
-                bucket
-                region
-                key
-              }
-            }
-            meals {
-              items {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              nextToken
-            }
-            menuItems {
-              items {
-                id
-                order
-                owner
-              }
-              nextToken
-            }
-            likes {
-              items {
-                id
-                owner
-              }
-              nextToken
-            }
-            followers {
-              items {
-                id
-                owner
-              }
-              nextToken
-            }
-            following {
-              items {
-                id
-                owner
-              }
-              nextToken
-            }
             owner
           }
           owner
@@ -9707,71 +1583,6 @@ export const onDeleteMeal = /* GraphQL */ `
         likes {
           items {
             id
-            meal {
-              id
-              title
-              description
-              likes {
-                nextToken
-              }
-              inspiredBy {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              menuItem {
-                id
-                order
-                owner
-              }
-              createdBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              createdAt
-              recipe
-              ingredients {
-                items
-              }
-              steps {
-                description
-              }
-              tags
-              owner
-            }
-            likedBy {
-              id
-              username
-              email
-              firstName
-              lastName
-              bio
-              meals {
-                nextToken
-              }
-              menuItems {
-                nextToken
-              }
-              likes {
-                nextToken
-              }
-              followers {
-                nextToken
-              }
-              following {
-                nextToken
-              }
-              owner
-            }
             owner
           }
           nextToken
@@ -9779,224 +1590,22 @@ export const onDeleteMeal = /* GraphQL */ `
         inspiredBy {
           id
           title
-          image {
-            file {
-              bucket
-              region
-              key
-            }
-          }
           description
           likes {
-            items {
-              id
-              meal {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              likedBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              owner
-            }
             nextToken
           }
           inspiredBy {
             id
             title
-            image {
-              file {
-                bucket
-                region
-                key
-              }
-            }
             description
-            likes {
-              items {
-                id
-                owner
-              }
-              nextToken
-            }
-            inspiredBy {
-              id
-              title
-              description
-              likes {
-                nextToken
-              }
-              inspiredBy {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              menuItem {
-                id
-                order
-                owner
-              }
-              createdBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              createdAt
-              recipe
-              ingredients {
-                items
-              }
-              steps {
-                description
-              }
-              tags
-              owner
-            }
-            menuItem {
-              id
-              order
-              meal {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              createdBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              owner
-            }
-            createdBy {
-              id
-              username
-              email
-              firstName
-              lastName
-              bio
-              meals {
-                nextToken
-              }
-              menuItems {
-                nextToken
-              }
-              likes {
-                nextToken
-              }
-              followers {
-                nextToken
-              }
-              following {
-                nextToken
-              }
-              owner
-            }
             createdAt
             recipe
-            ingredients {
-              items
-            }
-            steps {
-              description
-            }
             tags
             owner
           }
           menuItem {
             id
             order
-            meal {
-              id
-              title
-              description
-              likes {
-                nextToken
-              }
-              inspiredBy {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              menuItem {
-                id
-                order
-                owner
-              }
-              createdBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              createdAt
-              recipe
-              ingredients {
-                items
-              }
-              steps {
-                description
-              }
-              tags
-              owner
-            }
-            createdBy {
-              id
-              username
-              email
-              firstName
-              lastName
-              bio
-              meals {
-                nextToken
-              }
-              menuItems {
-                nextToken
-              }
-              likes {
-                nextToken
-              }
-              followers {
-                nextToken
-              }
-              following {
-                nextToken
-              }
-              owner
-            }
             owner
           }
           createdBy {
@@ -10006,76 +1615,14 @@ export const onDeleteMeal = /* GraphQL */ `
             firstName
             lastName
             bio
-            image {
-              file {
-                bucket
-                region
-                key
-              }
-            }
-            meals {
-              items {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              nextToken
-            }
-            menuItems {
-              items {
-                id
-                order
-                owner
-              }
-              nextToken
-            }
-            likes {
-              items {
-                id
-                owner
-              }
-              nextToken
-            }
-            followers {
-              items {
-                id
-                owner
-              }
-              nextToken
-            }
-            following {
-              items {
-                id
-                owner
-              }
-              nextToken
-            }
             owner
           }
           createdAt
           recipe
           ingredients {
-            image {
-              file {
-                bucket
-                region
-                key
-              }
-            }
             items
           }
           steps {
-            image {
-              file {
-                bucket
-                region
-                key
-              }
-            }
             description
           }
           tags
@@ -10087,117 +1634,9 @@ export const onDeleteMeal = /* GraphQL */ `
           meal {
             id
             title
-            image {
-              file {
-                bucket
-                region
-                key
-              }
-            }
             description
-            likes {
-              items {
-                id
-                owner
-              }
-              nextToken
-            }
-            inspiredBy {
-              id
-              title
-              description
-              likes {
-                nextToken
-              }
-              inspiredBy {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              menuItem {
-                id
-                order
-                owner
-              }
-              createdBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              createdAt
-              recipe
-              ingredients {
-                items
-              }
-              steps {
-                description
-              }
-              tags
-              owner
-            }
-            menuItem {
-              id
-              order
-              meal {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              createdBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              owner
-            }
-            createdBy {
-              id
-              username
-              email
-              firstName
-              lastName
-              bio
-              meals {
-                nextToken
-              }
-              menuItems {
-                nextToken
-              }
-              likes {
-                nextToken
-              }
-              followers {
-                nextToken
-              }
-              following {
-                nextToken
-              }
-              owner
-            }
             createdAt
             recipe
-            ingredients {
-              items
-            }
-            steps {
-              description
-            }
             tags
             owner
           }
@@ -10208,54 +1647,6 @@ export const onDeleteMeal = /* GraphQL */ `
             firstName
             lastName
             bio
-            image {
-              file {
-                bucket
-                region
-                key
-              }
-            }
-            meals {
-              items {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              nextToken
-            }
-            menuItems {
-              items {
-                id
-                order
-                owner
-              }
-              nextToken
-            }
-            likes {
-              items {
-                id
-                owner
-              }
-              nextToken
-            }
-            followers {
-              items {
-                id
-                owner
-              }
-              nextToken
-            }
-            following {
-              items {
-                id
-                owner
-              }
-              nextToken
-            }
             owner
           }
           owner
@@ -10267,156 +1658,19 @@ export const onDeleteMeal = /* GraphQL */ `
           firstName
           lastName
           bio
-          image {
-            file {
-              bucket
-              region
-              key
-            }
-          }
           meals {
-            items {
-              id
-              title
-              description
-              likes {
-                nextToken
-              }
-              inspiredBy {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              menuItem {
-                id
-                order
-                owner
-              }
-              createdBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              createdAt
-              recipe
-              ingredients {
-                items
-              }
-              steps {
-                description
-              }
-              tags
-              owner
-            }
             nextToken
           }
           menuItems {
-            items {
-              id
-              order
-              meal {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              createdBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              owner
-            }
             nextToken
           }
           likes {
-            items {
-              id
-              meal {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              likedBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              owner
-            }
             nextToken
           }
           followers {
-            items {
-              id
-              user {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              followedBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              owner
-            }
             nextToken
           }
           following {
-            items {
-              id
-              user {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              followedBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              owner
-            }
             nextToken
           }
           owner
@@ -10424,23 +1678,9 @@ export const onDeleteMeal = /* GraphQL */ `
         createdAt
         recipe
         ingredients {
-          image {
-            file {
-              bucket
-              region
-              key
-            }
-          }
           items
         }
         steps {
-          image {
-            file {
-              bucket
-              region
-              key
-            }
-          }
           description
         }
         tags
@@ -10452,224 +1692,22 @@ export const onDeleteMeal = /* GraphQL */ `
         meal {
           id
           title
-          image {
-            file {
-              bucket
-              region
-              key
-            }
-          }
           description
           likes {
-            items {
-              id
-              meal {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              likedBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              owner
-            }
             nextToken
           }
           inspiredBy {
             id
             title
-            image {
-              file {
-                bucket
-                region
-                key
-              }
-            }
             description
-            likes {
-              items {
-                id
-                owner
-              }
-              nextToken
-            }
-            inspiredBy {
-              id
-              title
-              description
-              likes {
-                nextToken
-              }
-              inspiredBy {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              menuItem {
-                id
-                order
-                owner
-              }
-              createdBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              createdAt
-              recipe
-              ingredients {
-                items
-              }
-              steps {
-                description
-              }
-              tags
-              owner
-            }
-            menuItem {
-              id
-              order
-              meal {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              createdBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              owner
-            }
-            createdBy {
-              id
-              username
-              email
-              firstName
-              lastName
-              bio
-              meals {
-                nextToken
-              }
-              menuItems {
-                nextToken
-              }
-              likes {
-                nextToken
-              }
-              followers {
-                nextToken
-              }
-              following {
-                nextToken
-              }
-              owner
-            }
             createdAt
             recipe
-            ingredients {
-              items
-            }
-            steps {
-              description
-            }
             tags
             owner
           }
           menuItem {
             id
             order
-            meal {
-              id
-              title
-              description
-              likes {
-                nextToken
-              }
-              inspiredBy {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              menuItem {
-                id
-                order
-                owner
-              }
-              createdBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              createdAt
-              recipe
-              ingredients {
-                items
-              }
-              steps {
-                description
-              }
-              tags
-              owner
-            }
-            createdBy {
-              id
-              username
-              email
-              firstName
-              lastName
-              bio
-              meals {
-                nextToken
-              }
-              menuItems {
-                nextToken
-              }
-              likes {
-                nextToken
-              }
-              followers {
-                nextToken
-              }
-              following {
-                nextToken
-              }
-              owner
-            }
             owner
           }
           createdBy {
@@ -10679,76 +1717,14 @@ export const onDeleteMeal = /* GraphQL */ `
             firstName
             lastName
             bio
-            image {
-              file {
-                bucket
-                region
-                key
-              }
-            }
-            meals {
-              items {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              nextToken
-            }
-            menuItems {
-              items {
-                id
-                order
-                owner
-              }
-              nextToken
-            }
-            likes {
-              items {
-                id
-                owner
-              }
-              nextToken
-            }
-            followers {
-              items {
-                id
-                owner
-              }
-              nextToken
-            }
-            following {
-              items {
-                id
-                owner
-              }
-              nextToken
-            }
             owner
           }
           createdAt
           recipe
           ingredients {
-            image {
-              file {
-                bucket
-                region
-                key
-              }
-            }
             items
           }
           steps {
-            image {
-              file {
-                bucket
-                region
-                key
-              }
-            }
             description
           }
           tags
@@ -10761,156 +1737,19 @@ export const onDeleteMeal = /* GraphQL */ `
           firstName
           lastName
           bio
-          image {
-            file {
-              bucket
-              region
-              key
-            }
-          }
           meals {
-            items {
-              id
-              title
-              description
-              likes {
-                nextToken
-              }
-              inspiredBy {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              menuItem {
-                id
-                order
-                owner
-              }
-              createdBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              createdAt
-              recipe
-              ingredients {
-                items
-              }
-              steps {
-                description
-              }
-              tags
-              owner
-            }
             nextToken
           }
           menuItems {
-            items {
-              id
-              order
-              meal {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              createdBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              owner
-            }
             nextToken
           }
           likes {
-            items {
-              id
-              meal {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              likedBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              owner
-            }
             nextToken
           }
           followers {
-            items {
-              id
-              user {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              followedBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              owner
-            }
             nextToken
           }
           following {
-            items {
-              id
-              user {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              followedBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              owner
-            }
             nextToken
           }
           owner
@@ -10935,117 +1774,9 @@ export const onDeleteMeal = /* GraphQL */ `
           items {
             id
             title
-            image {
-              file {
-                bucket
-                region
-                key
-              }
-            }
             description
-            likes {
-              items {
-                id
-                owner
-              }
-              nextToken
-            }
-            inspiredBy {
-              id
-              title
-              description
-              likes {
-                nextToken
-              }
-              inspiredBy {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              menuItem {
-                id
-                order
-                owner
-              }
-              createdBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              createdAt
-              recipe
-              ingredients {
-                items
-              }
-              steps {
-                description
-              }
-              tags
-              owner
-            }
-            menuItem {
-              id
-              order
-              meal {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              createdBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              owner
-            }
-            createdBy {
-              id
-              username
-              email
-              firstName
-              lastName
-              bio
-              meals {
-                nextToken
-              }
-              menuItems {
-                nextToken
-              }
-              likes {
-                nextToken
-              }
-              followers {
-                nextToken
-              }
-              following {
-                nextToken
-              }
-              owner
-            }
             createdAt
             recipe
-            ingredients {
-              items
-            }
-            steps {
-              description
-            }
             tags
             owner
           }
@@ -11055,71 +1786,6 @@ export const onDeleteMeal = /* GraphQL */ `
           items {
             id
             order
-            meal {
-              id
-              title
-              description
-              likes {
-                nextToken
-              }
-              inspiredBy {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              menuItem {
-                id
-                order
-                owner
-              }
-              createdBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              createdAt
-              recipe
-              ingredients {
-                items
-              }
-              steps {
-                description
-              }
-              tags
-              owner
-            }
-            createdBy {
-              id
-              username
-              email
-              firstName
-              lastName
-              bio
-              meals {
-                nextToken
-              }
-              menuItems {
-                nextToken
-              }
-              likes {
-                nextToken
-              }
-              followers {
-                nextToken
-              }
-              following {
-                nextToken
-              }
-              owner
-            }
             owner
           }
           nextToken
@@ -11127,71 +1793,6 @@ export const onDeleteMeal = /* GraphQL */ `
         likes {
           items {
             id
-            meal {
-              id
-              title
-              description
-              likes {
-                nextToken
-              }
-              inspiredBy {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              menuItem {
-                id
-                order
-                owner
-              }
-              createdBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              createdAt
-              recipe
-              ingredients {
-                items
-              }
-              steps {
-                description
-              }
-              tags
-              owner
-            }
-            likedBy {
-              id
-              username
-              email
-              firstName
-              lastName
-              bio
-              meals {
-                nextToken
-              }
-              menuItems {
-                nextToken
-              }
-              likes {
-                nextToken
-              }
-              followers {
-                nextToken
-              }
-              following {
-                nextToken
-              }
-              owner
-            }
             owner
           }
           nextToken
@@ -11199,54 +1800,6 @@ export const onDeleteMeal = /* GraphQL */ `
         followers {
           items {
             id
-            user {
-              id
-              username
-              email
-              firstName
-              lastName
-              bio
-              meals {
-                nextToken
-              }
-              menuItems {
-                nextToken
-              }
-              likes {
-                nextToken
-              }
-              followers {
-                nextToken
-              }
-              following {
-                nextToken
-              }
-              owner
-            }
-            followedBy {
-              id
-              username
-              email
-              firstName
-              lastName
-              bio
-              meals {
-                nextToken
-              }
-              menuItems {
-                nextToken
-              }
-              likes {
-                nextToken
-              }
-              followers {
-                nextToken
-              }
-              following {
-                nextToken
-              }
-              owner
-            }
             owner
           }
           nextToken
@@ -11254,54 +1807,6 @@ export const onDeleteMeal = /* GraphQL */ `
         following {
           items {
             id
-            user {
-              id
-              username
-              email
-              firstName
-              lastName
-              bio
-              meals {
-                nextToken
-              }
-              menuItems {
-                nextToken
-              }
-              likes {
-                nextToken
-              }
-              followers {
-                nextToken
-              }
-              following {
-                nextToken
-              }
-              owner
-            }
-            followedBy {
-              id
-              username
-              email
-              firstName
-              lastName
-              bio
-              meals {
-                nextToken
-              }
-              menuItems {
-                nextToken
-              }
-              likes {
-                nextToken
-              }
-              followers {
-                nextToken
-              }
-              following {
-                nextToken
-              }
-              owner
-            }
             owner
           }
           nextToken
@@ -11354,71 +1859,6 @@ export const onCreateMenuItem = /* GraphQL */ `
         likes {
           items {
             id
-            meal {
-              id
-              title
-              description
-              likes {
-                nextToken
-              }
-              inspiredBy {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              menuItem {
-                id
-                order
-                owner
-              }
-              createdBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              createdAt
-              recipe
-              ingredients {
-                items
-              }
-              steps {
-                description
-              }
-              tags
-              owner
-            }
-            likedBy {
-              id
-              username
-              email
-              firstName
-              lastName
-              bio
-              meals {
-                nextToken
-              }
-              menuItems {
-                nextToken
-              }
-              likes {
-                nextToken
-              }
-              followers {
-                nextToken
-              }
-              following {
-                nextToken
-              }
-              owner
-            }
             owner
           }
           nextToken
@@ -11426,224 +1866,22 @@ export const onCreateMenuItem = /* GraphQL */ `
         inspiredBy {
           id
           title
-          image {
-            file {
-              bucket
-              region
-              key
-            }
-          }
           description
           likes {
-            items {
-              id
-              meal {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              likedBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              owner
-            }
             nextToken
           }
           inspiredBy {
             id
             title
-            image {
-              file {
-                bucket
-                region
-                key
-              }
-            }
             description
-            likes {
-              items {
-                id
-                owner
-              }
-              nextToken
-            }
-            inspiredBy {
-              id
-              title
-              description
-              likes {
-                nextToken
-              }
-              inspiredBy {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              menuItem {
-                id
-                order
-                owner
-              }
-              createdBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              createdAt
-              recipe
-              ingredients {
-                items
-              }
-              steps {
-                description
-              }
-              tags
-              owner
-            }
-            menuItem {
-              id
-              order
-              meal {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              createdBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              owner
-            }
-            createdBy {
-              id
-              username
-              email
-              firstName
-              lastName
-              bio
-              meals {
-                nextToken
-              }
-              menuItems {
-                nextToken
-              }
-              likes {
-                nextToken
-              }
-              followers {
-                nextToken
-              }
-              following {
-                nextToken
-              }
-              owner
-            }
             createdAt
             recipe
-            ingredients {
-              items
-            }
-            steps {
-              description
-            }
             tags
             owner
           }
           menuItem {
             id
             order
-            meal {
-              id
-              title
-              description
-              likes {
-                nextToken
-              }
-              inspiredBy {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              menuItem {
-                id
-                order
-                owner
-              }
-              createdBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              createdAt
-              recipe
-              ingredients {
-                items
-              }
-              steps {
-                description
-              }
-              tags
-              owner
-            }
-            createdBy {
-              id
-              username
-              email
-              firstName
-              lastName
-              bio
-              meals {
-                nextToken
-              }
-              menuItems {
-                nextToken
-              }
-              likes {
-                nextToken
-              }
-              followers {
-                nextToken
-              }
-              following {
-                nextToken
-              }
-              owner
-            }
             owner
           }
           createdBy {
@@ -11653,76 +1891,14 @@ export const onCreateMenuItem = /* GraphQL */ `
             firstName
             lastName
             bio
-            image {
-              file {
-                bucket
-                region
-                key
-              }
-            }
-            meals {
-              items {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              nextToken
-            }
-            menuItems {
-              items {
-                id
-                order
-                owner
-              }
-              nextToken
-            }
-            likes {
-              items {
-                id
-                owner
-              }
-              nextToken
-            }
-            followers {
-              items {
-                id
-                owner
-              }
-              nextToken
-            }
-            following {
-              items {
-                id
-                owner
-              }
-              nextToken
-            }
             owner
           }
           createdAt
           recipe
           ingredients {
-            image {
-              file {
-                bucket
-                region
-                key
-              }
-            }
             items
           }
           steps {
-            image {
-              file {
-                bucket
-                region
-                key
-              }
-            }
             description
           }
           tags
@@ -11734,117 +1910,9 @@ export const onCreateMenuItem = /* GraphQL */ `
           meal {
             id
             title
-            image {
-              file {
-                bucket
-                region
-                key
-              }
-            }
             description
-            likes {
-              items {
-                id
-                owner
-              }
-              nextToken
-            }
-            inspiredBy {
-              id
-              title
-              description
-              likes {
-                nextToken
-              }
-              inspiredBy {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              menuItem {
-                id
-                order
-                owner
-              }
-              createdBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              createdAt
-              recipe
-              ingredients {
-                items
-              }
-              steps {
-                description
-              }
-              tags
-              owner
-            }
-            menuItem {
-              id
-              order
-              meal {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              createdBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              owner
-            }
-            createdBy {
-              id
-              username
-              email
-              firstName
-              lastName
-              bio
-              meals {
-                nextToken
-              }
-              menuItems {
-                nextToken
-              }
-              likes {
-                nextToken
-              }
-              followers {
-                nextToken
-              }
-              following {
-                nextToken
-              }
-              owner
-            }
             createdAt
             recipe
-            ingredients {
-              items
-            }
-            steps {
-              description
-            }
             tags
             owner
           }
@@ -11855,54 +1923,6 @@ export const onCreateMenuItem = /* GraphQL */ `
             firstName
             lastName
             bio
-            image {
-              file {
-                bucket
-                region
-                key
-              }
-            }
-            meals {
-              items {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              nextToken
-            }
-            menuItems {
-              items {
-                id
-                order
-                owner
-              }
-              nextToken
-            }
-            likes {
-              items {
-                id
-                owner
-              }
-              nextToken
-            }
-            followers {
-              items {
-                id
-                owner
-              }
-              nextToken
-            }
-            following {
-              items {
-                id
-                owner
-              }
-              nextToken
-            }
             owner
           }
           owner
@@ -11914,156 +1934,19 @@ export const onCreateMenuItem = /* GraphQL */ `
           firstName
           lastName
           bio
-          image {
-            file {
-              bucket
-              region
-              key
-            }
-          }
           meals {
-            items {
-              id
-              title
-              description
-              likes {
-                nextToken
-              }
-              inspiredBy {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              menuItem {
-                id
-                order
-                owner
-              }
-              createdBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              createdAt
-              recipe
-              ingredients {
-                items
-              }
-              steps {
-                description
-              }
-              tags
-              owner
-            }
             nextToken
           }
           menuItems {
-            items {
-              id
-              order
-              meal {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              createdBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              owner
-            }
             nextToken
           }
           likes {
-            items {
-              id
-              meal {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              likedBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              owner
-            }
             nextToken
           }
           followers {
-            items {
-              id
-              user {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              followedBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              owner
-            }
             nextToken
           }
           following {
-            items {
-              id
-              user {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              followedBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              owner
-            }
             nextToken
           }
           owner
@@ -12071,23 +1954,9 @@ export const onCreateMenuItem = /* GraphQL */ `
         createdAt
         recipe
         ingredients {
-          image {
-            file {
-              bucket
-              region
-              key
-            }
-          }
           items
         }
         steps {
-          image {
-            file {
-              bucket
-              region
-              key
-            }
-          }
           description
         }
         tags
@@ -12111,117 +1980,9 @@ export const onCreateMenuItem = /* GraphQL */ `
           items {
             id
             title
-            image {
-              file {
-                bucket
-                region
-                key
-              }
-            }
             description
-            likes {
-              items {
-                id
-                owner
-              }
-              nextToken
-            }
-            inspiredBy {
-              id
-              title
-              description
-              likes {
-                nextToken
-              }
-              inspiredBy {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              menuItem {
-                id
-                order
-                owner
-              }
-              createdBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              createdAt
-              recipe
-              ingredients {
-                items
-              }
-              steps {
-                description
-              }
-              tags
-              owner
-            }
-            menuItem {
-              id
-              order
-              meal {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              createdBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              owner
-            }
-            createdBy {
-              id
-              username
-              email
-              firstName
-              lastName
-              bio
-              meals {
-                nextToken
-              }
-              menuItems {
-                nextToken
-              }
-              likes {
-                nextToken
-              }
-              followers {
-                nextToken
-              }
-              following {
-                nextToken
-              }
-              owner
-            }
             createdAt
             recipe
-            ingredients {
-              items
-            }
-            steps {
-              description
-            }
             tags
             owner
           }
@@ -12231,71 +1992,6 @@ export const onCreateMenuItem = /* GraphQL */ `
           items {
             id
             order
-            meal {
-              id
-              title
-              description
-              likes {
-                nextToken
-              }
-              inspiredBy {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              menuItem {
-                id
-                order
-                owner
-              }
-              createdBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              createdAt
-              recipe
-              ingredients {
-                items
-              }
-              steps {
-                description
-              }
-              tags
-              owner
-            }
-            createdBy {
-              id
-              username
-              email
-              firstName
-              lastName
-              bio
-              meals {
-                nextToken
-              }
-              menuItems {
-                nextToken
-              }
-              likes {
-                nextToken
-              }
-              followers {
-                nextToken
-              }
-              following {
-                nextToken
-              }
-              owner
-            }
             owner
           }
           nextToken
@@ -12303,71 +1999,6 @@ export const onCreateMenuItem = /* GraphQL */ `
         likes {
           items {
             id
-            meal {
-              id
-              title
-              description
-              likes {
-                nextToken
-              }
-              inspiredBy {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              menuItem {
-                id
-                order
-                owner
-              }
-              createdBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              createdAt
-              recipe
-              ingredients {
-                items
-              }
-              steps {
-                description
-              }
-              tags
-              owner
-            }
-            likedBy {
-              id
-              username
-              email
-              firstName
-              lastName
-              bio
-              meals {
-                nextToken
-              }
-              menuItems {
-                nextToken
-              }
-              likes {
-                nextToken
-              }
-              followers {
-                nextToken
-              }
-              following {
-                nextToken
-              }
-              owner
-            }
             owner
           }
           nextToken
@@ -12375,54 +2006,6 @@ export const onCreateMenuItem = /* GraphQL */ `
         followers {
           items {
             id
-            user {
-              id
-              username
-              email
-              firstName
-              lastName
-              bio
-              meals {
-                nextToken
-              }
-              menuItems {
-                nextToken
-              }
-              likes {
-                nextToken
-              }
-              followers {
-                nextToken
-              }
-              following {
-                nextToken
-              }
-              owner
-            }
-            followedBy {
-              id
-              username
-              email
-              firstName
-              lastName
-              bio
-              meals {
-                nextToken
-              }
-              menuItems {
-                nextToken
-              }
-              likes {
-                nextToken
-              }
-              followers {
-                nextToken
-              }
-              following {
-                nextToken
-              }
-              owner
-            }
             owner
           }
           nextToken
@@ -12430,54 +2013,6 @@ export const onCreateMenuItem = /* GraphQL */ `
         following {
           items {
             id
-            user {
-              id
-              username
-              email
-              firstName
-              lastName
-              bio
-              meals {
-                nextToken
-              }
-              menuItems {
-                nextToken
-              }
-              likes {
-                nextToken
-              }
-              followers {
-                nextToken
-              }
-              following {
-                nextToken
-              }
-              owner
-            }
-            followedBy {
-              id
-              username
-              email
-              firstName
-              lastName
-              bio
-              meals {
-                nextToken
-              }
-              menuItems {
-                nextToken
-              }
-              likes {
-                nextToken
-              }
-              followers {
-                nextToken
-              }
-              following {
-                nextToken
-              }
-              owner
-            }
             owner
           }
           nextToken
@@ -12507,71 +2042,6 @@ export const onUpdateMenuItem = /* GraphQL */ `
         likes {
           items {
             id
-            meal {
-              id
-              title
-              description
-              likes {
-                nextToken
-              }
-              inspiredBy {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              menuItem {
-                id
-                order
-                owner
-              }
-              createdBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              createdAt
-              recipe
-              ingredients {
-                items
-              }
-              steps {
-                description
-              }
-              tags
-              owner
-            }
-            likedBy {
-              id
-              username
-              email
-              firstName
-              lastName
-              bio
-              meals {
-                nextToken
-              }
-              menuItems {
-                nextToken
-              }
-              likes {
-                nextToken
-              }
-              followers {
-                nextToken
-              }
-              following {
-                nextToken
-              }
-              owner
-            }
             owner
           }
           nextToken
@@ -12579,224 +2049,22 @@ export const onUpdateMenuItem = /* GraphQL */ `
         inspiredBy {
           id
           title
-          image {
-            file {
-              bucket
-              region
-              key
-            }
-          }
           description
           likes {
-            items {
-              id
-              meal {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              likedBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              owner
-            }
             nextToken
           }
           inspiredBy {
             id
             title
-            image {
-              file {
-                bucket
-                region
-                key
-              }
-            }
             description
-            likes {
-              items {
-                id
-                owner
-              }
-              nextToken
-            }
-            inspiredBy {
-              id
-              title
-              description
-              likes {
-                nextToken
-              }
-              inspiredBy {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              menuItem {
-                id
-                order
-                owner
-              }
-              createdBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              createdAt
-              recipe
-              ingredients {
-                items
-              }
-              steps {
-                description
-              }
-              tags
-              owner
-            }
-            menuItem {
-              id
-              order
-              meal {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              createdBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              owner
-            }
-            createdBy {
-              id
-              username
-              email
-              firstName
-              lastName
-              bio
-              meals {
-                nextToken
-              }
-              menuItems {
-                nextToken
-              }
-              likes {
-                nextToken
-              }
-              followers {
-                nextToken
-              }
-              following {
-                nextToken
-              }
-              owner
-            }
             createdAt
             recipe
-            ingredients {
-              items
-            }
-            steps {
-              description
-            }
             tags
             owner
           }
           menuItem {
             id
             order
-            meal {
-              id
-              title
-              description
-              likes {
-                nextToken
-              }
-              inspiredBy {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              menuItem {
-                id
-                order
-                owner
-              }
-              createdBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              createdAt
-              recipe
-              ingredients {
-                items
-              }
-              steps {
-                description
-              }
-              tags
-              owner
-            }
-            createdBy {
-              id
-              username
-              email
-              firstName
-              lastName
-              bio
-              meals {
-                nextToken
-              }
-              menuItems {
-                nextToken
-              }
-              likes {
-                nextToken
-              }
-              followers {
-                nextToken
-              }
-              following {
-                nextToken
-              }
-              owner
-            }
             owner
           }
           createdBy {
@@ -12806,76 +2074,14 @@ export const onUpdateMenuItem = /* GraphQL */ `
             firstName
             lastName
             bio
-            image {
-              file {
-                bucket
-                region
-                key
-              }
-            }
-            meals {
-              items {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              nextToken
-            }
-            menuItems {
-              items {
-                id
-                order
-                owner
-              }
-              nextToken
-            }
-            likes {
-              items {
-                id
-                owner
-              }
-              nextToken
-            }
-            followers {
-              items {
-                id
-                owner
-              }
-              nextToken
-            }
-            following {
-              items {
-                id
-                owner
-              }
-              nextToken
-            }
             owner
           }
           createdAt
           recipe
           ingredients {
-            image {
-              file {
-                bucket
-                region
-                key
-              }
-            }
             items
           }
           steps {
-            image {
-              file {
-                bucket
-                region
-                key
-              }
-            }
             description
           }
           tags
@@ -12887,117 +2093,9 @@ export const onUpdateMenuItem = /* GraphQL */ `
           meal {
             id
             title
-            image {
-              file {
-                bucket
-                region
-                key
-              }
-            }
             description
-            likes {
-              items {
-                id
-                owner
-              }
-              nextToken
-            }
-            inspiredBy {
-              id
-              title
-              description
-              likes {
-                nextToken
-              }
-              inspiredBy {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              menuItem {
-                id
-                order
-                owner
-              }
-              createdBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              createdAt
-              recipe
-              ingredients {
-                items
-              }
-              steps {
-                description
-              }
-              tags
-              owner
-            }
-            menuItem {
-              id
-              order
-              meal {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              createdBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              owner
-            }
-            createdBy {
-              id
-              username
-              email
-              firstName
-              lastName
-              bio
-              meals {
-                nextToken
-              }
-              menuItems {
-                nextToken
-              }
-              likes {
-                nextToken
-              }
-              followers {
-                nextToken
-              }
-              following {
-                nextToken
-              }
-              owner
-            }
             createdAt
             recipe
-            ingredients {
-              items
-            }
-            steps {
-              description
-            }
             tags
             owner
           }
@@ -13008,54 +2106,6 @@ export const onUpdateMenuItem = /* GraphQL */ `
             firstName
             lastName
             bio
-            image {
-              file {
-                bucket
-                region
-                key
-              }
-            }
-            meals {
-              items {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              nextToken
-            }
-            menuItems {
-              items {
-                id
-                order
-                owner
-              }
-              nextToken
-            }
-            likes {
-              items {
-                id
-                owner
-              }
-              nextToken
-            }
-            followers {
-              items {
-                id
-                owner
-              }
-              nextToken
-            }
-            following {
-              items {
-                id
-                owner
-              }
-              nextToken
-            }
             owner
           }
           owner
@@ -13067,156 +2117,19 @@ export const onUpdateMenuItem = /* GraphQL */ `
           firstName
           lastName
           bio
-          image {
-            file {
-              bucket
-              region
-              key
-            }
-          }
           meals {
-            items {
-              id
-              title
-              description
-              likes {
-                nextToken
-              }
-              inspiredBy {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              menuItem {
-                id
-                order
-                owner
-              }
-              createdBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              createdAt
-              recipe
-              ingredients {
-                items
-              }
-              steps {
-                description
-              }
-              tags
-              owner
-            }
             nextToken
           }
           menuItems {
-            items {
-              id
-              order
-              meal {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              createdBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              owner
-            }
             nextToken
           }
           likes {
-            items {
-              id
-              meal {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              likedBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              owner
-            }
             nextToken
           }
           followers {
-            items {
-              id
-              user {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              followedBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              owner
-            }
             nextToken
           }
           following {
-            items {
-              id
-              user {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              followedBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              owner
-            }
             nextToken
           }
           owner
@@ -13224,23 +2137,9 @@ export const onUpdateMenuItem = /* GraphQL */ `
         createdAt
         recipe
         ingredients {
-          image {
-            file {
-              bucket
-              region
-              key
-            }
-          }
           items
         }
         steps {
-          image {
-            file {
-              bucket
-              region
-              key
-            }
-          }
           description
         }
         tags
@@ -13264,117 +2163,9 @@ export const onUpdateMenuItem = /* GraphQL */ `
           items {
             id
             title
-            image {
-              file {
-                bucket
-                region
-                key
-              }
-            }
             description
-            likes {
-              items {
-                id
-                owner
-              }
-              nextToken
-            }
-            inspiredBy {
-              id
-              title
-              description
-              likes {
-                nextToken
-              }
-              inspiredBy {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              menuItem {
-                id
-                order
-                owner
-              }
-              createdBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              createdAt
-              recipe
-              ingredients {
-                items
-              }
-              steps {
-                description
-              }
-              tags
-              owner
-            }
-            menuItem {
-              id
-              order
-              meal {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              createdBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              owner
-            }
-            createdBy {
-              id
-              username
-              email
-              firstName
-              lastName
-              bio
-              meals {
-                nextToken
-              }
-              menuItems {
-                nextToken
-              }
-              likes {
-                nextToken
-              }
-              followers {
-                nextToken
-              }
-              following {
-                nextToken
-              }
-              owner
-            }
             createdAt
             recipe
-            ingredients {
-              items
-            }
-            steps {
-              description
-            }
             tags
             owner
           }
@@ -13384,71 +2175,6 @@ export const onUpdateMenuItem = /* GraphQL */ `
           items {
             id
             order
-            meal {
-              id
-              title
-              description
-              likes {
-                nextToken
-              }
-              inspiredBy {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              menuItem {
-                id
-                order
-                owner
-              }
-              createdBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              createdAt
-              recipe
-              ingredients {
-                items
-              }
-              steps {
-                description
-              }
-              tags
-              owner
-            }
-            createdBy {
-              id
-              username
-              email
-              firstName
-              lastName
-              bio
-              meals {
-                nextToken
-              }
-              menuItems {
-                nextToken
-              }
-              likes {
-                nextToken
-              }
-              followers {
-                nextToken
-              }
-              following {
-                nextToken
-              }
-              owner
-            }
             owner
           }
           nextToken
@@ -13456,71 +2182,6 @@ export const onUpdateMenuItem = /* GraphQL */ `
         likes {
           items {
             id
-            meal {
-              id
-              title
-              description
-              likes {
-                nextToken
-              }
-              inspiredBy {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              menuItem {
-                id
-                order
-                owner
-              }
-              createdBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              createdAt
-              recipe
-              ingredients {
-                items
-              }
-              steps {
-                description
-              }
-              tags
-              owner
-            }
-            likedBy {
-              id
-              username
-              email
-              firstName
-              lastName
-              bio
-              meals {
-                nextToken
-              }
-              menuItems {
-                nextToken
-              }
-              likes {
-                nextToken
-              }
-              followers {
-                nextToken
-              }
-              following {
-                nextToken
-              }
-              owner
-            }
             owner
           }
           nextToken
@@ -13528,54 +2189,6 @@ export const onUpdateMenuItem = /* GraphQL */ `
         followers {
           items {
             id
-            user {
-              id
-              username
-              email
-              firstName
-              lastName
-              bio
-              meals {
-                nextToken
-              }
-              menuItems {
-                nextToken
-              }
-              likes {
-                nextToken
-              }
-              followers {
-                nextToken
-              }
-              following {
-                nextToken
-              }
-              owner
-            }
-            followedBy {
-              id
-              username
-              email
-              firstName
-              lastName
-              bio
-              meals {
-                nextToken
-              }
-              menuItems {
-                nextToken
-              }
-              likes {
-                nextToken
-              }
-              followers {
-                nextToken
-              }
-              following {
-                nextToken
-              }
-              owner
-            }
             owner
           }
           nextToken
@@ -13583,54 +2196,6 @@ export const onUpdateMenuItem = /* GraphQL */ `
         following {
           items {
             id
-            user {
-              id
-              username
-              email
-              firstName
-              lastName
-              bio
-              meals {
-                nextToken
-              }
-              menuItems {
-                nextToken
-              }
-              likes {
-                nextToken
-              }
-              followers {
-                nextToken
-              }
-              following {
-                nextToken
-              }
-              owner
-            }
-            followedBy {
-              id
-              username
-              email
-              firstName
-              lastName
-              bio
-              meals {
-                nextToken
-              }
-              menuItems {
-                nextToken
-              }
-              likes {
-                nextToken
-              }
-              followers {
-                nextToken
-              }
-              following {
-                nextToken
-              }
-              owner
-            }
             owner
           }
           nextToken
@@ -13660,71 +2225,6 @@ export const onDeleteMenuItem = /* GraphQL */ `
         likes {
           items {
             id
-            meal {
-              id
-              title
-              description
-              likes {
-                nextToken
-              }
-              inspiredBy {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              menuItem {
-                id
-                order
-                owner
-              }
-              createdBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              createdAt
-              recipe
-              ingredients {
-                items
-              }
-              steps {
-                description
-              }
-              tags
-              owner
-            }
-            likedBy {
-              id
-              username
-              email
-              firstName
-              lastName
-              bio
-              meals {
-                nextToken
-              }
-              menuItems {
-                nextToken
-              }
-              likes {
-                nextToken
-              }
-              followers {
-                nextToken
-              }
-              following {
-                nextToken
-              }
-              owner
-            }
             owner
           }
           nextToken
@@ -13732,224 +2232,22 @@ export const onDeleteMenuItem = /* GraphQL */ `
         inspiredBy {
           id
           title
-          image {
-            file {
-              bucket
-              region
-              key
-            }
-          }
           description
           likes {
-            items {
-              id
-              meal {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              likedBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              owner
-            }
             nextToken
           }
           inspiredBy {
             id
             title
-            image {
-              file {
-                bucket
-                region
-                key
-              }
-            }
             description
-            likes {
-              items {
-                id
-                owner
-              }
-              nextToken
-            }
-            inspiredBy {
-              id
-              title
-              description
-              likes {
-                nextToken
-              }
-              inspiredBy {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              menuItem {
-                id
-                order
-                owner
-              }
-              createdBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              createdAt
-              recipe
-              ingredients {
-                items
-              }
-              steps {
-                description
-              }
-              tags
-              owner
-            }
-            menuItem {
-              id
-              order
-              meal {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              createdBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              owner
-            }
-            createdBy {
-              id
-              username
-              email
-              firstName
-              lastName
-              bio
-              meals {
-                nextToken
-              }
-              menuItems {
-                nextToken
-              }
-              likes {
-                nextToken
-              }
-              followers {
-                nextToken
-              }
-              following {
-                nextToken
-              }
-              owner
-            }
             createdAt
             recipe
-            ingredients {
-              items
-            }
-            steps {
-              description
-            }
             tags
             owner
           }
           menuItem {
             id
             order
-            meal {
-              id
-              title
-              description
-              likes {
-                nextToken
-              }
-              inspiredBy {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              menuItem {
-                id
-                order
-                owner
-              }
-              createdBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              createdAt
-              recipe
-              ingredients {
-                items
-              }
-              steps {
-                description
-              }
-              tags
-              owner
-            }
-            createdBy {
-              id
-              username
-              email
-              firstName
-              lastName
-              bio
-              meals {
-                nextToken
-              }
-              menuItems {
-                nextToken
-              }
-              likes {
-                nextToken
-              }
-              followers {
-                nextToken
-              }
-              following {
-                nextToken
-              }
-              owner
-            }
             owner
           }
           createdBy {
@@ -13959,76 +2257,14 @@ export const onDeleteMenuItem = /* GraphQL */ `
             firstName
             lastName
             bio
-            image {
-              file {
-                bucket
-                region
-                key
-              }
-            }
-            meals {
-              items {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              nextToken
-            }
-            menuItems {
-              items {
-                id
-                order
-                owner
-              }
-              nextToken
-            }
-            likes {
-              items {
-                id
-                owner
-              }
-              nextToken
-            }
-            followers {
-              items {
-                id
-                owner
-              }
-              nextToken
-            }
-            following {
-              items {
-                id
-                owner
-              }
-              nextToken
-            }
             owner
           }
           createdAt
           recipe
           ingredients {
-            image {
-              file {
-                bucket
-                region
-                key
-              }
-            }
             items
           }
           steps {
-            image {
-              file {
-                bucket
-                region
-                key
-              }
-            }
             description
           }
           tags
@@ -14040,117 +2276,9 @@ export const onDeleteMenuItem = /* GraphQL */ `
           meal {
             id
             title
-            image {
-              file {
-                bucket
-                region
-                key
-              }
-            }
             description
-            likes {
-              items {
-                id
-                owner
-              }
-              nextToken
-            }
-            inspiredBy {
-              id
-              title
-              description
-              likes {
-                nextToken
-              }
-              inspiredBy {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              menuItem {
-                id
-                order
-                owner
-              }
-              createdBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              createdAt
-              recipe
-              ingredients {
-                items
-              }
-              steps {
-                description
-              }
-              tags
-              owner
-            }
-            menuItem {
-              id
-              order
-              meal {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              createdBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              owner
-            }
-            createdBy {
-              id
-              username
-              email
-              firstName
-              lastName
-              bio
-              meals {
-                nextToken
-              }
-              menuItems {
-                nextToken
-              }
-              likes {
-                nextToken
-              }
-              followers {
-                nextToken
-              }
-              following {
-                nextToken
-              }
-              owner
-            }
             createdAt
             recipe
-            ingredients {
-              items
-            }
-            steps {
-              description
-            }
             tags
             owner
           }
@@ -14161,54 +2289,6 @@ export const onDeleteMenuItem = /* GraphQL */ `
             firstName
             lastName
             bio
-            image {
-              file {
-                bucket
-                region
-                key
-              }
-            }
-            meals {
-              items {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              nextToken
-            }
-            menuItems {
-              items {
-                id
-                order
-                owner
-              }
-              nextToken
-            }
-            likes {
-              items {
-                id
-                owner
-              }
-              nextToken
-            }
-            followers {
-              items {
-                id
-                owner
-              }
-              nextToken
-            }
-            following {
-              items {
-                id
-                owner
-              }
-              nextToken
-            }
             owner
           }
           owner
@@ -14220,156 +2300,19 @@ export const onDeleteMenuItem = /* GraphQL */ `
           firstName
           lastName
           bio
-          image {
-            file {
-              bucket
-              region
-              key
-            }
-          }
           meals {
-            items {
-              id
-              title
-              description
-              likes {
-                nextToken
-              }
-              inspiredBy {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              menuItem {
-                id
-                order
-                owner
-              }
-              createdBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              createdAt
-              recipe
-              ingredients {
-                items
-              }
-              steps {
-                description
-              }
-              tags
-              owner
-            }
             nextToken
           }
           menuItems {
-            items {
-              id
-              order
-              meal {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              createdBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              owner
-            }
             nextToken
           }
           likes {
-            items {
-              id
-              meal {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              likedBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              owner
-            }
             nextToken
           }
           followers {
-            items {
-              id
-              user {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              followedBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              owner
-            }
             nextToken
           }
           following {
-            items {
-              id
-              user {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              followedBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              owner
-            }
             nextToken
           }
           owner
@@ -14377,23 +2320,9 @@ export const onDeleteMenuItem = /* GraphQL */ `
         createdAt
         recipe
         ingredients {
-          image {
-            file {
-              bucket
-              region
-              key
-            }
-          }
           items
         }
         steps {
-          image {
-            file {
-              bucket
-              region
-              key
-            }
-          }
           description
         }
         tags
@@ -14417,117 +2346,9 @@ export const onDeleteMenuItem = /* GraphQL */ `
           items {
             id
             title
-            image {
-              file {
-                bucket
-                region
-                key
-              }
-            }
             description
-            likes {
-              items {
-                id
-                owner
-              }
-              nextToken
-            }
-            inspiredBy {
-              id
-              title
-              description
-              likes {
-                nextToken
-              }
-              inspiredBy {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              menuItem {
-                id
-                order
-                owner
-              }
-              createdBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              createdAt
-              recipe
-              ingredients {
-                items
-              }
-              steps {
-                description
-              }
-              tags
-              owner
-            }
-            menuItem {
-              id
-              order
-              meal {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              createdBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              owner
-            }
-            createdBy {
-              id
-              username
-              email
-              firstName
-              lastName
-              bio
-              meals {
-                nextToken
-              }
-              menuItems {
-                nextToken
-              }
-              likes {
-                nextToken
-              }
-              followers {
-                nextToken
-              }
-              following {
-                nextToken
-              }
-              owner
-            }
             createdAt
             recipe
-            ingredients {
-              items
-            }
-            steps {
-              description
-            }
             tags
             owner
           }
@@ -14537,71 +2358,6 @@ export const onDeleteMenuItem = /* GraphQL */ `
           items {
             id
             order
-            meal {
-              id
-              title
-              description
-              likes {
-                nextToken
-              }
-              inspiredBy {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              menuItem {
-                id
-                order
-                owner
-              }
-              createdBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              createdAt
-              recipe
-              ingredients {
-                items
-              }
-              steps {
-                description
-              }
-              tags
-              owner
-            }
-            createdBy {
-              id
-              username
-              email
-              firstName
-              lastName
-              bio
-              meals {
-                nextToken
-              }
-              menuItems {
-                nextToken
-              }
-              likes {
-                nextToken
-              }
-              followers {
-                nextToken
-              }
-              following {
-                nextToken
-              }
-              owner
-            }
             owner
           }
           nextToken
@@ -14609,71 +2365,6 @@ export const onDeleteMenuItem = /* GraphQL */ `
         likes {
           items {
             id
-            meal {
-              id
-              title
-              description
-              likes {
-                nextToken
-              }
-              inspiredBy {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              menuItem {
-                id
-                order
-                owner
-              }
-              createdBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              createdAt
-              recipe
-              ingredients {
-                items
-              }
-              steps {
-                description
-              }
-              tags
-              owner
-            }
-            likedBy {
-              id
-              username
-              email
-              firstName
-              lastName
-              bio
-              meals {
-                nextToken
-              }
-              menuItems {
-                nextToken
-              }
-              likes {
-                nextToken
-              }
-              followers {
-                nextToken
-              }
-              following {
-                nextToken
-              }
-              owner
-            }
             owner
           }
           nextToken
@@ -14681,54 +2372,6 @@ export const onDeleteMenuItem = /* GraphQL */ `
         followers {
           items {
             id
-            user {
-              id
-              username
-              email
-              firstName
-              lastName
-              bio
-              meals {
-                nextToken
-              }
-              menuItems {
-                nextToken
-              }
-              likes {
-                nextToken
-              }
-              followers {
-                nextToken
-              }
-              following {
-                nextToken
-              }
-              owner
-            }
-            followedBy {
-              id
-              username
-              email
-              firstName
-              lastName
-              bio
-              meals {
-                nextToken
-              }
-              menuItems {
-                nextToken
-              }
-              likes {
-                nextToken
-              }
-              followers {
-                nextToken
-              }
-              following {
-                nextToken
-              }
-              owner
-            }
             owner
           }
           nextToken
@@ -14736,54 +2379,6 @@ export const onDeleteMenuItem = /* GraphQL */ `
         following {
           items {
             id
-            user {
-              id
-              username
-              email
-              firstName
-              lastName
-              bio
-              meals {
-                nextToken
-              }
-              menuItems {
-                nextToken
-              }
-              likes {
-                nextToken
-              }
-              followers {
-                nextToken
-              }
-              following {
-                nextToken
-              }
-              owner
-            }
-            followedBy {
-              id
-              username
-              email
-              firstName
-              lastName
-              bio
-              meals {
-                nextToken
-              }
-              menuItems {
-                nextToken
-              }
-              likes {
-                nextToken
-              }
-              followers {
-                nextToken
-              }
-              following {
-                nextToken
-              }
-              owner
-            }
             owner
           }
           nextToken
@@ -14814,224 +2409,22 @@ export const onCreateUser = /* GraphQL */ `
         items {
           id
           title
-          image {
-            file {
-              bucket
-              region
-              key
-            }
-          }
           description
           likes {
-            items {
-              id
-              meal {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              likedBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              owner
-            }
             nextToken
           }
           inspiredBy {
             id
             title
-            image {
-              file {
-                bucket
-                region
-                key
-              }
-            }
             description
-            likes {
-              items {
-                id
-                owner
-              }
-              nextToken
-            }
-            inspiredBy {
-              id
-              title
-              description
-              likes {
-                nextToken
-              }
-              inspiredBy {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              menuItem {
-                id
-                order
-                owner
-              }
-              createdBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              createdAt
-              recipe
-              ingredients {
-                items
-              }
-              steps {
-                description
-              }
-              tags
-              owner
-            }
-            menuItem {
-              id
-              order
-              meal {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              createdBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              owner
-            }
-            createdBy {
-              id
-              username
-              email
-              firstName
-              lastName
-              bio
-              meals {
-                nextToken
-              }
-              menuItems {
-                nextToken
-              }
-              likes {
-                nextToken
-              }
-              followers {
-                nextToken
-              }
-              following {
-                nextToken
-              }
-              owner
-            }
             createdAt
             recipe
-            ingredients {
-              items
-            }
-            steps {
-              description
-            }
             tags
             owner
           }
           menuItem {
             id
             order
-            meal {
-              id
-              title
-              description
-              likes {
-                nextToken
-              }
-              inspiredBy {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              menuItem {
-                id
-                order
-                owner
-              }
-              createdBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              createdAt
-              recipe
-              ingredients {
-                items
-              }
-              steps {
-                description
-              }
-              tags
-              owner
-            }
-            createdBy {
-              id
-              username
-              email
-              firstName
-              lastName
-              bio
-              meals {
-                nextToken
-              }
-              menuItems {
-                nextToken
-              }
-              likes {
-                nextToken
-              }
-              followers {
-                nextToken
-              }
-              following {
-                nextToken
-              }
-              owner
-            }
             owner
           }
           createdBy {
@@ -15041,76 +2434,14 @@ export const onCreateUser = /* GraphQL */ `
             firstName
             lastName
             bio
-            image {
-              file {
-                bucket
-                region
-                key
-              }
-            }
-            meals {
-              items {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              nextToken
-            }
-            menuItems {
-              items {
-                id
-                order
-                owner
-              }
-              nextToken
-            }
-            likes {
-              items {
-                id
-                owner
-              }
-              nextToken
-            }
-            followers {
-              items {
-                id
-                owner
-              }
-              nextToken
-            }
-            following {
-              items {
-                id
-                owner
-              }
-              nextToken
-            }
             owner
           }
           createdAt
           recipe
           ingredients {
-            image {
-              file {
-                bucket
-                region
-                key
-              }
-            }
             items
           }
           steps {
-            image {
-              file {
-                bucket
-                region
-                key
-              }
-            }
             description
           }
           tags
@@ -15125,117 +2456,9 @@ export const onCreateUser = /* GraphQL */ `
           meal {
             id
             title
-            image {
-              file {
-                bucket
-                region
-                key
-              }
-            }
             description
-            likes {
-              items {
-                id
-                owner
-              }
-              nextToken
-            }
-            inspiredBy {
-              id
-              title
-              description
-              likes {
-                nextToken
-              }
-              inspiredBy {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              menuItem {
-                id
-                order
-                owner
-              }
-              createdBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              createdAt
-              recipe
-              ingredients {
-                items
-              }
-              steps {
-                description
-              }
-              tags
-              owner
-            }
-            menuItem {
-              id
-              order
-              meal {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              createdBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              owner
-            }
-            createdBy {
-              id
-              username
-              email
-              firstName
-              lastName
-              bio
-              meals {
-                nextToken
-              }
-              menuItems {
-                nextToken
-              }
-              likes {
-                nextToken
-              }
-              followers {
-                nextToken
-              }
-              following {
-                nextToken
-              }
-              owner
-            }
             createdAt
             recipe
-            ingredients {
-              items
-            }
-            steps {
-              description
-            }
             tags
             owner
           }
@@ -15246,54 +2469,6 @@ export const onCreateUser = /* GraphQL */ `
             firstName
             lastName
             bio
-            image {
-              file {
-                bucket
-                region
-                key
-              }
-            }
-            meals {
-              items {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              nextToken
-            }
-            menuItems {
-              items {
-                id
-                order
-                owner
-              }
-              nextToken
-            }
-            likes {
-              items {
-                id
-                owner
-              }
-              nextToken
-            }
-            followers {
-              items {
-                id
-                owner
-              }
-              nextToken
-            }
-            following {
-              items {
-                id
-                owner
-              }
-              nextToken
-            }
             owner
           }
           owner
@@ -15306,117 +2481,9 @@ export const onCreateUser = /* GraphQL */ `
           meal {
             id
             title
-            image {
-              file {
-                bucket
-                region
-                key
-              }
-            }
             description
-            likes {
-              items {
-                id
-                owner
-              }
-              nextToken
-            }
-            inspiredBy {
-              id
-              title
-              description
-              likes {
-                nextToken
-              }
-              inspiredBy {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              menuItem {
-                id
-                order
-                owner
-              }
-              createdBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              createdAt
-              recipe
-              ingredients {
-                items
-              }
-              steps {
-                description
-              }
-              tags
-              owner
-            }
-            menuItem {
-              id
-              order
-              meal {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              createdBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              owner
-            }
-            createdBy {
-              id
-              username
-              email
-              firstName
-              lastName
-              bio
-              meals {
-                nextToken
-              }
-              menuItems {
-                nextToken
-              }
-              likes {
-                nextToken
-              }
-              followers {
-                nextToken
-              }
-              following {
-                nextToken
-              }
-              owner
-            }
             createdAt
             recipe
-            ingredients {
-              items
-            }
-            steps {
-              description
-            }
             tags
             owner
           }
@@ -15427,54 +2494,6 @@ export const onCreateUser = /* GraphQL */ `
             firstName
             lastName
             bio
-            image {
-              file {
-                bucket
-                region
-                key
-              }
-            }
-            meals {
-              items {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              nextToken
-            }
-            menuItems {
-              items {
-                id
-                order
-                owner
-              }
-              nextToken
-            }
-            likes {
-              items {
-                id
-                owner
-              }
-              nextToken
-            }
-            followers {
-              items {
-                id
-                owner
-              }
-              nextToken
-            }
-            following {
-              items {
-                id
-                owner
-              }
-              nextToken
-            }
             owner
           }
           owner
@@ -15491,54 +2510,6 @@ export const onCreateUser = /* GraphQL */ `
             firstName
             lastName
             bio
-            image {
-              file {
-                bucket
-                region
-                key
-              }
-            }
-            meals {
-              items {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              nextToken
-            }
-            menuItems {
-              items {
-                id
-                order
-                owner
-              }
-              nextToken
-            }
-            likes {
-              items {
-                id
-                owner
-              }
-              nextToken
-            }
-            followers {
-              items {
-                id
-                owner
-              }
-              nextToken
-            }
-            following {
-              items {
-                id
-                owner
-              }
-              nextToken
-            }
             owner
           }
           followedBy {
@@ -15548,54 +2519,6 @@ export const onCreateUser = /* GraphQL */ `
             firstName
             lastName
             bio
-            image {
-              file {
-                bucket
-                region
-                key
-              }
-            }
-            meals {
-              items {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              nextToken
-            }
-            menuItems {
-              items {
-                id
-                order
-                owner
-              }
-              nextToken
-            }
-            likes {
-              items {
-                id
-                owner
-              }
-              nextToken
-            }
-            followers {
-              items {
-                id
-                owner
-              }
-              nextToken
-            }
-            following {
-              items {
-                id
-                owner
-              }
-              nextToken
-            }
             owner
           }
           owner
@@ -15612,54 +2535,6 @@ export const onCreateUser = /* GraphQL */ `
             firstName
             lastName
             bio
-            image {
-              file {
-                bucket
-                region
-                key
-              }
-            }
-            meals {
-              items {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              nextToken
-            }
-            menuItems {
-              items {
-                id
-                order
-                owner
-              }
-              nextToken
-            }
-            likes {
-              items {
-                id
-                owner
-              }
-              nextToken
-            }
-            followers {
-              items {
-                id
-                owner
-              }
-              nextToken
-            }
-            following {
-              items {
-                id
-                owner
-              }
-              nextToken
-            }
             owner
           }
           followedBy {
@@ -15669,54 +2544,6 @@ export const onCreateUser = /* GraphQL */ `
             firstName
             lastName
             bio
-            image {
-              file {
-                bucket
-                region
-                key
-              }
-            }
-            meals {
-              items {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              nextToken
-            }
-            menuItems {
-              items {
-                id
-                order
-                owner
-              }
-              nextToken
-            }
-            likes {
-              items {
-                id
-                owner
-              }
-              nextToken
-            }
-            followers {
-              items {
-                id
-                owner
-              }
-              nextToken
-            }
-            following {
-              items {
-                id
-                owner
-              }
-              nextToken
-            }
             owner
           }
           owner
@@ -15747,224 +2574,22 @@ export const onUpdateUser = /* GraphQL */ `
         items {
           id
           title
-          image {
-            file {
-              bucket
-              region
-              key
-            }
-          }
           description
           likes {
-            items {
-              id
-              meal {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              likedBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              owner
-            }
             nextToken
           }
           inspiredBy {
             id
             title
-            image {
-              file {
-                bucket
-                region
-                key
-              }
-            }
             description
-            likes {
-              items {
-                id
-                owner
-              }
-              nextToken
-            }
-            inspiredBy {
-              id
-              title
-              description
-              likes {
-                nextToken
-              }
-              inspiredBy {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              menuItem {
-                id
-                order
-                owner
-              }
-              createdBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              createdAt
-              recipe
-              ingredients {
-                items
-              }
-              steps {
-                description
-              }
-              tags
-              owner
-            }
-            menuItem {
-              id
-              order
-              meal {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              createdBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              owner
-            }
-            createdBy {
-              id
-              username
-              email
-              firstName
-              lastName
-              bio
-              meals {
-                nextToken
-              }
-              menuItems {
-                nextToken
-              }
-              likes {
-                nextToken
-              }
-              followers {
-                nextToken
-              }
-              following {
-                nextToken
-              }
-              owner
-            }
             createdAt
             recipe
-            ingredients {
-              items
-            }
-            steps {
-              description
-            }
             tags
             owner
           }
           menuItem {
             id
             order
-            meal {
-              id
-              title
-              description
-              likes {
-                nextToken
-              }
-              inspiredBy {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              menuItem {
-                id
-                order
-                owner
-              }
-              createdBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              createdAt
-              recipe
-              ingredients {
-                items
-              }
-              steps {
-                description
-              }
-              tags
-              owner
-            }
-            createdBy {
-              id
-              username
-              email
-              firstName
-              lastName
-              bio
-              meals {
-                nextToken
-              }
-              menuItems {
-                nextToken
-              }
-              likes {
-                nextToken
-              }
-              followers {
-                nextToken
-              }
-              following {
-                nextToken
-              }
-              owner
-            }
             owner
           }
           createdBy {
@@ -15974,76 +2599,14 @@ export const onUpdateUser = /* GraphQL */ `
             firstName
             lastName
             bio
-            image {
-              file {
-                bucket
-                region
-                key
-              }
-            }
-            meals {
-              items {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              nextToken
-            }
-            menuItems {
-              items {
-                id
-                order
-                owner
-              }
-              nextToken
-            }
-            likes {
-              items {
-                id
-                owner
-              }
-              nextToken
-            }
-            followers {
-              items {
-                id
-                owner
-              }
-              nextToken
-            }
-            following {
-              items {
-                id
-                owner
-              }
-              nextToken
-            }
             owner
           }
           createdAt
           recipe
           ingredients {
-            image {
-              file {
-                bucket
-                region
-                key
-              }
-            }
             items
           }
           steps {
-            image {
-              file {
-                bucket
-                region
-                key
-              }
-            }
             description
           }
           tags
@@ -16058,117 +2621,9 @@ export const onUpdateUser = /* GraphQL */ `
           meal {
             id
             title
-            image {
-              file {
-                bucket
-                region
-                key
-              }
-            }
             description
-            likes {
-              items {
-                id
-                owner
-              }
-              nextToken
-            }
-            inspiredBy {
-              id
-              title
-              description
-              likes {
-                nextToken
-              }
-              inspiredBy {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              menuItem {
-                id
-                order
-                owner
-              }
-              createdBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              createdAt
-              recipe
-              ingredients {
-                items
-              }
-              steps {
-                description
-              }
-              tags
-              owner
-            }
-            menuItem {
-              id
-              order
-              meal {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              createdBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              owner
-            }
-            createdBy {
-              id
-              username
-              email
-              firstName
-              lastName
-              bio
-              meals {
-                nextToken
-              }
-              menuItems {
-                nextToken
-              }
-              likes {
-                nextToken
-              }
-              followers {
-                nextToken
-              }
-              following {
-                nextToken
-              }
-              owner
-            }
             createdAt
             recipe
-            ingredients {
-              items
-            }
-            steps {
-              description
-            }
             tags
             owner
           }
@@ -16179,54 +2634,6 @@ export const onUpdateUser = /* GraphQL */ `
             firstName
             lastName
             bio
-            image {
-              file {
-                bucket
-                region
-                key
-              }
-            }
-            meals {
-              items {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              nextToken
-            }
-            menuItems {
-              items {
-                id
-                order
-                owner
-              }
-              nextToken
-            }
-            likes {
-              items {
-                id
-                owner
-              }
-              nextToken
-            }
-            followers {
-              items {
-                id
-                owner
-              }
-              nextToken
-            }
-            following {
-              items {
-                id
-                owner
-              }
-              nextToken
-            }
             owner
           }
           owner
@@ -16239,117 +2646,9 @@ export const onUpdateUser = /* GraphQL */ `
           meal {
             id
             title
-            image {
-              file {
-                bucket
-                region
-                key
-              }
-            }
             description
-            likes {
-              items {
-                id
-                owner
-              }
-              nextToken
-            }
-            inspiredBy {
-              id
-              title
-              description
-              likes {
-                nextToken
-              }
-              inspiredBy {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              menuItem {
-                id
-                order
-                owner
-              }
-              createdBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              createdAt
-              recipe
-              ingredients {
-                items
-              }
-              steps {
-                description
-              }
-              tags
-              owner
-            }
-            menuItem {
-              id
-              order
-              meal {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              createdBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              owner
-            }
-            createdBy {
-              id
-              username
-              email
-              firstName
-              lastName
-              bio
-              meals {
-                nextToken
-              }
-              menuItems {
-                nextToken
-              }
-              likes {
-                nextToken
-              }
-              followers {
-                nextToken
-              }
-              following {
-                nextToken
-              }
-              owner
-            }
             createdAt
             recipe
-            ingredients {
-              items
-            }
-            steps {
-              description
-            }
             tags
             owner
           }
@@ -16360,54 +2659,6 @@ export const onUpdateUser = /* GraphQL */ `
             firstName
             lastName
             bio
-            image {
-              file {
-                bucket
-                region
-                key
-              }
-            }
-            meals {
-              items {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              nextToken
-            }
-            menuItems {
-              items {
-                id
-                order
-                owner
-              }
-              nextToken
-            }
-            likes {
-              items {
-                id
-                owner
-              }
-              nextToken
-            }
-            followers {
-              items {
-                id
-                owner
-              }
-              nextToken
-            }
-            following {
-              items {
-                id
-                owner
-              }
-              nextToken
-            }
             owner
           }
           owner
@@ -16424,54 +2675,6 @@ export const onUpdateUser = /* GraphQL */ `
             firstName
             lastName
             bio
-            image {
-              file {
-                bucket
-                region
-                key
-              }
-            }
-            meals {
-              items {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              nextToken
-            }
-            menuItems {
-              items {
-                id
-                order
-                owner
-              }
-              nextToken
-            }
-            likes {
-              items {
-                id
-                owner
-              }
-              nextToken
-            }
-            followers {
-              items {
-                id
-                owner
-              }
-              nextToken
-            }
-            following {
-              items {
-                id
-                owner
-              }
-              nextToken
-            }
             owner
           }
           followedBy {
@@ -16481,54 +2684,6 @@ export const onUpdateUser = /* GraphQL */ `
             firstName
             lastName
             bio
-            image {
-              file {
-                bucket
-                region
-                key
-              }
-            }
-            meals {
-              items {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              nextToken
-            }
-            menuItems {
-              items {
-                id
-                order
-                owner
-              }
-              nextToken
-            }
-            likes {
-              items {
-                id
-                owner
-              }
-              nextToken
-            }
-            followers {
-              items {
-                id
-                owner
-              }
-              nextToken
-            }
-            following {
-              items {
-                id
-                owner
-              }
-              nextToken
-            }
             owner
           }
           owner
@@ -16545,54 +2700,6 @@ export const onUpdateUser = /* GraphQL */ `
             firstName
             lastName
             bio
-            image {
-              file {
-                bucket
-                region
-                key
-              }
-            }
-            meals {
-              items {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              nextToken
-            }
-            menuItems {
-              items {
-                id
-                order
-                owner
-              }
-              nextToken
-            }
-            likes {
-              items {
-                id
-                owner
-              }
-              nextToken
-            }
-            followers {
-              items {
-                id
-                owner
-              }
-              nextToken
-            }
-            following {
-              items {
-                id
-                owner
-              }
-              nextToken
-            }
             owner
           }
           followedBy {
@@ -16602,54 +2709,6 @@ export const onUpdateUser = /* GraphQL */ `
             firstName
             lastName
             bio
-            image {
-              file {
-                bucket
-                region
-                key
-              }
-            }
-            meals {
-              items {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              nextToken
-            }
-            menuItems {
-              items {
-                id
-                order
-                owner
-              }
-              nextToken
-            }
-            likes {
-              items {
-                id
-                owner
-              }
-              nextToken
-            }
-            followers {
-              items {
-                id
-                owner
-              }
-              nextToken
-            }
-            following {
-              items {
-                id
-                owner
-              }
-              nextToken
-            }
             owner
           }
           owner
@@ -16680,224 +2739,22 @@ export const onDeleteUser = /* GraphQL */ `
         items {
           id
           title
-          image {
-            file {
-              bucket
-              region
-              key
-            }
-          }
           description
           likes {
-            items {
-              id
-              meal {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              likedBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              owner
-            }
             nextToken
           }
           inspiredBy {
             id
             title
-            image {
-              file {
-                bucket
-                region
-                key
-              }
-            }
             description
-            likes {
-              items {
-                id
-                owner
-              }
-              nextToken
-            }
-            inspiredBy {
-              id
-              title
-              description
-              likes {
-                nextToken
-              }
-              inspiredBy {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              menuItem {
-                id
-                order
-                owner
-              }
-              createdBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              createdAt
-              recipe
-              ingredients {
-                items
-              }
-              steps {
-                description
-              }
-              tags
-              owner
-            }
-            menuItem {
-              id
-              order
-              meal {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              createdBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              owner
-            }
-            createdBy {
-              id
-              username
-              email
-              firstName
-              lastName
-              bio
-              meals {
-                nextToken
-              }
-              menuItems {
-                nextToken
-              }
-              likes {
-                nextToken
-              }
-              followers {
-                nextToken
-              }
-              following {
-                nextToken
-              }
-              owner
-            }
             createdAt
             recipe
-            ingredients {
-              items
-            }
-            steps {
-              description
-            }
             tags
             owner
           }
           menuItem {
             id
             order
-            meal {
-              id
-              title
-              description
-              likes {
-                nextToken
-              }
-              inspiredBy {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              menuItem {
-                id
-                order
-                owner
-              }
-              createdBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              createdAt
-              recipe
-              ingredients {
-                items
-              }
-              steps {
-                description
-              }
-              tags
-              owner
-            }
-            createdBy {
-              id
-              username
-              email
-              firstName
-              lastName
-              bio
-              meals {
-                nextToken
-              }
-              menuItems {
-                nextToken
-              }
-              likes {
-                nextToken
-              }
-              followers {
-                nextToken
-              }
-              following {
-                nextToken
-              }
-              owner
-            }
             owner
           }
           createdBy {
@@ -16907,76 +2764,14 @@ export const onDeleteUser = /* GraphQL */ `
             firstName
             lastName
             bio
-            image {
-              file {
-                bucket
-                region
-                key
-              }
-            }
-            meals {
-              items {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              nextToken
-            }
-            menuItems {
-              items {
-                id
-                order
-                owner
-              }
-              nextToken
-            }
-            likes {
-              items {
-                id
-                owner
-              }
-              nextToken
-            }
-            followers {
-              items {
-                id
-                owner
-              }
-              nextToken
-            }
-            following {
-              items {
-                id
-                owner
-              }
-              nextToken
-            }
             owner
           }
           createdAt
           recipe
           ingredients {
-            image {
-              file {
-                bucket
-                region
-                key
-              }
-            }
             items
           }
           steps {
-            image {
-              file {
-                bucket
-                region
-                key
-              }
-            }
             description
           }
           tags
@@ -16991,117 +2786,9 @@ export const onDeleteUser = /* GraphQL */ `
           meal {
             id
             title
-            image {
-              file {
-                bucket
-                region
-                key
-              }
-            }
             description
-            likes {
-              items {
-                id
-                owner
-              }
-              nextToken
-            }
-            inspiredBy {
-              id
-              title
-              description
-              likes {
-                nextToken
-              }
-              inspiredBy {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              menuItem {
-                id
-                order
-                owner
-              }
-              createdBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              createdAt
-              recipe
-              ingredients {
-                items
-              }
-              steps {
-                description
-              }
-              tags
-              owner
-            }
-            menuItem {
-              id
-              order
-              meal {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              createdBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              owner
-            }
-            createdBy {
-              id
-              username
-              email
-              firstName
-              lastName
-              bio
-              meals {
-                nextToken
-              }
-              menuItems {
-                nextToken
-              }
-              likes {
-                nextToken
-              }
-              followers {
-                nextToken
-              }
-              following {
-                nextToken
-              }
-              owner
-            }
             createdAt
             recipe
-            ingredients {
-              items
-            }
-            steps {
-              description
-            }
             tags
             owner
           }
@@ -17112,54 +2799,6 @@ export const onDeleteUser = /* GraphQL */ `
             firstName
             lastName
             bio
-            image {
-              file {
-                bucket
-                region
-                key
-              }
-            }
-            meals {
-              items {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              nextToken
-            }
-            menuItems {
-              items {
-                id
-                order
-                owner
-              }
-              nextToken
-            }
-            likes {
-              items {
-                id
-                owner
-              }
-              nextToken
-            }
-            followers {
-              items {
-                id
-                owner
-              }
-              nextToken
-            }
-            following {
-              items {
-                id
-                owner
-              }
-              nextToken
-            }
             owner
           }
           owner
@@ -17172,117 +2811,9 @@ export const onDeleteUser = /* GraphQL */ `
           meal {
             id
             title
-            image {
-              file {
-                bucket
-                region
-                key
-              }
-            }
             description
-            likes {
-              items {
-                id
-                owner
-              }
-              nextToken
-            }
-            inspiredBy {
-              id
-              title
-              description
-              likes {
-                nextToken
-              }
-              inspiredBy {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              menuItem {
-                id
-                order
-                owner
-              }
-              createdBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              createdAt
-              recipe
-              ingredients {
-                items
-              }
-              steps {
-                description
-              }
-              tags
-              owner
-            }
-            menuItem {
-              id
-              order
-              meal {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              createdBy {
-                id
-                username
-                email
-                firstName
-                lastName
-                bio
-                owner
-              }
-              owner
-            }
-            createdBy {
-              id
-              username
-              email
-              firstName
-              lastName
-              bio
-              meals {
-                nextToken
-              }
-              menuItems {
-                nextToken
-              }
-              likes {
-                nextToken
-              }
-              followers {
-                nextToken
-              }
-              following {
-                nextToken
-              }
-              owner
-            }
             createdAt
             recipe
-            ingredients {
-              items
-            }
-            steps {
-              description
-            }
             tags
             owner
           }
@@ -17293,54 +2824,6 @@ export const onDeleteUser = /* GraphQL */ `
             firstName
             lastName
             bio
-            image {
-              file {
-                bucket
-                region
-                key
-              }
-            }
-            meals {
-              items {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              nextToken
-            }
-            menuItems {
-              items {
-                id
-                order
-                owner
-              }
-              nextToken
-            }
-            likes {
-              items {
-                id
-                owner
-              }
-              nextToken
-            }
-            followers {
-              items {
-                id
-                owner
-              }
-              nextToken
-            }
-            following {
-              items {
-                id
-                owner
-              }
-              nextToken
-            }
             owner
           }
           owner
@@ -17357,54 +2840,6 @@ export const onDeleteUser = /* GraphQL */ `
             firstName
             lastName
             bio
-            image {
-              file {
-                bucket
-                region
-                key
-              }
-            }
-            meals {
-              items {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              nextToken
-            }
-            menuItems {
-              items {
-                id
-                order
-                owner
-              }
-              nextToken
-            }
-            likes {
-              items {
-                id
-                owner
-              }
-              nextToken
-            }
-            followers {
-              items {
-                id
-                owner
-              }
-              nextToken
-            }
-            following {
-              items {
-                id
-                owner
-              }
-              nextToken
-            }
             owner
           }
           followedBy {
@@ -17414,54 +2849,6 @@ export const onDeleteUser = /* GraphQL */ `
             firstName
             lastName
             bio
-            image {
-              file {
-                bucket
-                region
-                key
-              }
-            }
-            meals {
-              items {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              nextToken
-            }
-            menuItems {
-              items {
-                id
-                order
-                owner
-              }
-              nextToken
-            }
-            likes {
-              items {
-                id
-                owner
-              }
-              nextToken
-            }
-            followers {
-              items {
-                id
-                owner
-              }
-              nextToken
-            }
-            following {
-              items {
-                id
-                owner
-              }
-              nextToken
-            }
             owner
           }
           owner
@@ -17478,54 +2865,6 @@ export const onDeleteUser = /* GraphQL */ `
             firstName
             lastName
             bio
-            image {
-              file {
-                bucket
-                region
-                key
-              }
-            }
-            meals {
-              items {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              nextToken
-            }
-            menuItems {
-              items {
-                id
-                order
-                owner
-              }
-              nextToken
-            }
-            likes {
-              items {
-                id
-                owner
-              }
-              nextToken
-            }
-            followers {
-              items {
-                id
-                owner
-              }
-              nextToken
-            }
-            following {
-              items {
-                id
-                owner
-              }
-              nextToken
-            }
             owner
           }
           followedBy {
@@ -17535,54 +2874,6 @@ export const onDeleteUser = /* GraphQL */ `
             firstName
             lastName
             bio
-            image {
-              file {
-                bucket
-                region
-                key
-              }
-            }
-            meals {
-              items {
-                id
-                title
-                description
-                createdAt
-                recipe
-                tags
-                owner
-              }
-              nextToken
-            }
-            menuItems {
-              items {
-                id
-                order
-                owner
-              }
-              nextToken
-            }
-            likes {
-              items {
-                id
-                owner
-              }
-              nextToken
-            }
-            followers {
-              items {
-                id
-                owner
-              }
-              nextToken
-            }
-            following {
-              items {
-                id
-                owner
-              }
-              nextToken
-            }
             owner
           }
           owner

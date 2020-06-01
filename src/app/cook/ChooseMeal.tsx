@@ -69,7 +69,7 @@ const ChooseMeal = props => {
   const scrollViewRef = React.useRef<ScrollView>(null)
   
   const onFocus = () => {
-    scrollViewRef.current.scrollTo(theme.SIZES.BASE * 21)
+    scrollViewRef.current.scrollTo(theme.SIZES.BASE * 25)
   }
 
   const onPhoto = (photo: Media) => {
@@ -86,34 +86,39 @@ const ChooseMeal = props => {
               photo={photo}
               onPhoto={onPhoto}
             />
-            <Text category='h5'>
-              What did you cook?
-            </Text>
-            <Block row center style={{ marginTop: theme.SIZES.BASE }}>
-              <Input
-                  placeholder='Creamy...'
-                  onChangeText={setSearch}
-                  value={search}
-                  onFocus={onFocus}
-                  style={{
-                    flex: 1,
-                    marginRight: theme.SIZES.BASE,
-                  }}
-                  labelStyle={{
-                    color: 'black',
-                    fontSize: 16,
-                    fontWeight: 'normal'
-                  }}
-                  textStyle={{
-                      fontSize: 20,
-                  }}
-              />
-              <SearchSVG
-                width={30}
-                height={30}
-              />
             </Block>
-          </Block>
+          <Block style={styles.section}>
+
+            <Block style={styles.inputContainer}>
+
+              <Text category='h5'>
+                What did you cook?
+              </Text>
+              <Block row center style={{ marginTop: theme.SIZES.BASE }}>
+                <Input
+                    placeholder='Creamy...'
+                    onChangeText={setSearch}
+                    value={search}
+                    onFocus={onFocus}
+                    style={{
+                      flex: 1,
+                      marginRight: theme.SIZES.BASE,
+                    }}
+                    labelStyle={{
+                      color: 'black',
+                      fontSize: 16,
+                      fontWeight: 'normal'
+                    }}
+                    textStyle={{
+                        fontSize: 20,
+                    }}
+                />
+                <SearchSVG
+                  width={30}
+                  height={30}
+                />
+              </Block>
+            </Block>
           {
             search.length > 0 && (
             <Button
@@ -133,6 +138,8 @@ const ChooseMeal = props => {
             search={search}
           />
         </Block>
+        </Block>
+
       </ScrollView>
     </View>
   )
@@ -152,6 +159,16 @@ const styles = StyleSheet.create({
 
     borderBottomWidth: 1,
     borderColor: '#ddd',
+  },
+  inputContainer: {
+    paddingHorizontal: theme.SIZES.BASE,
+    paddingTop: theme.SIZES.BASE,
+    paddingBottom: theme.SIZES.BASE,
+  },
+  section: {
+    width,
+    backgroundColor: 'white',
+
   },
   container: {
     paddingHorizontal: theme.SIZES.BASE / 2,

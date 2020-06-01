@@ -7,6 +7,7 @@ import {
 
 import {
   launchCameraAsync,
+  launchImageLibraryAsync,
   requestCameraPermissionsAsync,
   MediaTypeOptions,
 } from 'expo-image-picker'
@@ -71,7 +72,7 @@ const TakePhoto: React.FC<Props> = ({
     
     setIsLoading(true)
 
-    let result = await launchCameraAsync({
+    let result = await launchImageLibraryAsync({
       mediaTypes: MediaTypeOptions.Images,
       quality: 0.1,
     });
