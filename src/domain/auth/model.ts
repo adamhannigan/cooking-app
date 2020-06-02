@@ -47,7 +47,7 @@ class Auth {
     }
 
     public async logout() {
-        const loggedIn = await logout()
+        await logout()
     }
 
     public async getCurrentUser() {

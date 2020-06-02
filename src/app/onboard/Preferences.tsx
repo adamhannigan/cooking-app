@@ -54,7 +54,7 @@ const Preferences = () => {
   const onNext = async () => {
     await TagsModel.setPreferences(selected)
 
-    navigation.navigate('/onboard/follow')
+    navigation.navigate('/onboard/meals')
   }
 
   const onSelect = (tag: Tag) => {

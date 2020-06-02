@@ -52,7 +52,7 @@ export type Routes = {
   }
 
   '/onboard/preferences'
-  '/onboard/follow'
+  '/onboard/people'
   '/onboard/meals'
 
   '/favourites'
@@ -104,7 +104,12 @@ function Navigation() {
     return null
   }
 
-  const routes = [{
+  const routes: {
+    name: RouteName,
+    component: any,
+    options: any,
+    initialParams?: any,
+  }[] = [{
     name: '/login',
     component: Login,
     options: headerOptions,

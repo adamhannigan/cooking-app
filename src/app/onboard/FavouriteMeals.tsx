@@ -12,9 +12,7 @@ import {
 
 import API from '@aws-amplify/storage'
 
-import { S3Image } from 'aws-amplify-react'
-
-import { Text, Avatar, Button } from '@ui-kitten/components'
+import { Text, Avatar, Button, Spinner } from '@ui-kitten/components'
 
 import Constants from 'expo-constants';
 
@@ -28,6 +26,8 @@ import {
 import { useNavigation } from '@react-navigation/native';
 import { MealsModel, Meal } from 'domain/meals/model';
 import { UserModel } from 'domain/users/model';
+
+import S3Image from 'components/S3Image'
 
 const { width, height } = Dimensions.get('screen');
 
@@ -93,14 +93,18 @@ const Menu = ({ }) => {
           />
           <Block>
             {
+              isLoading && (
+                <Spinner />
+              )
+            }
+            {
               meals.map(meal => {
                   const isSelected = selected.find(item => item.id === meal.id)
 
                   return (
                       <Block row style={styles.meal}>
                         <S3Image
-                          imgKey={meal.image.file.key}
-                          level="private"
+                          s3Key={meal.image.file.key}
                           style={styles.image}
                         />
                         <Block style={styles.mealContent} flex row space='between'>

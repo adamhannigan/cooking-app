@@ -29,6 +29,7 @@ class Users {
     public async getCurrentUser(): Promise<User> {
         if (!this.currentUser) {
             if (!this.userPromise) {
+                console.log('Get em')
                 this.userPromise = getCurrentUser()
             }
 
@@ -46,11 +47,13 @@ class Users {
         const currentUser = await this.getCurrentUser()
 
         if (currentUser) {
-            console.error('COOKING: Why are you trying to create another user')
+            console.error('COOKING: Why are you trying to create another user', currentUser)
             return
         }
 
         console.log('No user so create one')
+        // Remove the the old cache
+        this.userPromise = null
 
         return createNewUser()
     }
@@ -69,6 +72,7 @@ class Users {
     }
 
     public clearCurrentUser() {
+        this.userPromise = null
         this.currentUser = null
     }
 }

@@ -34,16 +34,18 @@ const S3Image: React.FC<Props> = ({
           })
           .catch((e) => {
               console.log('S3Image: ', e)
+              setIsLoading(false)
           })
-        .finally(() => {
-            // setIsLoading(false)
-        })
       }
 
       if (s3Key) {
         load()
       }
     }, [s3Key])
+
+    const onImageRendered = () => {
+      setIsLoading(false)
+    }
 
     return (
         <Block style={{
@@ -60,16 +62,20 @@ const S3Image: React.FC<Props> = ({
                           ...(imageProps.style as object),
                           ...styles.image,
                         }}
-                        loadingIndicatorSource={{
-                            uri: require('../assets/loadingImagePlaceholder.png')
-                        }}
-
+                        onLoadEnd={onImageRendered}
                     />
                 )
             }
             {
-                true && (
-                    <Spinner style={styles.spinner}/>
+                isLoading && (
+                  <Block 
+                    style={{
+                      position: 'absolute',
+                    }}
+                  >
+                    <Spinner status='info'/>
+                  </Block>
+                  
                 )
             }
         </Block>
@@ -78,6 +84,9 @@ const S3Image: React.FC<Props> = ({
 
 const styles = StyleSheet.create({
   container: {
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
       position: 'relative',
   },
   image: {
@@ -85,9 +94,11 @@ const styles = StyleSheet.create({
     height: '100%',
   },
   spinner: {
-      position: 'absolute',
       left: 50,
       top: 50,
+      zIndex: 999,
+      width: 50,
+      height: 50,
   }
 });
 

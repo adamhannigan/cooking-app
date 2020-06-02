@@ -51,12 +51,15 @@ const Profile = ({ id, isCurrentUser }: Props) => {
 
   // HACK to go back to start of onboarding
   const onLogOut = () => {
+    /*
     // LikeModel.reset()
     // InProgressMealModel.clear()
     UserModel.clearCurrentUser()
     AuthModel.logout()
 
     navigation.navigate('/login')
+    */
+    navigation.navigate('/onboard/meals')
   }
 
   return (
