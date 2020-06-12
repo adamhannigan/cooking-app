@@ -38,8 +38,8 @@ const Avatars = ({
                     ))
                 }
             </Block>
-            <Text style={styles.text}>
-                <Text style={{ fontWeight: 'bold' }}>12 others</Text> have cooked this recipe
+            <Text style={styles.text} numberOfLines={2}>
+                <Text style={{ fontWeight: 'bold' }}>Joe Blogg</Text> and <Text status='info'>2,100</Text> other's have cooked this
             </Text>
         </Block>
         

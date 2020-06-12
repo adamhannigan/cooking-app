@@ -18,7 +18,7 @@ import {
 } from 'galio-framework';
 
 import SearchSVG from 'app/home/assets/search.svg'
-import YourMenu from './components/YourMenu'
+import RecipeList from './components/RecipeList'
 import { NavProp } from 'Navigation';
 import TakePhoto from './components/TakePhoto'
 
@@ -69,7 +69,7 @@ const ChooseMeal = props => {
   const scrollViewRef = React.useRef<ScrollView>(null)
   
   const onFocus = () => {
-    scrollViewRef.current.scrollTo(theme.SIZES.BASE * 25)
+    // scrollViewRef.current.scrollTo(theme.SIZES.BASE * 25)
   }
 
   const onPhoto = (photo: Media) => {
@@ -80,19 +80,12 @@ const ChooseMeal = props => {
   return (
     <View style={{ flex: 1 }}>
       <ScrollView style={{ flex: 1 }} ref={ref => scrollViewRef.current = ref}>
-        <Block style={{ marginTop: -theme.SIZES.BASE * 2 }}>
-          <Block flex style={styles.header}>
-            <TakePhoto
-              photo={photo}
-              onPhoto={onPhoto}
-            />
-            </Block>
+        <Block >
           <Block style={styles.section}>
-
             <Block style={styles.inputContainer}>
 
-              <Text category='h5'>
-                What did you cook?
+              <Text category='h3'>
+                What's cooking?
               </Text>
               <Block row center style={{ marginTop: theme.SIZES.BASE }}>
                 <Input
@@ -119,22 +112,9 @@ const ChooseMeal = props => {
                 />
               </Block>
             </Block>
-          {
-            search.length > 0 && (
-            <Button
-              status='info'
-              style={{
-                marginHorizontal: theme.SIZES.BASE / 2,
-                marginBottom: theme.SIZES.BASE / 2,
-              }}
-              onPress={onAddNewMeal}
-            >
-              {`Add new meal: "${search}"`}
-            </Button>
-            )
-          }
-          <YourMenu
+          <RecipeList
             onSelect={onSelect}
+            onCreateNew={onAddNewMeal}
             search={search}
           />
         </Block>
@@ -164,11 +144,15 @@ const styles = StyleSheet.create({
     paddingHorizontal: theme.SIZES.BASE,
     paddingTop: theme.SIZES.BASE,
     paddingBottom: theme.SIZES.BASE,
+
+    backgroundColor: 'white',
+    borderBottomWidth: 1,
+    borderColor: '#ddd',
+
+    marginBottom: theme.SIZES.BASE,
   },
   section: {
     width,
-    backgroundColor: 'white',
-
   },
   container: {
     paddingHorizontal: theme.SIZES.BASE / 2,

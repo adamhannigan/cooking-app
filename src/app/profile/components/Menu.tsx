@@ -78,13 +78,7 @@ const Menu = ({ id, isCurrentUser }: Props) => {
             <Block>
               {
                   menuItems.map(card => (
-                      <TouchableOpacity
-                      onPress={() => onClick(card.id)}
-                      style={styles.item}
-                      key={card.id}
-                      >
-                          <MealSummary {...card}/>
-                      </TouchableOpacity>
+                    <MealSummary {...card} onClick={() => onClick(card.id)}/>
                   ))
               }
             </Block>

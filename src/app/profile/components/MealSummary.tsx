@@ -22,53 +22,47 @@ import { Meal } from 'domain/meals/model';
 
 import TrophySVG from '../../home/feed/components/assets/cup.svg'
 import S3Image from 'components/S3Image';
+import Avatars from 'app/home/feed/components/Avatars';
+
+import MealSVG from 'assets/icons/rewards/medal.svg'
 
 const { width } = Dimensions.get('screen');
 
-const MealSummary = (meal: Meal) => {
+interface Props extends Meal {
+  onClick: () => void,
+}
+
+const MealSummary: React.FC<Props> = ({
+  onClick,
+  ...meal
+}) => {
   const navigation = useNavigation<NavProp>()
-  const onClick = () => {
-    navigation.navigate('/meal/:id', {
-      id: meal.id
-    })
-  }
+
     return (
         <TouchableOpacity
-          style={styles.container}
           onPress={onClick}
+          key={meal.id}
+          style={styles.container}
         >
             <Block style={styles.imageContainer}>
                 <S3Image
                     s3Key={meal.image.file.key}
                     style={styles.image}
                 />
-                    
             </Block>
             <Block style={styles.content}>
                 <Block>
                     <Text category='h6'>
                         {meal.title}
                     </Text>
-                    <Block row style={styles.stat}>
-                      <TrophySVG
-                        width={20}
-                        height={20}
-                        style={{
-                          marginRight: 5,
-                        }}
-                      />
-                      <Text>12 people have tried this recipe</Text>
-                  </Block>
-                  <Block row style={styles.stat}>
-                      <Text
-                        appearance='hint'
-                        numberOfLines={2}
-                      >
-                        {meal.description}
-                      </Text>
-                  </Block>
                 </Block>
-                
+                <Block row style={styles.rating}>
+                  <MealSVG width={25} height={25} />
+                  <Text appearance='hint'>
+                        97%
+                  </Text>
+                </Block>
+                <Avatars avatars={['s']} />
             </Block>
         </TouchableOpacity>
   )
@@ -76,11 +70,27 @@ const MealSummary = (meal: Meal) => {
 
 const styles = StyleSheet.create({
   container: {
-    paddingVertical: theme.SIZES.BASE * 1,
+    padding: theme.SIZES.BASE * 0.5,
     width: width - theme.SIZES.BASE * 2,
+    marginLeft: theme.SIZES.BASE,
+    marginBottom: theme.SIZES.BASE,
+
+    borderRadius: 10,
 
     display: 'flex',
     flexDirection: 'row',
+
+    shadowColor: "#ddd",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.4,
+    shadowRadius: 5,
+    
+    elevation: 4,
+
+    backgroundColor: 'white'
   },
   image: {
     fontWeight: 'bold',
@@ -88,32 +98,19 @@ const styles = StyleSheet.create({
     width: 100,
     borderRadius: 10,
   },
+  rating: {
+    marginTop: 5,
+    marginBottom: -10,
+  },
   imageContainer: {
-    borderWidth: 1,
-    borderColor: '#ddd',
-    borderRadius: 10,
-
-    // Offset the border
-    marginLeft: theme.SIZES.BASE,
-
-    shadowColor: "#000",
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 3.84,
-    
-    elevation: 5,
+    display: 'flex',
+    justifyContent: 'center',
   },
   content: {
       marginLeft: theme.SIZES.BASE,
-      justifyContent: 'space-between',
+      display: 'flex',
+      justifyContent: 'space-around',
       flex: 1,
-  },
-  stat: {
-    marginTop: 5,
-    marginBottom: 5,
   },
 });
 
